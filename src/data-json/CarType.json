@@ -1,0 +1,56 @@
+[
+  {
+    "folder": "CarLogo",
+    "cartype": "Honda",
+    "carName": "هـونـدا",
+    "carLogo": "honda.png"
+  },
+  {
+    "folder": "CarLogo",
+    "cartype": "Toyota",
+    "carName": "تـويـوتا",
+    "carLogo": "toyota.png"
+  },
+  {
+    "folder": "CarLogo",
+    "cartype": "Mercedes",
+    "carName": "مـرسـيدس",
+    "carLogo": "Mercedes.png"
+  },
+  {
+    "folder": "CarLogo",
+    "cartype": "Hyundai",
+    "carName": "هـونـداي",
+    "carLogo": "Hyundai.png"
+  },
+  {
+    "folder": "CarLogo",
+    "cartype": "Kia",
+    "carName": "كـيا",
+    "carLogo": "Kia.png"
+  },
+  {
+    "folder": "CarLogo",
+    "cartype": "Nissan",
+    "carName": "نـيسان",
+    "carLogo": "nissan.png"
+  },
+  {
+    "folder": "CarLogo",
+    "cartype": "Mazda",
+    "carName": "مـازدا",
+    "carLogo": "Mazda.png"
+  },
+  {
+    "folder": "CarLogo",
+    "cartype": "Mitsubishi",
+    "carName": "مـيتسوبيشي",
+    "carLogo": "Mitsubishi.png"
+  },
+  {
+    "folder": "CarLogo",
+    "cartype": "BMW",
+    "carName": "بي ام دبليو",
+    "carLogo": "bmw.png"
+  }
+]

@@ -1,0 +1,136 @@
+ <v-row class="mt-1">
+        <v-col
+          cols="12"
+          sm="6"
+          md="3"
+          class="pa-1 mt-3 boredr-all-box"
+          v-for="CarSell in CarSells"
+          :key="CarSell.id"
+        >
+          <!-- using methods to conect the image to the corect folder   -->
+          <v-card class="overflow-hidden">
+            <v-row>
+              <v-col class="pt-1" cols="12">
+                <p class="text-center condtion">{{ CarSell.condtion }}</p>
+                <v-img
+                  :src="getimageUrl(CarSell.folder, CarSell.image)"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="170px"
+                >
+                </v-img>
+              </v-col>
+            </v-row>
+            <!-- car info  -->
+            <!-- car Name  -->
+            <v-row class="pa-0 mt-1" align="center">
+              <v-col cols="12" class="pa-3 pr-5">
+                <v-card-subtitle class="font-weight-medium pa-1"
+                  >{{ CarSell.company }} {{ CarSell.name }} {{ CarSell.modle }}
+                </v-card-subtitle>
+              </v-col>
+            </v-row>
+            <!-- car praic and kilo  -->
+            <v-row class="mb-1 justify-center">
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle
+                  class="green--text font-weight-medium text-right pa-1"
+                  >{{ CarSell.payment }}</v-card-subtitle
+                >
+              </v-col>
+              <v-divider vertical></v-divider>
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle class="text-left font-weight-regular pa-1"
+                  >{{ CarSell.kilometer }}
+                </v-card-subtitle>
+              </v-col>
+            </v-row>
+            <!-- car click to see more  -->
+            <v-card-actions class="d-flex justify-center">
+              <v-btn
+                width="200"
+                :to="{
+                  name: 'ViewCar',
+                  params: {
+                    carName: CarSell.folder,
+                    carId: CarSell.id,
+                  },
+                }"
+                depressed
+              >
+                أقراء المزيد
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+
+
+            <!-- <v-col cols="12" sm="6" md="12" class="disc-p pa-0">
+        <v-card dark flat elevation="0" class="table_data rounded-0">
+          <v-card-title> الـوصف </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text class="text-justify font-weight-regular dicrption-text">
+            {{ getCarInfo.discription }}
+          </v-card-text>
+        </v-card>
+      </v-col> -->
+
+
+            <v-simple-table class="table_data">
+          <template v-slot:default>
+            <tbody class="table_data">
+              <tr>
+                <td class="table_data-child">مـاركة :</td>
+                <td class="table_data-child">{{ getCarInfo.company }}</td>
+              </tr>
+              <tr>
+                <td class="table_data-child">الـنوع :</td>
+                <td class="table_data-child">{{ getCarInfo.name }}</td>
+              </tr>
+              <tr>
+                <td class="table_data-child">الـفئة :</td>
+                <td class="table_data-child">{{ getCarInfo.type }}</td>
+              </tr>
+              <tr>
+                <td class="table_data-child">الـسنة :</td>
+                <td class="table_data-child">{{ getCarInfo.modle }}</td>
+              </tr>
+              <tr>
+                <td class="table_data-child">الـوارد :</td>
+                <td class="table_data-child">{{ getCarInfo.received }}</td>
+              </tr>
+              <tr>
+                <td class="table_data-child">لـون الـمركبه :</td>
+                <td class="table_data-child">{{ getCarInfo.ccolor }}</td>
+              </tr>
+              <tr>
+                <td class="table_data-child">نـوع الوقود :</td>
+                <td class="table_data-child">{{ getCarInfo.fuel }}</td>
+              </tr>
+              <tr>
+                <td class="table_data-child">نـوع القير :</td>
+                <td class="table_data-child">{{ getCarInfo.transmission }}</td>
+              </tr>
+              <tr>
+                <td class="table_data-child">الـمحرك :</td>
+                <td class="table_data-child">
+                  {{ getCarInfo.engainpower }}
+                </td>
+              </tr>
+              <tr>
+                <td class="table_data-child">نـوع الـدفع :</td>
+                <td class="table_data-child">
+                  {{ getCarInfo.boost }}
+                </td>
+              </tr>
+              <tr>
+                <td class="table_data-child">الحـالـة الـسيارة :</td>
+                <td class="table_data-child">{{ getCarInfo.condtion }}</td>
+              </tr>
+              <tr>
+                <td class="table_data-child">الـممشى :</td>
+                <td class="table_data-child">{{ getCarInfo.kilometer }}</td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
