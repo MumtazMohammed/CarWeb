@@ -39,7 +39,6 @@
               >
                 <div class="next-box mx-auto">
                   <v-img
-                    lazy
                     contain
                     class="img"
                     :src="getimageUrl(getCarInfo.folder, singleImage)"
@@ -131,10 +130,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 }
-.imges {
-  flex-wrap: wrap;
-  width: 70%;
-}
+
 .small-image {
   margin: 1px;
 }
@@ -149,12 +145,18 @@ export default {
   align-items: center;
   flex-direction: column;
   .img {
-    max-width: 800px;
+    min-width: 800px;
     image-orientation: center;
+    @media (max-width: 700px) {
+      max-width: 600px;
+    }
     @media (max-width: 600px) {
       max-width: 500px;
     }
-    @media (max-width: 350px) {
+    @media (max-width: 500px) {
+      max-width: 400px;
+    }
+    @media (max-width: 400px) {
       max-width: 350px;
     }
   }
