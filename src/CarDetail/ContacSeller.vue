@@ -7,9 +7,9 @@
           <!-- owner  -->
           <v-btn
             width="120"
-            color="grey darken-2"
+            color=""
             outlined
-            class="btns-contact blue--text rounded-0"
+            class="grey darken-2 btns-contact "
             @click.stop="owner = true"
           >
             معلومات
@@ -39,10 +39,9 @@
           <!-- -------------------------------------- -->
           <!-- whatsapp  -->
           <v-btn
-            color="success"
             outlined
             width="120"
-            class="btns-contact rounded-0"
+            class="success btns-contact"
             @click.stop="whatsapp = true"
           >
             وتس اب
@@ -80,10 +79,9 @@
           <!-- -------------------------------------- -->
           <!-- telephone  -->
           <v-btn
-            color="info"
             outlined
             width="120"
-            class="rounded-0 btns-contact text--white"
+            class="info btns-contact"
             @click.stop="call = true"
           >
             هاتف
@@ -122,9 +120,8 @@
           <!-- mail  -->
           <v-btn
             width="120"
-            color="red"
             outlined
-            class="btns-contact rounded-0"
+            class="red btns-contact "
             @click.stop="gmail = true"
           >
             البريد الأكترواني
