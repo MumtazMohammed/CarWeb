@@ -1,5 +1,5 @@
 <template>
-  <div class="product_box">
+  <div class="product_box ViewAllCar" id="ViewAllCar">
     <NavBar />
     <v-container>
       <v-row class="mt-1">
@@ -85,6 +85,19 @@ export default {
     getimageUrl(FolderName, ImageName) {
       let image = require.context("@/assets/");
       return image("./" + FolderName + "/" + ImageName);
+    },
+
+    ScrollTpTop() {
+      let currenScroll = document.documentElement.scrollTop;
+      let up = setInterval(frame, 6);
+      function frame() {
+        if (0 > currenScroll) {
+          clearInterval(up);
+        } else {
+          currenScroll = currenScroll - 12;
+          document.documentElement.scrollTop = currenScroll;
+        }
+      }
     },
   },
 };

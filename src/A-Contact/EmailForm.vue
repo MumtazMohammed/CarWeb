@@ -2,7 +2,13 @@
   <div class="form">
     <v-form v-model="valid" elevation-0 class="">
       <v-container>
-        <v-row>
+        
+          <v-col cols="12">
+            <h3 class="text-center ma-0 header-tital">
+              تواصل معنا على البريد الأكتروني
+            </h3>
+          </v-col>
+
           <v-col cols="12" class="pb-0">
             <v-text-field
               outlined
@@ -38,11 +44,10 @@
             ></v-textarea>
           </v-col>
           <v-col class="d-flex justify-center pt-0" cols="12">
-            <v-btn @click="submit" min-width="70%" class="white--text send-btn">
+            <v-btn @click="submit" min-width="70%" elevation="0" class="white--text send-btn">
               أرســل
             </v-btn>
           </v-col>
-        </v-row>
       </v-container>
     </v-form>
   </div>
@@ -84,7 +89,7 @@ export default {
   position: relative;
   border-radius: 5px;
   .send-btn {
-    background-color: $btnbackground !important;
+    background-color: $background1 !important;
     letter-spacing: 0px;
     font-family: $fontfamliy;
     font-size: 25px;
@@ -92,6 +97,11 @@ export default {
 
   i.v-icon.notranslate.fa.fa-user-alt.theme--light {
     font-size: 20px !important;
+  }
+  .header-tital {
+    letter-spacing: 0;
+    font-family: $fontfamliy;
+    color: $fontcolor;
   }
 }
 </style>

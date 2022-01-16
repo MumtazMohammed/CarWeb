@@ -18,7 +18,7 @@ import CarData from "../data-json/All-Car.json";
 import CarImage from "../CarDetail/CarImage.vue";
 import CarDetails from "../CarDetail/CarDetails.vue";
 export default {
-  name: "ViewCar",
+  // name: "ViewCar",
   components: { CarImage, CarDetails, NavBar },
   data() {
     return {

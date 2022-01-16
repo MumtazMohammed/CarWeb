@@ -115,7 +115,9 @@ export default {
   }
 }
 .border {
-  border-right: 2px solid $btnbackground1;
+  border-top: 2px solid $background1;
+  border-bottom: 2px solid $btnbackground1;
+  border-right: 2px solid $background1;
   border-left: 2px solid $btnbackground1;
 }
 </style>
