@@ -86,6 +86,7 @@
               v-model="whatsapp"
               height="150px"
               min-width="300"
+              width="500"
               centered
               :vertical="vertical"
               color="success"
@@ -126,6 +127,7 @@
             <v-snackbar
               height="150px"
               min-width="300"
+              width="500"
               centered
               v-model="call"
               :vertical="vertical"
@@ -168,6 +170,7 @@
           <v-snackbar
             height="150px"
             min-width="300"
+            width="500"
             centered
             v-model="gmail"
             :vertical="vertical"
@@ -315,13 +318,13 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 5px;
+  // margin: 5px;
 }
 .snackbar-copy {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 5px;
+  // margin: 5px;
 }
 .v-snack__content {
   text-align: center !important;

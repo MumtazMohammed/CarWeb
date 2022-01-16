@@ -36,8 +36,8 @@
             <!-- using methods to conect the image to the corect folder   -->
             <v-card elevation="0" class="overflow-hidden">
               <v-row>
-                <v-col class="pt-1" cols="12">
-                  <p class="text-center ma-0 condtion">
+                <v-col class="pa-0" cols="12">
+                  <p class="text-center my-2 condtion">
                     {{ CarSell.condtion }}
                   </p>
                   <v-img

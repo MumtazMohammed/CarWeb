@@ -33,10 +33,10 @@
           <!-- using methods to conect the image to the corect folder   -->
           <v-card>
             <v-row>
-              <v-col class="pt-1" cols="12">
-                <p class="my-0 text-center condtion">{{ CarSell.condtion }}</p>
+              <v-col class="pa-0" cols="12">
+                <p class="my-2 text-center condtion">{{ CarSell.condtion }}</p>
                 <v-img
-                  lazy
+                lazy
                   :src="getimageUrl(CarSell.folder, CarSell.image)"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                   height="170px"
@@ -198,8 +198,8 @@ export default {
   font-family: $fontfamliy;
   color: $fontfamliy;
   letter-spacing: 0;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 500;
 }
 @media (min-width: 960px) {
   .container {

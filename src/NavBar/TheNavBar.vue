@@ -10,7 +10,7 @@
       <!-- bar icon for show links  -->
       <v-app-bar-nav-icon
         @click="drawer = true"
-        color="grey darken-3"
+        color="#f44336"
         class="hidden-sm-and-up"
       ></v-app-bar-nav-icon>
     </v-toolbar>
