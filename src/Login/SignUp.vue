@@ -2,7 +2,7 @@
   <div class="sign-up">
     <v-container>
       <v-row align="center" justify="center" class="row1">
-        <v-col cols="12" sm="10" md="8" lg="6">
+        <v-col cols="12" sm="10" md="8" lg="6" class="pb-6">
           <v-col cols="12" class="pa-0 d-flex avatar justify-center">
             <div class="user-bak"></div>
             <v-avatar size="110">
@@ -13,7 +13,7 @@
             <div class="clor"></div>
             <v-card-text>
               <v-row>
-                <v-col class="pa-0 px-1" cols="6">
+                <v-col class="py-0 pl-sm-1 pl-md-1" md="6" sm="6" cols="12">
                   <v-text-field
                     ref="FirstName"
                     v-model="FirstName"
@@ -25,7 +25,7 @@
                     outlined
                   ></v-text-field>
                 </v-col>
-                <v-col class="pa-0 px-1" cols="6">
+                <v-col class="py-0 pr-sm-1 pr-md-1" md="6" sm="6" cols="12">
                   <v-text-field
                     ref="SecondtName"
                     v-model="SecondtName"
@@ -37,7 +37,7 @@
                     outlined
                   ></v-text-field>
                 </v-col>
-                <v-col class="pa-0 px-1" cols="6">
+                <v-col class="py-0 pl-sm-1 pl-md-1" md="6" sm="6" cols="12">
                   <v-text-field
                     ref="number"
                     v-model="number"
@@ -47,20 +47,10 @@
                     required
                     outlined
                     placeholder="0111214125"
+                    class="ma-0"
                   ></v-text-field>
                 </v-col>
-                <v-col class="pa-0 px-1" cols="6">
-                  <v-text-field
-                    ref="email"
-                    v-model="email"
-                    :rules="emailRules"
-                    label="الـبريد الأكتروني"
-                    required
-                    outlined
-                    placeholder="example@gmail.com"
-                  ></v-text-field>
-                </v-col>
-                <v-col class="pa-0 pb-2 px-1" cols="6">
+                <v-col class="py-0 pr-sm-1 pr-md-1" md="6" sm="6" cols="12">
                   <v-autocomplete
                     ref="country"
                     v-model="country"
@@ -70,17 +60,28 @@
                     placeholder="Select..."
                     required
                     outlined
+                    class="ma-0"
                   ></v-autocomplete>
                 </v-col>
-                <v-col class="pa-0 pb-2 px-1" cols="6">
+                <v-col class="py-0" cols="12">
                   <v-text-field
-                    :append-icon="show2 ? `fa-eye` : `fa-eye-slash`"
+                    ref="email"
+                    v-model="email"
+                    :rules="emailRules"
+                    label="الـبريد الأكتروني"
+                    required
+                    outlined
+                    placeholder="example@gmail.com"
+                    class="ma-0"
+                  ></v-text-field>
+                </v-col>
+                <v-col class="py-0" cols="12">
+                  <v-text-field
                     :rules="[rules.required, rules.min]"
                     :type="show2 ? 'text' : 'password'"
                     v-model="password"
                     label="الرقم السري"
-                    class="input-group--focused font-weight-regular"
-                    @click:append="show2 = !show2"
+                    class="input-group--focused ma-0 font-weight-regular"
                     outlined
                     required
                   >
@@ -88,13 +89,14 @@
                 </v-col>
               </v-row>
 
-              <v-row justify="center" class="ma-0">
-                <v-col class="pa-0 pt-2" cols="12">
+              <v-row justify="center" class="">
+                <v-col class="py-0" cols="12">
                   <v-text-field
                     :rules="[rules.required, rules.min]"
+                    :type="show2 ? 'text' : 'password'"
                     v-model="doublepassword"
-                    label="تأكيد الرقم السري"
-                    class="input-group--focused font-weight-regular"
+                    label="الرقم السري"
+                    class="input-group--focused ma-0 font-weight-regular"
                     outlined
                     required
                   >
@@ -102,18 +104,27 @@
                 </v-col>
               </v-row>
             </v-card-text>
+            <v-col cols="12" class="py-0">
+              <v-card flat class="d-flex">
+                <v-switch
+                  v-model="show2"
+                  @click:append="show2 = !show2"
+                  :type="show2 ? 'text' : 'password'"
+                  color="info"
+                  hide-details
+                  class="ma-0 pa-3 pl-0"
+                >
+                </v-switch>
+                <v-card-title class="pa-3 pr-1 showPassLab">
+                  اظهار كلمة السر
+                </v-card-title>
+              </v-card>
+            </v-col>
             <v-card-actions class="justify-center">
               <v-btn class="btn1" text @click="submit"> تسجيل </v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
-        <!-- <v-col class="pa-0" cols="12" sm="6" md="6" lg="6">
-          <v-img
-            lazy
-            max-width="100%"
-            src="../assets/outsrc//Wavy_Tech-28_Single-10.jpg"
-          ></v-img>
-        </v-col> -->
       </v-row>
     </v-container>
   </div>
@@ -215,10 +226,9 @@ nav {
   }
   .btn1 {
     background: $background;
-
     color: $fontcolorsm;
     letter-spacing: 0;
-    font-family: $fontfamliy2;
+    font-family: $fontfamliy;
     width: 250px;
     font-size: 18px;
   }
@@ -236,6 +246,10 @@ nav {
     height: 54px;
     -webkit-clip-path: circle(50% at 50% 1%);
     clip-path: circle(45% at 50% -6%);
+  }
+  .showPassLab {
+    font-family: $fontfamliy !important;
+    font-size: 16px;
   }
 }
 </style>

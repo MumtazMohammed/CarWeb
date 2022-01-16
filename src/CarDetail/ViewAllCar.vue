@@ -1,13 +1,13 @@
 <template>
-  <div class="product_box ViewAllCar" id="ViewAllCar">
+  <div class="product_box">
     <NavBar />
-    <v-container>
+    <v-container class="mb-7">
       <v-row class="mt-1">
         <v-col
           cols="12"
           sm="6"
           md="3"
-          class="pa-1 mt-4 boredr-all-box"
+          class="pa-2 mt-4 boredr-all-box"
           v-for="CarData in AllCarDate"
           :key="CarData.id"
         >
@@ -108,9 +108,7 @@ export default {
 .product_box {
   width: 100%;
   height: auto;
-  padding: 25px 0;
   position: relative;
-  padding: 50px 0;
 
   .tital {
     color: $fontcolor;

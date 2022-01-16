@@ -26,7 +26,7 @@
           cols="12"
           sm="6"
           md="3"
-          class="pa-1 mt-3 boredr-all-box"
+          class="pa-2 mt-3 boredr-all-box"
           v-for="CarSell in getCarInfo"
           :key="CarSell.id"
         >

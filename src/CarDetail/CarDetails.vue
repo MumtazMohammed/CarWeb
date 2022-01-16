@@ -8,7 +8,7 @@
       </v-col>
       <v-col cols="12" class="pa-0 pb-2"><Desgin /> </v-col>
       <v-col cols="12" sm="11" md="10" class="pa-1">
-        <v-card color="#0d47a1" class="d-flex flex-wrap pa-3">
+        <v-card color="#0d47a1" class="d-flex flex-wrap pa-5">
           <v-flex sx6 sm4 md3>
             <v-card-text class="table_data-child">
               مـاركة : <b>{{ getCarInfo.company }}</b>
@@ -70,14 +70,10 @@
             </v-card-text>
           </v-flex>
           <v-row justify="center" class="mt-2">
-            <v-col cols="12" md="8" class="disc-p">
+            <v-col cols="12" md="10" class="disc-p">
               <v-expansion-panels color="primary" accordion>
-                <v-expansion-panel
-                  color="primary"
-                  v-for="(item, i) in 3"
-                  :key="i"
-                >
-                  <v-expansion-panel-header>Item</v-expansion-panel-header>
+                <v-expansion-panel color="primary">
+                  <v-expansion-panel-header>وصف</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
@@ -162,6 +158,9 @@ export default {
   color: $fontcolorsm;
   letter-spacing: 0 !important;
   font-family: $fontfamliy;
+  @media (max-width: 400px) {
+    font-size: 12px !important;
+  }
 }
 .table_data-child b {
   font-size: 16px !important;
@@ -169,7 +168,11 @@ export default {
   color: $fontcolorsm;
   padding: 5px;
   font-family: $fontfamliy;
+  @media (max-width: 400px) {
+    font-size: 13px !important;
+  }
 }
+
 .card-title {
   font-size: 28px !important;
   font-weight: bold;
