@@ -1,9 +1,7 @@
 <template>
   <nav>
     <v-toolbar flat class="px-md-11 toolbar">
-      <v-toolbar-title class="NavTitle">
-        <span>ثــقـة</span>
-      </v-toolbar-title>
+      <v-toolbar-title class="NavTitle"> ثــقـة </v-toolbar-title>
       <!-- nav link for md screen and up  -->
       <v-spacer></v-spacer>
       <!-- loing btn  -->
@@ -22,7 +20,7 @@
         class="hidden-sm-and-up nav-tablet"
         v-model="drawer"
         clipped
-        absolute
+        app
         floating
         mini-variant-width
         width="100%"
@@ -115,6 +113,7 @@ export default {
   font-weight: 600;
   pointer-events: none;
   width: 10%;
+  text-align: start;
 }
 @media (max-width: 600px) {
   .NavTitle {

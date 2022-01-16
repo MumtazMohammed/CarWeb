@@ -36,6 +36,7 @@
               <v-col class="pt-1" cols="12">
                 <p class="my-0 text-center condtion">{{ CarSell.condtion }}</p>
                 <v-img
+                  lazy
                   :src="getimageUrl(CarSell.folder, CarSell.image)"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                   height="170px"

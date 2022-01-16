@@ -3,7 +3,7 @@
     <NavBar />
     <v-container class="mt-6">
       <v-row>
-        <v-col cols="12" class="CarImage"> <CarImage /> </v-col>
+        <v-col cols="12"  class="CarImage"> <CarImage /> </v-col>
         <!-- <v-col cols="12" class="CarImage"><Desgin /> </v-col> -->
         <v-col cols="12" class="CarDetails pa-3"><CarDetails /> </v-col>
       </v-row>

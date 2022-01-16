@@ -17,6 +17,7 @@
             لا تـتوفر سيارات من نـوع {{ CarShape }} في الـموقع
           </h2>
           <v-img
+            lazy
             class="no-car-image"
             contain
             max-width="500px"

@@ -69,6 +69,7 @@ export default {
   components: { PriceAndLocation, ContacSeller },
   data() {
     return {
+
       ActivePic: "",
       width: 300,
       dialog: false,
