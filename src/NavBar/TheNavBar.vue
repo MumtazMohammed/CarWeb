@@ -30,7 +30,7 @@
             >fas fa-times</v-icon
           >
         </div>
-          <SearchCar />
+        <SearchCar />
         <LogingAndSignup />
 
         <v-list class="pt-0">

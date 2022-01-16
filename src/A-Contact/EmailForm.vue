@@ -2,52 +2,56 @@
   <div class="form">
     <v-form v-model="valid" elevation-0 class="">
       <v-container>
-        
-          <v-col cols="12">
-            <h3 class="text-center ma-0 header-tital">
-              تواصل معنا على البريد الأكتروني
-            </h3>
-          </v-col>
+        <v-col cols="12">
+          <h3 class="text-center ma-0 header-tital">
+            تواصل معنا على البريد الأكتروني
+          </h3>
+        </v-col>
 
-          <v-col cols="12" class="pb-0">
-            <v-text-field
-              outlined
-              solo
-              v-model="firstname"
-              :rules="nameRules"
-              label="الأسـم كامل"
-              required
-              class="ma-0 pa-0"
-              hide-details
-            >
-            </v-text-field>
-          </v-col>
-          <v-col cols="12" class="pb-0">
-            <v-text-field
-              outlined
-              solo
-              v-model="email"
-              :rules="emailRules"
-              label="الـبريد الأكتروني"
-              required
-              class="ma-0 pa-0"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" class="pt-0">
-            <v-textarea
-              solo
-              v-model="text"
-              :rules="textRules"
-              label="بماذا تفكر !"
-              required
-              class="ma-0 pa-0"
-            ></v-textarea>
-          </v-col>
-          <v-col class="d-flex justify-center pt-0" cols="12">
-            <v-btn @click="submit" min-width="70%" elevation="0" class="white--text send-btn">
-              أرســل
-            </v-btn>
-          </v-col>
+        <v-col cols="12" class="pb-0">
+          <v-text-field
+            outlined
+            solo
+            v-model="firstname"
+            :rules="nameRules"
+            label="الأسـم كامل"
+            required
+            class="ma-0 pa-0"
+            hide-details
+          >
+          </v-text-field>
+        </v-col>
+        <v-col cols="12" class="pb-0">
+          <v-text-field
+            outlined
+            solo
+            v-model="email"
+            :rules="emailRules"
+            label="الـبريد الأكتروني"
+            required
+            class="ma-0 pa-0"
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" class="pt-0">
+          <v-textarea
+            solo
+            v-model="text"
+            :rules="textRules"
+            label="بماذا تفكر !"
+            required
+            class="ma-0 pa-0"
+          ></v-textarea>
+        </v-col>
+        <v-col class="d-flex justify-center pt-0" cols="12">
+          <v-btn
+            @click="submit"
+            min-width="70%"
+            elevation="0"
+            class="white--text send-btn"
+          >
+            أرســل
+          </v-btn>
+        </v-col>
       </v-container>
     </v-form>
   </div>

@@ -9,7 +9,7 @@
             width="120"
             color=""
             outlined
-            class="grey darken-2 btns-contact "
+            class="grey darken-2 btns-contact"
             @click.stop="owner = true"
           >
             معلومات
@@ -121,7 +121,7 @@
           <v-btn
             width="120"
             outlined
-            class="red btns-contact "
+            class="red btns-contact"
             @click.stop="gmail = true"
           >
             البريد الأكترواني

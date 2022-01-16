@@ -58,24 +58,22 @@ const routes = [
     name: "ViewCar",
     component: ViewCar,
   },
-  
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-      return{
-      savedPosition ,
-      behavior:"smooth",
-
-      }  
+      return {
+        savedPosition,
+        behavior: "smooth",
+      };
     } else {
-      return { x: 0, y: 0 }
+      return { x: 0, y: 0 };
     }
-  }
+  },
 });
 
 export default router;

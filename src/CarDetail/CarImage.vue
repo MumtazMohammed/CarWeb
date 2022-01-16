@@ -68,7 +68,6 @@ export default {
   components: { PriceAndLocation, ContacSeller },
   data() {
     return {
-
       ActivePic: "",
       width: 300,
       dialog: false,
@@ -145,7 +144,7 @@ export default {
   align-items: center;
   flex-direction: column;
   .img {
-    min-width: 800px;
+    max-width: 800px;
     image-orientation: center;
     @media (max-width: 700px) {
       max-width: 600px;

@@ -113,6 +113,4 @@ export default {
     }
   }
 }
-
-
 </style>
