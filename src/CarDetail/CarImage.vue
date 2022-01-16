@@ -145,11 +145,13 @@ export default {
   flex-direction: column;
   .img {
     max-width: 800px;
+    max-height: 500px;
+
     image-orientation: center;
     @media (max-width: 700px) {
       max-width: 600px;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
       max-width: 500px;
     }
     @media (max-width: 500px) {
@@ -157,6 +159,21 @@ export default {
     }
     @media (max-width: 400px) {
       max-width: 350px;
+    }
+    @media (max-height: 450px) {
+      max-height: 400px;
+    }
+    @media (max-height: 400px) {
+      max-height: 350px;
+    }
+    @media (max-height: 350px) {
+      max-height: 300px;
+    }
+    @media (max-height: 300px) {
+      max-height: 250px;
+    }
+    @media (max-height: 250px) {
+      max-height: 200px;
     }
   }
 }
