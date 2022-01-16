@@ -189,7 +189,7 @@
                 <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
               </v-btn>
               <v-btn
-                color="white"
+                color="red"
                 icon
                 v-bind="attrs"
                 @click="gmail = false"

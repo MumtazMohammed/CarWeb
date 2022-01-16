@@ -9,16 +9,14 @@
                 v-for="(item, i) in items"
                 :key="i"
                 router
+                dark
                 :to="item.path"
-                class="singl-link"
-                active-class="border"
-                color="transparent"
+                class="singl-link ma-0"
               >
-                <v-list-item-content>
+                <v-list-item-content active-class="color">
                   <v-list-item-title
                     class="nav-link"
                     v-text="item.text"
-                    active-class="border"
                   ></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -85,8 +83,10 @@ export default {
   transition: top 0.3s linear;
   background-color: #fff;
 
-  .tabs-slider {
-    color: $btnbackground !important;
+  .nav-linkk {
+    color: $fontcolorsm !important;
+    font-size: 15px !important;
+    margin-right: 5px;
   }
 }
 .hiddenn {
@@ -99,7 +99,6 @@ export default {
   padding: 5px 0;
   top: -68px;
   transition: top 0.5s ease-out;
-
   @include flexcenter();
   .nav-link {
     color: $fontcolorlinks;
@@ -114,10 +113,6 @@ export default {
     }
   }
 }
-.border {
-  border-top: 2px solid $background1;
-  border-bottom: 2px solid $btnbackground1;
-  border-right: 2px solid $background1;
-  border-left: 2px solid $btnbackground1;
-}
+
+
 </style>

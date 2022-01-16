@@ -2,13 +2,16 @@
   <v-dialog v-model="dialog" persistent max-width="650">
     <template v-slot:activator="{ on, attrs }">
       <v-btn
-        class="nav-link remove-focuse rounded"
+        class="nav-linkk rounded-0"
         elevation="0"
         large
+        dark
+        plain
         v-bind="attrs"
         v-on="on"
       >
-        <v-icon left class="icon-search pl-1">fa-search</v-icon>
+        <v-icon left class="icon-search">fa-search</v-icon>
+
         أبحث عن سيارتك
       </v-btn>
     </template>
@@ -112,11 +115,9 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/virables";
 @import "@/scss/mixin";
-.remove-focuse {
-  border-radius: 0 !important;
-}
-.theme--light.v-btn:focus::before {
-  opacity: 0 !important;
+
+.border:focus {
+  background-color: rgba(255, 255, 255, 0) !important;
 }
 .search {
   width: 100%;
@@ -163,19 +164,21 @@ export default {
   }
 }
 
-.nav-link {
-  color: $fontcolorlinks !important;
+.nav-linkk {
+  color: $fontcolor !important;
   font-size: 17px !important;
   font-weight: 600;
   font-family: "Tajawal", sans-serif;
   letter-spacing: 0;
-  background-color: rgba(255, 255, 255, 0) !important;
+ 
+  border-right: 2.5px solid $btnbackground !important;
   @media (max-width: 600px) {
     font-size: 15px !important;
     margin-right: 5px;
   }
+
   .icon-search {
-    color: $fontcolorlinks !important;
+    color: $btnbackground !important;
     font-size: 15px !important;
 
     @media (max-width: 600px) {
