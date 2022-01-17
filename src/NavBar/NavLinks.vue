@@ -50,15 +50,16 @@ export default {
           path: "/",
         },
         {
-          icon: "fa-shopping-cart",
-          text: "الأعـلانـات",
-          path: "/product",
-        },
-        {
           icon: "fa-info",
           text: "الحراج",
           path: "/TheAllCar",
         },
+        {
+          icon: "fa-shopping-cart",
+          text: "الأعـلانـات",
+          path: "/product",
+        },
+
         {
           icon: "fa-address-book",
           text: "تواصل معنا",
