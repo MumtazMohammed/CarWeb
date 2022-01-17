@@ -2,14 +2,14 @@
   <div class="sign-up">
     <v-container>
       <v-row align="center" justify="center" class="row1">
-        <v-col cols="12" sm="10" md="8" lg="6" class="pb-6">
+        <v-col cols="12" sm="10" md="8" lg="6" class="">
           <v-col cols="12" class="pa-0 d-flex avatar justify-center">
             <div class="user-bak"></div>
-            <v-avatar size="110">
+            <v-avatar size="70">
               <img src="../assets/outsrc/user.png" alt="alt" />
             </v-avatar>
           </v-col>
-          <v-card class="card-con py-4 pt-14" elevation="8" ref="form">
+          <v-card class="card-con py-4 pt-6" elevation="8" ref="form">
             <div class="clor"></div>
             <v-card-text>
               <v-row>
@@ -120,8 +120,34 @@
                 </v-card-title>
               </v-card>
             </v-col>
-            <v-card-actions class="justify-center">
+            <v-card-actions class="justify-center pa-4">
               <v-btn class="btn1" text @click="submit"> تسجيل </v-btn>
+            </v-card-actions>
+            <v-divider></v-divider>
+            <v-card-actions class="justify-center">
+              <v-row justify="center" class="mt-1">
+                <v-col cols="7" class="pa-2">
+                  <v-card-title class="btn-title justify-center pa-0">
+                   أو
+                  </v-card-title>
+                </v-col>
+                <v-col cols="7" class="pa-2">
+                  <v-btn large width="100%" class="btn-go" text>
+                    جوجل
+                    <v-avatar tile class="mr-2" size="20">
+                      <img src="../assets/outsrc/google.png" alt="alt" />
+                    </v-avatar>
+                  </v-btn>
+                </v-col>
+                <v-col cols="7" class="pa-2">
+                  <v-btn large width="100%" class="btn-fac" text>
+                    فيسبوك
+                    <v-avatar tile class="mr-2" size="30">
+                      <img src="../assets/outsrc/facebook.png" alt="alt" />
+                    </v-avatar>
+                  </v-btn>
+                </v-col>
+              </v-row>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -232,8 +258,38 @@ nav {
     width: 250px;
     font-size: 18px;
   }
+  .btn-title {
+    letter-spacing: 0;
+    font-family: $fontfamliy;
+    font-size: 18px;
+  
+  }
+  .btn-go {
+    background: #eee !important;
+    color: $fontcolor;
+    letter-spacing: 0;
+    font-family: $fontfamliy;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  .btn-go:hover {
+    transform: scaleX(0.9);
+    opacity: 1 !important;
+  }
+  .btn-fac {
+    background: #1976d2;
+    color: $fontcolorsm;
+    letter-spacing: 0;
+    font-family: $fontfamliy;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  .btn-fac:hover {
+    transform: scaleX(0.9);
+    opacity: 1 !important;
+  }
   .avatar {
-    transform: translate(0px, 35px);
+    transform: translate(0px, 16px);
     position: relative;
     z-index: 5;
   }
@@ -241,11 +297,10 @@ nav {
     position: absolute;
     bottom: -9px;
     background: $background;
-
     width: 174px;
     height: 54px;
     -webkit-clip-path: circle(50% at 50% 1%);
-    clip-path: circle(45% at 50% -6%);
+    clip-path: circle(30% at 50% 24%);
   }
   .showPassLab {
     font-family: $fontfamliy !important;

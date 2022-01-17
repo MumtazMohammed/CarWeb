@@ -30,31 +30,36 @@
           </v-combobox>
         </v-flex>
       </v-row>
-
       <v-row justify="center">
-        <v-flex md6 sm6 xs6 pl-1>
+        <v-flex md6 sm6 xs12 class="pl-md-1 pl-sm-1">
           <v-combobox dense solo :items="categories" label="  السيارة*">
           </v-combobox>
         </v-flex>
-        <v-flex md6 sm6 xs6 pr-1>
+        <v-flex md6 sm6 xs12 class="pr-md-1 pr-sm-1">
           <v-combobox dense solo :items="categories" label=" الـفـئة*">
           </v-combobox>
         </v-flex>
       </v-row>
       <v-row justify="center">
-        <v-flex md6 sm6 xs6 pl-1>
+        <v-flex md6 sm6 xs12 class="pl-md-1 pl-sm-1">
           <v-combobox dense solo :items="categories" label=" نوع السيارة*">
           </v-combobox>
         </v-flex>
-        <v-flex md6 sm6 xs6 pr-1>
+        <v-flex md6 sm6 xs12 class="pr-md-1 pr-sm-1">
           <v-combobox dense solo :items="categories" label=" الـفـئة*">
           </v-combobox>
         </v-flex>
       </v-row>
       <!-- search  -->
       <v-row justify="center">
-        <v-flex xs6 sm4 md4>
-          <v-btn @click="dialog = false" elevation="2" color="#f9f9f9"
+        <v-flex xs8 sm4 md4>
+          <v-btn
+            width="100%"
+            class="btn-search"
+            outlined
+            @click="dialog = false"
+            elevation="2"
+            color="#eee"
             >بـحـث</v-btn
           >
         </v-flex>
@@ -140,7 +145,7 @@ export default {
     width: 100%;
     height: 100%;
     background-color: $background;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 
   .v-input--selection-controls .v-input__slot > .v-label {
@@ -153,17 +158,14 @@ export default {
     font-size: 20px;
     z-index: 1;
   }
-  button.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.elevation-2.v-size--default {
-    width: 100%;
-    font-family: $fontfamliy;
-    color: $fontcolor;
-    font-size: 20px;
-    letter-spacing: 0;
-    font-weight: 500;
-    font-weight: 500;
-  }
 }
-
+.v-btn:not(.v-btn--round).v-size--default {
+  color: $fontcolor;
+  font-size: 17px;
+  letter-spacing: 0;
+  font-weight: 500;
+  font-weight: 500;
+}
 .nav-linkk {
   color: $fontcolor !important;
   font-size: 17px !important;

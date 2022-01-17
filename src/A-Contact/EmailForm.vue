@@ -44,10 +44,11 @@
         </v-col>
         <v-col class="d-flex justify-center pt-0" cols="12">
           <v-btn
+          large
             @click="submit"
             min-width="70%"
             elevation="0"
-            class="white--text send-btn"
+            class="white--text  send-btn"
           >
             أرســل
           </v-btn>
@@ -96,7 +97,7 @@ export default {
     background-color: $background1 !important;
     letter-spacing: 0px;
     font-family: $fontfamliy;
-    font-size: 25px;
+    font-size: 22px;
   }
 
   i.v-icon.notranslate.fa.fa-user-alt.theme--light {
