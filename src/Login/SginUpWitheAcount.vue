@@ -1,17 +1,11 @@
 <template>
-    <div class="SginUpWitheAcount">
-
-    </div>
+  <div class="SginUpWitheAcount"></div>
 </template>
 <script>
 export default {
-    data() {
-        return {
-            
-        }
-    },
-}
+  data() {
+    return {};
+  },
+};
 </script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

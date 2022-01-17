@@ -44,11 +44,11 @@
         </v-col>
         <v-col class="d-flex justify-center pt-0" cols="12">
           <v-btn
-          large
+            large
             @click="submit"
             min-width="70%"
             elevation="0"
-            class="white--text  send-btn"
+            class="white--text send-btn"
           >
             أرســل
           </v-btn>

@@ -2,7 +2,7 @@
   <div class="product_box">
     <NavBar />
     <v-container class="mb-7">
-      <v-col cols="12" class="pa-0"> <FilterSection /> </v-col>
+      <v-col cols="12" class="py-0"> <FilterSection /> </v-col>
       <v-col cols="12" class="pa-1">
         <h2 class="tital">
           سـيـارات مضمونة لدينا للبيع - (<span class="red--text">
@@ -123,7 +123,7 @@ export default {
   position: relative;
 
   .car-box {
-    background-color: #f7f7f7;
+    background-color: $simplebackground;
     border-radius: 5px;
   }
   .tital {

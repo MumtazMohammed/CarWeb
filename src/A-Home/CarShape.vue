@@ -1,6 +1,6 @@
 <template>
-  <div class="Shape_box">
-    <v-container class="px-md-16">
+  <div class="Shape_box mt-16">
+    <v-container class="px-md-7">
       <p class="text-center font-weight-bold tital">
         {{ Tital }}
       </p>
@@ -10,8 +10,8 @@
           v-for="(Shape, i) in CarShape"
           :key="i"
           cols="6"
-          sm="4"
-          md="3"
+          sm="3"
+          md="2"
           class="pa-1"
         >
           <v-card
@@ -69,8 +69,10 @@ export default {
 
 .Shape_box {
   padding: 20px 0;
+  margin-top: 30px;
   margin: 0 auto;
-  width: 70%;
+  width: 100%;
+  background-color: $simplebackground;
   @media (max-width: 600px) {
     width: 100%;
   }

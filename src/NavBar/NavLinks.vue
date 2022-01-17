@@ -57,7 +57,7 @@ export default {
         {
           icon: "fa-info",
           text: "الحراج",
-          path: "/about",
+          path: "/TheAllCar",
         },
         {
           icon: "fa-address-book",

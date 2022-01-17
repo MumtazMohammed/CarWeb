@@ -128,7 +128,7 @@
               <v-row justify="center" class="mt-1">
                 <v-col cols="7" class="pa-2">
                   <v-card-title class="btn-title justify-center pa-0">
-                   أو
+                    أو
                   </v-card-title>
                 </v-col>
                 <v-col cols="7" class="pa-2">
@@ -262,7 +262,6 @@ nav {
     letter-spacing: 0;
     font-family: $fontfamliy;
     font-size: 18px;
-  
   }
   .btn-go {
     background: #eee !important;

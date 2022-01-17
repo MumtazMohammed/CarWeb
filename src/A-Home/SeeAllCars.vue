@@ -1,9 +1,9 @@
 <template>
-  <div class="see-all">
-    <div class="my-2 text-center">
-      <router-link v-model="first" to="/ViewAllCar">
-        <a ref="#top" class="link"> شاهد جميع السيارات المضمونه لدينا </a>
-      </router-link>
+  <div class="see-all mt-8">
+    <div class="text-center">
+      <v-btn large outlined class="link" color="#ffc107" to="/ViewAllCar">
+        شاهد جميع السيارات المضمونه لدينا
+      </v-btn>
     </div>
   </div>
 </template>
@@ -34,8 +34,8 @@ export default {
 .link {
   font-family: $fontfamliy;
   letter-spacing: 0;
-  font-size: 20px;
-  text-decoration: underline;
+  font-size: 20px !important;
+  text-decoration: none !important;
   @media (max-width: 360px) {
     font-size: 18px;
   }

@@ -32,7 +32,7 @@ export default {
 @import "@/scss/mixin";
 .contact {
   width: 100%;
-  min-height: calc(100vh - 230px) ;
+  min-height: calc(100vh - 230px);
   padding: 30px 0;
   display: flex;
   justify-content: center;

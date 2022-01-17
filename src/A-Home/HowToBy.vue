@@ -1,5 +1,5 @@
 <template>
-  <div class="HowToBuy">
+  <div class="HowToBuy my-16">
     <v-container>
       <p class="text-center font-weight-bold tital">
         {{ Tital }}
@@ -62,6 +62,7 @@ export default {
   height: auto;
   padding: 30px 0;
   position: relative;
+  background-color: $simplebackground;
   .stepper-header {
     box-shadow: 0px 0px 0px;
   }

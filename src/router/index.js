@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/TheHome.vue";
 import Product from "../views/TheProduct.vue";
-import About from "../views/TheAbout.vue";
+import TheAllCar from "../views/TheAllCar.vue";
 import Contact from "../views/TheContact.vue";
 import ViewCar from "../CarDetail/ViewCar.vue";
 import ViewAllCar from "../CarDetail/ViewAllCar.vue";
@@ -24,9 +24,9 @@ const routes = [
     component: Product,
   },
   {
-    path: "/about",
-    name: "About",
-    component: About,
+    path: "/TheAllCar",
+    name: "TheAllCar",
+    component: TheAllCar,
   },
   {
     path: "/contact",

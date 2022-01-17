@@ -205,23 +205,16 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/virables";
 @import "@/scss/mixin";
-.v-slide-group__next,
-.v-slide-group__prev {
-  align-items: center;
-  display: flex;
-  flex: 0 1 52px;
-  justify-content: center;
-  min-width: 32px !important;
-}
+
 .product_box {
   width: auto;
   height: auto;
   position: relative;
   padding: 20px 0;
-  background-color: $background;
+  background-color: $simplebackground;
 
   .tital {
-    color: $fontcolorsm;
+    color: $fontcolor;
     font-family: $fontfamliy;
     font-size: 27px;
   }
@@ -255,12 +248,11 @@ export default {
     letter-spacing: 0;
     background-color: $SpicalCarColor;
   }
-  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
-  .theme--light.v-btn--active:hover:before {
+
+  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before {
     opacity: 0;
   }
-  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:hover:before,
-  .theme--light.v-btn--active:before {
+  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:hover:before {
     opacity: 0;
   }
   .v-card__subtitle {

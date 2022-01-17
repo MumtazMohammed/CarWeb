@@ -1,21 +1,19 @@
 <template>
   <div class="FilterSection">
-    <v-container>
-      <v-row justify="end">
-        <v-col class="pa-0" cols="12" md="2" sm="4">
-          <v-select
-            :items="items"
-            label="ترتيب السعر من"
-            hide-details
-            dense
-            class="select-price"
-            color="#ffc107"
-            outlined
-            flat
-          ></v-select>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-row justify="end">
+      <v-col class="pa-0" cols="12" md="2" sm="4">
+        <v-select
+          :items="items"
+          label="ترتيب السعر من"
+          hide-details
+          dense
+          class="select-price"
+          color="#ffc107"
+          outlined
+          flat
+        ></v-select>
+      </v-col>
+    </v-row>
   </div>
 </template>
 <script>
@@ -34,6 +32,9 @@ export default {
   ::v-deep other-class {
     // your custom css properties
   }
+}
+.FilterSection {
+  width: 100%;
 }
 .select-price {
   font-family: $fontfamliy;

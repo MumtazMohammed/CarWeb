@@ -1,6 +1,6 @@
 <template>
-  <div class="brand_box mt-5">
-    <v-container class="px-md-16">
+  <div class="brand_box mt-8">
+    <v-container class="px-md-7">
       <p class="text-center font-weight-bold tital">
         {{ Tital }}
       </p>
@@ -10,8 +10,8 @@
           v-for="Brand in LogoBrand"
           :key="Brand.cartype"
           cols="6"
-          sm="4"
-          md="3"
+          sm="3"
+          md="2"
           class="pa-1"
         >
           <v-card
@@ -67,9 +67,9 @@ export default {
 @import "@/scss/mixin";
 
 .brand_box {
-  width: 70%;
+  width: 100%;
   padding: 20px 0;
-  margin: 0 auto;
+  background-color: $simplebackground;
   @media (max-width: 600px) {
     width: 100%;
   }
