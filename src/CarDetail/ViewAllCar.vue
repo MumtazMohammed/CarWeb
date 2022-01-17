@@ -2,20 +2,32 @@
   <div class="product_box">
     <NavBar />
     <v-container class="mb-7">
-      <v-row class="mt-1">
+      <v-col cols="12" class="pa-0"> <FilterSection /> </v-col>
+      <v-col cols="12" class="pa-1">
+        <h2 class="tital">
+          سـيـارات مضمونة لدينا للبيع - (<span class="red--text">
+            {{ SpicalCarView.length }}</span
+          >
+          )
+        </h2>
+      </v-col>
+      <v-row class="mt-1 car-box">
         <v-col
           cols="12"
           sm="6"
           md="3"
           class="pa-2 mt-4 boredr-all-box"
-          v-for="CarData in AllCarDate"
+          v-for="CarData in SpicalCarView"
           :key="CarData.id"
         >
           <!-- using methods to conect the image to the corect folder   -->
-          <v-card>
+          <v-card class="card pa-1" flat>
             <v-row>
-              <v-col class="pt-1" cols="12">
-                <p class="ma-0 text-center condtion">{{ CarData.condtion }}</p>
+              <v-col class="" cols="12">
+                <!-- <p class="ma-0 spical">مضمونه</p> -->
+                <p class="py-1 ma-0 px-0 text-center condtion">
+                  {{ CarData.condtion }}
+                </p>
                 <v-img
                   :src="getimageUrl(CarData.folder, CarData.image)"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
@@ -69,14 +81,14 @@
 </template>
 <script>
 import NavBar from "../NavBar/TheNavBar.vue";
-
-import AllCarDate from "../data-json/All-Car.json";
+import FilterSection from "../CarDetail/Filter.vue";
+import SpicalCarView from "../data-json/car-data.json";
 export default {
   name: "ViewAllCar",
-  components: { NavBar },
+  components: { NavBar, FilterSection },
   data() {
     return {
-      AllCarDate: AllCarDate,
+      SpicalCarView: SpicalCarView,
     };
   },
 
@@ -110,6 +122,10 @@ export default {
   height: auto;
   position: relative;
 
+  .car-box {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+  }
   .tital {
     color: $fontcolor;
     font-family: $fontfamliy;
@@ -124,19 +140,36 @@ export default {
       cursor: pointer;
     }
   }
-
+  .tital {
+    font-family: $fontfamliy;
+    font-size: 25px;
+    @media (max-width: 600px) {
+      font-size: 20px;
+    }
+    @media (max-width: 360px) {
+      font-size: 17px;
+    }
+  }
   .v-btn--icon.v-size--default .v-icon {
     font-size: 20px;
     color: #8c8c8c;
   }
   .v-btn.v-size--default {
-    color: $fontcolorsm;
+    color: $fontcolor;
     font-family: $fontfamliy;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $background;
+    background-color: $SpicalCarColor;
+  }
+  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
+  .theme--light.v-btn--active:hover:before {
+    opacity: 0;
+  }
+  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:hover:before,
+  .theme--light.v-btn--active:before {
+    opacity: 0;
   }
   .v-card__subtitle {
     font-size: 17px;
@@ -151,6 +184,12 @@ export default {
   letter-spacing: 0;
   font-size: 15px;
   font-weight: 600;
+  background-color: $SpicalCarColor;
+}
+
+.card {
+  border: 0.5px solid $SpicalCarColor !important;
+  overflow: hidden;
 }
 @media (min-width: 960px) {
   .container {

@@ -46,7 +46,7 @@ export default {
       items: [
         {
           icon: "fa-home",
-          text: "الرئيسية",
+          text: "نضمنها لك",
           path: "/",
         },
         {
@@ -56,12 +56,12 @@ export default {
         },
         {
           icon: "fa-info",
-          text: "الخدمات",
+          text: "الحراج",
           path: "/about",
         },
         {
           icon: "fa-address-book",
-          text: "اتصل بنا",
+          text: "تواصل معنا",
           path: "/contact",
         },
       ],
@@ -100,12 +100,15 @@ export default {
   top: -68px;
   transition: top 0.5s ease-out;
   @include flexcenter();
+
   .nav-link {
     color: $fontcolorlinks;
     font-size: 18px;
     font-weight: 600;
     font-family: $fontfamliy;
     letter-spacing: 0;
+    height: 30px;
+    @include flexcenter();
   }
   .nav-link {
     @media (max-width: 750px) {
