@@ -2,7 +2,7 @@
   <div class="product_box">
     <NavBar />
     <v-container class="mb-7">
-      <v-col cols="12" class="py-0"> <FilterSection /> </v-col>
+      <v-col cols="12" class=""> <FilterSection /> </v-col>
       <v-col cols="12" class="pa-1">
         <h2 class="tital">
           سـيـارات مضمونة لدينا للبيع - (<span class="red--text">
@@ -11,12 +11,12 @@
           )
         </h2>
       </v-col>
-      <v-row class="mt-1 car-box">
+      <v-row class="mt-1 py-4 car-box">
         <v-col
           cols="12"
           sm="6"
           md="3"
-          class="pa-2 mt-4 boredr-all-box"
+          class="pa-1 boredr-all-box"
           v-for="CarData in SpicalCarView"
           :key="CarData.id"
         >
@@ -126,6 +126,14 @@ export default {
     background-color: $simplebackground;
     border-radius: 5px;
   }
+  .boredr-all-box {
+    @media (max-width: 600px) {
+      padding: 5px 30px !important;
+    }
+    @media (max-width: 330px) {
+      padding: 5px 0px !important;
+    }
+  }
   .tital {
     color: $fontcolor;
     font-family: $fontfamliy;
@@ -148,6 +156,9 @@ export default {
     }
     @media (max-width: 360px) {
       font-size: 17px;
+    }
+    @media (max-width: 280px) {
+      font-size: 13px;
     }
   }
   .v-btn--icon.v-size--default .v-icon {

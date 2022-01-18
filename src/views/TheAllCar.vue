@@ -17,8 +17,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import "@/scss/virables";
+@import "@/scss/mixin";
 .TheAllCar {
-  width: 100%;
-  min-width: 100vh;
+  position: relative;
+  background-color: $simplebackground;
 }
 </style>
