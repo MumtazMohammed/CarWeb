@@ -1,46 +1,48 @@
 <template>
   <div class="Shape_box mt-16">
-    <v-container class="px-md-7">
-      <p class="text-center font-weight-bold tital">
-        {{ Tital }}
-      </p>
-      <span class="line mt-5 mb-8 mx-auto"></span>
-      <v-row>
-        <v-col
-          v-for="(Shape, i) in CarShape"
-          :key="i"
-          cols="6"
-          sm="3"
-          md="2"
-          class="pa-1"
-        >
-          <v-card
-            elevation="1"
-            class="d-flex align-center justify-center flex-column"
+    <div class="Shape_container">
+      <v-container class="px-md-7">
+        <p class="text-center font-weight-bold tital">
+          {{ Tital }}
+        </p>
+        <span class="line mt-5 mb-8 mx-auto"></span>
+        <v-row>
+          <v-col
+            v-for="(Shape, i) in CarShape"
+            :key="i"
+            cols="6"
+            sm="4"
+            md="3"
+            class="pa-1"
           >
-            <v-avatar width="120" height="120" tile>
-              <v-img
-                max-height="70"
-                max-width="300"
-                contain
-                :src="Shape.CarShape"
-              ></v-img>
-            </v-avatar>
-            <router-link
-              class="CarShapeText pa-2 text-center"
-              :to="{
-                name: 'CarByShape',
-                params: {
-                  CarShape: Shape.Shape,
-                },
-              }"
+            <v-card
+              elevation="1"
+              class="d-flex align-center justify-center flex-column"
             >
-              <a class="white--text">{{ Shape.Shape }} </a>
-            </router-link>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+              <v-avatar width="120" height="120" tile>
+                <v-img
+                  max-height="70"
+                  max-width="300"
+                  contain
+                  :src="Shape.CarShape"
+                ></v-img>
+              </v-avatar>
+              <router-link
+                class="CarShapeText pa-2 text-center"
+                :to="{
+                  name: 'CarByShape',
+                  params: {
+                    CarShape: Shape.Shape,
+                  },
+                }"
+              >
+                <a class="white--text">{{ Shape.Shape }} </a>
+              </router-link>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
   </div>
 </template>
 
@@ -70,13 +72,19 @@ export default {
 .Shape_box {
   padding: 20px 0;
   margin-top: 30px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   width: 100%;
   background-color: $simplebackground;
   @media (max-width: 600px) {
     width: 100%;
   }
-
+  .Shape_container {
+    width: 70%;
+    @media (max-width: 800px) {
+      width: 100%;
+    }
+  }
   .CarShapeText {
     font-family: $fontfamliy2;
     font-size: 15px;
@@ -112,7 +120,7 @@ export default {
 }
 .line {
   width: 300px;
-  height: 3px;
+  height: 5px;
   background-color: $btnbackground;
   display: block;
 }
