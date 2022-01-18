@@ -60,7 +60,7 @@ export default {
 .HowToBuy {
   width: 100%;
   height: auto;
-  padding: 30px 0;
+  padding: 25px 0;
   position: relative;
   background-color: $simplebackground;
   .stepper-header {

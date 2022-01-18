@@ -70,7 +70,7 @@ export default {
 @import "@/scss/mixin";
 
 .Shape_box {
-  padding: 20px 0;
+  padding: 25px 0;
   margin-top: 30px;
   display: flex;
   justify-content: center;

@@ -23,6 +23,7 @@
       >
         <template v-slot:activator="{ on, attrs }">
           <v-btn
+          outlined
             dark
             elevation="0"
             class="ma-2 btn"
@@ -30,7 +31,7 @@
             v-on="on"
             color="#0d47a1"
           >
-            <b v-text="SignUp" class="white--text sgin"></b>
+            <b v-text="SignUp" class=" sgin"></b>
             <v-icon right>fa-user-alt</v-icon>
           </v-btn>
         </template>
@@ -101,6 +102,7 @@ export default {
   .sgin {
     font-family: $fontfamliy;
     letter-spacing: 0px;
+    color: $background;
   }
   .setting {
     b {
