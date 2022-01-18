@@ -21,8 +21,8 @@
         :controls-visible="true"
         :controls-prev-html="navigationPrev"
         :controls-next-html="navigationNext"
-        :controlsWidth="37"
-        :controlsHeight="37"
+        :controlsWidth="38"
+        :controlsHeight="38"
       >
         <slide
           class="slide"
@@ -33,12 +33,16 @@
           :height="200"
         >
           <!-- using methods to conect the image to the corect folder   -->
-          <v-card width="270" elevation="0" class="overflow-hidden pa-1">
+          <v-card
+            width="270"
+            elevation="0"
+            class="overflow-hidden pa-1 card-vip"
+          >
             <v-row>
               <v-col class="" cols="12">
                 <!-- <p class="ma-0 spical">مضمونه</p> -->
-                <p class="py-1 ma-0 px-0 text-center condtion">
-                  {{ CarSell.condtion }}
+                <p class="py-2 ma-0 px-0 text-center top-vip">
+                  مضمون وريح راسك
                 </p>
                 <v-img
                   :src="getimageUrl(CarSell.folder, CarSell.image)"
@@ -52,10 +56,21 @@
             <!-- car Name  -->
             <v-row class="pa-0 mt-1">
               <v-col cols="12" class="pa-3 pr-5">
-                <v-card-subtitle class="text-start font-weight-medium pa-1"
+                <v-card-subtitle
+                  class="text-start font-weight-medium pa-1 car-name"
                   >{{ CarSell.company }} {{ CarSell.name }}
                   {{ CarSell.modle }}
                 </v-card-subtitle>
+                <v-card-title
+                  class="font-weight-medium pa-1 justify-space-between location"
+                >
+                  <v-card-subtitle class="font-weight-medium location">
+                    {{ CarSell.condtion }}
+                  </v-card-subtitle>
+                  <v-card-subtitle class="font-weight-medium location">
+                    {{ CarSell.location }}
+                  </v-card-subtitle>
+                </v-card-title>
               </v-col>
             </v-row>
             <!-- car praic and kilo  -->
@@ -76,6 +91,8 @@
             <!-- car click to see more  -->
             <v-card-actions class="d-flex justify-center">
               <v-btn
+                class="btn-vip rounded-0"
+                block
                 width="200"
                 :to="{
                   name: 'ViewCar',
@@ -126,7 +143,7 @@ export default {
       return `     <style scoped>
         .next {
          transition: all .3s ease;
-         background-color: #ffc107;
+         background-color: #000;
          display: flex;
          align-items: center;
          justify-content: center;
@@ -143,15 +160,15 @@ export default {
         }
          .next:hover {
          opacity: 1 !important;
-         box-shadow: 0px 0px 0px 3px #fff;
+         box-shadow: 0px 0px 0px 3px  #ffc107;
         
 
         }
          .next:hover .chevron {
-          color: #000;
+          color:#ffc107;
         }
         .chevron{
-          color: #fff;
+          color:#fff;
           font-size: 20px;
           transition: color .3s ease;
 
@@ -166,7 +183,7 @@ export default {
        <style scoped>
         .prev {
          transition: all .3s ease;
-         background-color: #ffc107;
+         background-color: #000;
          display: flex;
          align-items: center;
          justify-content: center;
@@ -182,15 +199,15 @@ export default {
         }
          .prev:hover {
          opacity: 1 !important;
-         box-shadow: 0px 0px 0px 3px #fff;
+         box-shadow: 0px 0px 0px 3px #ffc107;
         
 
         }
          .prev:hover .chevron {
-          color: #000;
+          color:#ffc107;
         }
         .chevron{
-         color: #f44336;
+         color:#fff;
          font-size: 20px;
          transition: color .3s ease;
 
@@ -210,7 +227,7 @@ export default {
   width: auto;
   height: auto;
   position: relative;
-  padding: 20px 0;
+  padding: 25px 0;
   background-color: $simplebackground;
 
   .tital {
@@ -239,14 +256,14 @@ export default {
     font-size: 20px;
     color: #8c8c8c;
   }
-  .v-btn.v-size--default {
-    color: $fontcolor;
+  .btn-vip {
+    color: $SpicalCarColor;
     font-family: $fontfamliy;
     font-weight: 500;
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $SpicalCarColor;
+    background-color: $SpicalCarColor2 !important;
   }
 
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before {
@@ -257,23 +274,25 @@ export default {
   }
   .v-card__subtitle {
     font-size: 15px;
+    font-family: $fontfamliy;
   }
   .car-name {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 500 !important;
-    font-family: $fontfamliy2;
+    font-family: $fontfamliy;
   }
 }
-.condtion {
+.top-vip {
   font-family: $fontfamliy;
-  color: $fontfamliy;
+  color: $SpicalCarColor;
   letter-spacing: 0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  background-color: $SpicalCarColor;
+  background-color: $SpicalCarColor2;
 }
-.card {
+.card-vip {
   border: 0.5px solid $SpicalCarColor !important;
+  overflow: hidden;
 }
 @media (min-width: 960px) {
   .container {
@@ -296,7 +315,7 @@ export default {
   opacity: 1;
 }
 .carousel-3d-container {
-  height: 400px !important;
+  height: 450px !important;
   margin: 0px auto !important;
 }
 .carousel-3d-slide {

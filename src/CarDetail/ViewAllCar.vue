@@ -81,7 +81,7 @@
 </template>
 <script>
 import NavBar from "../NavBar/TheNavBar.vue";
-import FilterSection from "../CarDetail/Filter.vue";
+import FilterSection from "../CarSearch/Filter.vue";
 import SpicalCarView from "../data-json/car-data.json";
 export default {
   name: "ViewAllCar",

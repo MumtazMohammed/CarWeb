@@ -8,7 +8,7 @@
           hide-details
           dense
           class="select-price"
-          color="#ffc107"
+          color="grey"
           outlined
           flat
         ></v-select>

@@ -1,6 +1,8 @@
 <template>
   <div class="product_box">
     <v-container class="">
+      <v-col cols="12" class=""> <FilterSection /> </v-col>
+
       <v-row class="py-4 pb-7 car-box">
         <v-col cols="12" class="">
           <h2 class="tital">
@@ -21,8 +23,8 @@
           <v-card v-if="CarData.Vip == true" class="card-vip pa-1" flat>
             <v-row>
               <v-col class="" cols="12">
-                <p class="py-1 ma-0 px-0 text-center condtion-vip">
-                  {{ CarData.condtion }}
+                <p class="py-2 ma-0 px-0 text-center top-vip">
+                  مضمون وريح راسك
                 </p>
                 <v-img
                   :src="getimageUrl(CarData.folder, CarData.image)"
@@ -39,9 +41,16 @@
                 <v-card-subtitle class="font-weight-medium pa-1"
                   >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
                 </v-card-subtitle>
-                <v-card-subtitle class="font-weight-medium pa-1 location">
-                  {{ CarData.location }}
-                </v-card-subtitle>
+                <v-card-title
+                  class="font-weight-medium pa-1 justify-space-between location"
+                >
+                  <v-card-subtitle class="font-weight-medium location">
+                    {{ CarData.condtion }}
+                  </v-card-subtitle>
+                  <v-card-subtitle class="font-weight-medium location">
+                    {{ CarData.location }}
+                  </v-card-subtitle>
+                </v-card-title>
               </v-col>
             </v-row>
             <!-- car praic and kilo  -->
@@ -79,8 +88,8 @@
           <v-card v-if="CarData.Vip == false" class="card pa-1" flat>
             <v-row>
               <v-col class="" cols="12">
-                <p class="py-1 ma-0 px-0 text-center condtion">
-                  {{ CarData.condtion }}
+                <p class="py-2 ma-0 px-0 text-center condtion">
+                  رقم الأعلان : {{ CarData.id }}
                 </p>
                 <v-img
                   :src="getimageUrl(CarData.folder, CarData.image)"
@@ -97,9 +106,16 @@
                 <v-card-subtitle class="font-weight-medium pa-1"
                   >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
                 </v-card-subtitle>
-                <v-card-subtitle class="font-weight-medium pa-1 location">
-                  {{ CarData.location }}
-                </v-card-subtitle>
+                <v-card-title
+                  class="font-weight-medium pa-1 justify-space-between location"
+                >
+                  <v-card-subtitle class="font-weight-medium location">
+                    {{ CarData.condtion }}
+                  </v-card-subtitle>
+                  <v-card-subtitle class="font-weight-medium location">
+                    {{ CarData.location }}
+                  </v-card-subtitle>
+                </v-card-title>
               </v-col>
             </v-row>
             <!-- car praic and kilo  -->
@@ -139,8 +155,12 @@
 </template>
 <script>
 import SpicalCarView from "../data-json/All-Car.json";
+import FilterSection from "../CarSearch/Filter.vue";
 export default {
   name: "GoldCar",
+  components: {
+    FilterSection,
+  },
   data() {
     return {
       SpicalCarView: SpicalCarView,
@@ -226,13 +246,13 @@ export default {
     color: #8c8c8c;
   }
   .btn-vip {
-    color: $fontcolor;
+    color: $SpicalCarColor;
     font-family: $fontfamliy;
     font-weight: 500;
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $SpicalCarColor !important;
+    background-color: $SpicalCarColor2 !important;
   }
   .btn {
     color: $fontcolorsm;
@@ -257,18 +277,26 @@ export default {
     font-family: $fontfamliy;
   }
   .location {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     font-family: $fontfamliy;
   }
 }
-.condtion-vip {
+.top-vip {
   font-family: $fontfamliy;
-  color: $fontfamliy;
+  color: $SpicalCarColor;
   letter-spacing: 0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  background-color: $SpicalCarColor;
+  background-color: $SpicalCarColor2;
+}
+.condtion {
+  font-family: $fontfamliy;
+  color: $fontcolorsm;
+  letter-spacing: 0;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: $background;
 }
 
 .card-vip {
