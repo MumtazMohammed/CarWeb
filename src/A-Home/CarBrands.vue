@@ -16,7 +16,7 @@
             class="pa-1"
           >
             <v-card
-              elevation="1"
+              flat
               class="d-flex align-center justify-center flex-column img-card"
             >
               <v-avatar width="200" height="120" tile>
@@ -92,7 +92,7 @@ export default {
     width: 100%;
     padding: 10px 0;
     text-align: center;
-    background-color: $background;
+    background-color: $btnbackground;
   }
   .tital {
     font-family: $fontfamliy;

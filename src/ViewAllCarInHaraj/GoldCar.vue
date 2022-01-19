@@ -92,7 +92,7 @@
           <v-card v-if="CarData.Vip == false" class="card pa-1" flat>
             <v-row>
               <v-col class="" cols="12">
-                <p class="py-2 ma-0 px-0 text-center condtion">
+                <p class="py-2 ma-0 px-0 text-center adNum">
                   رقم الأعلان : {{ CarData.id }}
                 </p>
                 <v-img
@@ -140,7 +140,8 @@
             <!-- car click to see more  -->
             <v-card-actions class="d-flex justify-center">
               <v-btn
-                class="btn"
+                block
+                class="btn rounded-0"
                 width="200"
                 :to="{
                   name: 'ViewCar',
@@ -268,13 +269,13 @@ export default {
     background-color: $SpicalCarColor2 !important;
   }
   .btn {
-    color: $fontcolorsm;
+    color: $fontcolor;
     font-family: $fontfamliy;
     font-weight: 500;
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $background !important;
+    background-color: $background1 !important;
   }
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
   .theme--light.v-btn--active:hover:before {
@@ -303,13 +304,13 @@ export default {
   font-weight: 600;
   background-color: $SpicalCarColor2;
 }
-.condtion {
+.adNum {
   font-family: $fontfamliy;
-  color: $fontcolorsm;
+  color: $fontcolor;
   letter-spacing: 0;
   font-size: 16px;
-  font-weight: 600;
-  background-color: $background;
+  font-weight: 300;
+  background-color: $background1;
 }
 .card-vip {
   border: 0.5px solid $SpicalCarColor !important;

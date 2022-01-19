@@ -47,7 +47,7 @@
               </v-list-item-icon>
               <v-list-item-content class="#dddddd--text">
                 <v-list-item-title
-                  class="nav-link-sm px-2"
+                  class="nav-link-sm pa-2"
                   v-text="item.text"
                 ></v-list-item-title>
               </v-list-item-content>
@@ -76,22 +76,23 @@ export default {
     items: [
       {
         icon: "fa-home",
-        text: "الرئيسية",
+        text: "نضمنها لك",
         path: "/",
       },
       {
+        icon: "fa-info",
+        text: "الحراج",
+        path: "/TheAllCar",
+      },
+      {
         icon: "fa-shopping-cart",
-        text: "المتجر",
+        text: "الأعـلانـات",
         path: "/product",
       },
-      {
-        icon: "fa-info",
-        text: "الخدمات",
-        path: "/about",
-      },
+
       {
         icon: "fa-address-book",
-        text: "اتصل بنا",
+        text: "تواصل معنا",
         path: "/contact",
       },
     ],

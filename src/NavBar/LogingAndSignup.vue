@@ -23,16 +23,16 @@
       >
         <template v-slot:activator="{ on, attrs }">
           <v-btn
-          outlined
+            outlined
             dark
             elevation="0"
-            class="ma-2 btn"
+            class="ma-2 btn1"
             v-bind="attrs"
             v-on="on"
-            color="#0d47a1"
+            color="primary"
           >
-            <b v-text="SignUp" class=" sgin"></b>
-            <v-icon right>fa-user-alt</v-icon>
+            <b v-text="SignUp" class="sgin"></b>
+            <v-icon class="sign-in-icon" right>fas fa-sign-in-alt</v-icon>
           </v-btn>
         </template>
         <v-card>
@@ -102,13 +102,8 @@ export default {
   .sgin {
     font-family: $fontfamliy;
     letter-spacing: 0px;
-    color: $background;
   }
-  .setting {
-    b {
-      margin: 0;
-    }
-  }
+
   i.v-icon.notranslate.fa.fa-cog.theme--dark {
     @media (max-width: 960px) {
       font-size: 17px;
@@ -117,6 +112,17 @@ export default {
   }
   .icon {
     font-size: 18px !important;
+  }
+  .btn1 {
+    @media (max-width: 599px) {
+      background-color: transparent !important;
+      border: 1px solid white !important;
+    }
+    .sign-in-icon {
+      @media (max-width: 599px) {
+        color: white !important;
+      }
+    }
   }
 }
 .toolbar-items {

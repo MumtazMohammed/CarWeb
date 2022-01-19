@@ -15,10 +15,7 @@
             md="3"
             class="pa-1"
           >
-            <v-card
-              elevation="1"
-              class="d-flex align-center justify-center flex-column"
-            >
+            <v-card flat class="d-flex align-center justify-center flex-column">
               <v-avatar width="120" height="120" tile>
                 <v-img
                   max-height="70"
@@ -90,7 +87,7 @@ export default {
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0;
-    background-color: $background;
+    background-color: $btnbackground;
     text-decoration: none;
     width: 100%;
   }
