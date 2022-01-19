@@ -48,10 +48,12 @@
 
 <script>
 import LogoBrand from "@/data-json/CarType.json";
+import Cardata from "../data-json/All-Car.json";
 export default {
   name: "CarBrands",
   data() {
     return {
+      Cardata: Cardata,
       LogoBrand: LogoBrand,
       Tital: "تصفح السيارات حسب الماركة",
     };

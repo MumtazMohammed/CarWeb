@@ -1,16 +1,16 @@
 <template>
   <div class="ViewCarAllLayout">
-    <GoldCar />
+    <AlHaraj />
     <!-- <NormalCar /> -->
   </div>
 </template>
 <script>
 // import NormalCar from "../ViewAllCarInHaraj/NormalCar.vue";
-import GoldCar from "../ViewAllCarInHaraj/GoldCar.vue";
+import AlHaraj from "../ViewAllCarInHaraj/AlHaraj.vue";
 export default {
   name: "ViewCarAllLayout",
   components: {
-    GoldCar,
+    AlHaraj,
     // NormalCar,
   },
 
