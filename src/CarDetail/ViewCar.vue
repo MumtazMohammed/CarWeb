@@ -27,6 +27,7 @@ export default {
       carName: this.$route.params.carName,
       carId: this.$route.params.carId,
       CarShape: this.$route.params.CarShape,
+      Company: this.$route.params.Company,
     };
   },
   // this is help full to call the image inside folder and inject to the src

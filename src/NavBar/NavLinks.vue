@@ -4,7 +4,7 @@
       <v-row>
         <v-col class="d-flex align-center justify-sm-center" cols="12">
           <v-toolbar-items class="hiddenn">
-            <v-list rounded class="d-flex">
+            <v-list class="d-flex">
               <v-list-item
                 v-for="(item, i) in items"
                 :key="i"
@@ -12,8 +12,10 @@
                 dark
                 :to="item.path"
                 class="singl-link ma-0"
+                color="transparent"
+                active-class="active"
               >
-                <v-list-item-content active-class="color">
+                <v-list-item-content>
                   <v-list-item-title
                     class="nav-link"
                     v-text="item.text"
@@ -116,5 +118,8 @@ export default {
       font-size: 16px;
     }
   }
+}
+.active {
+  border-bottom: 2px solid $btnbackground1 !important;
 }
 </style>

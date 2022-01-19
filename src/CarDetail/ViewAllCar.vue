@@ -66,7 +66,12 @@
                 width="200"
                 :to="{
                   name: 'ViewCar',
-                  params: { carName: CarData.folder, carId: CarData.id },
+                  params: {
+                    Company: CarData.folder,
+                    carName: CarData.name,
+                    carShape: CarData.Shape,
+                    carId: CarData.id,
+                  },
                 }"
                 depressed
               >
@@ -89,6 +94,10 @@ export default {
   data() {
     return {
       SpicalCarView: SpicalCarView,
+      carName: this.$route.params.carName,
+      carId: this.$route.params.carId,
+      CarShape: this.$route.params.CarShape,
+      Company: this.$route.params.Company,
     };
   },
 

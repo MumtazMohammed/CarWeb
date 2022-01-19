@@ -173,7 +173,6 @@ export default {
   font-family: "Tajawal", sans-serif;
   letter-spacing: 0;
 
-  border-right: 2px solid #a2a2a28d !important;
   @media (max-width: 600px) {
     font-size: 15px !important;
     margin-right: 5px;

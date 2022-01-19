@@ -97,9 +97,10 @@
                 :to="{
                   name: 'ViewCar',
                   params: {
-                    carName: CarSell.folder,
-                    carId: CarSell.id,
+                    Company: CarSell.folder,
+                    carName: CarSell.name,
                     carShape: CarSell.Shape,
+                    carId: CarSell.id,
                   },
                 }"
                 depressed
@@ -161,7 +162,7 @@ export default {
          .next:hover {
          opacity: 1 !important;
          box-shadow: 0px 0px 0px 3px  #ffc107;
-        
+
 
         }
          .next:hover .chevron {
@@ -174,7 +175,7 @@ export default {
 
         }
       </style>
-      
+
       <i class="fas chevron fa-chevron-right"></i>
       `;
     },
@@ -200,7 +201,7 @@ export default {
          .prev:hover {
          opacity: 1 !important;
          box-shadow: 0px 0px 0px 3px #ffc107;
-        
+
 
         }
          .prev:hover .chevron {

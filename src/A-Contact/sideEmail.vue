@@ -5,7 +5,7 @@
         تـواصـل مـعنا على الارقام التالية
       </h3>
     </v-col>
-    <v-row justify="center mt-2">
+    <v-row class="justify-center mt-2">
       <!-- <v-col cols="12" class=""> -->
       <v-col cols="12" md="12" class="py-1 d-flex justify-center">
         <v-flex xs8 sm12 md6>

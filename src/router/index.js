@@ -54,7 +54,7 @@ const routes = [
     component: CarByBrand,
   },
   {
-    path: "/view/car/:carName/:carShape/:carId",
+    path: "/view/car/:carName/:carShape/:carId/:Company",
     name: "ViewCar",
     component: ViewCar,
   },
