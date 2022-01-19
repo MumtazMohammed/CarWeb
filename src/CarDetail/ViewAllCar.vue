@@ -21,12 +21,12 @@
           :key="CarData.id"
         >
           <!-- using methods to conect the image to the corect folder   -->
-          <v-card class="card pa-1" flat>
+          <v-card class="card-vip pa-1" flat>
             <v-row>
               <v-col class="" cols="12">
                 <!-- <p class="ma-0 spical">مضمونه</p> -->
-                <p class="py-1 ma-0 px-0 text-center condtion">
-                  {{ CarData.condtion }}
+                <p class="py-2 ma-0 px-0 text-center top-vip">
+                  مضمون وريح راسك
                 </p>
                 <v-img
                   :src="getimageUrl(CarData.folder, CarData.image)"
@@ -43,6 +43,16 @@
                 <v-card-subtitle class="font-weight-medium pa-1"
                   >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
                 </v-card-subtitle>
+                <v-card-title
+                  class="font-weight-medium pa-1 justify-space-between location"
+                >
+                  <v-card-subtitle class="font-weight-medium location-condtion">
+                    {{ CarData.condtion }}
+                  </v-card-subtitle>
+                  <v-card-subtitle class="font-weight-medium location-condtion">
+                    {{ CarData.location }}
+                  </v-card-subtitle>
+                </v-card-title>
               </v-col>
             </v-row>
             <!-- car praic and kilo  -->
@@ -63,6 +73,8 @@
             <!-- car click to see more  -->
             <v-card-actions class="d-flex justify-center">
               <v-btn
+                block
+                class="rounded-0"
                 width="200"
                 :to="{
                   name: 'ViewCar',
@@ -175,13 +187,13 @@ export default {
     color: #8c8c8c;
   }
   .v-btn.v-size--default {
-    color: $fontcolor;
+    color: $SpicalCarColor;
     font-family: $fontfamliy;
     font-weight: 500;
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $SpicalCarColor;
+    background-color: $SpicalCarColor2 !important;
   }
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
   .theme--light.v-btn--active:hover:before {
@@ -197,17 +209,22 @@ export default {
     font-family: $fontfamliy;
     font-family: $fontfamliy;
   }
+  .location-condtion {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: $fontfamliy;
+  }
 }
-.condtion {
+.top-vip {
   font-family: $fontfamliy;
-  color: $fontfamliy;
+  color: $SpicalCarColor;
   letter-spacing: 0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  background-color: $SpicalCarColor;
+  background-color: $SpicalCarColor2;
 }
 
-.card {
+.card-vip {
   border: 0.5px solid $SpicalCarColor !important;
   overflow: hidden;
 }

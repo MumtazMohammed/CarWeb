@@ -2,7 +2,6 @@
   <div class="product_box">
     <v-container class="">
       <v-col cols="12" class=""> <FilterSection /> </v-col>
-
       <v-row class="py-4 pb-7 car-box">
         <v-col cols="12" class="">
           <h2 class="tital">
@@ -112,12 +111,12 @@
                   >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
                 </v-card-subtitle>
                 <v-card-title
-                  class="font-weight-medium pa-1 justify-space-between location"
+                  class="font-weight-medium pa-1 justify-space-between"
                 >
-                  <v-card-subtitle class="font-weight-medium location">
+                  <v-card-subtitle class="font-weight-medium location-condtion">
                     {{ CarData.condtion }}
                   </v-card-subtitle>
-                  <v-card-subtitle class="font-weight-medium location">
+                  <v-card-subtitle class="font-weight-medium location-condtion">
                     {{ CarData.location }}
                   </v-card-subtitle>
                 </v-card-title>
@@ -290,7 +289,7 @@ export default {
     font-weight: 300;
     font-family: $fontfamliy;
   }
-  .location {
+  .location-condtion {
     font-size: 16px;
     font-weight: 500;
     font-family: $fontfamliy;
@@ -312,9 +311,12 @@ export default {
   font-weight: 600;
   background-color: $background;
 }
-
 .card-vip {
   border: 0.5px solid $SpicalCarColor !important;
+  overflow: hidden;
+}
+.card {
+  border: 0.5px solid $background1 !important;
   overflow: hidden;
 }
 @media (min-width: 960px) {

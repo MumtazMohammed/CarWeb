@@ -26,20 +26,23 @@
       </v-col>
       <v-row class="mt-1">
         <v-col
-          cols="12"
-          sm="6"
+          cols="6"
+          sm="4"
           md="3"
-          class="pa-2 mt-3 boredr-all-box"
-          v-for="CarSell in getCarInfo"
-          :key="CarSell.id"
+          class="pa-1 boredr-all-box"
+          v-for="CarData in getCarInfo"
+          :key="CarData.id"
         >
           <!-- using methods to conect the image to the corect folder   -->
-          <v-card>
+          <!-- vip car  -->
+          <v-card v-if="CarData.Vip == true" class="card-vip pa-1" flat>
             <v-row>
-              <v-col class="pt-0" cols="12">
-                <p class="my-2 text-center condtion">{{ CarSell.condtion }}</p>
+              <v-col class="" cols="12">
+                <p class="py-2 ma-0 px-0 text-center top-vip">
+                  مضمون وريح راسك
+                </p>
                 <v-img
-                  :src="getimageUrl(CarSell.folder, CarSell.image)"
+                  :src="getimageUrl(CarData.folder, CarData.image)"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                   height="170px"
                 >
@@ -51,8 +54,18 @@
             <v-row class="pa-0 mt-1" align="center">
               <v-col cols="12" class="pa-3 pr-5">
                 <v-card-subtitle class="font-weight-medium pa-1"
-                  >{{ CarSell.company }} {{ CarSell.name }} {{ CarSell.modle }}
+                  >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
                 </v-card-subtitle>
+                <v-card-title
+                  class="font-weight-medium pa-1 justify-space-between location"
+                >
+                  <v-card-subtitle class="font-weight-medium location">
+                    {{ CarData.condtion }}
+                  </v-card-subtitle>
+                  <v-card-subtitle class="font-weight-medium location">
+                    {{ CarData.location }}
+                  </v-card-subtitle>
+                </v-card-title>
               </v-col>
             </v-row>
             <!-- car praic and kilo  -->
@@ -60,26 +73,98 @@
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle
                   class="green--text font-weight-medium text-right pa-1"
-                  >{{ CarSell.payment }}</v-card-subtitle
+                  >{{ CarData.payment }}</v-card-subtitle
                 >
               </v-col>
               <v-divider vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left font-weight-regular pa-1"
-                  >{{ CarSell.kilometer }}
+                  >{{ CarData.kilometer }}
                 </v-card-subtitle>
               </v-col>
             </v-row>
             <!-- car click to see more  -->
             <v-card-actions class="d-flex justify-center">
               <v-btn
+                block
+                class="btn-vip rounded-0"
                 width="200"
                 :to="{
                   name: 'ViewCar',
                   params: {
-                    carName: CarSell.folder,
-                    CarShape: CarSell.Shape,
-                    carId: CarSell.id,
+                    carName: CarData.name,
+                    carShape: CarData.Shape,
+                    carId: CarData.id,
+                    Company: CarData.folder,
+                  },
+                }"
+                depressed
+              >
+                أقراء المزيد
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+          <!-- not vip car  -->
+          <v-card v-if="CarData.Vip == false" class="card pa-1" flat>
+            <v-row>
+              <v-col class="" cols="12">
+                <p class="py-2 ma-0 px-0 text-center condtion">
+                  رقم الأعلان : {{ CarData.id }}
+                </p>
+                <v-img
+                  :src="getimageUrl(CarData.folder, CarData.image)"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="170px"
+                >
+                </v-img>
+              </v-col>
+            </v-row>
+            <!-- car info  -->
+            <!-- car Name  -->
+            <v-row class="pa-0 mt-1" align="center">
+              <v-col cols="12" class="pa-3 pr-5">
+                <v-card-subtitle class="font-weight-medium pa-1"
+                  >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
+                </v-card-subtitle>
+                <v-card-title
+                  class="font-weight-medium pa-1 justify-space-between location"
+                >
+                  <v-card-subtitle class="font-weight-medium location">
+                    {{ CarData.condtion }}
+                  </v-card-subtitle>
+                  <v-card-subtitle class="font-weight-medium location">
+                    {{ CarData.location }}
+                  </v-card-subtitle>
+                </v-card-title>
+              </v-col>
+            </v-row>
+            <!-- car praic and kilo  -->
+            <v-row class="mb-1 justify-center">
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle
+                  class="green--text font-weight-medium text-right pa-1"
+                  >{{ CarData.payment }}</v-card-subtitle
+                >
+              </v-col>
+              <v-divider vertical></v-divider>
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle class="text-left font-weight-regular pa-1"
+                  >{{ CarData.kilometer }}
+                </v-card-subtitle>
+              </v-col>
+            </v-row>
+            <!-- car click to see more  -->
+            <v-card-actions class="d-flex justify-center">
+              <v-btn
+                class="btn"
+                width="200"
+                :to="{
+                  name: 'ViewCar',
+                  params: {
+                    carName: CarData.name,
+                    carShape: CarData.Shape,
+                    carId: CarData.id,
+                    Company: CarData.folder,
                   },
                 }"
                 depressed
@@ -133,44 +218,18 @@ export default {
 @import "@/scss/mixin";
 .product_box {
   width: 100%;
-  height: auto;
-  padding: 25px 0;
-  position: relative;
+  height: 100%;
+  // position: relative;
+  // background-color: $simplebackground;
 
-  .tital {
-    color: $background;
-    font-family: $fontfamliy;
-    font-size: 20px;
-    @media (max-width: 370px) {
-      font-size: 16px;
-    }
-  }
-  .no-car {
-    color: $btnbackground;
-    font-family: $fontfamliy;
-    font-size: 40px;
-    text-align: center;
-    @media (max-width: 700px) {
-      font-size: 30px;
-    }
-    @media (max-width: 560px) {
-      font-size: 25px;
-    }
-    @media (max-width: 460px) {
-      font-size: 20px;
-    }
-  }
-  .no-car-image {
+  .car-box {
     @media (max-width: 600px) {
-      width: 350px;
-      margin-top: 30px;
+      justify-content: center;
     }
-    @media (max-width: 400px) {
-      width: 300px;
-    }
-    @media (max-width: 350px) {
-      width: 250px;
-    }
+  }
+  .tital {
+    color: $fontcolor;
+    font-family: $fontfamliy;
   }
   .title-box {
     margin: 15px 0;
@@ -182,34 +241,96 @@ export default {
       cursor: pointer;
     }
   }
-
+  .boredr-all-box {
+    @media (max-width: 880px) {
+      max-width: 50%;
+    }
+    @media (max-width: 600px) {
+      padding: 5px 3px !important;
+    }
+    @media (max-width: 540px) {
+      max-width: 98%;
+    }
+    @media (max-width: 330px) {
+      padding: 5px 0px !important;
+    }
+  }
+  .tital {
+    font-family: $fontfamliy;
+    font-size: 25px;
+    @media (max-width: 600px) {
+      font-size: 20px;
+    }
+    @media (max-width: 360px) {
+      font-size: 17px;
+    }
+  }
   .v-btn--icon.v-size--default .v-icon {
     font-size: 20px;
     color: #8c8c8c;
   }
-  .v-btn.v-size--default {
+  .btn-vip {
+    color: $SpicalCarColor;
+    font-family: $fontfamliy;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 10px;
+    letter-spacing: 0;
+    background-color: $SpicalCarColor2 !important;
+  }
+  .btn {
     color: $fontcolorsm;
     font-family: $fontfamliy;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $background;
+    background-color: $background !important;
+  }
+  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
+  .theme--light.v-btn--active:hover:before {
+    opacity: 0;
+  }
+  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:hover:before,
+  .theme--light.v-btn--active:before {
+    opacity: 0;
   }
   .v-card__subtitle {
     font-size: 17px;
     font-weight: 300;
     font-family: $fontfamliy;
+  }
+  .location {
+    font-size: 16px;
+    font-weight: 500;
     font-family: $fontfamliy;
   }
 }
+.top-vip {
+  font-family: $fontfamliy;
+  color: $SpicalCarColor;
+  letter-spacing: 0;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: $SpicalCarColor2;
+}
 .condtion {
   font-family: $fontfamliy;
-  color: $fontfamliy;
+  color: $fontcolorsm;
   letter-spacing: 0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
+  background-color: $background;
 }
+.card-vip {
+  border: 0.5px solid $SpicalCarColor !important;
+  overflow: hidden;
+}
+.card {
+  border: 0.5px solid $background !important;
+  overflow: hidden;
+}
+
 @media (min-width: 960px) {
   .container {
     max-width: 1200px;
