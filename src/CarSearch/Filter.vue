@@ -1,7 +1,7 @@
 <template>
   <div class="FilterSection">
-    <v-row justify="end">
-      <v-col class="pa-0" cols="12" md="2" sm="4">
+    <v-row>
+      <v-col class="" cols="12" md="2" sm="4">
         <v-select
           :items="items"
           label="ترتيب السعر من"
@@ -18,6 +18,7 @@
 </template>
 <script>
 export default {
+  name: "Filter",
   data() {
     return {
       items: [" الأعلى سعرا", "الأقل سعرا"],

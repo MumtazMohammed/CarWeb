@@ -1,13 +1,15 @@
 <template>
   <div class="product_box">
     <v-container class="">
-      <v-col cols="12" class=""> <FilterSection /> </v-col>
       <v-row class="py-4 pb-7 car-box">
         <v-col cols="12" class="">
           <h2 class="tital">
-            (<span class="red--text"> {{ SpicalCarView.length}}</span>
+            (<span class="red--text"> {{ SpicalCarView.length }}</span>
             ) - سـيـارة للبيع
           </h2>
+        </v-col>
+        <v-col cols="12" v-if="SpicalCarView.length > 5">
+          <FilterSection />
         </v-col>
         <v-col
           cols="6"
@@ -242,7 +244,7 @@ export default {
       max-width: 50%;
     }
     @media (max-width: 600px) {
-      padding: 5px 3px !important;
+    
     }
     @media (max-width: 540px) {
       max-width: 98%;

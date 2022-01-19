@@ -2,7 +2,6 @@
   <div class="product_box">
     <NavBar />
     <v-container class="mb-7">
-      <v-col cols="12" class=""> <FilterSection /> </v-col>
       <v-col cols="12" class="pa-1">
         <h2 class="tital">
           سـيـارات مضمونة لدينا للبيع - (<span class="red--text">
@@ -11,6 +10,7 @@
           )
         </h2>
       </v-col>
+      <v-col cols="12" class=""> <FilterSection /> </v-col>
       <v-row class="mt-1 py-4 car-box">
         <v-col
           cols="12"

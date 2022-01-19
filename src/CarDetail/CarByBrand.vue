@@ -3,12 +3,11 @@
     <NavBar />
     <div class="brand_box">
       <v-container fluid>
-        <v-col cols="12" class="pr-0">
+        <v-col cols="12">
           <h2 v-if="getCarInfo.length > 0" class="tital">
             (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة
             {{ CarName }} للبيع في اليمن
           </h2>
-
           <div v-else class="d-flex justify-center flex-column align-center">
             <h2 class="no-car">لا يـتوفر سيارات {{ CarName }} في الـموقع</h2>
             <v-img
@@ -20,7 +19,9 @@
           </div>
         </v-col>
         <!--  -->
-
+        <v-col cols="12" v-if="getCarInfo.length > 5">
+          <FilterSection />
+        </v-col>
         <!--  -->
         <v-row class="mt-1">
           <v-col
@@ -184,11 +185,13 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import NavBar from "../NavBar/TheNavBar.vue";
+import FilterSection from "../CarSearch/Filter.vue";
 
 export default {
   name: "CarByBrand",
   components: {
     NavBar,
+    FilterSection,
   },
   data() {
     return {

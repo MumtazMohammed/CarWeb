@@ -25,6 +25,9 @@
             ></v-img>
           </div>
         </v-col>
+        <v-col cols="12" v-if="getCarInfo.length > 5">
+          <FilterSection />
+        </v-col>
         <v-row class="mt-1">
           <v-col
             cols="6"
@@ -185,12 +188,12 @@
 </template>
 <script>
 import NavBar from "../NavBar/TheNavBar.vue";
-
+import FilterSection from "../CarSearch/Filter.vue";
 import CarShape from "../data-json/All-Car.json";
 
 export default {
   name: "CarByShape",
-  components: { NavBar },
+  components: { NavBar, FilterSection },
   data() {
     return {
       GetCarData: CarShape,
