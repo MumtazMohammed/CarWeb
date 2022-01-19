@@ -61,29 +61,33 @@
                     >{{ CarData.company }} {{ CarData.name }}
                     {{ CarData.modle }}
                   </v-card-subtitle>
-                  <v-card-title
-                    class="font-weight-medium pa-1 justify-space-between location"
-                  >
-                    <v-card-subtitle class="font-weight-medium location">
-                      {{ CarData.condtion }}
-                    </v-card-subtitle>
-                    <v-card-subtitle class="font-weight-medium location">
-                      {{ CarData.location }}
-                    </v-card-subtitle>
-                  </v-card-title>
                 </v-col>
               </v-row>
               <!-- car praic and kilo  -->
+              <!-- car location  and condition  -->
+              <v-row class="mb-1 justify-center">
+                <v-col cols="5" class="pa-0">
+                  <v-card-subtitle class="text-right location-condtion pa-2">{{
+                    CarData.location
+                  }}</v-card-subtitle>
+                </v-col>
+                <v-divider color="#ffc107" vertical></v-divider>
+                <v-col cols="5" class="pa-0">
+                  <v-card-subtitle class="text-left location-condtion pa-2"
+                    >{{ CarData.condtion }}
+                  </v-card-subtitle>
+                </v-col>
+              </v-row>
               <v-row class="mb-1 justify-center">
                 <v-col cols="5" class="pa-0">
                   <v-card-subtitle
-                    class="green--text font-weight-medium text-right pa-1"
+                    class="green--text font-weight-medium text-right pa-2"
                     >{{ CarData.payment }}</v-card-subtitle
                   >
                 </v-col>
-                <v-divider vertical></v-divider>
+                <v-divider color="#ffc107" vertical></v-divider>
                 <v-col cols="5" class="pa-0">
-                  <v-card-subtitle class="text-left font-weight-regular pa-1"
+                  <v-card-subtitle class="text-left font-weight-regular pa-2"
                     >{{ CarData.kilometer }}
                   </v-card-subtitle>
                 </v-col>
@@ -132,29 +136,33 @@
                     >{{ CarData.company }} {{ CarData.name }}
                     {{ CarData.modle }}
                   </v-card-subtitle>
-                  <v-card-title
-                    class="font-weight-medium pa-1 justify-space-between location"
-                  >
-                    <v-card-subtitle class="font-weight-medium location">
-                      {{ CarData.condtion }}
-                    </v-card-subtitle>
-                    <v-card-subtitle class="font-weight-medium location">
-                      {{ CarData.location }}
-                    </v-card-subtitle>
-                  </v-card-title>
                 </v-col>
               </v-row>
               <!-- car praic and kilo  -->
+              <!-- car location  and condition  -->
+              <v-row class="mb-1 justify-center">
+                <v-col cols="5" class="pa-0">
+                  <v-card-subtitle class="text-right location-condtion pa-2">{{
+                    CarData.location
+                  }}</v-card-subtitle>
+                </v-col>
+                <v-divider vertical></v-divider>
+                <v-col cols="5" class="pa-0">
+                  <v-card-subtitle class="text-left location-condtion pa-2"
+                    >{{ CarData.condtion }}
+                  </v-card-subtitle>
+                </v-col>
+              </v-row>
               <v-row class="mb-1 justify-center">
                 <v-col cols="5" class="pa-0">
                   <v-card-subtitle
-                    class="green--text font-weight-medium text-right pa-1"
+                    class="green--text font-weight-medium text-right pa-2"
                     >{{ CarData.payment }}</v-card-subtitle
                   >
                 </v-col>
                 <v-divider vertical></v-divider>
                 <v-col cols="5" class="pa-0">
-                  <v-card-subtitle class="text-left font-weight-regular pa-1"
+                  <v-card-subtitle class="text-left font-weight-regular pa-2"
                     >{{ CarData.kilometer }}
                   </v-card-subtitle>
                 </v-col>
@@ -308,6 +316,11 @@ export default {
   .v-card__subtitle {
     font-size: 17px;
     font-weight: 300;
+    font-family: $fontfamliy;
+  }
+  .location-condtion {
+    font-size: 16px;
+    font-weight: 500;
     font-family: $fontfamliy;
   }
   .adNum {
