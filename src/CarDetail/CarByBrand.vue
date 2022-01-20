@@ -8,7 +8,7 @@
             (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة
             {{ CarName }} للبيع في اليمن
           </h2>
-          <div v-else class="d-flex justify-center">
+          <div v-else class="white d-flex justify-center">
             <v-img
               class="no-car-image"
               contain

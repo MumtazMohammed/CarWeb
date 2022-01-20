@@ -22,15 +22,7 @@
         transition="dialog-transition"
       >
         <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            outlined
-            dark
-            elevation="0"
-            class="ma-2 btn1"
-            v-bind="attrs"
-            v-on="on"
-            color="primary"
-          >
+          <v-btn  elevation="0" class="ma-2 btn1" v-bind="attrs" v-on="on">
             <b v-text="SignUp" class="sgin"></b>
             <v-icon class="sign-in-icon" right>fas fa-sign-in-alt</v-icon>
           </v-btn>
@@ -43,11 +35,11 @@
             dark
             color="transparent"
           >
-            <v-btn class="primary--text" icon  @click="dialog = false">
+            <v-btn class="primary--text" icon @click="dialog = false">
               <v-icon>fas fa-times</v-icon>
             </v-btn>
           </v-toolbar>
-          <v-toolbar-items  class="toolbar-items">
+          <v-toolbar-items class="toolbar-items">
             <Login :dialog="dialog" @dialogclose="dialog = $event" />
           </v-toolbar-items>
         </v-card>
@@ -114,6 +106,8 @@ export default {
     font-size: 18px !important;
   }
   .btn1 {
+    color: $fontcolorsm;
+    background-color: $btnbackground !important;
     @media (max-width: 599px) {
       background-color: transparent !important;
       border: 1px solid white !important;

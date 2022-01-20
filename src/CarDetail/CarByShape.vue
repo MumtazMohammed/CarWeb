@@ -13,7 +13,7 @@
             من نوع {{ CarShape }} للبيع
           </h2>
 
-          <div v-else class="d-flex justify-center">
+          <div v-else class="white d-flex justify-center">
             <v-img
               class="no-car-image"
               contain
