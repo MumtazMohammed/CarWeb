@@ -8,8 +8,7 @@
             (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة
             {{ CarName }} للبيع في اليمن
           </h2>
-          <div v-else class="d-flex justify-center flex-column align-center">
-            <h2 class="no-car">لا يـتوفر سيارات {{ CarName }} في الـموقع</h2>
+          <div v-else class="d-flex justify-center">
             <v-img
               class="no-car-image"
               contain
@@ -232,9 +231,7 @@ export default {
 @import "@/scss/mixin";
 .product_box {
   width: 100%;
-  height: 100%;
-  // position: relative;
-  // background-color: $simplebackground;
+  min-height: 100vh;
   .brand_box {
     padding: $padding;
     background-color: $simplebackground;

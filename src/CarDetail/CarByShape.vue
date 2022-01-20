@@ -13,10 +13,7 @@
             من نوع {{ CarShape }} للبيع
           </h2>
 
-          <div v-else class="d-flex justify-center flex-column align-center">
-            <h2 class="no-car">
-              لا تـتوفر سيارات من نـوع {{ CarShape }} في الـموقع
-            </h2>
+          <div v-else class="d-flex justify-center">
             <v-img
               class="no-car-image"
               contain
@@ -234,31 +231,15 @@ export default {
 @import "@/scss/mixin";
 .product_box {
   width: 100%;
-  height: 100%;
-  // position: relative;
-  // background-color: $simplebackground;
+  min-height: 100vh;
+
   .Shape_box {
     padding: $padding;
     background-color: $simplebackground;
   }
-  .car-box {
-    @media (max-width: 600px) {
-      justify-content: center;
-    }
-  }
   .tital {
     color: $fontcolor;
     font-family: $fontfamliy;
-  }
-  .title-box {
-    margin: 15px 0;
-    width: fit-content;
-    h3 {
-      color: $fontcolor;
-      text-decoration: underline;
-      font-family: $fontfamliy;
-      cursor: pointer;
-    }
   }
   .boredr-all-box {
     @media (max-width: 880px) {
