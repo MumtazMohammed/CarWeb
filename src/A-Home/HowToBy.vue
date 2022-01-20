@@ -1,18 +1,20 @@
 <template>
-  <div class="HowToBuy my-16">
+  <div class="HowToBuy mt-16">
     <v-container>
       <p class="text-center font-weight-bold tital">
         {{ Tital }}
       </p>
-      <span class="line mt-5 mb-8 mx-auto"></span>
+      <span class="line my-3  mx-auto"></span>
       <v-row>
         <v-col cols="12" sm="6" md="6" align-self="center">
           <div>
             <v-expansion-panels v-model="panel" multiple>
               <v-expansion-panel v-for="(item, i) in items" :key="i">
-                <v-expansion-panel-header class="expansion-header py-1">{{
-                  item.how
-                }}</v-expansion-panel-header>
+                <v-expansion-panel-header
+                  color="#6599ff"
+                  class="expansion-header py-1"
+                  >{{ item.how }}</v-expansion-panel-header
+                >
                 <v-expansion-panel-content class="expansion-content">
                   {{ item.text }}
                 </v-expansion-panel-content>
@@ -22,7 +24,11 @@
         </v-col>
 
         <v-col cols="12" sm="6" md="6">
-          <v-img contain fullscreen src="../assets/outsrc/651.jpg"></v-img>
+          <v-img
+            contain
+            fullscreen
+            src="../assets/outsrc/—Pngtree—buying sale rent cars flat_5426811.png"
+          ></v-img>
         </v-col>
       </v-row>
     </v-container>
@@ -62,7 +68,6 @@ export default {
   height: auto;
   padding: 25px 0;
   position: relative;
-  background-color: $simplebackground;
   .stepper-header {
     box-shadow: 0px 0px 0px;
   }
@@ -79,9 +84,13 @@ export default {
     }
   }
   .line {
-    width: 150px;
-    height: 3px;
-    background-color: $btnbackground;
+    width: 180px;
+    height: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #6599ff;
     display: block;
     @media (max-width: 400px) {
       width: 100px;
@@ -90,7 +99,7 @@ export default {
   .expansion-header {
     font-family: $fontfamliy;
     letter-spacing: 0;
-    color: $fontcolor;
+    color: $fontcolorsm;
     font-size: 16px;
     font-weight: 600;
     min-height: 45px;
@@ -101,7 +110,7 @@ export default {
     color: $fontcolor;
     font-size: 15px;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.8;
     pointer-events: none;
   }
 }

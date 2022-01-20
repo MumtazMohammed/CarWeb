@@ -1,7 +1,7 @@
 <template>
   <div class="see-all mt-8">
     <div class="text-center">
-      <v-btn large outlined class="link" color="#ffc107" to="/ViewAllCar">
+      <v-btn large outlined class="link" color="#6599ff" to="/ViewAllCar">
         شاهد جميع السيارات المضمونه لدينا
       </v-btn>
     </div>

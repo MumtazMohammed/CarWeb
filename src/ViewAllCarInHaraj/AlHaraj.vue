@@ -275,13 +275,13 @@ export default {
     color: #8c8c8c;
   }
   .btn-vip {
-    color: $SpicalCarColor;
+    color: $fontcolorsm;
     font-family: $fontfamliy;
     font-weight: 500;
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $SpicalCarColor2 !important;
+    background-color: $btnbackground !important;
   }
   .btn {
     color: $fontcolor;
@@ -313,11 +313,11 @@ export default {
 }
 .top-vip {
   font-family: $fontfamliy;
-  color: $SpicalCarColor;
+  color: $fontcolorsm;
   letter-spacing: 0;
   font-size: 16px;
   font-weight: 600;
-  background-color: $SpicalCarColor2;
+  background-color: $btnbackground;
 }
 .adNum {
   font-family: $fontfamliy;
@@ -355,11 +355,11 @@ export default {
   width: 25px;
   height: 25px;
   text-align: center;
-  background-color: $SpicalCarColor;
+  background-color: $fontcolorsm;
   clip-path: circle(50% at 50% 50%);
 }
 .card-vip {
-  border: 0.5px solid $SpicalCarColor !important;
+  border: 0.5px solid $btnbackground !important;
   overflow: hidden;
 }
 .card {

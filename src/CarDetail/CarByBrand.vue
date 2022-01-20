@@ -1,192 +1,185 @@
 <template>
   <div class="product_box">
     <NavBar />
-    <div class="brand_box">
-      <v-container fluid>
-        <v-col cols="12">
-          <h2 v-if="getCarInfo.length > 0" class="tital">
-            (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة
-            {{ CarName }} للبيع في اليمن
-          </h2>
-          <div v-else class="white d-flex justify-center">
-            <v-img
-              class="no-car-image"
-              contain
-              max-width="500px"
-              src="../assets/3009287.jpg"
-            ></v-img>
-          </div>
-        </v-col>
-        <!--  -->
-        <v-col cols="12" v-if="getCarInfo.length > 5">
-          <FilterSection />
-        </v-col>
-        <!--  -->
-        <v-row class="mt-1">
-          <v-col
-            cols="6"
-            sm="4"
-            md="3"
-            class="pa-1 boredr-all-box"
-            v-for="CarData in getCarInfo"
-            :key="CarData.id"
-          >
-            <!-- using methods to conect the image to the corect folder   -->
-            <!-- vip car  -->
-            <v-card v-if="CarData.Vip == true" class="card-vip pa-1" flat>
-              <v-row>
-                <v-col class="" cols="12">
-                  <p class="py-2 ma-0 px-0 text-center top-vip">
-                    مضمون وريح راسك
-                  </p>
-                  <v-img
-                    :src="getimageUrl(CarData.folder, CarData.image)"
-                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                    height="170px"
-                    class="img"
-                  >
-                  </v-img>
-                </v-col>
-              </v-row>
-              <!-- car info  -->
-              <!-- car Name  -->
-              <v-row class="pa-0 mt-1" align="center">
-                <v-col cols="12" class="pa-3 pr-5">
-                  <v-card-subtitle class="font-weight-medium pa-1"
-                    >{{ CarData.company }} {{ CarData.name }}
-                    {{ CarData.modle }}
-                  </v-card-subtitle>
-                </v-col>
-              </v-row>
-              <!-- car location  and condition  -->
-              <v-row class="mb-1 justify-center">
-                <v-col cols="5" class="pa-0">
-                  <v-card-subtitle class="text-right location-condtion pa-2">{{
-                    CarData.location
-                  }}</v-card-subtitle>
-                </v-col>
-                <v-divider color="#ffc107" vertical></v-divider>
-                <v-col cols="5" class="pa-0">
-                  <v-card-subtitle class="text-left location-condtion pa-2"
-                    >{{ CarData.condtion }}
-                  </v-card-subtitle>
-                </v-col>
-              </v-row>
-              <!-- car praic and kilo  -->
-              <v-row class="mb-1 justify-center">
-                <v-col cols="5" class="pa-0">
-                  <v-card-subtitle
-                    class="green--text font-weight-medium text-right pa-2"
-                    >{{ CarData.payment }}</v-card-subtitle
-                  >
-                </v-col>
-                <v-divider color="#ffc107" vertical></v-divider>
-                <v-col cols="5" class="pa-0">
-                  <v-card-subtitle class="text-left font-weight-regular pa-2"
-                    >{{ CarData.kilometer }}
-                  </v-card-subtitle>
-                </v-col>
-              </v-row>
-              <!-- car click to see more  -->
-              <v-card-actions class="d-flex justify-center">
-                <v-btn
-                  block
-                  class="btn-vip rounded-0"
-                  width="200"
-                  :to="{
-                    name: 'ViewCar',
-                    params: {
-                      carName: CarData.name,
-                      carShape: CarData.Shape,
-                      carId: CarData.id,
-                      Company: CarData.folder,
-                    },
-                  }"
-                  depressed
+    <v-container fluid>
+      <v-col cols="12">
+        <h2 v-if="getCarInfo.length > 0" class="tital">
+          (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة
+          {{ CarName }} للبيع في اليمن
+        </h2>
+        <div v-else class="white d-flex justify-center">
+          <p class="no-car">لا يوجد سيارت متاحا {{ CarName }}</p>
+        </div>
+      </v-col>
+      <!--  -->
+      <v-col cols="12" v-if="getCarInfo.length > 5">
+        <FilterSection />
+      </v-col>
+      <!--  -->
+      <v-row v-if="getCarInfo.length > 0" class="mt-1 row-cars">
+        <v-col
+          cols="6"
+          sm="4"
+          md="3"
+          class="pa-1 boredr-all-box"
+          v-for="CarData in getCarInfo"
+          :key="CarData.id"
+        >
+          <!-- using methods to conect the image to the corect folder   -->
+          <!-- vip car  -->
+          <v-card v-if="CarData.Vip == true" class="card-vip pa-1" flat>
+            <v-row>
+              <v-col class="" cols="12">
+                <p class="py-2 ma-0 px-0 text-center top-vip">
+                  مضمون وريح راسك
+                </p>
+                <v-img
+                  :src="getimageUrl(CarData.folder, CarData.image)"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="170px"
+                  class="img"
                 >
-                  أقراء المزيد
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-            <!-- not vip car  -->
-            <v-card v-if="CarData.Vip == false" class="card pa-1" flat>
-              <v-row>
-                <v-col class="" cols="12">
-                  <p class="py-2 ma-0 px-0 text-center adNum">
-                    رقم الأعلان : {{ CarData.id }}
-                  </p>
-                  <v-img
-                    :src="getimageUrl(CarData.folder, CarData.image)"
-                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                    height="170px"
-                  >
-                  </v-img>
-                </v-col>
-              </v-row>
-              <!-- car info  -->
-              <!-- car Name  -->
-              <v-row class="pa-0 mt-1" align="center">
-                <v-col cols="12" class="pa-3 pr-5">
-                  <v-card-subtitle class="font-weight-medium pa-1"
-                    >{{ CarData.company }} {{ CarData.name }}
-                    {{ CarData.modle }}
-                  </v-card-subtitle>
-                </v-col>
-              </v-row>
-              <!-- car location  and condition  -->
-              <v-row class="mb-1 justify-center">
-                <v-col cols="5" class="pa-0">
-                  <v-card-subtitle class="text-right location-condtion pa-2">{{
-                    CarData.location
-                  }}</v-card-subtitle>
-                </v-col>
-                <v-divider vertical></v-divider>
-                <v-col cols="5" class="pa-0">
-                  <v-card-subtitle class="text-left location-condtion pa-2"
-                    >{{ CarData.condtion }}
-                  </v-card-subtitle>
-                </v-col>
-              </v-row>
-              <!-- car praic and kilo  -->
-              <v-row class="mb-1 justify-center">
-                <v-col cols="5" class="pa-0">
-                  <v-card-subtitle
-                    class="green--text font-weight-medium text-right pa-2"
-                    >{{ CarData.payment }}</v-card-subtitle
-                  >
-                </v-col>
-                <v-divider vertical></v-divider>
-                <v-col cols="5" class="pa-0">
-                  <v-card-subtitle class="text-left font-weight-regular pa-2"
-                    >{{ CarData.kilometer }}
-                  </v-card-subtitle>
-                </v-col>
-              </v-row>
-              <!-- car click to see more  -->
-              <v-card-actions class="d-flex justify-center">
-                <v-btn
-                  block
-                  class="btn rounded-0"
-                  width="200"
-                  :to="{
-                    name: 'ViewCar',
-                    params: {
-                      carName: CarData.name,
-                      carShape: CarData.Shape,
-                      carId: CarData.id,
-                      Company: CarData.folder,
-                    },
-                  }"
-                  depressed
+                </v-img>
+              </v-col>
+            </v-row>
+            <!-- car info  -->
+            <!-- car Name  -->
+            <v-row class="pa-0 mt-1" align="center">
+              <v-col cols="12" class="pa-3 pr-5">
+                <v-card-subtitle class="font-weight-medium pa-1"
+                  >{{ CarData.company }} {{ CarData.name }}
+                  {{ CarData.modle }}
+                </v-card-subtitle>
+              </v-col>
+            </v-row>
+            <!-- car location  and condition  -->
+            <v-row class="mb-1 justify-center">
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle class="text-right location-condtion pa-2">{{
+                  CarData.location
+                }}</v-card-subtitle>
+              </v-col>
+              <v-divider color="#ffc107" vertical></v-divider>
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle class="text-left location-condtion pa-2"
+                  >{{ CarData.condtion }}
+                </v-card-subtitle>
+              </v-col>
+            </v-row>
+            <!-- car praic and kilo  -->
+            <v-row class="mb-1 justify-center">
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle
+                  class="green--text font-weight-medium text-right pa-2"
+                  >{{ CarData.payment }}</v-card-subtitle
                 >
-                  أقراء المزيد
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </div>
+              </v-col>
+              <v-divider color="#ffc107" vertical></v-divider>
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle class="text-left font-weight-regular pa-2"
+                  >{{ CarData.kilometer }}
+                </v-card-subtitle>
+              </v-col>
+            </v-row>
+            <!-- car click to see more  -->
+            <v-card-actions class="d-flex justify-center">
+              <v-btn
+                block
+                class="btn-vip rounded-0"
+                width="200"
+                :to="{
+                  name: 'ViewCar',
+                  params: {
+                    carName: CarData.name,
+                    carShape: CarData.Shape,
+                    carId: CarData.id,
+                    Company: CarData.folder,
+                  },
+                }"
+                depressed
+              >
+                أقراء المزيد
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+          <!-- not vip car  -->
+          <v-card v-if="CarData.Vip == false" class="card pa-1" flat>
+            <v-row>
+              <v-col class="" cols="12">
+                <p class="py-2 ma-0 px-0 text-center adNum">
+                  رقم الأعلان : {{ CarData.id }}
+                </p>
+                <v-img
+                  :src="getimageUrl(CarData.folder, CarData.image)"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="170px"
+                >
+                </v-img>
+              </v-col>
+            </v-row>
+            <!-- car info  -->
+            <!-- car Name  -->
+            <v-row class="pa-0 mt-1" align="center">
+              <v-col cols="12" class="pa-3 pr-5">
+                <v-card-subtitle class="font-weight-medium pa-1"
+                  >{{ CarData.company }} {{ CarData.name }}
+                  {{ CarData.modle }}
+                </v-card-subtitle>
+              </v-col>
+            </v-row>
+            <!-- car location  and condition  -->
+            <v-row class="mb-1 justify-center">
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle class="text-right location-condtion pa-2">{{
+                  CarData.location
+                }}</v-card-subtitle>
+              </v-col>
+              <v-divider vertical></v-divider>
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle class="text-left location-condtion pa-2"
+                  >{{ CarData.condtion }}
+                </v-card-subtitle>
+              </v-col>
+            </v-row>
+            <!-- car praic and kilo  -->
+            <v-row class="mb-1 justify-center">
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle
+                  class="green--text font-weight-medium text-right pa-2"
+                  >{{ CarData.payment }}</v-card-subtitle
+                >
+              </v-col>
+              <v-divider vertical></v-divider>
+              <v-col cols="5" class="pa-0">
+                <v-card-subtitle class="text-left font-weight-regular pa-2"
+                  >{{ CarData.kilometer }}
+                </v-card-subtitle>
+              </v-col>
+            </v-row>
+            <!-- car click to see more  -->
+            <v-card-actions class="d-flex justify-center">
+              <v-btn
+                block
+                class="btn rounded-0"
+                width="200"
+                :to="{
+                  name: 'ViewCar',
+                  params: {
+                    carName: CarData.name,
+                    carShape: CarData.Shape,
+                    carId: CarData.id,
+                    Company: CarData.folder,
+                  },
+                }"
+                depressed
+              >
+                أقراء المزيد
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 <script>
@@ -232,9 +225,9 @@ export default {
 .product_box {
   width: 100%;
   min-height: 100vh;
-  .brand_box {
-    padding: $padding;
+  .row-cars {
     background-color: $simplebackground;
+    padding: $padding;
   }
   .car-box {
     @media (max-width: 600px) {
@@ -354,6 +347,21 @@ export default {
 @media (max-width: 450px) {
   .flex.xs6 {
     max-width: 100% !important;
+  }
+}
+.no-car {
+  font-family: $fontfamliy;
+  font-size: 25px;
+  color: $btnbackground;
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  margin: 0;
+  @media (max-width: 400px) {
+    font-size: 20px;
+  }
+  @media (max-width: 300px) {
+    font-size: 17px;
   }
 }
 </style>

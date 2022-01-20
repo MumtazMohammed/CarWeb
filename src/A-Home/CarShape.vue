@@ -118,6 +118,10 @@ export default {
 .line {
   width: 300px;
   height: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   background-color: $btnbackground;
   display: block;
 }

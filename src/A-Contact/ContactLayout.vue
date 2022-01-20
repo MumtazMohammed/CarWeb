@@ -44,7 +44,7 @@ export default {
     color: $fontcolor;
   }
   .form {
-    background: $background1;
+    background: $btnbackground;
     border-radius: 5px;
     @media (max-width: 960px) {
       border-radius: 5px;

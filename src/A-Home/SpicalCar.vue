@@ -14,7 +14,7 @@
         :autoplay="fales"
         :autoplay-timeout="0"
         :display="5"
-        :space="275"
+        :space="278"
         :inverseScaling="-40"
         :perspective="0"
         :width="270"
@@ -70,7 +70,7 @@
                   CarSell.location
                 }}</v-card-subtitle>
               </v-col>
-              <v-divider color="#ffc107" vertical></v-divider>
+              <v-divider color="#6599ff" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left location-condtion pa-2"
                   >{{ CarSell.condtion }}
@@ -85,7 +85,7 @@
                   >{{ CarSell.payment }}</v-card-subtitle
                 >
               </v-col>
-              <v-divider color="#ffc107" vertical></v-divider>
+              <v-divider color="#6599ff" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left font-weight-regular pa-2"
                   >{{ CarSell.kilometer }}
@@ -241,9 +241,13 @@ export default {
     font-size: 27px;
   }
   .line {
-    width: 145px;
-    height: 3px;
-    background-color: $SpicalCarColor;
+    width: 115px;
+    height: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: $btnbackground;
     display: block;
   }
   .title-box {
@@ -262,13 +266,13 @@ export default {
     color: #8c8c8c;
   }
   .btn-vip {
-    color: $SpicalCarColor;
+    color: $fontcolorsm;
     font-family: $fontfamliy;
     font-weight: 500;
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $SpicalCarColor2 !important;
+    background-color: $btnbackground !important;
   }
 
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before {
@@ -289,14 +293,14 @@ export default {
 }
 .top-vip {
   font-family: $fontfamliy;
-  color: $SpicalCarColor;
+  color: $fontcolorsm;
   letter-spacing: 0;
   font-size: 16px;
   font-weight: 600;
-  background-color: $SpicalCarColor2;
+  background-color: $btnbackground;
 }
 .card-vip {
-  border: 0.5px solid $SpicalCarColor !important;
+  border: 0.5px solid $btnbackground !important;
   overflow: hidden;
 }
 @media (min-width: 960px) {

@@ -38,7 +38,7 @@
               <v-card-actions class="justify-center">
                 <v-btn
                   dark
-                  color="#428dff"
+                  color="#6599ff"
                   elevation="0"
                   min-width="50%"
                   class="submet"
@@ -55,17 +55,16 @@
             <v-divider></v-divider>
             <v-col cols="12" class="pa-0">
               <v-card-actions>
-                <v-card-subtitle class="forget pl-1"
+                <v-card-subtitle class="do-not-have-acount-text pl-1"
                   >ليس لديك حساب ؟</v-card-subtitle
                 >
                 <router-link
+                  class="do-not-have-acount-link pr-1"
                   to="/SginUp"
                   :value="dialog"
                   @click="dialog = false"
                 >
-                  <a class="forget2" :value="dialog" @click="closedialog"
-                    >أظغط هنا</a
-                  >
+                  <a :value="dialog" @click="closedialog">أظغط هنا</a>
                 </router-link>
               </v-card-actions>
             </v-col>
@@ -112,8 +111,9 @@ export default {
   letter-spacing: 0;
 }
 .forget {
-  font-family: $fontfamliy2;
-  font-size: 15px;
+  font-family: $fontfamliy;
+  font-size: 16px;
+  font-weight: 300 !important;
 
   @media (max-width: 400px) {
     font-size: 14px;
@@ -122,9 +122,15 @@ export default {
     font-size: 12px;
   }
 }
-.forget2 {
-  font-family: $fontfamliy2;
-  font-size: 13px;
+.do-not-have-acount-text {
+  font-family: $fontfamliy;
+  font-size: 16px;
+  font-weight: 300 !important;
+}
+.do-not-have-acount-link {
+  font-family: $fontfamliy;
+  font-size: 15px;
+  text-decoration: none !important;
 }
 .container-col {
   @media (max-width: 400px) {

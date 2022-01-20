@@ -54,7 +54,7 @@
                     CarData.location
                   }}</v-card-subtitle>
                 </v-col>
-                <v-divider color="#ffc107" vertical></v-divider>
+                <v-divider color="#6599ff" vertical></v-divider>
                 <v-col cols="5" class="pa-0">
                   <v-card-subtitle class="text-left location-condtion pa-2"
                     >{{ CarData.condtion }}
@@ -69,7 +69,7 @@
                     >{{ CarData.payment }}</v-card-subtitle
                   >
                 </v-col>
-                <v-divider color="#ffc107" vertical></v-divider>
+                <v-divider color="#6599ff" vertical></v-divider>
                 <v-col cols="5" class="pa-0">
                   <v-card-subtitle class="text-left font-weight-regular pa-1"
                     >{{ CarData.kilometer }}
@@ -196,13 +196,13 @@ export default {
     color: #8c8c8c;
   }
   .v-btn.v-size--default {
-    color: $SpicalCarColor;
+    color: $fontcolorsm;
     font-family: $fontfamliy;
     font-weight: 500;
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $SpicalCarColor2 !important;
+    background-color: $btnbackground !important;
   }
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
   .theme--light.v-btn--active:hover:before {
@@ -226,15 +226,15 @@ export default {
 }
 .top-vip {
   font-family: $fontfamliy;
-  color: $SpicalCarColor;
+  color: $fontcolorsm;
   letter-spacing: 0;
   font-size: 16px;
   font-weight: 600;
-  background-color: $SpicalCarColor2;
+  background-color: $btnbackground;
 }
 
 .card-vip {
-  border: 0.5px solid $SpicalCarColor !important;
+  border: 0.5px solid $btnbackground !important;
   overflow: hidden;
 }
 @media (min-width: 960px) {

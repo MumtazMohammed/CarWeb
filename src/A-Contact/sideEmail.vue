@@ -23,7 +23,7 @@
               <v-col cols="10" class="pa-0">
                 <v-card-title
                   dark
-                  class="card-ti success white--text font-weight-regular justify-center pa-2"
+                  class="card-ti success lighten-1 white--text font-weight-regular justify-center pa-2"
                 >
                   601121331731+
                 </v-card-title>
@@ -48,7 +48,7 @@
               <v-col cols="10" class="pa-0">
                 <v-card-title
                   dark
-                  class="card-ti primary white--text font-weight-regular justify-center pa-2"
+                  class="card-ti primary lighten-1 white--text font-weight-regular justify-center pa-2"
                 >
                   601121331731+
                 </v-card-title>
@@ -60,12 +60,15 @@
       <v-col cols="12" class="">
         <v-card flat color="transparent " class="pa-2">
           <v-card-title class="justify-center pa-2 warning-tital">
-            <v-icon right class="warning-icon warning--text px-2">
+            <v-icon
+              right
+              class="warning-icon warning--text text--lighten-2 px-2"
+            >
               fas fa-exclamation-triangle
             </v-icon>
             تنبيه !!!!
           </v-card-title>
-          <v-divider class="warning"></v-divider>
+          <v-divider class="white"></v-divider>
           <v-card-text class="text-center warning-text">
             اذا كان لديك شكوى عن المعلن قم بي بكتابة رسالتك عبر البريد او
             الأرقام الموضحه اعلأه ولا تنسى ادراج رقم المعلن .
@@ -135,11 +138,13 @@ export default {
   .header-tital {
     letter-spacing: 0;
     font-family: $fontfamliy;
-    color: $fontcolor;
+    color: $fontcolorsm;
   }
   .warning-tital {
     letter-spacing: 0;
     font-family: $fontfamliy;
+    color: $fontcolorsm;
+    font-size: 20px;
   }
   .warning-icon {
     font-size: 20px;
@@ -147,36 +152,12 @@ export default {
   .warning-text {
     letter-spacing: 0;
     font-family: $fontfamliy;
-    font-weight: 500;
+    font-weight: 300;
+    color: $fontcolorsm !important;
+    font-size: 16px;
   }
 }
-// .card:nth-child(1) {
-//   border-top-left-radius: 10px;
-//   border-top-right-radius: 10px;
-//   border-bottom-right-radius: 0px;
-//   border-bottom-left-radius: 0px;
-// }
-// .card:nth-child(2) {
-//   border-radius: 0px !important;
-// }
-// .card:nth-child(3) {
-//   border-top-left-radius: 0px;
-//   border-top-right-radius: 0px;
-//   border-bottom-right-radius: 10px;
-//   border-bottom-left-radius: 10px;
-// }
-// .card:nth-child(2) {
-//   border-top-left-radius: 0px;
-//   border-top-right-radius: 0px;
-//   border-bottom-right-radius: 10px;
-//   border-bottom-left-radius: 10px;
-// }
-.text {
-  font-size: 20px;
-  font-family: $fontfamliy;
-  color: $fontcolor;
-  letter-spacing: 0px;
-}
+
 .card-ti {
   font-size: 17px;
 }

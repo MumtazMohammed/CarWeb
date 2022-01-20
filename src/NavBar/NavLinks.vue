@@ -120,6 +120,6 @@ export default {
   }
 }
 .active {
-  border-bottom: 2px solid $btnbackground1 !important;
+  border-bottom: 3px solid $btnbackground !important;
 }
 </style>
