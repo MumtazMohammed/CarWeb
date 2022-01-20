@@ -15,8 +15,8 @@
             معلومات
           </v-btn>
           <v-snackbar
-            height="200px"
-            min-width="300"
+            height="250px"
+            min-width="500"
             width="500"
             centered
             v-model="owner"
@@ -48,8 +48,8 @@
           </v-btn>
           <v-snackbar
             v-model="whatsapp"
-            height="150px"
-            min-width="300"
+            height="250px"
+            min-width="500"
             centered
             :vertical="vertical"
             color="success"
@@ -87,8 +87,8 @@
             هاتف
           </v-btn>
           <v-snackbar
-            height="150px"
-            min-width="300"
+            height="250px"
+            min-width="500"
             centered
             v-model="call"
             :vertical="vertical"
@@ -128,8 +128,8 @@
           </v-btn>
         </v-card>
         <v-snackbar
-          height="150px"
-          min-width="300"
+          height="250px"
+          min-width="500"
           centered
           v-model="gmail"
           :vertical="vertical"

@@ -1,87 +1,91 @@
 <template>
-  <div class="car-info mt-4">
+  <div class="car-info py-10">
     <v-row justify="center">
       <v-col cols="12" class="pa-0">
         <v-card-title class="justify-center card-title">
           تفاصيل السيارة
         </v-card-title>
+        <span class="line mt-3 mb-5 mx-auto"></span>
       </v-col>
-      <v-col cols="12" class="pa-0 pb-2"><Desgin /> </v-col>
       <v-col cols="12" sm="11" md="10" class="pa-1">
-        <v-card color="#0d47a1" class="d-flex flex-wrap pa-5">
+        <v-card class="d-flex detail-card flex-wrap pa-5">
           <v-flex sx6 sm4 md3>
-            <v-card-text class="table_data-child">
+            <v-card-text class="table_data-child px-0">
               مـاركة : <b>{{ getCarInfo.company }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child"
+            <v-card-text class="table_data-child px-0"
               >الـنوع : <b>{{ getCarInfo.name }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child">
+            <v-card-text class="table_data-child px-0">
               الـفئة : <b>{{ getCarInfo.type }}</b></v-card-text
             >
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child"
+            <v-card-text class="table_data-child px-0"
               >الـسنة : <b>{{ getCarInfo.modle }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child">
+            <v-card-text class="table_data-child px-0">
               الـوارد : <b>{{ getCarInfo.received }}</b></v-card-text
             >
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child"
+            <v-card-text class="table_data-child px-0"
               >لـون الـمركبه : <b>{{ getCarInfo.ccolor }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child"
+            <v-card-text class="table_data-child px-0"
               >نـوع القير : <b>{{ getCarInfo.transmission }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child"
+            <v-card-text class="table_data-child px-0"
               >حجم الـمحرك : <b>{{ getCarInfo.engainpower }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child"
+            <v-card-text class="table_data-child px-0"
               >نـوع الـدفع : <b>{{ getCarInfo.boost }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child"
+            <v-card-text class="table_data-child px-0"
               >الحـالـة الـسيارة : <b>{{ getCarInfo.condtion }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child"
+            <v-card-text class="table_data-child px-0"
               >الـمواصفات : <b>{{ getCarInfo.kilometer }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child"
+            <v-card-text class="table_data-child px-0"
               >الـممشى : <b>{{ getCarInfo.kilometer }}</b>
             </v-card-text>
           </v-flex>
           <v-row justify="center" class="mt-2">
             <v-col cols="12" md="10" class="disc-p">
-              <v-expansion-panels color="primary" accordion>
-                <v-expansion-panel color="primary">
-                  <v-expansion-panel-header>وصف</v-expansion-panel-header>
-                  <v-expansion-panel-content>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </v-expansion-panel-content>
-                </v-expansion-panel>
-              </v-expansion-panels>
+              <v-card flat class="rounded-0">
+                <v-card-title class="disc-title py-2">
+                  تفاصيل أكثر عن السيارة
+                </v-card-title>
+                <v-divider></v-divider>
+                <v-card-text class="disc-text">
+                  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                  توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا
+                  النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف
+                  التى يولدها التطبيق. هذا النص هو مثال لنص يمكن أن يستبدل في
+                  نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                  يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة
+                  إلى زيادة عدد الحروف التى يولدها التطبيق.
+                </v-card-text>
+              </v-card>
             </v-col>
           </v-row>
         </v-card>
@@ -93,11 +97,10 @@
 </template>
 <script>
 import CarData from "../data-json/All-Car.json";
-import Desgin from "../CarDetail/Desgin.vue";
 
 export default {
   name: "CarDetails",
-  components: { Desgin },
+  components: {},
   data() {
     return {
       GetCarData: CarData,
@@ -129,28 +132,10 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/virables";
 @import "@/scss/mixin";
-.table_data {
-  font-family: $fontfamliy;
-  background-color: #f1f1f1f5 !important;
+.car-info {
 }
-
-// table hover
-.theme--light.v-data-table
-  > .v-data-table__wrapper
-  > table
-  > tbody
-  > tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
-  background-color: $background !important;
-  transition: background-color 0.3s ease;
-}
-.theme--light.v-data-table
-  > .v-data-table__wrapper
-  > table
-  > tbody
-  > tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper)
-  .table_data-child {
-  color: $fontcolorsm;
-  transition: color 0.3s ease;
+.detail-card {
+  background-color: #353535 !important;
 }
 .table_data-child {
   font-size: 16px !important;
@@ -159,7 +144,7 @@ export default {
   letter-spacing: 0 !important;
   font-family: $fontfamliy;
   @media (max-width: 400px) {
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
 }
 .table_data-child b {
@@ -169,7 +154,7 @@ export default {
   padding: 5px;
   font-family: $fontfamliy;
   @media (max-width: 400px) {
-    font-size: 13px !important;
+    font-size: 15px !important;
   }
 }
 
@@ -180,13 +165,24 @@ export default {
   letter-spacing: 0 !important;
   font-family: $fontfamliy;
 }
-.dicrption-text {
-  line-height: 1.8;
-  font-size: 16px;
-}
 .disc-p {
   @media (max-width: 960px) {
     padding: 4px;
   }
+}
+.disc-title {
+  font-family: $fontfamliy;
+}
+.disc-text {
+  font-family: $fontfamliy;
+  font-size: 16px;
+  font-weight: 500 !important;
+  line-height: 1.8;
+}
+.line {
+  width: 300px;
+  height: 5px;
+  background-color: $btnbackground;
+  display: block;
 }
 </style>

@@ -14,8 +14,8 @@
       <v-dialog
         v-model="dialog"
         persistent
-        max-width="700px"
-        max-height="400px"
+        max-width="800px"
+        max-height="500px"
         activator="v-dialog"
         class="v-dialog"
         overlay-opacity="0.9"
@@ -41,13 +41,13 @@
             flat
             class="rounded-0"
             dark
-            color="primary darken-2 "
+            color="transparent"
           >
-            <v-btn class="-3" icon dark @click="dialog = false">
+            <v-btn class="primary--text" icon  @click="dialog = false">
               <v-icon>fas fa-times</v-icon>
             </v-btn>
           </v-toolbar>
-          <v-toolbar-items class="toolbar-items">
+          <v-toolbar-items  class="toolbar-items">
             <Login :dialog="dialog" @dialogclose="dialog = $event" />
           </v-toolbar-items>
         </v-card>
@@ -135,6 +135,14 @@ export default {
     width: 100% !important;
     height: 100% !important;
     margin: 0 !important;
+  }
+}
+::v-deep .v-dialog.v-dialog--active.v-dialog--persistent {
+  @media (max-width: 500px) {
+    margin: 5px !important;
+  }
+  @media (max-width: 350px) {
+    margin: 0px !important;
   }
 }
 </style>

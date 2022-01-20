@@ -307,19 +307,16 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 5px;
 }
 .snackbar-close-owner {
   position: absolute;
   top: 0;
   right: 0;
-  // margin: 5px;
 }
 .snackbar-copy {
   position: absolute;
   top: 0;
   left: 0;
-  // margin: 5px;
 }
 .v-snack__content {
   text-align: center !important;

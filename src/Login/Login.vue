@@ -106,7 +106,6 @@ export default {
 .login {
   width: 100%;
   min-height: 100%;
-  background-color: $background;
 }
 .submet {
   font-family: $fontfamliy2;

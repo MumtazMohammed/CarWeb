@@ -239,6 +239,7 @@ export default {
   // background-color: $simplebackground;
   .Shape_box {
     padding: $padding;
+    background-color: $simplebackground;
   }
   .car-box {
     @media (max-width: 600px) {

@@ -25,7 +25,7 @@
                     outlined
                   ></v-text-field>
                 </v-col>
-                <v-col class="py-0 pr-sm-1 pr-md-1" md="6" sm="6" cols="12">
+                <!-- <v-col class="py-0 pr-sm-1 pr-md-1" md="6" sm="6" cols="12">
                   <v-text-field
                     ref="SecondtName"
                     v-model="SecondtName"
@@ -36,8 +36,8 @@
                     required
                     outlined
                   ></v-text-field>
-                </v-col>
-                <v-col class="py-0 pl-sm-1 pl-md-1" md="6" sm="6" cols="12">
+                </v-col> -->
+                <v-col class="py-0 pr-sm-1 pr-md-1" md="6" sm="6" cols="12">
                   <v-text-field
                     ref="number"
                     v-model="number"
@@ -50,7 +50,7 @@
                     class="ma-0"
                   ></v-text-field>
                 </v-col>
-                <v-col class="py-0 pr-sm-1 pr-md-1" md="6" sm="6" cols="12">
+                <v-col class="py-0 pl-sm-1 pl-md-1" md="4" sm="4" cols="12">
                   <v-autocomplete
                     ref="country"
                     v-model="country"
@@ -63,7 +63,7 @@
                     class="ma-0"
                   ></v-autocomplete>
                 </v-col>
-                <v-col class="py-0" cols="12">
+                <v-col class="py-0 pr-sm-1 pr-md-1" md="8" sm="8" cols="12">
                   <v-text-field
                     ref="email"
                     v-model="email"
@@ -88,44 +88,31 @@
                   </v-text-field>
                 </v-col>
               </v-row>
-
-              <v-row justify="center" class="">
-                <v-col class="py-0" cols="12">
-                  <v-text-field
-                    :rules="[rules.required, rules.min]"
-                    :type="show2 ? 'text' : 'password'"
-                    v-model="doublepassword"
-                    label="الرقم السري"
-                    class="input-group--focused ma-0 font-weight-regular"
-                    outlined
-                    required
-                  >
-                  </v-text-field>
-                </v-col>
-              </v-row>
             </v-card-text>
-            <v-col cols="12" class="py-0">
-              <v-card flat class="d-flex">
+            <v-col cols="12" class="pt-0">
+              <v-card flat class="d-flex align-center">
                 <v-switch
                   v-model="show2"
                   @click:append="show2 = !show2"
                   :type="show2 ? 'text' : 'password'"
                   color="info"
                   hide-details
-                  class="ma-0 pa-3 pl-0"
+                  class="ma-0 pa-0"
                 >
                 </v-switch>
-                <v-card-title class="pa-3 pr-1 showPassLab">
+                <v-card-title class="pa-0 showPassLab">
                   اظهار كلمة السر
                 </v-card-title>
               </v-card>
             </v-col>
             <v-card-actions class="justify-center pa-4">
-              <v-btn class="btn1" text @click="submit"> تسجيل </v-btn>
+              <v-btn class="btn1" outlined color="primary" @click="submit">
+                تسجيل
+              </v-btn>
             </v-card-actions>
             <v-divider></v-divider>
             <v-card-actions class="justify-center">
-              <v-row justify="center" class="mt-1">
+              <v-row justify="center">
                 <v-col cols="7" class="pa-2">
                   <v-card-title class="btn-title justify-center pa-0">
                     أو
@@ -241,7 +228,7 @@ nav {
 .sign-up {
   width: 100%;
   min-height: 100vh;
-  background: $background;
+  // background: $background;
   // background-position: center;
   // background-repeat: no-repeat;
   // background-size: cover;
@@ -251,7 +238,6 @@ nav {
     background-color: rgb(255, 255, 255) !important;
   }
   .btn1 {
-    background: $background;
     color: $fontcolorsm;
     letter-spacing: 0;
     font-family: $fontfamliy;
@@ -271,10 +257,6 @@ nav {
     font-size: 18px;
     transition: transform 0.3s ease;
   }
-  .btn-go:hover {
-    transform: scaleX(0.9);
-    opacity: 1 !important;
-  }
   .btn-fac {
     background: #1976d2;
     color: $fontcolorsm;
@@ -283,10 +265,6 @@ nav {
     font-size: 18px;
     transition: transform 0.3s ease;
   }
-  .btn-fac:hover {
-    transform: scaleX(0.9);
-    opacity: 1 !important;
-  }
   .avatar {
     transform: translate(0px, 16px);
     position: relative;
@@ -294,12 +272,12 @@ nav {
   }
   .user-bak {
     position: absolute;
-    bottom: -9px;
-    background: $background;
+    bottom: -38px;
+    background: #ffbb85;
     width: 174px;
     height: 54px;
     -webkit-clip-path: circle(50% at 50% 1%);
-    clip-path: circle(30% at 50% 24%);
+    clip-path: circle(30% at 50% -28%);
   }
   .showPassLab {
     font-family: $fontfamliy !important;

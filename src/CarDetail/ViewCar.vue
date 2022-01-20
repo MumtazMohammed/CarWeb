@@ -1,14 +1,16 @@
 <template>
   <div class="car-reviw">
     <NavBar />
-    <v-container class="mt-6">
-      <v-row>
-        <v-col cols="12" class="CarImage"> <CarImage /> </v-col>
-        <!-- <v-col cols="12" class="CarImage"><Desgin /> </v-col> -->
-        <v-col cols="12" class="CarDetails pa-3"><CarDetails /> </v-col>
-      </v-row>
-    </v-container>
-    <!-- getimageUrl(getCarInfo.folder, getCarInfo.image) -->
+    <div class="car-reviw">
+      <v-container class="mt-6">
+        <v-row>
+          <v-col cols="12" class="CarImage"> <CarImage /> </v-col>
+          <!-- <v-col cols="12" class="CarImage"><Desgin /> </v-col> -->
+          <v-col cols="12" class="CarDetails pa-3"><CarDetails /> </v-col>
+        </v-row>
+      </v-container>
+      <!-- getimageUrl(getCarInfo.folder, getCarInfo.image) -->
+    </div>
   </div>
 </template>
 <script>
@@ -58,15 +60,12 @@ export default {
 .car-reviw {
   width: 100;
   height: auto;
-  padding: 0 0 30px 0;
   position: relative;
 
-  .CarDetails {
+  .car-reviw:last-child {
     background-color: rgb(247, 247, 247);
   }
-  .CarImage {
-    background-color: rgb(247, 247, 247);
-  }
+  
 }
 </style>
 

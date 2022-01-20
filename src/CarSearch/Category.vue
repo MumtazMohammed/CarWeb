@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" persistent max-width="650">
+  <v-dialog class="dialog" v-model="dialog" persistent max-width="650">
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         class="nav-linkk rounded-0"
@@ -204,6 +204,11 @@ export default {
   .v-card__title.search-text {
     font-size: 13px !important;
     font-weight: 700;
+  }
+}
+::v-deep .v-dialog.v-dialog--active.v-dialog--persistent {
+  @media (max-width: 500px) {
+    margin: 5px !important;
   }
 }
 </style>

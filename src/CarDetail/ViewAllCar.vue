@@ -1,103 +1,106 @@
 <template>
-  <div class="product_box">
+  <div class="AllVip_box">
     <NavBar />
-    <v-container class="mb-7">
-      <v-col cols="12" class="pa-1">
-        <h2 class="tital">
-          سـيـارات مضمونة لدينا للبيع - (<span class="red--text">
-            {{ SpicalCarView.length }}</span
-          >
-          )
-        </h2>
-      </v-col>
-      <v-col cols="12" class=""> <FilterSection /> </v-col>
-      <v-row class="mt-1 py-4 car-box">
-        <v-col
-          cols="12"
-          sm="6"
-          md="3"
-          class="pa-1 boredr-all-box"
-          v-for="CarData in SpicalCarView"
-          :key="CarData.id"
-        >
-          <!-- using methods to conect the image to the corect folder   -->
-          <v-card class="card-vip pa-1" flat>
-            <v-row>
-              <v-col class="" cols="12">
-                <!-- <p class="ma-0 spical">مضمونه</p> -->
-                <p class="py-2 ma-0 px-0 text-center top-vip">
-                  مضمون وريح راسك
-                </p>
-                <v-img
-                  :src="getimageUrl(CarData.folder, CarData.image)"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="170px"
-                >
-                </v-img>
-              </v-col>
-            </v-row>
-            <!-- car info  -->
-            <!-- car Name  -->
-            <v-row class="pa-0 mt-1" align="center">
-              <v-col cols="12" class="pa-3 pr-5">
-                <v-card-subtitle class="font-weight-medium pa-1"
-                  >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
-                </v-card-subtitle>
-              </v-col>
-            </v-row>
-            <!-- car location  and condition  -->
-            <v-row class="mb-1 justify-center">
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle class="text-right location-condtion pa-2">{{
-                  CarData.location
-                }}</v-card-subtitle>
-              </v-col>
-              <v-divider color="#ffc107" vertical></v-divider>
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle class="text-left location-condtion pa-2"
-                  >{{ CarData.condtion }}
-                </v-card-subtitle>
-              </v-col>
-            </v-row>
-            <!-- car praic and kilo  -->
-            <v-row class="mb-1 justify-center">
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle
-                  class="green--text font-weight-medium text-right pa-1"
-                  >{{ CarData.payment }}</v-card-subtitle
-                >
-              </v-col>
-              <v-divider color="#ffc107" vertical></v-divider>
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle class="text-left font-weight-regular pa-1"
-                  >{{ CarData.kilometer }}
-                </v-card-subtitle>
-              </v-col>
-            </v-row>
-            <!-- car click to see more  -->
-            <v-card-actions class="d-flex justify-center">
-              <v-btn
-                block
-                class="rounded-0"
-                width="200"
-                :to="{
-                  name: 'ViewCar',
-                  params: {
-                    Company: CarData.folder,
-                    carName: CarData.name,
-                    carShape: CarData.Shape,
-                    carId: CarData.id,
-                  },
-                }"
-                depressed
-              >
-                أقراء المزيد
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+    <div class="product_box">
+      <v-container>
+        <v-col cols="12" class="pa-1">
+          <h2 class="tital">
+            سـيـارات مضمونة لدينا للبيع - (<span class="red--text">
+              {{ SpicalCarView.length }}</span
+            >
+            )
+          </h2>
         </v-col>
-      </v-row>
-    </v-container>
+        <v-col cols="12" class=""> <FilterSection /> </v-col>
+        <v-row class="mt-1">
+          <v-col
+            cols="12"
+            sm="6"
+            md="3"
+            class="pa-1 boredr-all-box"
+            v-for="CarData in SpicalCarView"
+            :key="CarData.id"
+          >
+            <!-- using methods to conect the image to the corect folder   -->
+            <v-card class="card-vip pa-1" flat>
+              <v-row>
+                <v-col class="" cols="12">
+                  <!-- <p class="ma-0 spical">مضمونه</p> -->
+                  <p class="py-2 ma-0 px-0 text-center top-vip">
+                    مضمون وريح راسك
+                  </p>
+                  <v-img
+                    :src="getimageUrl(CarData.folder, CarData.image)"
+                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    height="170px"
+                  >
+                  </v-img>
+                </v-col>
+              </v-row>
+              <!-- car info  -->
+              <!-- car Name  -->
+              <v-row class="pa-0 mt-1" align="center">
+                <v-col cols="12" class="pa-3 pr-5">
+                  <v-card-subtitle class="font-weight-medium pa-1"
+                    >{{ CarData.company }} {{ CarData.name }}
+                    {{ CarData.modle }}
+                  </v-card-subtitle>
+                </v-col>
+              </v-row>
+              <!-- car location  and condition  -->
+              <v-row class="mb-1 justify-center">
+                <v-col cols="5" class="pa-0">
+                  <v-card-subtitle class="text-right location-condtion pa-2">{{
+                    CarData.location
+                  }}</v-card-subtitle>
+                </v-col>
+                <v-divider color="#ffc107" vertical></v-divider>
+                <v-col cols="5" class="pa-0">
+                  <v-card-subtitle class="text-left location-condtion pa-2"
+                    >{{ CarData.condtion }}
+                  </v-card-subtitle>
+                </v-col>
+              </v-row>
+              <!-- car praic and kilo  -->
+              <v-row class="mb-1 justify-center">
+                <v-col cols="5" class="pa-0">
+                  <v-card-subtitle
+                    class="green--text font-weight-medium text-right pa-1"
+                    >{{ CarData.payment }}</v-card-subtitle
+                  >
+                </v-col>
+                <v-divider color="#ffc107" vertical></v-divider>
+                <v-col cols="5" class="pa-0">
+                  <v-card-subtitle class="text-left font-weight-regular pa-1"
+                    >{{ CarData.kilometer }}
+                  </v-card-subtitle>
+                </v-col>
+              </v-row>
+              <!-- car click to see more  -->
+              <v-card-actions class="d-flex justify-center">
+                <v-btn
+                  block
+                  class="rounded-0"
+                  width="200"
+                  :to="{
+                    name: 'ViewCar',
+                    params: {
+                      Company: CarData.folder,
+                      carName: CarData.name,
+                      carShape: CarData.Shape,
+                      carId: CarData.id,
+                    },
+                  }"
+                  depressed
+                >
+                  أقراء المزيد
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
   </div>
 </template>
 <script>
@@ -142,15 +145,17 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/virables";
 @import "@/scss/mixin";
+.AllVip_box {
+  width: 100%;
+  min-height: 100vh;
+}
 .product_box {
   width: 100%;
   height: auto;
-  position: relative;
+  padding: $padding;
 
-  .car-box {
-    background-color: $simplebackground;
-    border-radius: 5px;
-  }
+  position: relative;
+  background-color: $simplebackground;
   .boredr-all-box {
     @media (max-width: 600px) {
       padding: 5px 30px !important;
