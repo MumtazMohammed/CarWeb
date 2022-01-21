@@ -7,7 +7,7 @@
         </v-card-title>
         <span class="line mt-3 mb-5 mx-auto"></span>
       </v-col>
-      <v-col cols="12" sm="11" md="10" class="pa-1">
+      <v-col cols="12" sm="12" md="11" class="pa-1">
         <v-card class="d-flex detail-card flex-wrap pa-5">
           <v-flex sx6 sm4 md3>
             <v-card-text class="table_data-child px-0">
@@ -71,7 +71,7 @@
           </v-flex>
           <v-row justify="center" class="mt-2">
             <v-col cols="12" md="10" class="disc-p">
-              <v-card flat class="rounded-0">
+              <v-card color="#6599ff" class="">
                 <v-card-title class="disc-title py-2">
                   تفاصيل أكثر عن السيارة
                 </v-card-title>
@@ -135,10 +135,10 @@ export default {
 .car-info {
 }
 .detail-card {
-  background-color: #353535 !important;
+  background-color: $btnbackground !important;
 }
 .table_data-child {
-  font-size: 16px !important;
+  font-size: 15px !important;
   font-weight: bold;
   color: $fontcolorsm;
   letter-spacing: 0 !important;
@@ -149,7 +149,7 @@ export default {
 }
 .table_data-child b {
   font-size: 16px !important;
-  font-weight: 300;
+  font-weight: 400;
   color: $fontcolorsm;
   padding: 5px;
   font-family: $fontfamliy;
@@ -171,13 +171,20 @@ export default {
   }
 }
 .disc-title {
+  color: $fontcolorsm;
   font-family: $fontfamliy;
+  // background-color: $btnbackground;
+  // border-left: 1px solid $background1 !important;
+  // border-right: 1px solid $background1 !important;
+  // border-top: 1px solid $background1 !important;
 }
 .disc-text {
   font-family: $fontfamliy;
   font-size: 16px;
   font-weight: 500 !important;
   line-height: 1.8;
+  background-color: #fff;
+  color: $fontcolor !important;
 }
 .line {
   width: 300px;

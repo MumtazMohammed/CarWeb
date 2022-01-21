@@ -10,7 +10,7 @@
       <!-- bar icon for show links  -->
       <v-app-bar-nav-icon
         @click="drawer = true"
-        color="#f44336"
+        color="#6599ff"
         class="hidden-sm-and-up"
       ></v-app-bar-nav-icon>
     </v-toolbar>
@@ -45,7 +45,7 @@
               <v-list-item-icon class="icon-list">
                 <v-icon class="nav-icon" right v-text="item.icon"></v-icon>
               </v-list-item-icon>
-              <v-list-item-content class="#dddddd--text">
+              <v-list-item-content >
                 <v-list-item-title
                   class="nav-link-sm pa-2"
                   v-text="item.text"

@@ -101,6 +101,7 @@ export default {
 .navlinks-box {
   padding: 5px 0;
   top: -68px;
+  background-color: #fff;
   transition: top 0.5s ease-out;
   @include flexcenter();
 
@@ -120,6 +121,19 @@ export default {
   }
 }
 .active {
-  border-bottom: 3px solid $btnbackground !important;
+  position: relative;
+}
+.active:before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 5px;
+  background-color: $btnbackground;
+  transform: translate(-50%, 1000%);
+  opacity: 1 !important;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 </style>

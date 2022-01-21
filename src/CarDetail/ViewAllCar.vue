@@ -65,13 +65,13 @@
               <v-row class="mb-1 justify-center">
                 <v-col cols="5" class="pa-0">
                   <v-card-subtitle
-                    class="green--text font-weight-medium text-right pa-1"
+                    class="green--text font-weight-medium text-right pa-2"
                     >{{ CarData.payment }}</v-card-subtitle
                   >
                 </v-col>
                 <v-divider color="#6599ff" vertical></v-divider>
                 <v-col cols="5" class="pa-0">
-                  <v-card-subtitle class="text-left font-weight-regular pa-1"
+                  <v-card-subtitle class="text-left font-weight-regular pa-2"
                     >{{ CarData.kilometer }}
                   </v-card-subtitle>
                 </v-col>
@@ -161,7 +161,7 @@ export default {
       padding: 5px 30px !important;
     }
     @media (max-width: 330px) {
-      padding: 5px 0px !important;
+      padding: 5px 30px !important;
     }
   }
   .tital {
@@ -220,7 +220,7 @@ export default {
   }
   .location-condtion {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     font-family: $fontfamliy;
   }
 }

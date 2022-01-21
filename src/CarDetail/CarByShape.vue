@@ -36,6 +36,7 @@
                 <p class="py-2 ma-0 px-0 text-center top-vip">
                   مضمون وريح راسك
                 </p>
+                <b class="pa-0 text-center CarNumVip"> </b>
                 <v-img
                   :src="getimageUrl(CarData.folder, CarData.image)"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
@@ -62,7 +63,7 @@
                   CarData.location
                 }}</v-card-subtitle>
               </v-col>
-              <v-divider color="#ffc107" vertical></v-divider>
+              <v-divider color="#6599ff" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left location-condtion pa-2"
                   >{{ CarData.condtion }}
@@ -76,7 +77,7 @@
                   >{{ CarData.payment }}</v-card-subtitle
                 >
               </v-col>
-              <v-divider color="#ffc107" vertical></v-divider>
+              <v-divider color="#6599ff" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left font-weight-regular pa-2"
                   >{{ CarData.kilometer }}
@@ -108,8 +109,8 @@
           <v-card v-if="CarData.Vip == false" class="card pa-1" flat>
             <v-row>
               <v-col class="" cols="12">
-                <p class="py-2 ma-0 px-0 text-center adNum">
-                  رقم الأعلان : {{ CarData.id }}
+                <p class="py-2 ma-0 px-0 text-center adbywho">
+                  أعلان : {{ CarData.ad }}
                 </p>
                 <v-img
                   :src="getimageUrl(CarData.folder, CarData.image)"
@@ -162,7 +163,7 @@
             <v-card-actions class="d-flex justify-center">
               <v-btn
                 block
-                class="btn rounded-0"
+                class="btn grey lighten-1 rounded-0"
                 width="200"
                 :to="{
                   name: 'ViewCar',
@@ -225,8 +226,9 @@ export default {
 .product_box {
   width: 100%;
   min-height: 100vh;
+  background-color: $simplebackground;
+
   .row-cars {
-    background-color: $simplebackground;
     padding: $padding;
   }
   .tital {
@@ -262,13 +264,13 @@ export default {
     color: #8c8c8c;
   }
   .btn-vip {
-    color: $SpicalCarColor;
+    color: $fontcolorsm;
     font-family: $fontfamliy;
     font-weight: 500;
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $SpicalCarColor2 !important;
+    background-color: $btnbackground !important;
   }
   .btn {
     color: $fontcolor;
@@ -277,7 +279,6 @@ export default {
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $background1 !important;
   }
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
   .theme--light.v-btn--active:hover:before {
@@ -294,33 +295,65 @@ export default {
   }
   .location-condtion {
     font-size: 16px;
-    font-weight: 500;
-    font-family: $fontfamliy;
-  }
-  .adNum {
-    font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     font-family: $fontfamliy;
   }
 }
 .top-vip {
   font-family: $fontfamliy;
-  color: $SpicalCarColor;
+  color: $fontcolorsm;
   letter-spacing: 0;
   font-size: 16px;
   font-weight: 600;
-  background-color: $SpicalCarColor2;
+  background-color: $btnbackground;
 }
-.adNum {
+.CarNumVip {
+  position: absolute;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  color: $fontcolor;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  background-color: #fff;
+  clip-path: circle(50% at 50% 50%);
+}
+.CarNumVip:before {
+  content: "";
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  background-color: #fff;
+  clip-path: circle(50% at 50% 50%);
+  z-index: 2;
+}
+.CarNumVip:after {
+  content: "";
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: $btnbackground;
+  clip-path: circle(50% at 50% 50%);
+}
+.adbywho {
   font-family: $fontfamliy;
   color: $fontcolor;
   letter-spacing: 0;
   font-size: 16px;
-  font-weight: 300;
-  background-color: $background1;
+  font-weight: 400;
 }
 .card-vip {
-  border: 0.5px solid $SpicalCarColor !important;
+  border: 0.5px solid $btnbackground !important;
   overflow: hidden;
 }
 .card {

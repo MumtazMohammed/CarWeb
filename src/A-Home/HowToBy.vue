@@ -8,8 +8,8 @@
       <v-row>
         <v-col cols="12" sm="6" md="6" align-self="center">
           <div>
-            <v-expansion-panels v-model="panel" multiple>
-              <v-expansion-panel v-for="(item, i) in items" :key="i">
+            <v-expansion-panels dark v-model="panel" multiple>
+              <v-expansion-panel  v-for="(item, i) in items" :key="i">
                 <v-expansion-panel-header
                   color="#6599ff"
                   class="expansion-header py-1"
@@ -112,6 +112,7 @@ export default {
     font-weight: 400;
     line-height: 1.8;
     pointer-events: none;
+    background-color: white;
   }
 }
 .v-application .primary {

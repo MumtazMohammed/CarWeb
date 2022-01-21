@@ -1,17 +1,14 @@
 <template>
   <div class="ViewCarAllLayout">
     <AlHaraj />
-    <!-- <NormalCar /> -->
   </div>
 </template>
 <script>
-// import NormalCar from "../ViewAllCarInHaraj/NormalCar.vue";
 import AlHaraj from "../ViewAllCarInHaraj/AlHaraj.vue";
 export default {
   name: "ViewCarAllLayout",
   components: {
     AlHaraj,
-    // NormalCar,
   },
 
   data() {

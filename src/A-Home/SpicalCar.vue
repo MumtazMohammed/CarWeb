@@ -44,6 +44,7 @@
                 <p class="py-2 ma-0 px-0 text-center top-vip">
                   مضمون وريح راسك
                 </p>
+                <b class="pa-0 text-center CarNumVip"> </b>
                 <v-img
                   :src="getimageUrl(CarSell.folder, CarSell.image)"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
@@ -148,7 +149,7 @@ export default {
       return `     <style scoped>
         .next {
          transition: all .3s ease;
-         background-color: #000;
+         background-color: #6599ff;
          display: flex;
          align-items: center;
          justify-content: center;
@@ -165,12 +166,12 @@ export default {
         }
          .next:hover {
          opacity: 1 !important;
-         box-shadow: 0px 0px 0px 3px  #ffc107;
+         box-shadow: 0px 0px 0px 3px  #fff;
 
 
         }
          .next:hover .chevron {
-          color:#ffc107;
+          color:#fff;
         }
         .chevron{
           color:#fff;
@@ -188,7 +189,7 @@ export default {
        <style scoped>
         .prev {
          transition: all .3s ease;
-         background-color: #000;
+         background-color: #6599ff;
          display: flex;
          align-items: center;
          justify-content: center;
@@ -204,12 +205,12 @@ export default {
         }
          .prev:hover {
          opacity: 1 !important;
-         box-shadow: 0px 0px 0px 3px #ffc107;
+         box-shadow: 0px 0px 0px 3px #fff;
 
 
         }
          .prev:hover .chevron {
-          color:#ffc107;
+          color:#fff;
         }
         .chevron{
          color:#fff;
@@ -298,6 +299,44 @@ export default {
   font-size: 16px;
   font-weight: 600;
   background-color: $btnbackground;
+}
+.CarNumVip {
+  position: absolute;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  color: $fontcolor;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  background-color: #fff;
+  clip-path: circle(50% at 50% 50%);
+}
+.CarNumVip:before {
+  content: "";
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  background-color: #fff;
+  clip-path: circle(50% at 50% 50%);
+  z-index: 2;
+}
+.CarNumVip:after {
+  content: "";
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: $btnbackground;
+  clip-path: circle(50% at 50% 50%);
 }
 .card-vip {
   border: 0.5px solid $btnbackground !important;

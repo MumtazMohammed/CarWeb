@@ -26,9 +26,7 @@
       <v-row>
         <v-col cols="12" class="pb-0">
           <v-card flat class="card-ad-num">
-            <v-card-text class="ad">
-              {{ getCarInfo.ad }}
-            </v-card-text>
+            <v-card-text class="ad"> أعلان : {{ getCarInfo.ad }} </v-card-text>
             <v-divider></v-divider>
             <v-card-text class="ad"> رقم : </v-card-text>
           </v-card>
