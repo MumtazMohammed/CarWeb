@@ -229,7 +229,7 @@ export default {
   background-color: $simplebackground;
 
   .car-box {
-    @media (max-width: 330px) {
+    @media (max-width: 540px) {
       justify-content: center;
     }
   }
@@ -253,6 +253,7 @@ export default {
     }
     @media (max-width: 540px) {
       padding: 5px 80px !important;
+      max-width: 98%;
     }
     @media (max-width: 450px) {
       padding: 5px 40px !important;
@@ -260,9 +261,7 @@ export default {
     @media (max-width: 380px) {
       padding: 5px 30px !important;
     }
-    @media (max-width: 540px) {
-      max-width: 98%;
-    }
+
     @media (max-width: 330px) {
       padding: 5px 0px !important;
     }

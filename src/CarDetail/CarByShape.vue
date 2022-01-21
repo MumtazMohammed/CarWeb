@@ -19,7 +19,7 @@
       <v-col cols="12" v-if="getCarInfo.length > 5">
         <FilterSection />
       </v-col>
-      <v-row v-if="getCarInfo.length > 0" class="mt-1 row-cars">
+      <v-row v-if="getCarInfo.length > 0" class="mt-1 car-box">
         <v-col
           cols="6"
           sm="4"
@@ -228,8 +228,10 @@ export default {
   min-height: 100vh;
   background-color: $simplebackground;
 
-  .row-cars {
-    padding: $padding;
+  .car-box {
+    @media (max-width: 540px) {
+      justify-content: center;
+    }
   }
   .tital {
     color: $fontcolor;
@@ -239,12 +241,17 @@ export default {
     @media (max-width: 880px) {
       max-width: 50%;
     }
-    @media (max-width: 600px) {
-      padding: 5px 3px !important;
-    }
     @media (max-width: 540px) {
+      padding: 5px 80px !important;
       max-width: 98%;
     }
+    @media (max-width: 450px) {
+      padding: 5px 40px !important;
+    }
+    @media (max-width: 380px) {
+      padding: 5px 30px !important;
+    }
+
     @media (max-width: 330px) {
       padding: 5px 0px !important;
     }

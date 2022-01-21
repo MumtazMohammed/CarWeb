@@ -12,7 +12,7 @@
           </h2>
         </v-col>
         <v-col cols="12" class=""> <FilterSection /> </v-col>
-        <v-row class="mt-1">
+        <v-row class="mt-1 car-box">
           <v-col
             cols="12"
             sm="6"
@@ -155,15 +155,29 @@ export default {
   width: 100%;
   height: auto;
   padding: $padding;
-
   position: relative;
   background-color: $simplebackground;
-  .boredr-all-box {
+  .car-box {
     @media (max-width: 600px) {
+      justify-content: center;
+    }
+  }
+  .boredr-all-box {
+    @media (max-width: 880px) {
+      max-width: 50%;
+    }
+    @media (max-width: 540px) {
+      padding: 5px 80px !important;
+      max-width: 98%;
+    }
+    @media (max-width: 450px) {
+      padding: 5px 40px !important;
+    }
+    @media (max-width: 380px) {
       padding: 5px 30px !important;
     }
     @media (max-width: 330px) {
-      padding: 5px 30px !important;
+      padding: 5px 0px !important;
     }
   }
   .tital {

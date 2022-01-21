@@ -27,8 +27,7 @@
                 <p class="py-2 ma-0 px-0 text-center top-vip">
                   مضمون وريح راسك
                 </p>
-                <b class="pa-0 text-center CarNumVip">
-                </b>
+                <b class="pa-0 text-center CarNumVip"> </b>
                 <v-img
                   :src="getimageUrl(CarData.folder, CarData.image)"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
@@ -247,11 +246,14 @@ export default {
     @media (max-width: 880px) {
       max-width: 50%;
     }
-    @media (max-width: 600px) {
-    }
     @media (max-width: 540px) {
+      padding: 5px 80px !important;
       max-width: 98%;
     }
+    @media (max-width: 450px) {
+      padding: 5px 30px !important;
+    }
+
     @media (max-width: 330px) {
       padding: 5px 0px !important;
     }

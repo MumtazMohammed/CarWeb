@@ -37,10 +37,10 @@ export default {
   font-size: 20px !important;
   text-decoration: none !important;
   @media (max-width: 360px) {
-    font-size: 18px;
+    font-size: 16px !important;
   }
   @media (max-width: 320px) {
-    font-size: 15px;
+    font-size: 14px !important;
   }
 }
 </style>
