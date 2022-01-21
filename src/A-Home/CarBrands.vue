@@ -99,7 +99,7 @@ export default {
   .tital {
     font-family: $fontfamliy;
     font-size: 30px;
-    @media (max-width: 400px) {
+    @media (max-width: 438px) {
       font-size: 20px;
     }
     @media (max-width: 300px) {
@@ -109,12 +109,15 @@ export default {
 }
 .line {
   width: 300px;
-  height: 5px;
+  height: 7px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   background-color: $btnbackground;
   display: block;
+  @media (max-width: 438px) {
+    width: 200px;
+  }
 }
 </style>

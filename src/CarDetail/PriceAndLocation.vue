@@ -26,9 +26,11 @@
       <v-row>
         <v-col cols="12" class="pb-0">
           <v-card flat class="card-ad-num">
-            <v-card-text class="ad"> أعلان : {{ getCarInfo.ad }} </v-card-text>
+            <v-card-text class="ad"> أعلان : <span>{{ getCarInfo.ad }}</span> </v-card-text>
             <v-divider></v-divider>
-            <v-card-text class="ad"> رقم : </v-card-text>
+            <v-card-text class="ad">
+              رقم : <span>{{ getCarInfo.adNum }}</span></v-card-text
+            >
           </v-card>
         </v-col>
         <v-col cols="12" class="py-0">
@@ -269,6 +271,10 @@ export default {
   font-weight: 500;
   letter-spacing: 0 !important;
   font-size: 20px;
+}
+.ad span {
+  color: $btnbackground !important;
+  margin-right: 4px;
 }
 .ad:last-child {
   font-family: $fontfamliy !important;

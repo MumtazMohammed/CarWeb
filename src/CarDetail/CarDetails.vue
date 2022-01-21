@@ -10,62 +10,62 @@
       <v-col cols="12" sm="12" md="11" class="pa-1">
         <v-card class="d-flex detail-card flex-wrap pa-5">
           <v-flex sx6 sm4 md3>
-            <v-card-text class="table_data-child px-0">
+            <v-card-text class="table_data-child px-1 pl-0">
               مـاركة : <b>{{ getCarInfo.company }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0"
+            <v-card-text class="table_data-child px-1 pl-0"
               >الـنوع : <b>{{ getCarInfo.name }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0">
+            <v-card-text class="table_data-child px-1 pl-0">
               الـفئة : <b>{{ getCarInfo.type }}</b></v-card-text
             >
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0"
+            <v-card-text class="table_data-child px-1 pl-0"
               >الـسنة : <b>{{ getCarInfo.modle }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0">
+            <v-card-text class="table_data-child px-1 pl-0">
               الـوارد : <b>{{ getCarInfo.received }}</b></v-card-text
             >
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0"
+            <v-card-text class="table_data-child px-1 pl-0"
               >لـون الـمركبه : <b>{{ getCarInfo.ccolor }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0"
+            <v-card-text class="table_data-child px-1 pl-0"
               >نـوع القير : <b>{{ getCarInfo.transmission }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0"
+            <v-card-text class="table_data-child px-1 pl-0"
               >حجم الـمحرك : <b>{{ getCarInfo.engainpower }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0"
+            <v-card-text class="table_data-child px-1 pl-0"
               >نـوع الـدفع : <b>{{ getCarInfo.boost }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0"
+            <v-card-text class="table_data-child px-1 pl-0"
               >الحـالـة الـسيارة : <b>{{ getCarInfo.condtion }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0"
+            <v-card-text class="table_data-child px-1 pl-0"
               >الـمواصفات : <b>{{ getCarInfo.kilometer }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-0"
+            <v-card-text class="table_data-child px-1 pl-0"
               >الـممشى : <b>{{ getCarInfo.kilometer }}</b>
             </v-card-text>
           </v-flex>
@@ -187,9 +187,13 @@ export default {
   color: $fontcolor !important;
 }
 .line {
-  width: 300px;
-  height: 5px;
+  width: 140px;
+  height: 7px;
   background-color: $btnbackground;
   display: block;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 </style>
