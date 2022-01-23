@@ -9,13 +9,13 @@
 
       <carousel-3d
         :disable3d="true"
-        :clickable="true"
-        :animationSpeed="250"
+        :clickable="false"
+        :animationSpeed="100"
         :autoplay="fales"
         :autoplay-timeout="0"
         :display="5"
         :space="278"
-        :inverseScaling="-40"
+        :inverseScaling="0"
         :perspective="0"
         :width="270"
         :controls-visible="true"

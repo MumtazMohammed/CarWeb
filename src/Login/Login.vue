@@ -2,8 +2,8 @@
   <div class="login">
     <v-container>
       <v-row justify="center">
-        <v-col cols="12" md="10" sm="12" class="container-col pt-0 pb-10">
-          <v-card elevation="5">
+        <v-col cols="12" md="10" sm="12" class="container-col pt-0 ">
+          <v-card flat>
             <v-col cols="12" class="text-center">
               <v-avatar size="100px" tile>
                 <v-img src="../assets/user.png"> </v-img>

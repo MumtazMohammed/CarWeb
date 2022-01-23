@@ -1,7 +1,7 @@
 <template>
   <div class="AllVip_box">
     <NavBar />
-    <div class="product_box">
+    <div class="product_box pb-10">
       <v-container>
         <v-col cols="12" class="pa-1">
           <h2 class="tital">
@@ -154,9 +154,7 @@ export default {
 .product_box {
   width: 100%;
   height: auto;
-  padding: $padding;
   position: relative;
-  background-color: $simplebackground;
   .car-box {
     @media (max-width: 600px) {
       justify-content: center;

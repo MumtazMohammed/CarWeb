@@ -2,7 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/TheHome.vue";
 import Product from "../views/TheProduct.vue";
-import TheAllCar from "../views/TheAllCar.vue";
+import SeeAllUsedAndNewCars from "../CarForSell/SeeAllUsedAndNewCars.vue";
+import UsedCar from "../CarForSell/UsedCar.vue";
+import NewCar from "../CarForSell/NewCar.vue";
 import Contact from "../views/TheContact.vue";
 import ViewCar from "../CarDetail/ViewCar.vue";
 import ViewAllCar from "../CarDetail/ViewAllCar.vue";
@@ -24,9 +26,19 @@ const routes = [
     component: Product,
   },
   {
-    path: "/TheAllCar",
-    name: "TheAllCar",
-    component: TheAllCar,
+    path: "/SeeAllUsedAndNewCars",
+    name: "SeeAllUsedAndNewCars",
+    component: SeeAllUsedAndNewCars,
+  },
+  {
+    path: "/UsedCar",
+    name: "UsedCar",
+    component: UsedCar,
+  },
+  {
+    path: "/NewCar",
+    name: "NewCar",
+    component: NewCar,
   },
   {
     path: "/contact",

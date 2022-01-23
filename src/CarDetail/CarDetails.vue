@@ -8,7 +8,7 @@
         <span class="line mt-3 mb-5 mx-auto"></span>
       </v-col>
       <v-col cols="12" sm="12" md="11" class="pa-1">
-        <v-card class="d-flex detail-card flex-wrap pa-5">
+        <v-card flat class="d-flex detail-card flex-wrap pa-5">
           <v-flex sx6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
               مـاركة : <b>{{ getCarInfo.company }}</b>

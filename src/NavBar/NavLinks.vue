@@ -2,9 +2,72 @@
   <fixed-header :threshold="160">
     <div class="navlinks-box">
       <v-row>
-        <v-col class="d-flex align-center justify-sm-center" cols="12">
+        <v-col class="d-flex align-center justify-sm-center py-0" cols="12">
           <v-toolbar-items class="hiddenn">
             <v-list class="d-flex">
+              <!-- نضنها لك  -->
+              <v-list-item
+                router
+                dark
+                to="/"
+                class="singl-link ma-0"
+                color="transparent"
+                active-class="active"
+              >
+                <v-list-item-content>
+                  <v-list-item-title class="nav-link"
+                    >نضنها لك</v-list-item-title
+                  >
+                </v-list-item-content>
+              </v-list-item>
+              <!-- used or new or all  -->
+              <v-menu
+                bottom
+                nudge-top="0"
+                open-on-hover
+                close-delay="150"
+                nudge-left="50"
+                origin="center center"
+                offset-y
+                transition="scale-transition"
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-list>
+                    <v-list-item
+                      v-bind="attrs"
+                      v-on="on"
+                      color="transparent"
+                      class="singl-link ma-0"
+                    >
+                      <v-list-item-content>
+                        <v-list-item-title class="nav-link">
+                          سيارت للبيع
+                          <v-icon class="menu-icon" left
+                            >fas fa-caret-down</v-icon
+                          >
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-list>
+                </template>
+                <v-list class="CarforSell-link pa-2">
+                  <v-list-item
+                    router
+                    :to="item.path"
+                    v-for="(item, i) in CarForSell"
+                    :key="i"
+                    class="mb-1"
+                    active-class="singl-link mutible-link-list-item"
+                  >
+                    <v-list-item-content class="pa-1">
+                      <v-list-item-title class="item-title">
+                        {{ item.title }}
+                      </v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+              <!-- other  -->
               <v-list-item
                 v-for="(item, i) in items"
                 :key="i"
@@ -24,7 +87,6 @@
               </v-list-item>
             </v-list>
           </v-toolbar-items>
-          <!-- <v-divider class="white ma-1 hidden-xs-only" vertical></v-divider> -->
           <!-- search  -->
           <SearchCar />
         </v-col>
@@ -45,17 +107,19 @@ export default {
     return {
       dialog: false,
       model: 1,
-      items: [
+      home: [
         {
           icon: "fa-home",
           text: "نضمنها لك",
           path: "/",
         },
-        {
-          icon: "fa-info",
-          text: "الحراج",
-          path: "/TheAllCar",
-        },
+      ],
+      CarForSell: [
+        { title: "سيارات مستعملة ", path: "/UsedCar" },
+        { title: "سيارات جديدة", path: "/NewCar" },
+        { title: "رؤية الكل", path: "/SeeAllUsedAndNewCars" },
+      ],
+      items: [
         {
           icon: "fa-shopping-cart",
           text: "الأعـلانـات",
@@ -90,6 +154,7 @@ export default {
     color: $fontcolorsm !important;
     font-size: 15px !important;
     margin-right: 5px;
+    cursor: pointer !important;
   }
 }
 .hiddenn {
@@ -112,16 +177,35 @@ export default {
     font-family: $fontfamliy;
     letter-spacing: 0;
     height: 30px;
+    transition: color 0.2s ease;
     @include flexcenter();
   }
   .nav-link {
     @media (max-width: 750px) {
       font-size: 16px;
     }
+    @media (max-width: 670px) {
+      font-size: 14px;
+    }
+  }
+  .singl-link {
+    cursor: pointer;
+    @media (max-width: 670px) {
+      padding: 0px 10px;
+    }
+  }
+  .singl-link:hover .nav-link {
+    color: $btnbackground;
+  }
+  .singl-link:hover .nav-link .menu-icon {
+    color: $btnbackground;
   }
 }
 .active {
   position: relative;
+}
+.active .nav-link {
+  color: $btnbackground;
 }
 .active:before {
   content: "";
@@ -129,11 +213,42 @@ export default {
   width: 50%;
   height: 5px;
   background-color: $btnbackground;
-  transform: translate(-50%, 1000%);
+  transform: translate(-50%, 1150%);
   opacity: 1 !important;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+.mutibleActive {
+  background-color: $btnbackground;
+  opacity: 0;
+}
+.item-title {
+  font-family: $fontfamliy;
+  color: $fontcolorlinks;
+  font-weight: 300;
+  font-size: 14px;
+}
+.item-title:active {
+  color: #fff;
+  z-index: 5;
+  position: relative;
+}
+.CarforSell-link::v-deep .theme--light.v-list-item--active:before {
+  opacity: 1;
+  background-color: $btnbackground !important;
+}
+.menu-icon {
+  font-size: 15px !important;
+  transform: translate(0px, 1.5px);
+}
+.singl-link .item-title {
+  color: #fff !important;
+  position: relative;
+  z-index: 5;
+}
+.CarforSell-link::v-deep .v-list-item {
+  min-height: 30px !important;
 }
 </style>

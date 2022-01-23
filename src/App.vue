@@ -33,4 +33,7 @@ export default {
   position: relative;
   overflow: hidden;
 }
+.v-main {
+  padding: 0px !important;
+}
 </style>

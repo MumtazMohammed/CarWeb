@@ -1,11 +1,12 @@
 <template>
   <div class="product_box">
+    <NavBar />
     <v-container class="">
       <v-row class="py-4 pb-7 car-box">
         <v-col cols="12" class="">
           <h2 class="tital">
-            (<span class="red--text"> {{ SpicalCarView.length }}</span>
-            ) - سـيـارة للبيع
+            (<span class="red--text"> {{ getCarInfo.length }}</span>
+            ) - سـيـارة مستعملة للبيع
           </h2>
         </v-col>
         <v-col cols="12" v-if="SpicalCarView.length > 5">
@@ -16,7 +17,7 @@
           sm="4"
           md="3"
           class="pa-1 boredr-all-box"
-          v-for="CarData in SpicalCarView"
+          v-for="CarData in getCarInfo"
           :key="CarData.id"
         >
           <!-- using methods to conect the image to the corect folder   -->
@@ -87,6 +88,7 @@
                     carShape: CarData.Shape,
                     carId: CarData.id,
                     Company: CarData.folder,
+                    condtion: CarData.condtion,
                   },
                 }"
                 depressed
@@ -161,6 +163,7 @@
                     carShape: CarData.Shape,
                     carId: CarData.id,
                     Company: CarData.folder,
+                    condtion: CarData.condtion,
                   },
                 }"
                 depressed
@@ -177,10 +180,12 @@
 <script>
 import SpicalCarView from "../data-json/All-Car.json";
 import FilterSection from "../CarSearch/Filter.vue";
+import NavBar from "../NavBar/TheNavBar.vue";
 export default {
-  name: "AlHaraj",
+  name: "UsedCar",
   components: {
     FilterSection,
+    NavBar,
   },
   data() {
     return {
@@ -189,27 +194,25 @@ export default {
       carId: this.$route.params.carId,
       CarShape: this.$route.params.CarShape,
       Company: this.$route.params.Company,
+      condtion: this.$route.params.condtion,
     };
   },
-
+  computed: {
+    getCarInfo() {
+      let GetCarByCondtion = [];
+      for (let i = 0; i < this.SpicalCarView.length; i++) {
+        if (this.SpicalCarView[i].condtion === "مستعمل") {
+          GetCarByCondtion.push(this.SpicalCarView[i]);
+        }
+      }
+      return GetCarByCondtion;
+    },
+  },
   // this is help full to call the image inside folder and inject to the src
   methods: {
     getimageUrl(FolderName, ImageName) {
       let image = require.context("@/assets/");
       return image("./" + FolderName + "/" + ImageName);
-    },
-
-    ScrollTpTop() {
-      let currenScroll = document.documentElement.scrollTop;
-      let up = setInterval(frame, 6);
-      function frame() {
-        if (0 > currenScroll) {
-          clearInterval(up);
-        } else {
-          currenScroll = currenScroll - 12;
-          document.documentElement.scrollTop = currenScroll;
-        }
-      }
     },
   },
 };
