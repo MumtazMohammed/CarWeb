@@ -5,7 +5,6 @@
         class="nav-linkk rounded-0"
         elevation="0"
         large
-        dark
         plain
         v-bind="attrs"
         v-on="on"
@@ -25,7 +24,11 @@
         </v-flex>
       </v-row>
       <v-row justify="center">
-        <v-flex md12 sm12 xs12>
+        <v-flex md6 sm6 xs12 class="pl-md-1 pl-sm-1">
+          <v-combobox dense solo :items="conditions" label=" حالة السيارة*">
+          </v-combobox>
+        </v-flex>
+        <v-flex md6 sm6 xs12 class="pr-md-1 pr-sm-1">
           <v-combobox dense solo :items="conditions" label=" حالة السيارة*">
           </v-combobox>
         </v-flex>
@@ -54,12 +57,12 @@
       <v-row justify="center">
         <v-flex xs8 sm4 md4>
           <v-btn
-            width="100%"
-            class="btn-search"
-            outlined
+            large
+            class="btn-search elevation-0"
+            block
             @click="dialog = false"
             elevation="2"
-            color="#eee"
+            color="white"
             >بـحـث</v-btn
           >
         </v-flex>
@@ -144,8 +147,8 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $background;
-    opacity: 0.9;
+    background-color: $btnbackground;
+    // opacity: 0.9;
   }
 
   .v-input--selection-controls .v-input__slot > .v-label {
@@ -154,9 +157,15 @@ export default {
   .v-card__title.search-text {
     color: $fontcolorsm;
     position: relative;
-    font-family: "Tajawal", sans-serif;
+    font-family: $fontfamliy;
     font-size: 20px;
     z-index: 1;
+  }
+  .btn-search {
+    color: $fontcolor !important;
+    font-family: $fontfamliy !important;
+    font-size: 20px !important;
+    letter-spacing: 0;
   }
 }
 .v-btn:not(.v-btn--round).v-size--default {
@@ -168,11 +177,11 @@ export default {
 }
 .nav-linkk {
   color: $fontcolor !important;
-  font-size: 17px !important;
+  font-size: 16px !important;
   font-weight: 600;
-  font-family: "Tajawal", sans-serif;
+  font-family: $fontfamliy;
   letter-spacing: 0;
-
+  transition: color 0.1s ease;
   @media (max-width: 600px) {
     font-size: 15px !important;
     margin-right: 5px;
@@ -180,8 +189,8 @@ export default {
 
   .icon-search {
     color: $fontcolor !important;
-    font-size: 15px !important;
-
+    font-size: 14px !important;
+    transition: color 0.1s ease;
     @media (max-width: 600px) {
       font-size: 15px !important;
       margin-left: 2px !important;
@@ -210,5 +219,17 @@ export default {
   @media (max-width: 500px) {
     margin: 5px !important;
   }
+}
+.nav-linkk:hover {
+  color: $btnbackground !important;
+}
+.nav-linkk:hover .icon-search {
+  color: $btnbackground !important;
+}
+.nav-linkk:focus {
+  color: $btnbackground !important;
+}
+.nav-linkk:focus .icon-search {
+  color: $btnbackground !important;
 }
 </style>
