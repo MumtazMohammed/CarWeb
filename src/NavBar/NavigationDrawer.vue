@@ -7,8 +7,8 @@
       class="btn-menu"
       color="white"
       :class="{
-        'btn-menu': scrollPosition < 400,
-        'is-hidden': scrollPosition > 400,
+        'btn-menu': scrollPosition < 600,
+        'is-hidden': scrollPosition > 600,
       }"
       @click="drawer = true"
     >

@@ -10,8 +10,8 @@
       class="btn-up"
       color="white"
       v-bind:class="{
-        'btn-up': scrollPosition < 400,
-        'is-hidden': scrollPosition > 400,
+        'btn-up': scrollPosition < 600,
+        'is-hidden': scrollPosition > 600,
       }"
       @click="$vuetify.goTo(target, options)"
     >
