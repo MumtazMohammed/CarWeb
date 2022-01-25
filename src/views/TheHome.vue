@@ -3,7 +3,7 @@
     <NavBar />
     <ToSellYourCarLayout />
     <SpicalCar :caritems="caritems" />
-    <SeeAllCar />
+    <SeeAllspecialCarsButton />
     <CarBrands :AllDateCar="AllDateCar" />
     <CarShape :AllDateCar="AllDateCar" />
     <HowToBuy />
@@ -13,7 +13,7 @@
 <script>
 import NavBar from "../NavBar/TheNavBar.vue";
 import ToSellYourCarLayout from "../A-Home/ToSellYourCarLayout.vue";
-import SeeAllCar from "../A-Home/SeeAllCars.vue";
+import SeeAllspecialCarsButton from "../A-Home/SeeAllspecialCarsButton.vue";
 import SpicalCar from "../A-Home/SpicalCar.vue";
 import CarBrands from "../A-Home/CarBrands.vue";
 import CarShape from "../A-Home/CarShape.vue";
@@ -25,7 +25,7 @@ const components = {
   ToSellYourCarLayout,
   SpicalCar,
   CarBrands,
-  SeeAllCar,
+  SeeAllspecialCarsButton,
   CarShape,
   HowToBuy,
   NavBar,

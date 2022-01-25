@@ -10,28 +10,30 @@
       class="btn-up"
       color="white"
       v-bind:class="{
-        'btn-up': scrollPosition < 400,
-        'is-hidden': scrollPosition > 400,
+        'btn-up': scrollPosition < 600,
+        'is-hidden': scrollPosition > 600,
       }"
       @click="$vuetify.goTo(target, options)"
     >
-      <v-icon class="btn-up-icon"> fas fa-angle-up </v-icon>
+      <v-icon class="btn-up-icon">fas fa-angle-up</v-icon>
     </v-btn>
+    <NavigationDrawer />
     <FooterBar />
   </v-app>
 </template>
 
 <script>
-// import NavBar from "./NavBar/TheNavBar.vue";
+import NavigationDrawer from "./NavBar/NavigationDrawer.vue";
 import FooterBar from "./footer/footer.vue";
 export default {
   name: "App",
   components: {
-    // NavBar,
+    NavigationDrawer,
     FooterBar,
   },
   data() {
     return {
+      drawer: false,
       type: "number",
       number: 0,
       duration: 300,
@@ -88,6 +90,22 @@ export default {
     font-size: 18px !important;
   }
 }
+// .btn-menu {
+//   position: fixed;
+//   bottom: 70px;
+//   right: 10px;
+//   z-index: 5;
+//   background-color: $btnbackground;
+//   transform: scale(0);
+//   transition: all 0.3s ease !important;
+//   display: none;
+//   @media (max-width: 600px) {
+//     display: flex;
+//   }
+//   .btn-menu-icon {
+//     font-size: 20px !important;
+//   }
+// }
 .is-hidden {
   transform: scale(1);
 }

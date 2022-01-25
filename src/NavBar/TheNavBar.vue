@@ -24,11 +24,6 @@
         floating
         mini-variant-width
       >
-        <div class="d-flex justify-end">
-          <v-icon right @click="drawer = false" class="pa-3 white--text"
-            >fas fa-times</v-icon
-          >
-        </div>
         <LogingAndSignup />
 
         <v-list class="pt-0">
@@ -193,7 +188,7 @@ export default {
   margin: 20px 10px 20px 0px !important;
   @include flexcenter();
   .nav-icon {
-    font-size: 18px;
+    font-size: 22px;
     color: $fontcolorsm;
   }
 }

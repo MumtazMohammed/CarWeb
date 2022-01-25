@@ -227,7 +227,7 @@ export default {
   // background-color: $simplebackground;
 
   .car-box {
-    @media (max-width: 600px) {
+    @media (max-width: 540px) {
       justify-content: center;
     }
   }
@@ -257,7 +257,7 @@ export default {
       padding: 5px 30px !important;
     }
 
-    @media (max-width: 330px) {
+    @media (max-width: 350px) {
       padding: 5px 0px !important;
     }
   }
@@ -304,6 +304,12 @@ export default {
     font-size: 17px;
     font-weight: 300;
     font-family: $fontfamliy;
+    @media (max-width: 1040px) {
+      font-size: 15px;
+    }
+    @media (max-width: 960px) {
+      font-size: 17px;
+    }
   }
   .location-condtion {
     font-size: 16px;

@@ -110,7 +110,7 @@ import NavBar from "../NavBar/TheNavBar.vue";
 import FilterSection from "../CarSearch/Filter.vue";
 import SpicalCarView from "../data-json/car-data.json";
 export default {
-  name: "ViewAllCar",
+  name: "SeeAllSpecialCar",
   components: { NavBar, FilterSection },
   data() {
     return {
@@ -174,7 +174,7 @@ export default {
     @media (max-width: 380px) {
       padding: 5px 30px !important;
     }
-    @media (max-width: 330px) {
+    @media (max-width: 350px) {
       padding: 5px 0px !important;
     }
   }
@@ -231,6 +231,12 @@ export default {
     font-weight: 300;
     font-family: $fontfamliy;
     font-family: $fontfamliy;
+    @media (max-width: 1040px) {
+      font-size: 15px;
+    }
+    @media (max-width: 960px) {
+      font-size: 17px;
+    }
   }
   .location-condtion {
     font-size: 16px;

@@ -5,8 +5,8 @@
       <v-row class="py-4 pb-7 car-box">
         <v-col cols="12" class="">
           <h2 class="tital">
-            (<span class="red--text"> {{ getCarInfo.length }}</span> ) -
-            سـيـارة جديدة للبيع
+            (<span class="red--text"> {{ getCarInfo.length }}</span> ) - سـيـارة
+            جديدة للبيع
           </h2>
         </v-col>
         <v-col cols="12" v-if="SpicalCarView.length > 5">
@@ -227,7 +227,7 @@ export default {
   // background-color: $simplebackground;
 
   .car-box {
-    @media (max-width: 600px) {
+    @media (max-width: 540px) {
       justify-content: center;
     }
   }
@@ -257,7 +257,7 @@ export default {
       padding: 5px 30px !important;
     }
 
-    @media (max-width: 330px) {
+    @media (max-width: 350px) {
       padding: 5px 0px !important;
     }
   }
@@ -304,6 +304,12 @@ export default {
     font-size: 17px;
     font-weight: 300;
     font-family: $fontfamliy;
+    @media (max-width: 1040px) {
+      font-size: 15px;
+    }
+    @media (max-width: 960px) {
+      font-size: 17px;
+    }
   }
   .location-condtion {
     font-size: 16px;

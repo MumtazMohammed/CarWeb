@@ -1,7 +1,7 @@
 <template>
   <div class="see-all mt-8">
     <div class="text-center">
-      <v-btn large outlined class="link" color="#6599ff" to="/ViewAllCar">
+      <v-btn large outlined class="link" color="#6599ff" to="/SeeAllSpecialCar">
         شاهد جميع السيارات المضمونه لدينا
       </v-btn>
     </div>
@@ -9,23 +9,7 @@
 </template>
 <script>
 export default {
-  name: "SeeAll",
-  first: 0,
-
-  methods: {
-    ScrollToTop() {
-      let currenScroll = document.documentElement.scrollTop;
-      let int = setInterval(frame, 6);
-      function frame() {
-        if (0 > currenScroll) {
-          clearInterval(int);
-        } else {
-          currenScroll = currenScroll - 12;
-          document.documentElement.scrollTop = currenScroll;
-        }
-      }
-    },
-  },
+  name: "SeeAllspecialCarsButton",
 };
 </script>
 <style lang="scss" scoped>

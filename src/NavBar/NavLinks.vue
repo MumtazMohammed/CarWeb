@@ -1,5 +1,4 @@
 <template>
-  <fixed-header :threshold="160">
     <div class="navlinks-box">
       <v-row>
         <v-col class="d-flex align-center justify-sm-center py-md-0 py-sm-0 py-2" cols="12">
@@ -92,16 +91,13 @@
         </v-col>
       </v-row>
     </div>
-  </fixed-header>
 </template>
 <script>
 import SearchCar from "../CarSearch/Category.vue";
-import FixedHeader from "vue-fixed-header";
 export default {
   name: "navlinks",
   components: {
     SearchCar,
-    FixedHeader,
   },
   data() {
     return {

@@ -7,9 +7,9 @@ import UsedCar from "../CarForSell/UsedCar.vue";
 import NewCar from "../CarForSell/NewCar.vue";
 import Contact from "../views/TheContact.vue";
 import ViewCar from "../CarDetail/ViewCar.vue";
-import ViewAllCar from "../CarDetail/ViewAllCar.vue";
-import CarByBrand from "../CarDetail/CarByBrand.vue";
-import CarByShape from "../CarDetail/CarByShape.vue";
+import SeeAllSpecialCar from "../CarForSell/SeeAllSpecialCar.vue";
+import CarByBrand from "../CarForSell/CarByBrand.vue";
+import CarByShape from "../CarForSell/CarByShape.vue";
 import SginUp from "../Login/SignUp.vue";
 
 Vue.use(VueRouter);
@@ -46,9 +46,9 @@ const routes = [
     component: Contact,
   },
   {
-    path: "/ViewAllCar",
-    name: "ViewAllCar",
-    component: ViewAllCar,
+    path: "/SeeAllSpecialCar",
+    name: "SeeAllSpecialCar",
+    component: SeeAllSpecialCar,
   },
   {
     path: "/SginUp",
