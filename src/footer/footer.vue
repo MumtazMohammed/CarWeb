@@ -1,8 +1,8 @@
 <template>
-  <v-footer width="100%" max-height="150px" dark class="py-3" padless>
+  <v-footer width="100%" max-height="150px" class="py-3 footer" padless>
     <v-row>
-      <v-col cols="12">
-        <v-card class="flex card" flat tile>
+      <v-col cols="12" class="">
+        <v-card color="transparent" class="card" flat tile>
           <v-card-text class="pa-0 brand-Privacy white--text">
             <a class="px-2">الأحكام والشروط </a>
             |
@@ -10,8 +10,8 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12">
-        <v-card class="flex card" flat tile>
+      <v-col cols="12" class="">
+        <v-card color="transparent" class="flex card" flat tile>
           <v-card-text class="brand-logo justify-center text-center">
             <p class="px-2 ma-0" v-text="brand"></p>
             —
@@ -35,12 +35,13 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/virables";
 @import "@/scss/mixin";
-.card {
-  background-color: #272727;
+.footer {
+  background-color: $background !important;
 }
 .brand-logo {
   letter-spacing: 0px;
   font-family: $fontfamliy;
+  color: $fontcolorsm !important;
   font-size: 20px;
   display: flex;
   font-weight: 400;

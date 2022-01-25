@@ -7,8 +7,8 @@
       class="btn-menu"
       color="white"
       :class="{
-        'btn-menu': scrollPosition < 600,
-        'is-hidden': scrollPosition > 600,
+        'btn-menu': scrollPosition < 300,
+        'is-hidden': scrollPosition > 300,
       }"
       @click="drawer = true"
     >
@@ -183,11 +183,11 @@ export default {
 .btn-menu {
   position: fixed;
   bottom: 70px;
-  right: 10px;
+  right: 100px;
   z-index: 5;
-  background-color: $background;
-  transform: translateX(100px);
-  transition: all 0.4s ease !important;
+  background-color: $btnbackground2;
+  transform: translateX(-500px);
+  transition: all 0.4s ease-in-out !important;
   display: none;
   @media (max-width: 600px) {
     display: flex;
@@ -198,5 +198,6 @@ export default {
 }
 .is-hidden {
   transform: translateX(0px);
+  right: 10px;
 }
 </style>

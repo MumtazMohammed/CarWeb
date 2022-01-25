@@ -10,8 +10,8 @@
       class="btn-up"
       color="white"
       v-bind:class="{
-        'btn-up': scrollPosition < 600,
-        'is-hidden': scrollPosition > 600,
+        'btn-up': scrollPosition < 500,
+        'is-hidden': scrollPosition > 500,
       }"
       @click="$vuetify.goTo(target, options)"
     >
@@ -81,11 +81,15 @@ export default {
   display: flex;
   position: fixed;
   bottom: 20px;
-  right: 10px;
+  right: 20px;
   z-index: 5;
   background-color: $btnbackground;
-  transform: translateY(70px);
-  transition: all 0.4s ease !important;
+  transform: translateX(100px);
+  transition: all 0.4s 0s ease !important;
+  @media (max-width: 600px) {
+    right: 100px;
+    transform: translateX(-500px);
+  }
   .btn-up-icon {
     font-size: 18px !important;
   }
@@ -107,6 +111,12 @@ export default {
 //   }
 // }
 .is-hidden {
+  right: 10px;
   transform: translateY(0px);
+  transition: all 0.4s 0s ease !important;
+  @media (min-width: 600px) {
+    transition: all 0.4s 0s ease !important;
+  }
+
 }
 </style>

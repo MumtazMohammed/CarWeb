@@ -10,7 +10,7 @@
       <carousel-3d
         :disable3d="true"
         :clickable="false"
-        :animationSpeed="100"
+        :animationSpeed="500"
         :autoplay="fales"
         :autoplay-timeout="0"
         :display="5"
