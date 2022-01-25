@@ -186,8 +186,8 @@ export default {
   right: 10px;
   z-index: 5;
   background-color: $background;
-  transform: scale(0);
-  transition: all 0.3s ease !important;
+  transform: translateX(100px);
+  transition: all 0.4s ease !important;
   display: none;
   @media (max-width: 600px) {
     display: flex;
@@ -197,6 +197,6 @@ export default {
   }
 }
 .is-hidden {
-  transform: scale(1);
+  transform: translateX(0px);
 }
 </style>

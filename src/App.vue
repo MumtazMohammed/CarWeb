@@ -84,8 +84,8 @@ export default {
   right: 10px;
   z-index: 5;
   background-color: $btnbackground;
-  transform: scale(0);
-  transition: all 0.3s ease !important;
+  transform: translateY(70px);
+  transition: all 0.4s ease !important;
   .btn-up-icon {
     font-size: 18px !important;
   }
@@ -107,6 +107,6 @@ export default {
 //   }
 // }
 .is-hidden {
-  transform: scale(1);
+  transform: translateY(0px);
 }
 </style>
