@@ -72,7 +72,7 @@ export default {
 
 .brand_box {
   width: 100%;
-  padding: 25px 0;
+  padding: $padding;
   background-color: $simplebackground;
   display: flex;
   justify-content: center;

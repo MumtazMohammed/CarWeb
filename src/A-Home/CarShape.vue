@@ -67,7 +67,7 @@ export default {
 @import "@/scss/mixin";
 
 .Shape_box {
-  padding: 25px 0;
+  padding: $padding;
   margin-top: 30px;
   display: flex;
   justify-content: center;

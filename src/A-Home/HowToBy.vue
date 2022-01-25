@@ -66,7 +66,7 @@ export default {
 .HowToBuy {
   width: 100%;
   height: auto;
-  padding: 25px 0;
+  padding: $padding;
   position: relative;
   .stepper-header {
     box-shadow: 0px 0px 0px;

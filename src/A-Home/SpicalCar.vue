@@ -233,7 +233,7 @@ export default {
   width: auto;
   height: auto;
   position: relative;
-  padding: 25px 0;
+  padding: $padding;
   background-color: $simplebackground;
 
   .tital {
