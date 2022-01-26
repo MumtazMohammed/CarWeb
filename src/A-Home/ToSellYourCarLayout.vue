@@ -34,8 +34,8 @@ export default {
 @import "@/scss/mixin";
 .selection {
   width: 100%;
-  height: auto;
-  padding: 30px 0;
+  min-height: calc(100vh - 125px);
+  padding: $padding;
   .v-input--selection-controls .v-input__slot > .v-label {
     font-family: "Tajawal", sans-serif !important;
   }

@@ -3,7 +3,7 @@
     <NavBar />
     <div class="product_box pb-10">
       <v-container>
-        <v-col cols="12" class="pa-1">
+        <v-col cols="12" class="pr-0">
           <h2 class="tital">
             سـيـارات مضمونة لدينا للبيع - (<span class="red--text">
               {{ SpicalCarView.length }}</span
@@ -11,7 +11,9 @@
             )
           </h2>
         </v-col>
-        <v-col cols="12" class=""> <FilterSection /> </v-col>
+        <v-col cols="12" class="boredr-all-box" v-if="SpicalCarView.length > 5">
+          <FilterSection />
+        </v-col>
         <v-row class="mt-1 car-box">
           <v-col
             cols="12"
@@ -56,7 +58,7 @@
                     CarData.location
                   }}</v-card-subtitle>
                 </v-col>
-                <v-divider color="#6599ff" vertical></v-divider>
+                <v-divider color="#03a9f4" vertical></v-divider>
                 <v-col cols="5" class="pa-0">
                   <v-card-subtitle class="text-left location-condtion pa-2"
                     >{{ CarData.condtion }}
@@ -71,7 +73,7 @@
                     >{{ CarData.payment }}</v-card-subtitle
                   >
                 </v-col>
-                <v-divider color="#6599ff" vertical></v-divider>
+                <v-divider color="#03a9f4" vertical></v-divider>
                 <v-col cols="5" class="pa-0">
                   <v-card-subtitle class="text-left font-weight-regular pa-2"
                     >{{ CarData.kilometer }}
@@ -169,13 +171,14 @@ export default {
       max-width: 98%;
     }
     @media (max-width: 450px) {
-      padding: 5px 40px !important;
-    }
-    @media (max-width: 380px) {
       padding: 5px 30px !important;
     }
+    @media (max-width: 380px) {
+      padding: 5px 20px !important;
+    }
+
     @media (max-width: 350px) {
-      padding: 5px 0px !important;
+      padding: 5px 5px !important;
     }
   }
   .tital {
@@ -216,7 +219,7 @@ export default {
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $btnbackground !important;
+    background: $linear-gradient;
   }
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
   .theme--light.v-btn--active:hover:before {
@@ -250,7 +253,7 @@ export default {
   letter-spacing: 0;
   font-size: 16px;
   font-weight: 600;
-  background-color: $btnbackground;
+  background: $linear-gradient;
 }
 .CarNumVip {
   position: absolute;
@@ -287,11 +290,11 @@ export default {
   left: 50%;
   width: 20px;
   height: 20px;
-  background-color: $btnbackground;
+  background-color: $color-1;
   clip-path: circle(50% at 50% 50%);
 }
 .card-vip {
-  border: 0.5px solid $btnbackground !important;
+  border: 0.5px solid $color-1 !important;
   overflow: hidden;
 }
 @media (min-width: 960px) {

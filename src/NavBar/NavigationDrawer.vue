@@ -183,21 +183,20 @@ export default {
 .btn-menu {
   position: fixed;
   bottom: 70px;
-  right: 100px;
+  right: 10px;
   z-index: 5;
-  background-color: $btnbackground2;
-  transform: translateX(-500px);
-  transition: all 0.4s ease-in-out !important;
+  background: $color-2;
+  transform: scale(0) rotate(360deg);
+  transition: all 0.4s 0 ease !important;
   display: none;
   @media (max-width: 600px) {
     display: flex;
   }
   .btn-menu-icon {
-    font-size: 20px !important;
+    font-size: 22px !important;
   }
 }
 .is-hidden {
-  transform: translateX(0px);
-  right: 10px;
+  transform: scale(1) rotate(0deg);
 }
 </style>

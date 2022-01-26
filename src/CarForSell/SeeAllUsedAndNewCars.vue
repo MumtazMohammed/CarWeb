@@ -3,13 +3,13 @@
     <NavBar />
     <v-container class="">
       <v-row class="py-4 pb-7 car-box">
-        <v-col cols="12" class="">
+        <v-col cols="12" class="pr-0">
           <h2 class="tital">
             (<span class="red--text"> {{ SpicalCarView.length }}</span>
             ) - سـيـارة للبيع
           </h2>
         </v-col>
-        <v-col cols="12" v-if="SpicalCarView.length > 5">
+        <v-col class="boredr-all-box" cols="12" v-if="SpicalCarView.length > 5">
           <FilterSection />
         </v-col>
         <v-col
@@ -53,7 +53,7 @@
                   CarData.location
                 }}</v-card-subtitle>
               </v-col>
-              <v-divider color="#bbdefb" vertical></v-divider>
+              <v-divider color="#03a9f4" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left location-condtion pa-2"
                   >{{ CarData.condtion }}
@@ -68,7 +68,7 @@
                   >{{ CarData.payment }}</v-card-subtitle
                 >
               </v-col>
-              <v-divider color="#bbdefb" vertical></v-divider>
+              <v-divider color="#03a9f4" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left font-weight-regular pa-2"
                   >{{ CarData.kilometer }}
@@ -251,14 +251,17 @@ export default {
     }
     @media (max-width: 540px) {
       padding: 5px 80px !important;
-      max-width: 98%;
+      max-width: 100%;
     }
     @media (max-width: 450px) {
       padding: 5px 30px !important;
     }
+    @media (max-width: 380px) {
+      padding: 5px 20px !important;
+    }
 
     @media (max-width: 350px) {
-      padding: 5px 0px !important;
+      padding: 5px 5px !important;
     }
   }
   .tital {
@@ -282,7 +285,7 @@ export default {
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $btnbackground !important;
+    background: $linear-gradient;
   }
   .btn {
     color: $fontcolor;
@@ -323,7 +326,7 @@ export default {
   letter-spacing: 0;
   font-size: 16px;
   font-weight: 600;
-  background-color: $btnbackground;
+  background: $linear-gradient;
 }
 .adbywho {
   font-family: $fontfamliy;
@@ -368,11 +371,11 @@ export default {
   left: 50%;
   width: 20px;
   height: 20px;
-  background-color: $btnbackground;
+  background-color: $color-1;
   clip-path: circle(50% at 50% 50%);
 }
 .card-vip {
-  border: 0.1px solid $btnbackground !important;
+  border: 0.1px solid $color-1 !important;
   overflow: hidden;
 }
 .card {

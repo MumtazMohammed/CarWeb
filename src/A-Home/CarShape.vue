@@ -72,7 +72,7 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: $simplebackground;
+  background-color: $color-background;
   @media (max-width: 600px) {
     width: 100%;
   }
@@ -87,27 +87,24 @@ export default {
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0;
-    background-color: $btnbackground;
-    text-decoration: none;
-    width: 100%;
-  }
-  .more {
-    font-family: $fontfamliy2;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0;
-    background-color: $btnbackground;
+    background: $linear-gradient;
     text-decoration: none;
     width: 100%;
   }
   .tital {
     font-family: $fontfamliy;
     font-size: 30px;
+    @media (max-width: 460px) {
+      font-size: 26px;
+    }
     @media (max-width: 438px) {
+      font-size: 24px;
+    }
+    @media (max-width: 370px) {
       font-size: 20px;
     }
     @media (max-width: 300px) {
-      font-size: 18px;
+      font-size: 17px;
     }
   }
   .icon {
@@ -122,7 +119,7 @@ export default {
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: $btnbackground;
+  background: $color-1;
   display: block;
   @media (max-width: 438px) {
     width: 200px;

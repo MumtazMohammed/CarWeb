@@ -63,9 +63,8 @@ export default {
   position: relative;
 
   .car-reviw:last-child {
-    background-color: rgb(247, 247, 247);
+    background-color: $color-background;
   }
-  
 }
 </style>
 

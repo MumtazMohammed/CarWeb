@@ -2,7 +2,6 @@
   <div class="hidden">
     <!-- user info  -->
     <div class="user hidden-screen-only">
-      <b v-text="UserName" class="grey--text"></b>
       <v-btn class="mx-2 btn" small fab color="primary">
         <v-icon class="icon">fa-user-alt</v-icon>
       </v-btn>
@@ -22,7 +21,7 @@
         transition="dialog-transition"
       >
         <template v-slot:activator="{ on, attrs }">
-          <v-btn large elevation="0" class="ma-2 btn1" v-bind="attrs" v-on="on">
+          <v-btn  elevation="0" class="ma-2 btn1" v-bind="attrs" v-on="on">
             <b v-text="SignUp" class="sgin white--text"></b>
             <v-icon class="sign-in-icon" right>fas fa-sign-in-alt</v-icon>
           </v-btn>
@@ -35,7 +34,7 @@
             dark
             color="transparent"
           >
-            <v-btn color="#6599ff"  icon @click="dialog = false">
+            <v-btn color="#6599ff" icon @click="dialog = false">
               <v-icon>fas fa-times</v-icon>
             </v-btn>
           </v-toolbar>
@@ -56,7 +55,6 @@ export default {
   components,
   data() {
     return {
-      UserName: "Mohammed Ameen",
       SignUp: "تـسجيل الـدخول",
       dialog: false,
     };
@@ -86,7 +84,6 @@ export default {
     }
   }
   b {
-    
     font-size: 14px;
     @media (max-width: 600px) {
       color: $fontcolorsm !important;
@@ -108,7 +105,7 @@ export default {
   }
   .btn1 {
     color: $fontcolorsm;
-    background-color: $btnbackground !important;
+    background: $linear-gradient;
     @media (max-width: 599px) {
       background-color: transparent !important;
       border: 1px solid white !important;

@@ -1,7 +1,7 @@
 <template>
   <div class="see-all mt-8">
     <div class="text-center">
-      <v-btn large outlined class="link" color="#6599ff" to="/SeeAllSpecialCar">
+      <v-btn large class="link" to="/SeeAllSpecialCar">
         شاهد جميع السيارات المضمونه لدينا
       </v-btn>
     </div>
@@ -17,8 +17,10 @@ export default {
 @import "@/scss/mixin";
 .link {
   font-family: $fontfamliy;
+  color: $fontcolorsm !important;
   letter-spacing: 0;
   font-size: 20px !important;
+  background: $linear-gradient;
   text-decoration: none !important;
   @media (max-width: 360px) {
     font-size: 16px !important;

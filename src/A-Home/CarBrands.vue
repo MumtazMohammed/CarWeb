@@ -73,7 +73,7 @@ export default {
 .brand_box {
   width: 100%;
   padding: $padding;
-  background-color: $simplebackground;
+  background-color: $color-background;
   display: flex;
   justify-content: center;
   @media (max-width: 600px) {
@@ -94,16 +94,22 @@ export default {
     width: 100%;
     padding: 10px 0;
     text-align: center;
-    background-color: $btnbackground;
+    background: $linear-gradient;
   }
   .tital {
     font-family: $fontfamliy;
     font-size: 30px;
+    @media (max-width: 460px) {
+      font-size: 26px;
+    }
     @media (max-width: 438px) {
+      font-size: 24px;
+    }
+    @media (max-width: 370px) {
       font-size: 20px;
     }
     @media (max-width: 300px) {
-      font-size: 18px;
+      font-size: 17px;
     }
   }
 }
@@ -114,7 +120,7 @@ export default {
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: $btnbackground;
+  background: $color-1;
   display: block;
   @media (max-width: 438px) {
     width: 200px;

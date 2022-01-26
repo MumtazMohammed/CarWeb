@@ -1,96 +1,97 @@
 <template>
-    <div class="navlinks-box">
-      <v-row>
-        <v-col class="d-flex align-center justify-sm-center py-md-0 py-sm-0 py-2" cols="12">
-          <v-toolbar-items class="hiddenn">
-            <v-list class="d-flex">
-              <!-- نضنها لك  -->
-              <v-list-item
-                router
-                dark
-                to="/"
-                class="singl-link ma-0"
-                color="transparent"
-                active-class="active"
-              >
-                <v-list-item-content>
-                  <v-list-item-title class="nav-link"
-                    >نضنها لك</v-list-item-title
-                  >
-                </v-list-item-content>
-              </v-list-item>
-              <!-- used or new or all  -->
-              <v-menu
-                bottom
-                nudge-top="0"
-                open-on-hover
-                close-delay="150"
-                nudge-left="50"
-                origin="center center"
-                offset-y
-                transition="scale-transition"
-              >
-                <template v-slot:activator="{ on, attrs }">
-                  <v-list>
-                    <v-list-item
-                      v-bind="attrs"
-                      v-on="on"
-                      color="transparent"
-                      class="singl-link ma-0"
-                    >
-                      <v-list-item-content>
-                        <v-list-item-title class="nav-link">
-                          سيارت للبيع
-                          <v-icon class="menu-icon" left
-                            >fas fa-caret-down</v-icon
-                          >
-                        </v-list-item-title>
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </template>
-                <v-list class="CarforSell-link pa-2">
+  <div class="navlinks-box">
+    <v-row>
+      <v-col
+        class="d-flex align-center justify-sm-center py-md-0 py-sm-0 py-2"
+        cols="12"
+      >
+        <v-toolbar-items class="hiddenn">
+          <v-list class="d-flex">
+            <!-- نضنها لك  -->
+            <v-list-item
+              router
+              dark
+              to="/"
+              class="singl-link ma-0"
+              color="transparent"
+              active-class="active"
+            >
+              <v-list-item-content>
+                <v-list-item-title class="nav-link">نضنها لك</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <!-- used or new or all  -->
+            <v-menu
+              bottom
+              nudge-top="0"
+              open-on-hover
+              close-delay="150"
+              nudge-left="50"
+              origin="center center"
+              offset-y
+              transition="scale-transition"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-list>
                   <v-list-item
-                    router
-                    :to="item.path"
-                    v-for="(item, i) in CarForSell"
-                    :key="i"
-                    class="mb-1"
-                    active-class="singl-link mutible-link-list-item"
+                    v-bind="attrs"
+                    v-on="on"
+                    color="transparent"
+                    class="singl-link ma-0"
                   >
-                    <v-list-item-content class="pa-1">
-                      <v-list-item-title class="item-title">
-                        {{ item.title }}
+                    <v-list-item-content>
+                      <v-list-item-title class="nav-link">
+                        سيارت للبيع
+                        <v-icon class="menu-icon" left
+                          >fas fa-caret-down</v-icon
+                        >
                       </v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list>
-              </v-menu>
-              <!-- other  -->
-              <v-list-item
-                v-for="(item, i) in items"
-                :key="i"
-                router
-                dark
-                :to="item.path"
-                class="singl-link ma-0"
-                color="transparent"
-                active-class="active"
-              >
-                <v-list-item-content>
-                  <v-list-item-title
-                    class="nav-link"
-                    v-text="item.text"
-                  ></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </v-toolbar-items>
-          <!-- search  -->
-          <SearchCar />
-        </v-col>
-      </v-row>
-    </div>
+              </template>
+              <v-list class="CarforSell-link pa-2">
+                <v-list-item
+                  router
+                  :to="item.path"
+                  v-for="(item, i) in CarForSell"
+                  :key="i"
+                  class="mb-1"
+                  active-class="singl-link mutible-link-list-item"
+                >
+                  <v-list-item-content class="pa-1">
+                    <v-list-item-title class="item-title">
+                      {{ item.title }}
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+            <!-- other  -->
+            <v-list-item
+              v-for="(item, i) in items"
+              :key="i"
+              router
+              dark
+              :to="item.path"
+              class="singl-link ma-0"
+              color="transparent"
+              active-class="active"
+            >
+              <v-list-item-content>
+                <v-list-item-title
+                  class="nav-link"
+                  v-text="item.text"
+                ></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-toolbar-items>
+        <!-- search  -->
+        <SearchCar />
+      </v-col>
+    </v-row>
+  </div>
 </template>
 <script>
 import SearchCar from "../CarSearch/Category.vue";
@@ -191,24 +192,22 @@ export default {
     }
   }
   .singl-link:hover .nav-link {
-    color: $btnbackground;
+    color: $fontcolor;
   }
   .singl-link:hover .nav-link .menu-icon {
-    color: $btnbackground;
+    color: $fontcolor;
   }
 }
 .active {
   position: relative;
 }
-.active .nav-link {
-  color: $btnbackground;
-}
+
 .active:before {
   content: "";
   position: absolute;
   width: 50%;
   height: 5px;
-  background-color: $btnbackground;
+  background: $linear-gradient;
   transform: translate(-50%, 1150%);
   opacity: 1 !important;
   border-top-left-radius: 5px;

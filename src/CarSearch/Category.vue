@@ -4,8 +4,8 @@
       <v-btn
         class="nav-linkk rounded-0"
         elevation="0"
+        color="transparent"
         large
-        plain
         v-bind="attrs"
         v-on="on"
       >
@@ -176,7 +176,7 @@ export default {
   font-weight: 500;
 }
 .nav-linkk {
-  color: $fontcolor !important;
+  color: $fontcolorlinks !important;
   font-size: 16px !important;
   font-weight: 600;
   font-family: $fontfamliy;
@@ -188,7 +188,7 @@ export default {
   }
 
   .icon-search {
-    color: $fontcolor !important;
+    color: $fontcolorlinks !important;
     font-size: 14px !important;
     transition: color 0.1s ease;
     @media (max-width: 600px) {
@@ -221,15 +221,15 @@ export default {
   }
 }
 .nav-linkk:hover {
-  color: $btnbackground !important;
+  color: $fontcolor !important;
+}
+.nav-linkk::v-deep.theme--light.v-btn:hover:before {
+  opacity: 0;
+}
+.nav-linkk::v-deep.theme--light.v-btn:focus:before {
+  opacity: 0;
 }
 .nav-linkk:hover .icon-search {
-  color: $btnbackground !important;
-}
-.nav-linkk:focus {
-  color: $btnbackground !important;
-}
-.nav-linkk:focus .icon-search {
-  color: $btnbackground !important;
+  color: $fontcolor !important;
 }
 </style>

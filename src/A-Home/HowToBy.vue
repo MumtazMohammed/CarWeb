@@ -4,17 +4,15 @@
       <p class="text-center font-weight-bold tital">
         {{ Tital }}
       </p>
-      <span class="line my-3  mx-auto"></span>
-      <v-row>
-        <v-col cols="12" sm="6" md="6" align-self="center">
+      <span class="line my-3 mx-auto"></span>
+      <v-row class="justify-center mt-2">
+        <v-col cols="12" sm="8" md="8">
           <div>
             <v-expansion-panels dark v-model="panel" multiple>
-              <v-expansion-panel  v-for="(item, i) in items" :key="i">
-                <v-expansion-panel-header
-                  color="#6599ff"
-                  class="expansion-header py-1"
-                  >{{ item.how }}</v-expansion-panel-header
-                >
+              <v-expansion-panel v-for="(item, i) in items" :key="i">
+                <v-expansion-panel-header class="expansion-header py-1">{{
+                  item.how
+                }}</v-expansion-panel-header>
                 <v-expansion-panel-content class="expansion-content">
                   {{ item.text }}
                 </v-expansion-panel-content>
@@ -23,13 +21,13 @@
           </div>
         </v-col>
 
-        <v-col cols="12" sm="6" md="6">
+        <!-- <v-col cols="12" sm="6" md="6">
           <v-img
             contain
             fullscreen
             src="../assets/outsrc/—Pngtree—buying sale rent cars flat_5426811.png"
           ></v-img>
-        </v-col>
+        </v-col> -->
       </v-row>
     </v-container>
   </div>
@@ -39,7 +37,7 @@ export default {
   name: "HowToBuy",
   data() {
     return {
-      Tital: "مـعلومات هـامة",
+      Tital: " مـعلومات قد تحظى بي أهـتمامك",
       items: [
         {
           how: "كيف يتم شراء السيارات من الموقع",
@@ -68,6 +66,7 @@ export default {
   height: auto;
   padding: $padding;
   position: relative;
+  background-color: $color-background;
   .stepper-header {
     box-shadow: 0px 0px 0px;
   }
@@ -75,25 +74,36 @@ export default {
   .tital {
     font-family: $fontfamliy;
     font-size: 30px;
-    pointer-events: none;
-    @media (max-width: 400px) {
+    @media (max-width: 460px) {
+      font-size: 26px;
+    }
+    @media (max-width: 438px) {
+      font-size: 24px;
+    }
+    @media (max-width: 370px) {
       font-size: 20px;
     }
     @media (max-width: 300px) {
-      font-size: 18px;
+      font-size: 17px;
     }
   }
   .line {
-    width: 180px;
+    width: 320px;
     height: 7px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: #6599ff;
+    background: $color-1;
     display: block;
-    @media (max-width: 400px) {
-      width: 100px;
+    @media (max-width: 460px) {
+      width: 30px;
+    }
+    @media (max-width: 438px) {
+      width: 250px;
+    }
+    @media (max-width: 300px) {
+      width: 200px;
     }
   }
   .expansion-header {
@@ -103,6 +113,7 @@ export default {
     font-size: 16px;
     font-weight: 600;
     min-height: 45px;
+    background: $linear-gradient;
   }
   .expansion-content {
     font-family: $fontfamliy;
@@ -114,8 +125,5 @@ export default {
     pointer-events: none;
     background-color: white;
   }
-}
-.v-application .primary {
-  background-color: $background !important ;
 }
 </style>

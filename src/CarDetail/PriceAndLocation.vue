@@ -24,178 +24,29 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" class="pb-0">
-          <v-card flat class="card-ad-num">
-            <v-card-text class="ad"> أعلان : <span>{{ getCarInfo.ad }}</span> </v-card-text>
+        <v-col v-if="getCarInfo.Vip == true" cols="12" class="pb-0">
+          <VipCard />
+        </v-col>
+        <v-col cols="12" class="py-0">
+          <v-card flat  class="card-ad-num rounded-0">
+            <v-card-text class="ad">
+              أعلان : <span>{{ getCarInfo.ad }}</span>
+            </v-card-text>
             <v-divider></v-divider>
             <v-card-text class="ad">
               رقم : <span>{{ getCarInfo.adNum }}</span></v-card-text
             >
           </v-card>
         </v-col>
-        <v-col cols="12" class="py-0">
+        <v-col v-if="getCarInfo.Vip == false" cols="12" class="py-0">
           <CarWarning />
         </v-col>
-        <!-- contact eara  -->
-        <v-col cols="12" class="text-center pt-0 btns hidden-md-and-up">
-          <v-card flat class="pa-1 btn-box">
-            <!-- owner  -->
-            <v-btn
-              width="120"
-              outlined
-              class="grey darken-2 btns-contact"
-              @click.stop="owner = true"
-            >
-              معلومات
-            </v-btn>
-            <v-snackbar
-              height="200px"
-              min-width="300"
-              width="500"
-              centered
-              v-model="owner"
-              :vertical="vertical"
-            >
-              <div class="v-snack__content pa-0">owner</div>
-
-              <template v-slot:action="{ attrs }">
-                <v-btn
-                  color="white"
-                  icon
-                  v-bind="attrs"
-                  @click="owner = false"
-                  class="snackbar-close-owner"
-                >
-                  <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
-                </v-btn>
-              </template>
-            </v-snackbar>
-            <!-- -------------------------------------- -->
-            <!-- whatsapp  -->
-            <v-btn
-              outlined
-              width="120"
-              class="success btns-contact"
-              @click.stop="whatsapp = true"
-            >
-              وتس اب
-            </v-btn>
-            <v-snackbar
-              v-model="whatsapp"
-              height="150px"
-              min-width="300"
-              width="500"
-              centered
-              :vertical="vertical"
-              color="success"
-            >
-              <div class="v-snack__content pa-0">whatsaap</div>
-              <template class="snackbar-close" v-slot:action="{ attrs }">
-                <v-btn
-                  color="white"
-                  icon
-                  v-bind="attrs"
-                  @click="whatsapp = false"
-                  class="snackbar-close"
-                >
-                  <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
-                </v-btn>
-                <v-btn
-                  color="white"
-                  icon
-                  v-bind="attrs"
-                  @click="whatsapp = false"
-                  class="snackbar-copy"
-                >
-                  <v-icon class="snackbar-copy"> far fa-copy</v-icon>
-                </v-btn>
-              </template>
-            </v-snackbar>
-            <!-- -------------------------------------- -->
-            <!-- telephone  -->
-            <v-btn
-              outlined
-              width="120"
-              class="info btns-contact"
-              @click.stop="call = true"
-            >
-              هاتف
-            </v-btn>
-            <v-snackbar
-              height="150px"
-              min-width="300"
-              width="500"
-              centered
-              v-model="call"
-              :vertical="vertical"
-              color="info"
-            >
-              <div class="v-snack__content pa-0">call</div>
-              <template v-slot:action="{ attrs }">
-                <v-btn
-                  color="white"
-                  icon
-                  v-bind="attrs"
-                  @click="call = false"
-                  class="snackbar-close"
-                >
-                  <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
-                </v-btn>
-                <v-btn
-                  color="white"
-                  icon
-                  v-bind="attrs"
-                  @click="call = false"
-                  class="snackbar-copy"
-                >
-                  <v-icon class="snackbar-copy"> far fa-copy</v-icon>
-                </v-btn>
-              </template>
-            </v-snackbar>
-            <!-- -------------------------------------- -->
-            <!-- mail  -->
-            <v-btn
-              width="120"
-              outlined
-              class="red btns-contact"
-              @click.stop="gmail = true"
-            >
-              البريد الأكترواني
-            </v-btn>
-          </v-card>
-          <v-snackbar
-            height="150px"
-            min-width="300"
-            width="500"
-            centered
-            v-model="gmail"
-            :vertical="vertical"
-            color="red"
-          >
-            <div class="v-snack__content pa-0">gmail</div>
-
-            <template v-slot:action="{ attrs }">
-              <v-btn
-                color="white"
-                icon
-                v-bind="attrs"
-                @click="gmail = false"
-                class="snackbar-close"
-              >
-                <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
-              </v-btn>
-              <v-btn
-                icon
-                v-bind="attrs"
-                @click="gmail = false"
-                class="snackbar-copy"
-              >
-                <v-icon class="snackbar-copy"> far fa-copy</v-icon>
-              </v-btn>
-            </template>
-          </v-snackbar>
-          <!-- -------------------------------------- -->
+        <v-col cols="12" class="text-center pt-0 btns">
+          <ContacSeller />
         </v-col>
+        <!-- contact eara  -->
+
+        <!-- -------------------------------------- -->
       </v-row>
     </v-col>
   </div>
@@ -203,10 +54,14 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import CarWarning from "../CarDetail/CarWarning.vue";
+import VipCard from "../CarDetail/VipCard.vue";
+import ContacSeller from "../CarDetail/ContacSeller.vue";
 export default {
   name: "PriceAndLocation",
   components: {
     CarWarning,
+    VipCard,
+    ContacSeller,
   },
   data() {
     return {
@@ -260,10 +115,10 @@ export default {
   letter-spacing: 0 !important;
 }
 .card-ad-num {
-  border-top-right-radius: 5px !important;
-  border-top-left-radius: 5px !important;
-  border-bottom-right-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
+  // border-top-right-radius: 0px !important;
+  // border-top-left-radius: 0px !important;
+  // border-bottom-right-radius: 5px !important;
+  // border-bottom-left-radius: 5px !important;
 }
 .ad {
   font-family: $fontfamliy !important;
@@ -287,12 +142,7 @@ export default {
 .h5 {
   font-family: $fontfamliy;
 }
-.btn-box {
-  border-top-right-radius: 0px !important;
-  border-top-left-radius: 0px !important;
-  border-bottom-right-radius: 5px !important;
-  border-bottom-left-radius: 5px !important;
-}
+
 .btns-contact {
   color: #fff !important;
   margin: 3px;

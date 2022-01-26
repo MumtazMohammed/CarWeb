@@ -14,10 +14,10 @@
         :autoplay="fales"
         :autoplay-timeout="0"
         :display="5"
-        :space="278"
+        :space="320"
         :inverseScaling="0"
         :perspective="0"
-        :width="270"
+        :width="300"
         :controls-visible="true"
         :controls-prev-html="navigationPrev"
         :controls-next-html="navigationNext"
@@ -29,12 +29,12 @@
           v-for="(CarSell, i) in CarSells"
           :key="CarSell.id"
           :index="i"
-          :width="270"
+          :width="300"
           :height="200"
         >
           <!-- using methods to conect the image to the corect folder   -->
           <v-card
-            width="270"
+            width="300"
             elevation="0"
             class="overflow-hidden pa-1 card-vip"
           >
@@ -71,7 +71,7 @@
                   CarSell.location
                 }}</v-card-subtitle>
               </v-col>
-              <v-divider color="#6599ff" vertical></v-divider>
+              <v-divider color="#03a9f4" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left location-condtion pa-2"
                   >{{ CarSell.condtion }}
@@ -86,7 +86,7 @@
                   >{{ CarSell.payment }}</v-card-subtitle
                 >
               </v-col>
-              <v-divider color="#6599ff" vertical></v-divider>
+              <v-divider color="#03a9f4" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left font-weight-regular pa-2"
                   >{{ CarSell.kilometer }}
@@ -234,7 +234,7 @@ export default {
   height: auto;
   position: relative;
   padding: $padding;
-  background-color: $simplebackground;
+  background-color: $color-background;
 
   .tital {
     color: $fontcolor;
@@ -248,7 +248,7 @@ export default {
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: $btnbackground;
+    background: $color-1;
     display: block;
   }
   .title-box {
@@ -273,7 +273,7 @@ export default {
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background-color: $btnbackground !important;
+    background: $linear-gradient ;
   }
 
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before {
@@ -298,7 +298,7 @@ export default {
   letter-spacing: 0;
   font-size: 16px;
   font-weight: 600;
-  background-color: $btnbackground;
+  background: $linear-gradient;
 }
 .CarNumVip {
   position: absolute;
@@ -335,7 +335,7 @@ export default {
   left: 50%;
   width: 20px;
   height: 20px;
-  background-color: $btnbackground;
+  background-color: $color-1;
   clip-path: circle(50% at 50% 50%);
 }
 .card-vip {
@@ -380,11 +380,11 @@ export default {
     background-color: unset;
     border: 0px;
     height: auto !important;
-    width: 270px !important;
+    width: 300px !important;
   }
   .carousel-3d-slider[data-v-07917306] {
     height: auto !important;
-    width: 270px !important;
+    width: 300px !important;
   }
 }
 </style>

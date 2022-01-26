@@ -14,13 +14,13 @@
               <v-img
                 lazy
                 :src="getimageUrl(getCarInfo.folder, getCarInfo.image)"
-                max-height="400"
-                max-width="700"
+                max-height="512"
+                max-width="768"
                 v-bind="attrs"
                 v-on="on"
                 class="ma-sm-auto"
               >
-                <v-card width="100%" color="white" class="rounded-0" flat>
+                <v-card width="100%" color="white" class="rounded-0">
                   <v-card-text class="click mx-auto"
                     >اضغط على الصورة لرؤية المزيد...</v-card-text
                   >
@@ -49,9 +49,6 @@
             <!--  -->
           </v-dialog>
         </div>
-        <v-col cols="12" class="pa-0">
-          <ContacSeller class="hidden-sm-and-down" />
-        </v-col>
       </v-col>
       <v-col xs="12" sm="12" md="6" class="pt-1 pb-0 remov-p-from-col-box-all">
         <PriceAndLocation />
@@ -62,10 +59,9 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import PriceAndLocation from "../CarDetail/PriceAndLocation.vue";
-import ContacSeller from "../CarDetail/ContacSeller.vue";
 export default {
   name: "CarImage",
-  components: { PriceAndLocation, ContacSeller },
+  components: { PriceAndLocation },
   data() {
     return {
       ActivePic: "",
@@ -109,7 +105,7 @@ export default {
   font-family: $fontfamliy;
   font-size: 18px;
   color: $fontcolor !important;
-  background-color: #fff !important;
+  background-color: $color-background !important;
 }
 .diglog {
   align-items: flex-start !important;

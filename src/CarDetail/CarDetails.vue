@@ -7,7 +7,12 @@
         </v-card-title>
         <span class="line mt-3 mb-5 mx-auto"></span>
       </v-col>
-      <v-col cols="12" sm="12" md="11" class="pa-1">
+      <v-col
+        cols="12"
+        sm="12"
+        md="11"
+        class="pa-1 position-relative detail-card-box"
+      >
         <v-card flat class="d-flex detail-card flex-wrap pa-5">
           <v-flex sx6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
@@ -71,12 +76,11 @@
           </v-flex>
           <v-row justify="center" class="mt-2">
             <v-col cols="12" md="10" class="disc-p">
-              <v-card color="#6599ff" class="">
+              <v-card color="#03a9f4" class="disc-title pa-2">
                 <v-card-title class="disc-title py-2">
                   تفاصيل أكثر عن السيارة
                 </v-card-title>
-                <v-divider></v-divider>
-                <v-card-text class="disc-text">
+                <v-card-text class="disc-text pa-2">
                   هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
                   توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا
                   النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف
@@ -135,7 +139,7 @@ export default {
 .car-info {
 }
 .detail-card {
-  background-color: $btnbackground !important;
+  background: $linear-gradient;
 }
 .table_data-child {
   font-size: 15px !important;
@@ -170,9 +174,12 @@ export default {
     padding: 4px;
   }
 }
+
 .disc-title {
   color: $fontcolorsm;
   font-family: $fontfamliy;
+  background: $color-1;
+
   // background-color: $btnbackground;
   // border-left: 1px solid $background1 !important;
   // border-right: 1px solid $background1 !important;
@@ -180,16 +187,17 @@ export default {
 }
 .disc-text {
   font-family: $fontfamliy;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500 !important;
   line-height: 1.8;
   background-color: #fff;
   color: $fontcolor !important;
+  border-radius: 3px !important;
 }
 .line {
   width: 140px;
   height: 7px;
-  background-color: $btnbackground;
+  background-color: $color-1;
   display: block;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;

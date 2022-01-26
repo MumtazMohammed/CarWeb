@@ -36,7 +36,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .footer {
-  background-color: $background !important;
+  background-color: #424342 !important;
 }
 .brand-logo {
   letter-spacing: 0px;

@@ -91,7 +91,7 @@ export default {
     font-size: 18px;
     letter-spacing: 0;
     font-weight: 500;
-    background-color: $btnbackground !important;
+    background: $linear-gradient;
     .icon {
       font-size: 15px;
       color: grey;

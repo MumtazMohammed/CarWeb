@@ -78,20 +78,16 @@ export default {
   padding: 0px !important;
 }
 .btn-up {
-  display: flex;
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 10px;
   z-index: 5;
-  background-color: $btnbackground;
-  transform: translateX(100px);
+  background: $color-2;
+  transform: scale(0) rotate(360deg);
   transition: all 0.4s 0s ease !important;
-  @media (max-width: 600px) {
-    right: 100px;
-    transform: translateX(-500px);
-  }
+
   .btn-up-icon {
-    font-size: 18px !important;
+    font-size: 22px !important;
   }
 }
 // .btn-menu {
@@ -111,12 +107,6 @@ export default {
 //   }
 // }
 .is-hidden {
-  right: 10px;
-  transform: translateY(0px);
-  transition: all 0.4s 0s ease !important;
-  @media (min-width: 600px) {
-    transition: all 0.4s 0s ease !important;
-  }
-
+  transform: scale(1) rotate(0deg);
 }
 </style>

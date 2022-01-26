@@ -3,7 +3,7 @@
   <div class="ContactSeller">
     <v-row>
       <v-col cols="12" class="text-center btns">
-        <v-card color="transparent" flat class="pa-5 rounded-0">
+        <v-card  flat class="pa-5 btn-box">
           <!-- owner  -->
           <v-btn
             width="120"
@@ -180,11 +180,17 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .btns-contact {
-  color: #fff !important;
+  color: rgb(255, 255, 255) !important;
   margin: 3px;
   font-family: $fontfamliy2;
   letter-spacing: 0;
   font-size: 14px;
+}
+.btn-box {
+  border-top-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-right-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
 }
 // search
 

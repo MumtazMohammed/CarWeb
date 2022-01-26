@@ -2,7 +2,7 @@
   <div class="login">
     <v-container>
       <v-row justify="center">
-        <v-col cols="12" md="10" sm="12" class="container-col pt-0 ">
+        <v-col cols="12" md="10" sm="12" class="container-col pt-0">
           <v-card flat>
             <v-col cols="12" class="text-center">
               <v-avatar size="100px" tile>
