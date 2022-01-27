@@ -11,7 +11,7 @@
             )
           </h2>
         </v-col>
-        <v-col cols="12" class="boredr-all-box" v-if="SpicalCarView.length > 5">
+        <v-col cols="12" class="filtt" v-if="SpicalCarView.length > 5">
           <FilterSection />
         </v-col>
         <v-row class="mt-1 car-box">
@@ -160,6 +160,21 @@ export default {
   .car-box {
     @media (max-width: 600px) {
       justify-content: center;
+    }
+  }
+  .filtt {
+    @media (max-width: 540px) {
+      padding: 5px 90px !important;
+    }
+    @media (max-width: 450px) {
+      padding: 5px 45px !important;
+    }
+    @media (max-width: 380px) {
+      padding: 5px 20px !important;
+    }
+
+    @media (max-width: 350px) {
+      padding: 5px 5px !important;
     }
   }
   .boredr-all-box {

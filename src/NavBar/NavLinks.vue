@@ -137,23 +137,6 @@ export default {
 @import "../scss/virables";
 @import "../scss/mixin";
 
-.navlinks-box.vue-fixed-header--isFixed {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  padding: 10px 0;
-  transition: top 0.3s linear;
-  background-color: #fff;
-
-  .nav-linkk {
-    color: $fontcolorsm !important;
-    font-size: 15px !important;
-    margin-right: 5px;
-    cursor: pointer !important;
-  }
-}
 .hiddenn {
   @media (max-width: 600px) {
     display: none !important;
@@ -161,10 +144,13 @@ export default {
 }
 
 .navlinks-box {
+  width: 100vw;
+  height: auto;
+  position: relative;
   padding: 5px 0;
-  top: -68px;
   background-color: #fff;
-  transition: top 0.5s ease-out;
+  z-index: 1;
+  overflow: hidden;
   @include flexcenter();
 
   .nav-link {
@@ -232,7 +218,8 @@ export default {
 }
 .CarforSell-link::v-deep .theme--light.v-list-item--active:before {
   opacity: 1;
-  background-color: $btnbackground !important;
+  background-color: $color-1 !important;
+ 
 }
 .menu-icon {
   font-size: 15px !important;

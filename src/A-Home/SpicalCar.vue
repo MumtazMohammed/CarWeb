@@ -149,7 +149,7 @@ export default {
       return `     <style scoped>
         .next {
          transition: all .3s ease;
-         background-color: #6599ff;
+         background-color: #03a9f4;
          display: flex;
          align-items: center;
          justify-content: center;
@@ -189,7 +189,7 @@ export default {
        <style scoped>
         .prev {
          transition: all .3s ease;
-         background-color: #6599ff;
+         background-color: #03a9f4;
          display: flex;
          align-items: center;
          justify-content: center;
@@ -273,7 +273,7 @@ export default {
     font-size: 17px;
     padding: 10px;
     letter-spacing: 0;
-    background: $linear-gradient ;
+    background: $linear-gradient;
   }
 
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before {
@@ -357,11 +357,7 @@ export default {
     width: 100% !important;
   }
 }
-.swiper-container-vertical .slider-pagination-bullet-active,
-.swiper-container-horizontal .slider-pagination-bullet-active {
-  background: rgb(255, 0, 0) none repeat scroll 0 0 !important;
-  opacity: 1;
-}
+
 .carousel-3d-container {
   height: 450px !important;
   margin: 0px auto !important;

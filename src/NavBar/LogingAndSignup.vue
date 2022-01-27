@@ -21,8 +21,8 @@
         transition="dialog-transition"
       >
         <template v-slot:activator="{ on, attrs }">
-          <v-btn  elevation="0" class="ma-2 btn1" v-bind="attrs" v-on="on">
-            <b v-text="SignUp" class="sgin white--text"></b>
+          <v-btn elevation="0" class=" btn1" v-bind="attrs" v-on="on">
+            <b v-text="SignUp" class="sgin"></b>
             <v-icon class="sign-in-icon" right>fas fa-sign-in-alt</v-icon>
           </v-btn>
         </template>
@@ -55,6 +55,7 @@ export default {
   components,
   data() {
     return {
+      dra: false,
       SignUp: "تـسجيل الـدخول",
       dialog: false,
     };
@@ -72,7 +73,6 @@ export default {
     justify-content: space-between;
     flex-direction: column;
     height: auto;
-    padding: 15px 0 0 0;
     border-bottom: 1px solid rgba(147, 147, 147, 0.299);
   }
   .user {
@@ -104,15 +104,23 @@ export default {
     font-size: 18px !important;
   }
   .btn1 {
-    color: $fontcolorsm;
     background: $linear-gradient;
     @media (max-width: 599px) {
-      background-color: transparent !important;
-      border: 1px solid white !important;
+      background: $fontcolorsm !important;
+      color: $fontcolor !important;
+      margin-bottom: 20px;
     }
     .sign-in-icon {
+      color: $fontcolorsm !important;
       @media (max-width: 599px) {
-        color: white !important;
+        color: $color-1 !important;
+      }
+    }
+    .sgin {
+      color: $fontcolorsm !important;
+      font-size: 16px;
+      @media (max-width: 599px) {
+        color: $color-1 !important;
       }
     }
   }

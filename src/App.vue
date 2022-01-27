@@ -83,7 +83,7 @@ export default {
   right: 10px;
   z-index: 5;
   background: $color-2;
-  transform: scale(0) rotate(360deg);
+  transform: scale(0);
   transition: all 0.4s 0s ease !important;
 
   .btn-up-icon {
@@ -107,6 +107,9 @@ export default {
 //   }
 // }
 .is-hidden {
-  transform: scale(1) rotate(0deg);
+  transform: scale(1);
+  @media (max-width: 600px) {
+    transform: scale(0.9);
+  }
 }
 </style>

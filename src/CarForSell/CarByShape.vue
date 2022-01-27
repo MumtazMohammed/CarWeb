@@ -16,7 +16,7 @@
           <p class="no-car">لا يوجد سيارت متاحا بي نفس الطلب</p>
         </div>
       </v-col>
-      <v-col class="boredr-all-box" cols="12" v-if="getCarInfo.length > 5">
+      <v-col class="filtt" cols="12" v-if="getCarInfo.length > 5">
         <FilterSection />
       </v-col>
       <v-row v-if="getCarInfo.length > 0" class="mt-1 car-box">
@@ -236,6 +236,21 @@ export default {
   .tital {
     color: $fontcolor;
     font-family: $fontfamliy;
+  }
+  .filtt {
+    @media (max-width: 540px) {
+      padding: 5px 90px !important;
+    }
+    @media (max-width: 450px) {
+      padding: 5px 45px !important;
+    }
+    @media (max-width: 380px) {
+      padding: 5px 20px !important;
+    }
+
+    @media (max-width: 350px) {
+      padding: 5px 5px !important;
+    }
   }
   .boredr-all-box {
     @media (max-width: 880px) {

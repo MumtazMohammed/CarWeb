@@ -28,7 +28,7 @@
           <VipCard />
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-card flat  class="card-ad-num rounded-0">
+          <v-card flat class="card-ad-num rounded-0">
             <v-card-text class="ad">
               أعلان : <span>{{ getCarInfo.ad }}</span>
             </v-card-text>

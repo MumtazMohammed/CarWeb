@@ -1,7 +1,7 @@
 <template>
   <div class="FilterSection">
     <v-row>
-      <v-col class="px-0" cols="12" md="3" sm="6">
+      <v-col class="pr-md-1 pr-sm-1" cols="12" md="3" sm="6">
         <v-select
           :items="items"
           label="ترتيب السعر من"

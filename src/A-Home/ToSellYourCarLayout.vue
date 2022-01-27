@@ -36,6 +36,8 @@ export default {
   width: 100%;
   min-height: calc(100vh - 125px);
   padding: $padding;
+  display: flex;
+  align-items: center;
   .v-input--selection-controls .v-input__slot > .v-label {
     font-family: "Tajawal", sans-serif !important;
   }

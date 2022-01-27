@@ -3,7 +3,7 @@
   <div class="ContactSeller">
     <v-row>
       <v-col cols="12" class="text-center btns">
-        <v-card  flat class="pa-5 btn-box">
+        <v-card flat class="pa-5 btn-box">
           <!-- owner  -->
           <v-btn
             width="120"

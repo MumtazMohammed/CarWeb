@@ -23,8 +23,6 @@
       mini-variant-width
       width="300"
     >
-      <LogingAndSignup />
-
       <v-list class="pt-0">
         <v-list-item-group v-model="model" mandatory dark color="white">
           <!-- home Linke  -->
@@ -90,6 +88,8 @@
           </v-list-item>
         </v-list-item-group>
       </v-list>
+      <v-spacer></v-spacer>
+      <LogingAndSignup />
     </v-navigation-drawer>
   </div>
 </template>
@@ -150,8 +150,16 @@ export default {
 // Nav for small screen
 .nav-tablet {
   z-index: 4;
-  background-color: $btnbackground !important;
+  background: $linear-gradient !important;
 }
+.nav-tablet::v-deep .v-navigation-drawer__content {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
 .nav-link-sm {
   font-size: 16px;
   color: $fontcolorsm;
@@ -186,7 +194,7 @@ export default {
   right: 10px;
   z-index: 5;
   background: $color-2;
-  transform: scale(0) rotate(360deg);
+  transform: scale(0);
   transition: all 0.4s 0 ease !important;
   display: none;
   @media (max-width: 600px) {
@@ -197,6 +205,9 @@ export default {
   }
 }
 .is-hidden {
-  transform: scale(1) rotate(0deg);
+  transform: scale(1);
+  @media (max-width: 600px) {
+    transform: scale(0.9);
+  }
 }
 </style>

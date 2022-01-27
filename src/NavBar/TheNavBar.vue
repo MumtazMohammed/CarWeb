@@ -10,7 +10,7 @@
       <!-- bar icon for show links  -->
       <v-app-bar-nav-icon
         @click="drawer = true"
-        color="#6599ff"
+        color="#03a9f4"
         class="hidden-sm-and-up"
       ></v-app-bar-nav-icon>
     </v-toolbar>
@@ -24,8 +24,6 @@
         floating
         mini-variant-width
       >
-        <LogingAndSignup />
-
         <v-list class="pt-0">
           <v-list-item-group v-model="model" mandatory dark color="white">
             <!-- home Linke  -->
@@ -90,6 +88,8 @@
             </v-list-item>
           </v-list-item-group>
         </v-list>
+        <v-spacer></v-spacer>
+        <LogingAndSignup />
       </v-navigation-drawer>
     </div>
     <Navlinks />
@@ -168,7 +168,14 @@ export default {
 // Nav for small screen
 .nav-tablet {
   z-index: 4;
-  background-color: $btnbackground !important;
+  background: $linear-gradient !important;
+}
+.nav-tablet::v-deep .v-navigation-drawer__content {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .nav-link-sm {
   font-size: 16px;

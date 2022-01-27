@@ -9,7 +9,7 @@
             ) - سـيـارة مستعملة للبيع
           </h2>
         </v-col>
-        <v-col class="boredr-all-box" cols="12" v-if="getCarInfo.length > 5">
+        <v-col class="filtt" cols="12" v-if="getCarInfo.length > 5">
           <FilterSection />
         </v-col>
         <v-col
@@ -243,6 +243,21 @@ export default {
       text-decoration: underline;
       font-family: $fontfamliy;
       cursor: pointer;
+    }
+  }
+  .filtt {
+    @media (max-width: 540px) {
+      padding: 5px 90px !important;
+    }
+    @media (max-width: 450px) {
+      padding: 5px 45px !important;
+    }
+    @media (max-width: 380px) {
+      padding: 5px 20px !important;
+    }
+
+    @media (max-width: 350px) {
+      padding: 5px 5px !important;
     }
   }
   .boredr-all-box {
