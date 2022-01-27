@@ -3,7 +3,7 @@
     <NavBar />
     <div class="product_box pb-10">
       <v-container>
-        <v-col cols="12" class="pr-0">
+        <v-col cols="12" class="pr-1">
           <h2 class="tital">
             سـيـارات مضمونة لدينا للبيع - (<span class="red--text">
               {{ SpicalCarView.length }}</span
@@ -164,10 +164,10 @@ export default {
   }
   .filtt {
     @media (max-width: 540px) {
-      padding: 5px 90px !important;
+      padding: 5px 80px !important;
     }
     @media (max-width: 450px) {
-      padding: 5px 45px !important;
+      padding: 5px 30px !important;
     }
     @media (max-width: 380px) {
       padding: 5px 20px !important;

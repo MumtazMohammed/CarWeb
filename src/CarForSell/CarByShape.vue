@@ -2,7 +2,7 @@
   <div class="product_box">
     <NavBar />
     <v-container fluid>
-      <v-col class="pr-0" cols="12">
+      <v-col class="pr-1" cols="12">
         <h2 v-if="getCarInfo.length == 1" class="tital">
           (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة من
           نوع {{ CarShape }} للبيع
@@ -239,10 +239,10 @@ export default {
   }
   .filtt {
     @media (max-width: 540px) {
-      padding: 5px 90px !important;
+      padding: 5px 80px !important;
     }
     @media (max-width: 450px) {
-      padding: 5px 45px !important;
+      padding: 5px 30px !important;
     }
     @media (max-width: 380px) {
       padding: 5px 20px !important;

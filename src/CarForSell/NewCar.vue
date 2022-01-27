@@ -3,7 +3,7 @@
     <NavBar />
     <v-container class="">
       <v-row class="py-4 pb-7 car-box">
-        <v-col cols="12" class="pr-0">
+        <v-col cols="12" class="pr-1">
           <h2 class="tital">
             (<span class="red--text"> {{ getCarInfo.length }}</span> ) - سـيـارة
             جديدة للبيع
@@ -247,10 +247,10 @@ export default {
   }
   .filtt {
     @media (max-width: 540px) {
-      padding: 5px 90px !important;
+      padding: 5px 80px !important;
     }
     @media (max-width: 450px) {
-      padding: 5px 45px !important;
+      padding: 5px 30px !important;
     }
     @media (max-width: 380px) {
       padding: 5px 20px !important;
