@@ -2,7 +2,7 @@
   <div class="product_box">
     <NavBar />
     <v-container fluid>
-      <v-col class="pr-1" cols="12">
+      <v-col class="" cols="12">
         <h2 v-if="getCarInfo.length > 0" class="tital">
           (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة
           {{ CarName }} للبيع في اليمن

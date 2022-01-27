@@ -3,7 +3,7 @@
     <NavBar />
     <v-container class="">
       <v-row class="py-4 pb-7 car-box">
-        <v-col cols="12" class="pr-1">
+        <v-col cols="12" class="">
           <h2 class="tital">
             (<span class="red--text"> {{ getCarInfo.length }}</span> ) - سـيـارة
             جديدة للبيع

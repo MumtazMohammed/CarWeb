@@ -3,7 +3,7 @@
     <NavBar />
     <div class="product_box pb-10">
       <v-container>
-        <v-col cols="12" class="pr-1">
+        <v-col cols="12" class="">
           <h2 class="tital">
             سـيـارات مضمونة لدينا للبيع - (<span class="red--text">
               {{ SpicalCarView.length }}</span
@@ -11,7 +11,7 @@
             )
           </h2>
         </v-col>
-        <v-col cols="12" class="filtt" v-if="SpicalCarView.length > 5">
+        <v-col cols="12" class="filtt " v-if="SpicalCarView.length > 5">
           <FilterSection />
         </v-col>
         <v-row class="mt-1 car-box">
@@ -164,17 +164,17 @@ export default {
   }
   .filtt {
     @media (max-width: 540px) {
-      padding: 5px 80px !important;
+      padding: 5px 75px !important;
     }
     @media (max-width: 450px) {
-      padding: 5px 30px !important;
+      padding: 5px 25px !important;
     }
     @media (max-width: 380px) {
-      padding: 5px 20px !important;
+      padding: 5px 15px !important;
     }
 
     @media (max-width: 350px) {
-      padding: 5px 5px !important;
+      padding: 5px 0px !important;
     }
   }
   .boredr-all-box {
