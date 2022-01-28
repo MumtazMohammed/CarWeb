@@ -23,6 +23,7 @@
         app
         floating
         mini-variant-width
+        width="80%"
       >
         <v-list class="pt-0">
           <v-list-item-group v-model="model" mandatory dark color="white">

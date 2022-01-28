@@ -3,7 +3,7 @@
     <NavBar />
     <v-container class="">
       <v-row class="py-4 pb-7 car-box">
-        <v-col cols="12" class="">
+        <v-col cols="12">
           <h2 class="tital">
             (<span class="red--text"> {{ SpicalCarView.length }}</span>
             ) - سـيـارة للبيع

@@ -21,7 +21,7 @@
       app
       floating
       mini-variant-width
-      width="300"
+      width="340"
     >
       <v-list class="pt-0">
         <v-list-item-group v-model="model" mandatory dark color="white">
@@ -190,12 +190,12 @@ export default {
 }
 .btn-menu {
   position: fixed;
-  bottom: 70px;
+  bottom: 105px;
   right: 10px;
   z-index: 5;
   background: $color-2;
-  transform: scale(0);
-  transition: all 0.4s 0 ease !important;
+  transform: translateX(100px);
+  transition: all 0.4s 0s ease !important;
   display: none;
   @media (max-width: 600px) {
     display: flex;
@@ -205,7 +205,7 @@ export default {
   }
 }
 .is-hidden {
-  transform: scale(1);
+  transform: translateX(0px);
   @media (max-width: 600px) {
     transform: scale(0.9);
   }

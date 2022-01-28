@@ -1,7 +1,7 @@
 <template>
   <div class="see-all mt-8">
     <div class="text-center">
-      <v-btn large class="link" to="/SeeAllSpecialCar">
+      <v-btn elevation="0" large class="link" to="/SeeAllSpecialCar">
         شاهد جميع السيارات المضمونه لدينا
       </v-btn>
     </div>

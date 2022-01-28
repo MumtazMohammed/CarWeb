@@ -18,18 +18,21 @@
       <v-icon class="btn-up-icon">fas fa-angle-up</v-icon>
     </v-btn>
     <NavigationDrawer />
+    <IconSearch />
     <FooterBar />
   </v-app>
 </template>
 
 <script>
 import NavigationDrawer from "./NavBar/NavigationDrawer.vue";
+import IconSearch from "./CarSearch/IconSearch.vue";
 import FooterBar from "./footer/footer.vue";
 export default {
   name: "App",
   components: {
     NavigationDrawer,
     FooterBar,
+    IconSearch,
   },
   data() {
     return {
@@ -79,35 +82,20 @@ export default {
 }
 .btn-up {
   position: fixed;
-  bottom: 20px;
+  bottom: 15px;
   right: 10px;
   z-index: 5;
   background: $color-2;
-  transform: scale(0);
+  transform: translateX(100px);
   transition: all 0.4s 0s ease !important;
 
   .btn-up-icon {
     font-size: 22px !important;
   }
 }
-// .btn-menu {
-//   position: fixed;
-//   bottom: 70px;
-//   right: 10px;
-//   z-index: 5;
-//   background-color: $btnbackground;
-//   transform: scale(0);
-//   transition: all 0.3s ease !important;
-//   display: none;
-//   @media (max-width: 600px) {
-//     display: flex;
-//   }
-//   .btn-menu-icon {
-//     font-size: 20px !important;
-//   }
-// }
+
 .is-hidden {
-  transform: scale(1);
+  transform: translateX(0px);
   @media (max-width: 600px) {
     transform: scale(0.9);
   }
