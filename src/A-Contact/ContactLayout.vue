@@ -1,12 +1,12 @@
 <template>
-  <div class="contact">
-    <v-container>
+  <div class="contact mt-2">
+    <v-container  class="px-lg-4 px-md-4">
       <div>
-        <v-row class="form">
-          <v-col cols="12" sm="6" md="6" class="py-sm-0 pr-sm-0">
+        <v-row class="justify-center">
+          <v-col cols="12" sm="8" md="6" class="">
             <EmailForm />
           </v-col>
-          <v-col cols="12" sm="6" md="6" class="">
+          <v-col cols="12" sm="8" md="6" class="">
             <SideEmail />
           </v-col>
         </v-row>
@@ -37,17 +37,16 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-color: $background;
+  background: $linear-gradient;
   .header-tital {
     letter-spacing: 0;
     font-family: $fontfamliy;
     color: $fontcolor;
   }
   .form {
-    background: $btnbackground;
     border-radius: 5px;
-    @media (max-width: 960px) {
-      border-radius: 5px;
+    @media (max-width: 800px) {
+      border-radius: 0px;
     }
   }
 }

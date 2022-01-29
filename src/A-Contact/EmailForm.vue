@@ -48,7 +48,7 @@
             @click="submit"
             min-width="70%"
             elevation="0"
-            class="blue--text send-btn"
+            class="white--text send-btn"
           >
             أرســل
           </v-btn>
@@ -94,10 +94,13 @@ export default {
   position: relative;
   border-radius: 5px;
   .send-btn {
-    background-color: #fff !important;
+    background-color: $color-2 !important;
     letter-spacing: 0px;
     font-family: $fontfamliy;
     font-size: 22px;
+    @media (max-width: 500px) {
+      width: 90% !important;
+    }
   }
 
   i.v-icon.notranslate.fa.fa-user-alt.theme--light {

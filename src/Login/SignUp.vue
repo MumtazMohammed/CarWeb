@@ -3,23 +3,30 @@
     <v-container>
       <v-row align="center" justify="center" class="row1">
         <v-col cols="12" sm="10" md="8" lg="6" class="">
-          <v-col cols="12" class="pa-0 d-flex avatar justify-center">
+          <!-- <v-col cols="12" class="pa-0 d-flex avatar justify-center">
             <div class="user-bak"></div>
             <v-avatar size="70">
               <img src="../assets/outsrc/user.png" alt="alt" />
             </v-avatar>
-          </v-col>
-          <v-card class="card-con py-4 pt-6" elevation="8" ref="form">
-            <div class="clor"></div>
+          </v-col> -->
+          <v-card class="card-con py-4" ref="form">
+            <img
+              class="img"
+              src="../assets/outsrc/—Pngtree—banner sign up for social_6787856.png"
+            />
+            <div class="img-box">
+              <b>إنشاء </b>
+              <b> حساب</b>
+            </div>
             <v-card-text>
-              <v-row>
+              <v-row class="mt-3">
                 <v-col class="py-0 pl-sm-1 pl-md-1" md="6" sm="6" cols="12">
                   <v-text-field
                     ref="FirstName"
                     v-model="FirstName"
                     :rules="[() => !!FirstName || 'This field is required']"
                     :error-messages="errorMessages"
-                    label="الأسم الأول"
+                    label="الأسم"
                     placeholder="John Doe"
                     required
                     outlined
@@ -80,7 +87,7 @@
                     :rules="[rules.required, rules.min]"
                     :type="show2 ? 'text' : 'password'"
                     v-model="password"
-                    label="الرقم السري"
+                    label="الرمز السري"
                     class="input-group--focused ma-0 font-weight-regular"
                     outlined
                     required
@@ -106,9 +113,7 @@
               </v-card>
             </v-col>
             <v-card-actions class="justify-center pa-4">
-              <v-btn class="btn1" outlined color="primary" @click="submit">
-                تسجيل
-              </v-btn>
+              <v-btn class="btn1 elevation-0" @click="submit"> انشاء </v-btn>
             </v-card-actions>
             <v-divider></v-divider>
             <v-card-actions class="justify-center">
@@ -119,7 +124,7 @@
                   </v-card-title>
                 </v-col>
                 <v-col cols="7" class="pa-2">
-                  <v-btn large width="100%" class="btn-go" text>
+                  <v-btn elevation="2" large width="100%" class="btn-go" text>
                     جوجل
                     <v-avatar tile class="mr-2" size="20">
                       <img src="../assets/outsrc/google.png" alt="alt" />
@@ -127,7 +132,7 @@
                   </v-btn>
                 </v-col>
                 <v-col cols="7" class="pa-2">
-                  <v-btn large width="100%" class="btn-fac" text>
+                  <v-btn elevation="2" large width="100%" class="btn-fac" text>
                     فيسبوك
                     <v-avatar tile class="mr-2" size="30">
                       <img src="../assets/outsrc/facebook.png" alt="alt" />
@@ -227,12 +232,8 @@ nav {
 }
 .sign-up {
   width: 100%;
-  min-height: 100vh;
-  // background: $background;
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  padding-bottom: 20px;
+  min-height: calc(100vh - 124px);
+  // background: linear-gradient(90deg, #f32727 0%, #880204 100%);
   .card-con {
     position: relative;
     background-color: rgb(255, 255, 255) !important;
@@ -243,6 +244,7 @@ nav {
     font-family: $fontfamliy;
     width: 250px;
     font-size: 18px;
+    background: $color-1 !important;
   }
   .btn-title {
     letter-spacing: 0;
@@ -250,7 +252,7 @@ nav {
     font-size: 18px;
   }
   .btn-go {
-    background: #eee !important;
+    background: rgb(255, 255, 255) !important;
     color: $fontcolor;
     letter-spacing: 0;
     font-family: $fontfamliy;
@@ -258,8 +260,8 @@ nav {
     transition: transform 0.3s ease;
   }
   .btn-fac {
-    background: #1976d2;
-    color: $fontcolorsm;
+    background: #ffffff;
+    color: $fontcolor;
     letter-spacing: 0;
     font-family: $fontfamliy;
     font-size: 18px;
@@ -282,6 +284,65 @@ nav {
   .showPassLab {
     font-family: $fontfamliy !important;
     font-size: 16px;
+  }
+  .img {
+    width: 84px;
+    position: absolute;
+    top: -39.7px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 5;
+  }
+  .img-box {
+    width: 80px;
+    height: 40.6px;
+    position: absolute;
+    top: -5.7px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: #e51a1a;
+    -webkit-clip-path: polygon(4% 0%, 97% 0, 69.5% 100%, 30.5% 100%);
+    clip-path: polygon(3% 0%, 98% 0, 69.5% 100%, 30.5% 100%);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4.5px;
+  }
+  // .white {
+  //   width: 19px;
+  //   height: 5px;
+  //   position: absolute;
+  //   top: -4.7px;
+  //   left: 72%;
+  //   transform: translate(-50%, 0%);
+  //   z-index: 6;
+  // }
+  // .white::after {
+  //   content: "";
+  //   width: 19px;
+  //   height: 5px;
+  //   position: absolute;
+  //   top: 0.3px;
+  //   left: -101px;
+  //   z-index: 6;
+  //   background-color: white;
+  // }
+  .img-box b:first-child {
+    font-size: 13px;
+    font-family: $fontfamliy;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 0;
+  }
+  .img-box b {
+    font-size: 12px;
+    font-family: $fontfamliy;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 0;
   }
 }
 </style>

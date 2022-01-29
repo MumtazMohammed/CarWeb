@@ -13,7 +13,7 @@
                 <v-expansion-panel-header class="expansion-header py-1">{{
                   item.how
                 }}</v-expansion-panel-header>
-                <v-expansion-panel-content class="expansion-content">
+                <v-expansion-panel-content class="expansion-content py-2">
                   {{ item.text }}
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -113,7 +113,7 @@ export default {
     font-size: 16px;
     font-weight: 600;
     min-height: 45px;
-    background: $linear-gradient;
+    background: $linear-gradient ;
   }
   .expansion-content {
     font-family: $fontfamliy;

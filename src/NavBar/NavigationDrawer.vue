@@ -26,7 +26,14 @@
       <v-list class="pt-0">
         <v-list-item-group v-model="model" mandatory dark color="white">
           <!-- home Linke  -->
-          <v-list-item class="pr-0" router to="/" dark color="white">
+          <v-list-item
+            class="pr-0"
+            @click="drawer = false"
+            router
+            to="/"
+            dark
+            color="white"
+          >
             <v-list-item-icon class="icon-list">
               <v-icon class="nav-icon" right>fa-home</v-icon>
             </v-list-item-icon>
@@ -53,6 +60,7 @@
               class="px-1 multible-link-box"
               color="transparent"
               router
+              @click="drawer = false"
               :to="CarCondition.path"
               v-for="(CarCondition, i) in CarForSell"
               :key="i"
@@ -75,6 +83,7 @@
             :to="item.path"
             dark
             color="white"
+            @click="drawer = false"
           >
             <v-list-item-icon class="icon-list">
               <v-icon class="nav-icon" right v-text="item.icon"></v-icon>

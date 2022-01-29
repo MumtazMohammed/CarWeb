@@ -219,7 +219,6 @@ export default {
 .CarforSell-link::v-deep .theme--light.v-list-item--active:before {
   opacity: 1;
   background-color: $color-1 !important;
- 
 }
 .menu-icon {
   font-size: 15px !important;
@@ -233,4 +232,5 @@ export default {
 .CarforSell-link::v-deep .v-list-item {
   min-height: 30px !important;
 }
+
 </style>

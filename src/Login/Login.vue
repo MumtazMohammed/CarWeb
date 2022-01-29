@@ -56,7 +56,7 @@
             <v-col cols="12" class="pa-0">
               <v-card-actions>
                 <v-card-subtitle class="do-not-have-acount-text pl-1"
-                  >ليس لديك حساب ؟</v-card-subtitle
+                  >انشاء حساب ؟</v-card-subtitle
                 >
                 <router-link
                   class="do-not-have-acount-link pr-1"
