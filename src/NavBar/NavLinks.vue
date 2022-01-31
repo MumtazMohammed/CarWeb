@@ -187,7 +187,7 @@ export default {
 
   .nav-link {
     color: $fontcolorlinks;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
     font-family: $fontfamliy;
     letter-spacing: 0;
