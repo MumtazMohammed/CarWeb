@@ -1,17 +1,31 @@
 <template>
-  <div class="product_box">
+  <div class="product_box pb-10">
     <NavBar />
     <v-container class="">
-      <v-row class="py-4 pb-7 car-box">
-        <v-col cols="12">
-          <h2 class="tital">
-            (<span class="red--text"> {{ getCarInfo.length }}</span>
-            ) - سـيـارة مستعملة للبيع
-          </h2>
+      <v-col cols="12" class="pr-2">
+        <h2 class="tital">
+          (<span class="red--text"> {{ getCarInfo.length }}</span>
+          ) - سـيـارة مستعملة للبيع
+        </h2>
+      </v-col>
+      <!-- fillter -->
+      <v-row class="my-1" v-if="getCarInfo.length > 20">
+        <v-col class="pl-md-1 pl-sm-1 py-1" cols="12" md="3" sm="4">
+          <v-select
+            :items="Price"
+            label="ترتيب السعر من"
+            hide-details
+            dense
+            class="select-price"
+            color="primary"
+            outlined
+            flat
+          ></v-select>
         </v-col>
-        <v-col class="filtt" cols="12" v-if="getCarInfo.length > 5">
-          <FilterSection />
-        </v-col>
+      </v-row>
+      <!--  -->
+      <v-divider></v-divider>
+      <v-row class="car-box mt-1">
         <v-col
           cols="6"
           sm="4"
@@ -42,7 +56,8 @@
             <v-row class="pa-0 mt-1" align="center">
               <v-col cols="12" class="pa-3 pr-5">
                 <v-card-subtitle class="font-weight-medium pa-1"
-                  >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
+                  >{{ CarData.company }} {{ CarData.name }}
+                  {{ CarData.modle }}
                 </v-card-subtitle>
               </v-col>
             </v-row>
@@ -53,7 +68,7 @@
                   CarData.location
                 }}</v-card-subtitle>
               </v-col>
-              <v-divider color="#03a9f4" vertical></v-divider>
+              <v-divider color="#0773df" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left location-condtion pa-2"
                   >{{ CarData.condtion }}
@@ -68,7 +83,7 @@
                   >{{ CarData.payment }}</v-card-subtitle
                 >
               </v-col>
-              <v-divider color="#03a9f4" vertical></v-divider>
+              <v-divider color="#0773df" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left font-weight-regular pa-2"
                   >{{ CarData.kilometer }}
@@ -117,7 +132,8 @@
             <v-row class="pa-0 mt-1" align="center">
               <v-col cols="12" class="pa-3 pr-5">
                 <v-card-subtitle class="font-weight-medium pa-1"
-                  >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
+                  >{{ CarData.company }} {{ CarData.name }}
+                  {{ CarData.modle }}
                 </v-card-subtitle>
               </v-col>
             </v-row>
@@ -179,12 +195,10 @@
 </template>
 <script>
 import SpicalCarView from "../data-json/All-Car.json";
-import FilterSection from "../CarSearch/Filter.vue";
 import NavBar from "../NavBar/TheNavBar.vue";
 export default {
   name: "UsedCar",
   components: {
-    FilterSection,
     NavBar,
   },
   data() {
@@ -195,6 +209,7 @@ export default {
       CarShape: this.$route.params.CarShape,
       Company: this.$route.params.Company,
       condtion: this.$route.params.condtion,
+      Price: [" الأعلى سعرا", "الأقل سعرا"],
     };
   },
   computed: {
@@ -247,16 +262,21 @@ export default {
   }
   .filtt {
     @media (max-width: 540px) {
-      padding: 5px 80px !important;
+      padding: 5px 90px !important;
     }
     @media (max-width: 450px) {
-      padding: 5px 30px !important;
+      padding: 5px 15px !important;
     }
-    @media (max-width: 380px) {
-      padding: 5px 20px !important;
+  }
+  .boredr-all-box {
+    @media (max-width: 880px) {
+      max-width: 50%;
     }
-
-    @media (max-width: 350px) {
+    @media (max-width: 540px) {
+      padding: 5px 80px !important;
+      max-width: 100%;
+    }
+    @media (max-width: 450px) {
       padding: 5px 5px !important;
     }
   }
@@ -269,13 +289,6 @@ export default {
       max-width: 100%;
     }
     @media (max-width: 450px) {
-      padding: 5px 30px !important;
-    }
-    @media (max-width: 380px) {
-      padding: 5px 20px !important;
-    }
-
-    @media (max-width: 350px) {
       padding: 5px 5px !important;
     }
   }
@@ -394,7 +407,7 @@ export default {
   overflow: hidden;
 }
 .card {
-  border: 0.5px solid $background1 !important;
+  border: 0.5px solid $color-4 !important;
   overflow: hidden;
 }
 
@@ -407,5 +420,9 @@ export default {
   .flex.xs6 {
     max-width: 100% !important;
   }
+}
+.select-price {
+  font-family: $fontfamliy;
+  font-weight: 500;
 }
 </style>

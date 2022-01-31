@@ -14,7 +14,7 @@
         :autoplay="fales"
         :autoplay-timeout="0"
         :display="5"
-        :space="320"
+        :space="307"
         :inverseScaling="0"
         :perspective="0"
         :width="300"
@@ -71,7 +71,7 @@
                   CarSell.location
                 }}</v-card-subtitle>
               </v-col>
-              <v-divider color="#03a9f4" vertical></v-divider>
+              <v-divider color="#0773df" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left location-condtion pa-2"
                   >{{ CarSell.condtion }}
@@ -86,7 +86,7 @@
                   >{{ CarSell.payment }}</v-card-subtitle
                 >
               </v-col>
-              <v-divider color="#03a9f4" vertical></v-divider>
+              <v-divider color="#0773df" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left font-weight-regular pa-2"
                   >{{ CarSell.kilometer }}
@@ -149,7 +149,7 @@ export default {
       return `     <style scoped>
         .next {
          transition: all .3s ease;
-         background-color: #03a9f4;
+         background-color: #0773df;
          display: flex;
          align-items: center;
          justify-content: center;
@@ -189,7 +189,7 @@ export default {
        <style scoped>
         .prev {
          transition: all .3s ease;
-         background-color: #03a9f4;
+         background-color: #0773df;
          display: flex;
          align-items: center;
          justify-content: center;
@@ -339,7 +339,7 @@ export default {
   clip-path: circle(50% at 50% 50%);
 }
 .card-vip {
-  border: 0.5px solid $btnbackground !important;
+  border: 0.5px solid $color-1 !important;
   overflow: hidden;
 }
 @media (min-width: 960px) {

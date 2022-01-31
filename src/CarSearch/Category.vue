@@ -184,7 +184,6 @@ export default {
   transition: color 0.1s ease;
   @media (max-width: 600px) {
     font-size: 15px !important;
-    margin-right: 5px;
   }
 
   .icon-search {

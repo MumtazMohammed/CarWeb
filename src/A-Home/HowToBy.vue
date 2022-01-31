@@ -6,7 +6,7 @@
       </p>
       <span class="line my-3 mx-auto"></span>
       <v-row class="justify-center mt-2">
-        <v-col cols="12" sm="8" md="8">
+        <v-col cols="12" sm="10" md="10">
           <div>
             <v-expansion-panels dark v-model="panel" multiple>
               <v-expansion-panel v-for="(item, i) in items" :key="i">
@@ -113,7 +113,7 @@ export default {
     font-size: 16px;
     font-weight: 600;
     min-height: 45px;
-    background: $linear-gradient ;
+    background: $linear-gradient;
   }
   .expansion-content {
     font-family: $fontfamliy;

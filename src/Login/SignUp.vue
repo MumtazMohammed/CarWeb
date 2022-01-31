@@ -9,41 +9,29 @@
               <img src="../assets/outsrc/user.png" alt="alt" />
             </v-avatar>
           </v-col> -->
-          <v-card class="card-con py-4" ref="form">
-            <img
+          <v-card class="card-con overflow-hidden py-4" ref="form">
+            <!-- <v-img
               class="img"
               src="../assets/outsrc/—Pngtree—banner sign up for social_6787856.png"
-            />
+            >
+            </v-img> -->
             <div class="img-box">
-              <b>إنشاء </b>
-              <b> حساب</b>
+              <b>إنشاء حساب </b>
             </div>
             <v-card-text>
-              <v-row class="mt-3">
+              <v-row class="mt-2">
                 <v-col class="py-0 pl-sm-1 pl-md-1" md="6" sm="6" cols="12">
                   <v-text-field
                     ref="FirstName"
                     v-model="FirstName"
                     :rules="[() => !!FirstName || 'This field is required']"
                     :error-messages="errorMessages"
-                    label="الأسم"
+                    label="الأسم كامل"
                     placeholder="John Doe"
                     required
                     outlined
                   ></v-text-field>
                 </v-col>
-                <!-- <v-col class="py-0 pr-sm-1 pr-md-1" md="6" sm="6" cols="12">
-                  <v-text-field
-                    ref="SecondtName"
-                    v-model="SecondtName"
-                    :rules="[() => !!SecondtName || 'This field is required']"
-                    :error-messages="errorMessages"
-                    label="الأسم الثاني"
-                    placeholder="John Doe"
-                    required
-                    outlined
-                  ></v-text-field>
-                </v-col> -->
                 <v-col class="py-0 pr-sm-1 pr-md-1" md="6" sm="6" cols="12">
                   <v-text-field
                     ref="number"
@@ -87,7 +75,7 @@
                     :rules="[rules.required, rules.min]"
                     :type="show2 ? 'text' : 'password'"
                     v-model="password"
-                    label="الرمز السري"
+                    label="كلمة المرور"
                     class="input-group--focused ma-0 font-weight-regular"
                     outlined
                     required
@@ -104,11 +92,11 @@
                   :type="show2 ? 'text' : 'password'"
                   color="info"
                   hide-details
-                  class="ma-0 pa-0"
+                  class="ma-0 pa-0 switch"
                 >
                 </v-switch>
                 <v-card-title class="pa-0 showPassLab">
-                  اظهار كلمة السر
+                  اظهار كلمة المرور
                 </v-card-title>
               </v-card>
             </v-col>
@@ -238,6 +226,10 @@ nav {
     position: relative;
     background-color: rgb(255, 255, 255) !important;
   }
+  .showPassLab {
+    font-family: $fontfamliy;
+    font-size: 16px;
+  }
   .btn1 {
     color: $fontcolorsm;
     letter-spacing: 0;
@@ -267,82 +259,58 @@ nav {
     font-size: 18px;
     transition: transform 0.3s ease;
   }
-  .avatar {
-    transform: translate(0px, 16px);
-    position: relative;
-    z-index: 5;
-  }
-  .user-bak {
-    position: absolute;
-    bottom: -38px;
-    background: #ffbb85;
-    width: 174px;
-    height: 54px;
-    -webkit-clip-path: circle(50% at 50% 1%);
-    clip-path: circle(30% at 50% -28%);
-  }
-  .showPassLab {
-    font-family: $fontfamliy !important;
-    font-size: 16px;
-  }
-  .img {
-    width: 84px;
-    position: absolute;
-    top: -39.7px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    z-index: 5;
-  }
   .img-box {
-    width: 80px;
-    height: 40.6px;
+    width: 100%;
+    height: 30px;
     position: absolute;
-    top: -5.7px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    background-color: #e51a1a;
-    -webkit-clip-path: polygon(4% 0%, 97% 0, 69.5% 100%, 30.5% 100%);
-    clip-path: polygon(3% 0%, 98% 0, 69.5% 100%, 30.5% 100%);
+    top: 0px;
+    background: $color-1 !important;
     z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4.5px;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 00px;
+    border-bottom-right-radius: 00px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;
   }
-  // .white {
-  //   width: 19px;
-  //   height: 5px;
-  //   position: absolute;
-  //   top: -4.7px;
-  //   left: 72%;
-  //   transform: translate(-50%, 0%);
-  //   z-index: 6;
-  // }
-  // .white::after {
-  //   content: "";
-  //   width: 19px;
-  //   height: 5px;
-  //   position: absolute;
-  //   top: 0.3px;
-  //   left: -101px;
-  //   z-index: 6;
-  //   background-color: white;
-  // }
-  .img-box b:first-child {
-    font-size: 13px;
-    font-family: $fontfamliy;
-    font-weight: 500;
-    color: #fff;
-    letter-spacing: 0;
+  .img-box::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    top: 1.5px;
+    right: 1.5px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0px 18px 0px white;
   }
+  .img-box::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    top: 1.5px;
+    left: 1.5px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0px 18px 0px white;
+  }
+
   .img-box b {
-    font-size: 12px;
+    font-size: 16px;
     font-family: $fontfamliy;
     font-weight: 500;
     color: #fff;
     letter-spacing: 0;
+  }
+
+  .switch::v-deep
+    .v-input--selection-controls__input:hover
+    .v-input--selection-controls__ripple:before {
+    transform: scale(0);
   }
 }
 </style>

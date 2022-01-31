@@ -21,7 +21,7 @@
         transition="dialog-transition"
       >
         <template v-slot:activator="{ on, attrs }">
-          <v-btn elevation="0" class=" btn1" v-bind="attrs" v-on="on">
+          <v-btn elevation="0" class="btn1" v-bind="attrs" v-on="on">
             <b v-text="SignUp" class="sgin"></b>
             <v-icon class="sign-in-icon" right>fas fa-sign-in-alt</v-icon>
           </v-btn>
@@ -34,7 +34,7 @@
             dark
             color="transparent"
           >
-            <v-btn color="#6599ff" icon @click="dialog = false">
+            <v-btn color="#018587" icon @click="dialog = false">
               <v-icon>fas fa-times</v-icon>
             </v-btn>
           </v-toolbar>
@@ -68,7 +68,7 @@ export default {
 .hidden {
   display: flex;
   align-items: center;
-  @media (max-width: 600px) {
+  @media (max-width: 959px) {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
@@ -105,21 +105,21 @@ export default {
   }
   .btn1 {
     background: $linear-gradient;
-    @media (max-width: 599px) {
+    @media (max-width: 959px) {
       background: $fontcolorsm !important;
       color: $fontcolor !important;
       margin-bottom: 20px;
     }
     .sign-in-icon {
       color: $fontcolorsm !important;
-      @media (max-width: 599px) {
+      @media (max-width: 959px) {
         color: $color-1 !important;
       }
     }
     .sgin {
       color: $fontcolorsm !important;
       font-size: 16px;
-      @media (max-width: 599px) {
+      @media (max-width: 959px) {
         color: $color-1 !important;
       }
     }

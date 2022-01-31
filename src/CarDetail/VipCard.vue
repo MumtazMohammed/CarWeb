@@ -1,6 +1,12 @@
 <template>
   <div>
-    <v-alert dense type="success" width="100%" class="mb-0 VipCard">
+    <v-alert
+      dense
+      type="success"
+      color="#018587"
+      width="100%"
+      class="mb-0 VipCard"
+    >
       موثوق من قبل شركة ثقة
     </v-alert>
   </div>

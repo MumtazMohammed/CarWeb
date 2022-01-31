@@ -26,7 +26,7 @@
                 :rules="[rules.required, rules.min]"
                 :type="show2 ? 'text' : 'password'"
                 name="input-10-2"
-                label="الرقم السري"
+                label="كلمة المرور"
                 class="input-group--focused font-weight-regular"
                 @click:append="show2 = !show2"
                 outlined
@@ -38,7 +38,7 @@
               <v-card-actions class="justify-center">
                 <v-btn
                   dark
-                  color="#6599ff"
+                  color="#018587"
                   elevation="0"
                   min-width="50%"
                   class="submet"

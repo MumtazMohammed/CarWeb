@@ -1,8 +1,8 @@
 <template>
-  <div class="product_box">
+  <div class="product_box pb-10">
     <NavBar />
     <v-container fluid>
-      <v-col class="" cols="12">
+      <v-col class="pr-0" cols="12">
         <h2 v-if="getCarInfo.length > 0" class="tital">
           (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة
           {{ CarName }} للبيع في اليمن
@@ -11,12 +11,24 @@
           <p class="no-car">لا يوجد سيارت متاحا {{ CarName }}</p>
         </div>
       </v-col>
+      <!-- fillter -->
+      <v-row class="my-1" v-if="getCarInfo.length > 20">
+        <v-col class="pl-md-1 pl-sm-1 py-1" cols="12" md="3" sm="4">
+          <v-select
+            :items="Price"
+            label="ترتيب السعر من"
+            hide-details
+            dense
+            class="select-price"
+            color="primary"
+            outlined
+            flat
+          ></v-select>
+        </v-col>
+      </v-row>
       <!--  -->
-      <v-col class="filtt" cols="12" v-if="getCarInfo.length > 5">
-        <FilterSection />
-      </v-col>
-      <!--  -->
-      <v-row v-if="getCarInfo.length > 0" class="mt-1 car-box">
+      <v-divider v-if="getCarInfo.length > 0"></v-divider>
+      <v-row class="mt-1 car-box">
         <v-col
           cols="6"
           sm="4"
@@ -60,7 +72,7 @@
                   CarData.location
                 }}</v-card-subtitle>
               </v-col>
-              <v-divider color="#03a9f4" vertical></v-divider>
+              <v-divider color="#0773df" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left location-condtion pa-2"
                   >{{ CarData.condtion }}
@@ -75,7 +87,7 @@
                   >{{ CarData.payment }}</v-card-subtitle
                 >
               </v-col>
-              <v-divider color="#03a9f4" vertical></v-divider>
+              <v-divider color="#0773df" vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left font-weight-regular pa-2"
                   >{{ CarData.kilometer }}
@@ -186,19 +198,18 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import NavBar from "../NavBar/TheNavBar.vue";
-import FilterSection from "../CarSearch/Filter.vue";
 
 export default {
   name: "CarByBrand",
   components: {
     NavBar,
-    FilterSection,
   },
   data() {
     return {
       GetCarData: CarData,
       CarType: this.$route.params.CarType,
       CarName: this.$route.params.CarName,
+      Price: [" الأعلى سعرا", "الأقل سعرا"],
     };
   },
   computed: {
@@ -252,14 +263,10 @@ export default {
       padding: 5px 80px !important;
     }
     @media (max-width: 450px) {
-      padding: 5px 30px !important;
-    }
-    @media (max-width: 380px) {
-      padding: 5px 20px !important;
-    }
-
-    @media (max-width: 350px) {
       padding: 5px 5px !important;
+    }
+    @media (max-width: 350px) {
+      padding: 5px 2px !important;
     }
   }
   .boredr-all-box {
@@ -271,13 +278,6 @@ export default {
       max-width: 100%;
     }
     @media (max-width: 450px) {
-      padding: 5px 30px !important;
-    }
-    @media (max-width: 380px) {
-      padding: 5px 20px !important;
-    }
-
-    @media (max-width: 350px) {
       padding: 5px 5px !important;
     }
   }
@@ -390,13 +390,12 @@ export default {
   font-size: 16px;
   font-weight: 400;
 }
-
 .card-vip {
   border: 0.5px solid $color-1 !important;
   overflow: hidden;
 }
 .card {
-  border: 0.5px solid $background1 !important;
+  border: 0.5px solid $color-4 !important;
   overflow: hidden;
 }
 
@@ -424,5 +423,9 @@ export default {
   @media (max-width: 300px) {
     font-size: 17px;
   }
+}
+.select-price {
+  font-family: $fontfamliy;
+  font-weight: 500;
 }
 </style>

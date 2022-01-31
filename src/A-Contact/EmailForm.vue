@@ -48,7 +48,7 @@
             @click="submit"
             min-width="70%"
             elevation="0"
-            class="white--text send-btn"
+            class="send-btn"
           >
             أرســل
           </v-btn>
@@ -94,10 +94,12 @@ export default {
   position: relative;
   border-radius: 5px;
   .send-btn {
-    background-color: $color-2 !important;
+    background-color: $fontcolorsm !important;
     letter-spacing: 0px;
     font-family: $fontfamliy;
     font-size: 22px;
+    color: $color-1;
+    font-weight: bold;
     @media (max-width: 500px) {
       width: 90% !important;
     }

@@ -2,7 +2,7 @@
   <div class="navlinks-box">
     <v-row>
       <v-col
-        class="d-flex align-center justify-sm-center py-md-0 py-sm-0 py-2"
+        class="d-flex align-center justify-md-center py-md-0 py-sm-0 py-2"
         cols="12"
       >
         <v-toolbar-items class="hiddenn">
@@ -56,9 +56,14 @@
                   :to="item.path"
                   v-for="(item, i) in CarForSell"
                   :key="i"
-                  class="mb-1"
-                  active-class="singl-link mutible-link-list-item"
+                  class="mb-1 mutible-link-list-item"
+                  active-class="singl-link "
                 >
+                  <v-list-item-icon class="icon-list ml-1">
+                    <v-avatar size="22px" tile color="transparent">
+                      <v-img :src="getimageUrl(item.folder, item.src)"></v-img>
+                    </v-avatar>
+                  </v-list-item-icon>
                   <v-list-item-content class="pa-1">
                     <v-list-item-title class="item-title">
                       {{ item.title }}
@@ -112,9 +117,30 @@ export default {
         },
       ],
       CarForSell: [
-        { title: "سيارات مستعملة ", path: "/UsedCar" },
-        { title: "سيارات جديدة", path: "/NewCar" },
-        { title: "رؤية الكل", path: "/SeeAllUsedAndNewCars" },
+        {
+          title: "سيارات مضمونه ",
+          src: "guaranteed.png",
+          path: "/SeeAllSpecialCar",
+          folder: "outsrc",
+        },
+        {
+          title: "سيارات جديدة",
+          src: "new-car.png",
+          path: "/NewCar",
+          folder: "outsrc",
+        },
+        {
+          title: "سيارات مستعملة ",
+          src: "used-cars.png",
+          path: "/UsedCar",
+          folder: "outsrc",
+        },
+        {
+          title: "رؤية الكل",
+          src: "traffic-jam.png",
+          path: "/SeeAllUsedAndNewCars",
+          folder: "outsrc",
+        },
       ],
       items: [
         {
@@ -131,6 +157,12 @@ export default {
       ],
     };
   },
+  methods: {
+    getimageUrl(FolderName, ImageName) {
+      let image = require.context("@/assets/");
+      return image("./" + FolderName + "/" + ImageName);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -138,7 +170,7 @@ export default {
 @import "../scss/mixin";
 
 .hiddenn {
-  @media (max-width: 600px) {
+  @media (max-width: 961px) {
     display: none !important;
   }
 }
@@ -155,7 +187,7 @@ export default {
 
   .nav-link {
     color: $fontcolorlinks;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     font-family: $fontfamliy;
     letter-spacing: 0;
@@ -184,9 +216,6 @@ export default {
     color: $fontcolor;
   }
 }
-.active {
-  position: relative;
-}
 
 .active:before {
   content: "";
@@ -208,9 +237,10 @@ export default {
 .item-title {
   font-family: $fontfamliy;
   color: $fontcolorlinks;
-  font-weight: 300;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
 }
+
 .item-title:active {
   color: #fff;
   z-index: 5;
@@ -232,5 +262,4 @@ export default {
 .CarforSell-link::v-deep .v-list-item {
   min-height: 30px !important;
 }
-
 </style>

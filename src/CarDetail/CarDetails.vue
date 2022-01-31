@@ -10,73 +10,74 @@
       <v-col
         cols="12"
         sm="12"
-        md="11"
+        md="12"
         class="pa-1 position-relative detail-card-box"
       >
         <v-card flat class="d-flex detail-card flex-wrap pa-5">
           <v-flex sx6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              مـاركة : <b>{{ getCarInfo.company }}</b>
+              مـاركة : <b class="pa-0">{{ getCarInfo.company }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0"
-              >الـنوع : <b>{{ getCarInfo.name }}</b>
-            </v-card-text>
-          </v-flex>
-          <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-1 pl-0">
-              الـفئة : <b>{{ getCarInfo.type }}</b></v-card-text
-            >
-          </v-flex>
-          <v-flex xs6 sm4 md3>
-            <v-card-text class="table_data-child px-1 pl-0"
-              >الـسنة : <b>{{ getCarInfo.modle }}</b>
+              >الـنوع : <b class="pa-0">{{ getCarInfo.name }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              الـوارد : <b>{{ getCarInfo.received }}</b></v-card-text
+              الـفئة : <b class="pa-0">{{ getCarInfo.type }}</b></v-card-text
             >
           </v-flex>
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0"
-              >لـون الـمركبه : <b>{{ getCarInfo.ccolor }}</b>
+              >الـسنة : <b class="pa-0">{{ getCarInfo.modle }}</b>
+            </v-card-text>
+          </v-flex>
+          <v-flex xs6 sm4 md3>
+            <v-card-text class="table_data-child px-1 pl-0">
+              الـوارد :
+              <b class="pa-0">{{ getCarInfo.received }}</b></v-card-text
+            >
+          </v-flex>
+          <v-flex xs6 sm4 md3>
+            <v-card-text class="table_data-child px-1 pl-0"
+              >لـون الـمركبه : <b class="pa-0">{{ getCarInfo.ccolor }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0"
-              >نـوع القير : <b>{{ getCarInfo.transmission }}</b>
+              >نـوع القير : <b class="pa-0">{{ getCarInfo.transmission }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0"
-              >حجم الـمحرك : <b>{{ getCarInfo.engainpower }}</b>
+              >حجم الـمحرك : <b class="pa-0">{{ getCarInfo.engainpower }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0"
-              >نـوع الـدفع : <b>{{ getCarInfo.boost }}</b>
+              >نـوع الـدفع : <b class="pa-0">{{ getCarInfo.boost }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0"
-              >الحـالـة الـسيارة : <b>{{ getCarInfo.condtion }}</b>
+              >الحـالـة الـسيارة : <b class="pa-0">{{ getCarInfo.condtion }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0"
-              >الـمواصفات : <b>{{ getCarInfo.kilometer }}</b>
+              >الـمواصفات : <b class="pa-0">{{ getCarInfo.kilometer }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0"
-              >الـممشى : <b>{{ getCarInfo.kilometer }}</b>
+              >الـممشى : <b class="pa-0">{{ getCarInfo.kilometer }}</b>
             </v-card-text>
           </v-flex>
           <v-row justify="center" class="mt-2">
-            <v-col cols="12" md="10" class="disc-p">
-              <v-card color="#03a9f4" class="disc-title pa-2">
+            <v-col cols="12" md="12" class="disc-p">
+              <v-card flat color="transparent" class="disc-title pa-2">
                 <v-card-title class="disc-title py-2">
                   تفاصيل أكثر عن السيارة
                 </v-card-title>
@@ -148,7 +149,7 @@ export default {
   letter-spacing: 0 !important;
   font-family: $fontfamliy;
   @media (max-width: 400px) {
-    font-size: 14px !important;
+    font-size: 12px !important;
   }
 }
 .table_data-child b {
@@ -158,7 +159,7 @@ export default {
   padding: 5px;
   font-family: $fontfamliy;
   @media (max-width: 400px) {
-    font-size: 15px !important;
+    font-size: 14px !important;
   }
 }
 

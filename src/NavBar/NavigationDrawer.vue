@@ -15,13 +15,12 @@
       <v-icon class="btn-menu-icon">fas fa-bars</v-icon>
     </v-btn>
     <v-navigation-drawer
-      class="hidden-sm-and-up nav-tablet"
+      class="hidden-md-and-up nav-tablet"
       v-model="drawer"
       clipped
       app
       floating
-      mini-variant-width
-      width="340"
+      width="80%"
     >
       <v-list class="pt-0">
         <v-list-item-group v-model="model" mandatory dark color="white">
@@ -65,6 +64,13 @@
               v-for="(CarCondition, i) in CarForSell"
               :key="i"
             >
+              <v-list-item-icon class="icon-list">
+                <v-avatar size="22px" tile color="transparent">
+                  <v-img
+                    :src="getimageUrl(CarCondition.folder, CarCondition.src)"
+                  ></v-img>
+                </v-avatar>
+              </v-list-item-icon>
               <v-list-item-content class="">
                 <v-list-item-title
                   class="mutible-link-sm pa-2"
@@ -120,9 +126,30 @@ export default {
         },
       ],
       CarForSell: [
-        { title: "سيارات مستعملة ", path: "/UsedCar" },
-        { title: "سيارات جديدة", path: "/NewCar" },
-        { title: "رؤية الكل", path: "/SeeAllUsedAndNewCars" },
+        {
+          title: "سيارات مضمونه ",
+          src: "guaranteed.png",
+          path: "/SeeAllSpecialCar",
+          folder: "outsrc",
+        },
+        {
+          title: "سيارات جديدة",
+          src: "new-car.png",
+          path: "/NewCar",
+          folder: "outsrc",
+        },
+        {
+          title: "سيارات مستعملة ",
+          src: "used-cars.png",
+          path: "/UsedCar",
+          folder: "outsrc",
+        },
+        {
+          title: "رؤية الكل",
+          src: "traffic-jam.png",
+          path: "/SeeAllUsedAndNewCars",
+          folder: "outsrc",
+        },
       ],
       items: [
         {
@@ -146,6 +173,10 @@ export default {
     updateScroll() {
       this.scrollPosition = window.scrollY;
     },
+    getimageUrl(FolderName, ImageName) {
+      let image = require.context("@/assets/");
+      return image("./" + FolderName + "/" + ImageName);
+    },
   },
 };
 </script>
@@ -159,7 +190,7 @@ export default {
 // Nav for small screen
 .nav-tablet {
   z-index: 4;
-  background: $linear-gradient !important;
+  background: $color-1 !important;
 }
 .nav-tablet::v-deep .v-navigation-drawer__content {
   height: 100%;
@@ -199,15 +230,18 @@ export default {
 }
 .btn-menu {
   position: fixed;
-  bottom: 105px;
+  bottom: 115px;
   right: 10px;
   z-index: 5;
   background: $color-2;
   transform: translateX(100px);
   transition: all 0.4s 0s ease !important;
   display: none;
-  @media (max-width: 600px) {
+  @media (max-width: 959px) {
     display: flex;
+  }
+  @media (max-width: 600px) {
+    bottom: 105px;
   }
   .btn-menu-icon {
     font-size: 22px !important;

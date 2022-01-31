@@ -3,17 +3,41 @@
     <NavBar />
     <div class="product_box pb-10">
       <v-container>
-        <v-col cols="12" class="">
+        <v-col cols="12" class="pr-0">
           <h2 class="tital">
-            سـيـارات مضمونة لدينا للبيع - (<span class="red--text">
-              {{ SpicalCarView.length }}</span
-            >
-            )
+            (<span class="red--text"> {{ SpicalCarView.length }}</span>
+            ) - سـيـارات مضمونة لدينا للبيع
           </h2>
         </v-col>
-        <v-col cols="12" class="filtt " v-if="SpicalCarView.length > 5">
-          <FilterSection />
-        </v-col>
+        <v-divider></v-divider>
+        <!-- fillter section  -->
+        <v-row class="my-1" v-if="SpicalCarView.length > 20">
+          <v-col class="pl-md-1 pl-sm-1 py-1" cols="12" md="3" sm="3">
+            <v-select
+              :items="Price"
+              label="ترتيب السعر من"
+              hide-details
+              dense
+              class="select-price"
+              color="primary"
+              outlined
+              flat
+            ></v-select>
+          </v-col>
+          <v-col class="pr-md-1 pr-sm-1 py-1" cols="12" md="3" sm="3">
+            <v-select
+              :items="Condtion"
+              label="حالة السيارة"
+              hide-details
+              dense
+              class="select-price"
+              color="primary"
+              outlined
+              flat
+            ></v-select>
+          </v-col>
+        </v-row>
+        <!--  -->
         <v-row class="mt-1 car-box">
           <v-col
             cols="12"
@@ -58,7 +82,7 @@
                     CarData.location
                   }}</v-card-subtitle>
                 </v-col>
-                <v-divider color="#03a9f4" vertical></v-divider>
+                <v-divider color="#0773df" vertical></v-divider>
                 <v-col cols="5" class="pa-0">
                   <v-card-subtitle class="text-left location-condtion pa-2"
                     >{{ CarData.condtion }}
@@ -73,7 +97,7 @@
                     >{{ CarData.payment }}</v-card-subtitle
                   >
                 </v-col>
-                <v-divider color="#03a9f4" vertical></v-divider>
+                <v-divider color="#0773df" vertical></v-divider>
                 <v-col cols="5" class="pa-0">
                   <v-card-subtitle class="text-left font-weight-regular pa-2"
                     >{{ CarData.kilometer }}
@@ -109,11 +133,11 @@
 </template>
 <script>
 import NavBar from "../NavBar/TheNavBar.vue";
-import FilterSection from "../CarSearch/Filter.vue";
+// import FilterSection from "../CarSearch/Filter.vue";
 import SpicalCarView from "../data-json/car-data.json";
 export default {
   name: "SeeAllSpecialCar",
-  components: { NavBar, FilterSection },
+  components: { NavBar },
   data() {
     return {
       SpicalCarView: SpicalCarView,
@@ -121,6 +145,8 @@ export default {
       carId: this.$route.params.carId,
       CarShape: this.$route.params.CarShape,
       Company: this.$route.params.Company,
+      Price: [" الأعلى سعرا", "الأقل سعرا"],
+      Condtion: ["جديد", "مستعمل"],
     };
   },
 
@@ -162,20 +188,27 @@ export default {
       justify-content: center;
     }
   }
-  .filtt {
-    @media (max-width: 540px) {
-      padding: 5px 75px !important;
+  .filtt:first-child {
+    @media (max-width: 600px) {
+      padding-bottom: 3px !important;
     }
-    @media (max-width: 450px) {
-      padding: 5px 25px !important;
+    // @media (max-width: 450px) {
+    //   padding: 5px 5px !important;
+    // }
+    // @media (max-width: 350px) {
+    //   padding: 5px 2px !important;
+    // }
+  }
+  .filtt:last-child {
+    @media (max-width: 600px) {
+      padding-top: 3px !important;
     }
-    @media (max-width: 380px) {
-      padding: 5px 15px !important;
-    }
-
-    @media (max-width: 350px) {
-      padding: 5px 0px !important;
-    }
+    // @media (max-width: 450px) {
+    //   padding: 5px 5px !important;
+    // }
+    // @media (max-width: 350px) {
+    //   padding: 5px 2px !important;
+    // }
   }
   .boredr-all-box {
     @media (max-width: 880px) {
@@ -183,16 +216,9 @@ export default {
     }
     @media (max-width: 540px) {
       padding: 5px 80px !important;
-      max-width: 98%;
+      max-width: 100%;
     }
     @media (max-width: 450px) {
-      padding: 5px 30px !important;
-    }
-    @media (max-width: 380px) {
-      padding: 5px 20px !important;
-    }
-
-    @media (max-width: 350px) {
       padding: 5px 5px !important;
     }
   }
@@ -321,5 +347,9 @@ export default {
   .flex.xs6 {
     max-width: 100% !important;
   }
+}
+.select-price {
+  font-family: $fontfamliy;
+  font-weight: 500;
 }
 </style>

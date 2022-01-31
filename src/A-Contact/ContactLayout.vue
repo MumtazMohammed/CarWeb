@@ -1,8 +1,8 @@
 <template>
   <div class="contact mt-2">
-    <v-container  class="px-lg-4 px-md-4">
+    <v-container>
       <div>
-        <v-row class="justify-center">
+        <v-row>
           <v-col cols="12" sm="8" md="6" class="">
             <EmailForm />
           </v-col>
