@@ -9,7 +9,13 @@
 
       <v-card flat class="mt-2">
         <v-card-actions class="d-flex justify-center">
-          <v-btn large elevation="0" class="btn pa-3">
+          <v-btn
+            router
+            to="/AboutSellingCar"
+            large
+            elevation="0"
+            class="btn pa-3"
+          >
             ابداء الان في بيع سيارتك
           </v-btn>
         </v-card-actions>
@@ -91,7 +97,7 @@ export default {
     font-size: 18px;
     letter-spacing: 0;
     font-weight: 500;
-    background: $linear-gradient;
+    background-color: $color-1 !important;
     .icon {
       font-size: 15px;
       color: grey;

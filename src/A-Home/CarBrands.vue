@@ -25,6 +25,7 @@
                   max-width="150"
                   contain
                   :src="getimageUrl(Brand.folder, Brand.carLogo)"
+                  :lazy-src="getimageUrl(Brand.folder, Brand.carLogo)"
                 ></v-img>
               </v-avatar>
               <router-link

@@ -3,7 +3,7 @@
     <v-alert
       dense
       type="success"
-      color="#018587"
+      color="#0881fa"
       width="100%"
       class="mb-0 VipCard"
     >

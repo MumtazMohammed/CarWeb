@@ -147,7 +147,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $color-1;
+    background-color: $color-2;
     // opacity: 0.9;
   }
 
@@ -210,7 +210,7 @@ export default {
 }
 @media (max-width: 450px) {
   .v-card__title.search-text {
-    font-size: 13px !important;
+    font-size: 15px !important;
     font-weight: 700;
   }
 }

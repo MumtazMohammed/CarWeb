@@ -1,7 +1,9 @@
 <template>
-  <nav>
+  <nav class="elevation-4">
     <v-toolbar flat class="px-md-11 toolbar">
-      <v-toolbar-title class="NavTitle"> ثــقـة </v-toolbar-title>
+      <router-link router to="/">
+        <v-toolbar-title class="NavTitle"> ثــقـة </v-toolbar-title>
+      </router-link>
       <!-- nav link for md screen and up  -->
       <v-spacer></v-spacer>
       <!-- loing btn  -->
@@ -21,10 +23,22 @@
         v-model="drawer"
         clipped
         app
-        absolute
+        fixed
         floating
-        width="80%"
+        mini-variant-width
+        overlay-opacity="0.8"
       >
+        <div class="one-group-close-and-sell">
+          <v-app-bar-nav-icon
+            @click="drawer = false"
+            class="ma-2 mr-1 close-btn"
+          >
+            <v-icon class="nav-icon white--text">fas fa-times</v-icon>
+          </v-app-bar-nav-icon>
+          <StartToSellYourCar />
+        </div>
+        <LogingAndSignup />
+        <v-divider color="white"></v-divider>
         <v-list class="pt-0">
           <v-list-item-group v-model="model" mandatory dark color="white">
             <!-- home Linke  -->
@@ -104,8 +118,6 @@
             </v-list-item>
           </v-list-item-group>
         </v-list>
-        <v-spacer></v-spacer>
-        <LogingAndSignup />
       </v-navigation-drawer>
     </div>
     <Navlinks />
@@ -115,12 +127,14 @@
 <script>
 import Navlinks from "./NavLinks.vue";
 import LogingAndSignup from "./LogingAndSignup.vue";
+import StartToSellYourCar from "./StartToSellYourCar.vue";
 
 export default {
   name: "navbar",
   components: {
     LogingAndSignup,
     Navlinks,
+    StartToSellYourCar,
   },
   data: () => ({
     drawer: false,
@@ -147,7 +161,7 @@ export default {
       },
       {
         title: "سيارات مستعملة ",
-        src: "used-cars.png",
+        src: "used-car.png",
         path: "/UsedCar",
         folder: "outsrc",
       },
@@ -161,8 +175,8 @@ export default {
     items: [
       {
         icon: "fa-shopping-cart",
-        text: "الأعـلانـات",
-        path: "/product",
+        text: "المعارض",
+        path: "/TheShowRoom",
       },
 
       {
@@ -192,15 +206,19 @@ export default {
   font-size: 22px;
   letter-spacing: 0px !important;
   font-family: "Tajawal", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   pointer-events: none;
-  width: 10%;
+  width: fit-content;
   text-align: start;
+  text-decoration: none;
 }
-@media (max-width: 600px) {
-  .NavTitle {
-    width: 30%;
-  }
+// @media (max-width: 600px) {
+//   .NavTitle {
+//     width: 30%;
+//   }
+// }
+a {
+  text-decoration: none;
 }
 .NavTitle-sm {
   color: $fontcolorsm;
@@ -211,7 +229,7 @@ export default {
 // Nav for small screen
 .nav-tablet {
   z-index: 4;
-  background: $color-1 !important;
+  background: $color-2 !important;
 }
 .nav-tablet::v-deep .v-navigation-drawer__content {
   height: 100%;
@@ -253,5 +271,14 @@ export default {
   @media (max-width: 600px) {
     font-size: 28px !important;
   }
+}
+// .close-btn {
+//   position: absolute;
+//   left: 0px;
+//   top: 0;
+// }
+.one-group-close-and-sell {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

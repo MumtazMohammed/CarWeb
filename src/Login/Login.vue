@@ -38,7 +38,7 @@
               <v-card-actions class="justify-center">
                 <v-btn
                   dark
-                  color="#018587"
+                  color="#0881fa"
                   elevation="0"
                   min-width="50%"
                   class="submet"

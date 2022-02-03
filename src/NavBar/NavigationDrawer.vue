@@ -19,20 +19,23 @@
       v-model="drawer"
       clipped
       app
+      fixed
       floating
-      width="80%"
+      mini-variant-width
+      overlay-opacity="0.8"
     >
+      <div class="one-group-close-and-sell">
+        <v-app-bar-nav-icon @click="drawer = false" class="ma-2 mr-1 close-btn">
+          <v-icon class="nav-icon white--text">fas fa-times</v-icon>
+        </v-app-bar-nav-icon>
+        <StartToSellYourCar />
+      </div>
+      <LogingAndSignup />
+      <v-divider color="white"></v-divider>
       <v-list class="pt-0">
         <v-list-item-group v-model="model" mandatory dark color="white">
           <!-- home Linke  -->
-          <v-list-item
-            class="pr-0"
-            @click="drawer = false"
-            router
-            to="/"
-            dark
-            color="white"
-          >
+          <v-list-item @click="drawer = false" router to="/" dark color="white">
             <v-list-item-icon class="icon-list">
               <v-icon class="nav-icon" right>fa-home</v-icon>
             </v-list-item-icon>
@@ -44,7 +47,7 @@
           </v-list-item>
           <!--  -->
           <!-- mutible car choise  -->
-          <v-list-group class="pr-0" action>
+          <v-list-group action>
             <template v-slot:activator>
               <v-list-item-icon class="icon-list">
                 <v-icon class="nav-icon" right>fas fa-car</v-icon>
@@ -56,7 +59,7 @@
               </v-list-item-content>
             </template>
             <v-list-item
-              class="px-1 multible-link-box"
+              class="multible-link-box"
               color="transparent"
               router
               @click="drawer = false"
@@ -82,14 +85,13 @@
           <!--  -->
           <!-- other  -->
           <v-list-item
-            class="pr-0"
             v-for="(item, i) in items"
             :key="i"
             router
             :to="item.path"
+            @click="drawer = false"
             dark
             color="white"
-            @click="drawer = false"
           >
             <v-list-item-icon class="icon-list">
               <v-icon class="nav-icon" right v-text="item.icon"></v-icon>
@@ -103,16 +105,15 @@
           </v-list-item>
         </v-list-item-group>
       </v-list>
-      <v-spacer></v-spacer>
-      <LogingAndSignup />
     </v-navigation-drawer>
   </div>
 </template>
 <script>
 import LogingAndSignup from "./LogingAndSignup.vue";
+import StartToSellYourCar from "./StartToSellYourCar.vue";
 
 export default {
-  components: { LogingAndSignup },
+  components: { LogingAndSignup, StartToSellYourCar },
   data() {
     return {
       scrollPosition: null,
@@ -140,7 +141,7 @@ export default {
         },
         {
           title: "سيارات مستعملة ",
-          src: "used-cars.png",
+          src: "used-car.png",
           path: "/UsedCar",
           folder: "outsrc",
         },
@@ -154,8 +155,8 @@ export default {
       items: [
         {
           icon: "fa-shopping-cart",
-          text: "الأعـلانـات",
-          path: "/product",
+          text: "المعارض",
+          path: "/TheShowRoom",
         },
 
         {
@@ -190,7 +191,7 @@ export default {
 // Nav for small screen
 .nav-tablet {
   z-index: 4;
-  background: $color-1 !important;
+  background: $color-2 !important;
 }
 .nav-tablet::v-deep .v-navigation-drawer__content {
   height: 100%;
@@ -252,5 +253,9 @@ export default {
   @media (max-width: 600px) {
     transform: scale(0.9);
   }
+}
+.one-group-close-and-sell {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

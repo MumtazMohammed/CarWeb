@@ -41,7 +41,7 @@
                   >
                     <v-list-item-content>
                       <v-list-item-title class="nav-link">
-                        سيارت للبيع
+                        حراج السيارت
                         <v-icon class="menu-icon" left
                           >fas fa-caret-down</v-icon
                         >
@@ -60,7 +60,7 @@
                   active-class="singl-link "
                 >
                   <v-list-item-icon class="icon-list ml-1">
-                    <v-avatar size="22px" tile color="transparent">
+                    <v-avatar size="25px" tile color="transparent">
                       <v-img :src="getimageUrl(item.folder, item.src)"></v-img>
                     </v-avatar>
                   </v-list-item-icon>
@@ -131,7 +131,7 @@ export default {
         },
         {
           title: "سيارات مستعملة ",
-          src: "used-cars.png",
+          src: "used-car.png",
           path: "/UsedCar",
           folder: "outsrc",
         },
@@ -145,8 +145,8 @@ export default {
       items: [
         {
           icon: "fa-shopping-cart",
-          text: "الأعـلانـات",
-          path: "/product",
+          text: "المعارض",
+          path: "/TheShowRoom",
         },
 
         {
@@ -220,10 +220,11 @@ export default {
 .active:before {
   content: "";
   position: absolute;
-  width: 50%;
+  width: 30%;
   height: 5px;
-  background: $linear-gradient;
-  transform: translate(-50%, 1150%);
+  left: 0% !important;
+  background: $color-1;
+  transform: translate(-115%, 1100%);
   opacity: 1 !important;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;

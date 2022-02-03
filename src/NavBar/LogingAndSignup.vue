@@ -34,7 +34,7 @@
             dark
             color="transparent"
           >
-            <v-btn color="#018587" icon @click="dialog = false">
+            <v-btn color="#0881fa" icon @click="dialog = false">
               <v-icon>fas fa-times</v-icon>
             </v-btn>
           </v-toolbar>
@@ -69,11 +69,9 @@ export default {
   display: flex;
   align-items: center;
   @media (max-width: 959px) {
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
+    justify-content: center;
     height: auto;
-    border-bottom: 1px solid rgba(147, 147, 147, 0.299);
+    margin: 10px 0 !important;
   }
   .user {
     @media (max-width: 600px) {
@@ -89,10 +87,6 @@ export default {
       color: $fontcolorsm !important;
     }
   }
-  .sgin {
-    font-family: $fontfamliy;
-    letter-spacing: 0px;
-  }
 
   i.v-icon.notranslate.fa.fa-cog.theme--dark {
     @media (max-width: 960px) {
@@ -104,23 +98,28 @@ export default {
     font-size: 18px !important;
   }
   .btn1 {
-    background: $linear-gradient;
+    background-color: $color-1 !important;
     @media (max-width: 959px) {
-      background: $fontcolorsm !important;
+      background: transparent !important;
       color: $fontcolor !important;
-      margin-bottom: 20px;
+      // padding: 0 5px !important;
+      border: 1px solid white;
     }
     .sign-in-icon {
       color: $fontcolorsm !important;
+      font-size: 15px;
+
       @media (max-width: 959px) {
-        color: $color-1 !important;
+        font-size: 13px;
       }
     }
     .sgin {
       color: $fontcolorsm !important;
-      font-size: 16px;
+      letter-spacing: 0px;
+      font-family: $fontfamliy;
+      font-size: 15px;
       @media (max-width: 959px) {
-        color: $color-1 !important;
+        font-size: 13px;
       }
     }
   }

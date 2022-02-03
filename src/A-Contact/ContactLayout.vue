@@ -1,9 +1,9 @@
 <template>
-  <div class="contact mt-2">
+  <div class="contact ">
     <v-container>
       <div>
-        <v-row>
-          <v-col cols="12" sm="8" md="6" class="">
+        <v-row class="justify-center">
+          <v-col cols="12" sm="10" md="6" class="">
             <EmailForm />
           </v-col>
           <v-col cols="12" sm="8" md="6" class="">

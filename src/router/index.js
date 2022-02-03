@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/TheHome.vue";
-import Product from "../views/TheProduct.vue";
+import TheShowRoom from "../views/TheShowRoom.vue";
 import SeeAllUsedAndNewCars from "../CarForSell/SeeAllUsedAndNewCars.vue";
 import UsedCar from "../CarForSell/UsedCar.vue";
 import NewCar from "../CarForSell/NewCar.vue";
@@ -11,6 +11,8 @@ import SeeAllSpecialCar from "../CarForSell/SeeAllSpecialCar.vue";
 import CarByBrand from "../CarForSell/CarByBrand.vue";
 import CarByShape from "../CarForSell/CarByShape.vue";
 import SginUp from "../Login/SignUp.vue";
+import AboutSellingCar from "../SellYourCar/AboutSellingCar.vue";
+import ShowroomView from "../Car-showroom/ShowroomView.vue";
 
 Vue.use(VueRouter);
 
@@ -21,9 +23,9 @@ const routes = [
     component: Home,
   },
   {
-    path: "/product",
-    name: "Product",
-    component: Product,
+    path: "/TheShowRoom",
+    name: "TheShowRoom",
+    component: TheShowRoom,
   },
   {
     path: "/SeeAllUsedAndNewCars",
@@ -41,19 +43,9 @@ const routes = [
     component: NewCar,
   },
   {
-    path: "/contact",
-    name: "Contact",
-    component: Contact,
-  },
-  {
     path: "/SeeAllSpecialCar",
     name: "SeeAllSpecialCar",
     component: SeeAllSpecialCar,
-  },
-  {
-    path: "/SginUp",
-    name: "SginUp",
-    component: SginUp,
   },
   {
     path: "/view/car/:CarShape",
@@ -69,6 +61,26 @@ const routes = [
     path: "/view/car/:carName/:carShape/:carId/:Company",
     name: "ViewCar",
     component: ViewCar,
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: Contact,
+  },
+  {
+    path: "/SginUp",
+    name: "SginUp",
+    component: SginUp,
+  },
+  {
+    path: "/AboutSellingCar",
+    name: "AboutSellingCar",
+    component: AboutSellingCar,
+  },
+  {
+    path: "/ShowroomView",
+    name: "ShowroomView",
+    component: ShowroomView,
   },
 ];
 

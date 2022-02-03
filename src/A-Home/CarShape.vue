@@ -22,6 +22,7 @@
                   max-width="300"
                   contain
                   :src="Shape.CarShape"
+                  :lazy-src="Shape.CarShape"
                 ></v-img>
               </v-avatar>
               <router-link

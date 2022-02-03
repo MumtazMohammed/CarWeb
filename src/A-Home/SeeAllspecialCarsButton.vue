@@ -20,7 +20,7 @@ export default {
   color: $fontcolorsm !important;
   letter-spacing: 0;
   font-size: 20px !important;
-  background: $linear-gradient;
+  background-color: $color-1 !important;
   text-decoration: none !important;
   @media (max-width: 360px) {
     font-size: 16px !important;

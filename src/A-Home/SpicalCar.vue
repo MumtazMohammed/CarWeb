@@ -47,7 +47,7 @@
                 <b class="pa-0 text-center CarNumVip"> </b>
                 <v-img
                   :src="getimageUrl(CarSell.folder, CarSell.image)"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  :lazy-src="getimageUrl(CarSell.folder, CarSell.image)"
                   height="170px"
                 >
                 </v-img>
