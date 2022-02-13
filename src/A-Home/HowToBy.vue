@@ -1,5 +1,5 @@
 <template>
-  <div class="HowToBuy mt-16">
+  <div class="HowToBuy mt-5">
     <v-container>
       <p class="text-center font-weight-bold tital">
         {{ Tital }}
@@ -74,6 +74,7 @@ export default {
   .tital {
     font-family: $fontfamliy;
     font-size: 30px;
+    color: $fontcolor;
     @media (max-width: 460px) {
       font-size: 26px;
     }

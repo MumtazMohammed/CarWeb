@@ -2,10 +2,11 @@
   <v-main>
     <NavBar />
     <ToSellYourCarLayout />
+    <SpicalShowRoom />
     <SpicalCar :caritems="caritems" />
-    <SeeAllspecialCarsButton />
     <CarBrands :AllDateCar="AllDateCar" />
     <CarShape :AllDateCar="AllDateCar" />
+    <CarPartsCategories />
     <HowToBuy />
   </v-main>
 </template>
@@ -13,10 +14,11 @@
 <script>
 import NavBar from "../NavBar/TheNavBar.vue";
 import ToSellYourCarLayout from "../A-Home/ToSellYourCarLayout.vue";
-import SeeAllspecialCarsButton from "../A-Home/SeeAllspecialCarsButton.vue";
 import SpicalCar from "../A-Home/SpicalCar.vue";
+import SpicalShowRoom from "../A-Home/SpicalShowRoom.vue";
 import CarBrands from "../A-Home/CarBrands.vue";
 import CarShape from "../A-Home/CarShape.vue";
+import CarPartsCategories from "../A-Home/CarPartsCategories.vue";
 import HowToBuy from "../A-Home/HowToBy.vue";
 import DateCar from "../data-json/car-data.json";
 import AllDateCar from "../data-json/All-Car.json";
@@ -25,10 +27,11 @@ const components = {
   ToSellYourCarLayout,
   SpicalCar,
   CarBrands,
-  SeeAllspecialCarsButton,
   CarShape,
   HowToBuy,
   NavBar,
+  SpicalShowRoom,
+  CarPartsCategories,
 };
 export default {
   name: "Home",

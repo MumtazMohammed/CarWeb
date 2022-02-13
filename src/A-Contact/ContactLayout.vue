@@ -1,12 +1,12 @@
 <template>
-  <div class="contact ">
+  <div class="contact">
     <v-container>
       <div>
         <v-row class="justify-center">
-          <v-col cols="12" sm="10" md="6" class="">
+          <v-col cols="12" sm="10" md="8" class="">
             <EmailForm />
           </v-col>
-          <v-col cols="12" sm="8" md="6" class="">
+          <v-col cols="12" sm="10" md="8" class="">
             <SideEmail />
           </v-col>
         </v-row>
@@ -37,7 +37,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $linear-gradient;
+  // background: $linear-gradient;
   .header-tital {
     letter-spacing: 0;
     font-family: $fontfamliy;

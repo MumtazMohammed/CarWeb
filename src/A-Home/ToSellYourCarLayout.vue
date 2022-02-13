@@ -1,16 +1,30 @@
 <template>
   <div class="selection">
-    <v-container>
-      <v-row>
-        <v-col cols="12" md="6" sm="7">
-          <v-img
-            max-width="700px"
-            max-height="400px"
-            src="../assets/landing-new.7f188d1.png"
+    <v-container fluid>
+      <v-row class="row-Add">
+        <!-- advertisement  -->
+
+        <v-col class="px-0" cols="12" md="8" sm="12">
+          <!-- <v-img
+            max-width="500px"
+            src="../assets/outsrc/undraw_off_road_-9-oae.svg"
           >
-          </v-img>
+          </v-img> -->
+          <v-carousel hide-delimiters class="carousel" v-model="model">
+            <v-carousel-item
+              v-for="(item, i) in items"
+              :key="i"
+              reverse-transition="fade-transition"
+              transition="fade-transition"
+            >
+              <v-img width="100%" height="377" :src="item.src"> </v-img>
+            </v-carousel-item>
+          </v-carousel>
         </v-col>
-        <v-col cols="12" md="6" sm="4"><ToSellYourCarInfo /> </v-col>
+        <!-- weebsite welcome  -->
+        <v-col class="px-0 pr-1 mt-4 mt-md-0 mt-lg-0" cols="12" md="4" sm="12"
+          ><ToSellYourCarInfo />
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -21,9 +35,26 @@ import ToSellYourCarInfo from "../A-Home/ToSellYourCarInfo.vue";
 export default {
   name: "ToSellYourCarLayout",
   components: { ToSellYourCarInfo },
+  setup() {
+    return {};
+  },
   data() {
     return {
-      row: null,
+      model: 0,
+      items: [
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
+        },
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
+        },
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
+        },
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
+        },
+      ],
     };
   },
 };
@@ -34,10 +65,9 @@ export default {
 @import "@/scss/mixin";
 .selection {
   width: 100%;
-  min-height: calc(100vh - 125px);
+  min-height: auto;
   padding: $padding;
-  display: flex;
-  align-items: center;
+
   .v-input--selection-controls .v-input__slot > .v-label {
     font-family: "Tajawal", sans-serif !important;
   }
@@ -49,6 +79,40 @@ export default {
     font-size: 18px;
     letter-spacing: 0;
     font-weight: 500;
+  }
+  .search-card {
+    .search {
+      width: 100%;
+      margin: 0 auto;
+      border-top-right-radius: 0px !important;
+      border-bottom-right-radius: 0px !important;
+      .input {
+        font-family: $fontfamliy;
+      }
+      .search-icon {
+        color: $fontcolorsm;
+        font-size: 24px !important;
+      }
+      .search-btn {
+        height: 48px;
+        background-color: $color-1;
+        border-radius: 4px 0 0 4px;
+        border-top: thin solid white;
+        border-left: thin solid white;
+        border-bottom: thin solid white;
+      }
+    }
+  }
+  // Advtrasmentsidth: 310px !important;
+  ::v-deep .v-window.v-item-group.theme--dark.v-carousel {
+    height: 376px !important;
+    @media (max-width: 960px) {
+      height: 300px !important;
+    }
+  }
+
+  .carousel::v-deep .v-image.v-responsive.v-carousel__item.theme--light {
+    height: 388px !important;
   }
 }
 </style>

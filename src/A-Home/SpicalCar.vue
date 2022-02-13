@@ -8,13 +8,13 @@
       <!--  -->
 
       <carousel-3d
-        :disable3d="true"
+        :disable3d="false"
         :clickable="false"
-        :animationSpeed="500"
+        :animationSpeed="400"
         :autoplay="fales"
         :autoplay-timeout="0"
         :display="5"
-        :space="307"
+        :space="325"
         :inverseScaling="0"
         :perspective="0"
         :width="300"
@@ -118,7 +118,16 @@
       </carousel-3d>
 
       <!--  -->
-
+      <div class="text-center mt-4 mb-2">
+        <v-btn
+          elevation="0"
+          large
+          class="link-SeeAllCar"
+          to="/SeeAllSpecialCar"
+        >
+          شاهد جميع السيارات المضمونه لدينا
+        </v-btn>
+      </div>
       <!--  -->
     </v-container>
   </div>
@@ -235,6 +244,21 @@ export default {
   position: relative;
   padding: $padding;
   background-color: $color-background;
+
+  .link-SeeAllCar {
+    font-family: $fontfamliy;
+    color: $fontcolorsm !important;
+    letter-spacing: 0;
+    font-size: 20px !important;
+    background-color: $color-1 !important;
+    text-decoration: none !important;
+    @media (max-width: 360px) {
+      font-size: 16px !important;
+    }
+    @media (max-width: 320px) {
+      font-size: 14px !important;
+    }
+  }
 
   .tital {
     color: $fontcolor;

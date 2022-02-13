@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/TheHome.vue";
+import TheStore from "../views/TheStore.vue";
 import TheShowRoom from "../views/TheShowRoom.vue";
 import SeeAllUsedAndNewCars from "../CarForSell/SeeAllUsedAndNewCars.vue";
 import UsedCar from "../CarForSell/UsedCar.vue";
@@ -13,6 +14,8 @@ import CarByShape from "../CarForSell/CarByShape.vue";
 import SginUp from "../Login/SignUp.vue";
 import AboutSellingCar from "../SellYourCar/AboutSellingCar.vue";
 import ShowroomView from "../Car-showroom/ShowroomView.vue";
+import ClientStore from "../CustomreStote/ClientStore.vue";
+import ProductDetail from "../CustomreStote/ProductDetail.vue";
 
 Vue.use(VueRouter);
 
@@ -26,6 +29,11 @@ const routes = [
     path: "/TheShowRoom",
     name: "TheShowRoom",
     component: TheShowRoom,
+  },
+  {
+    path: "/TheStore",
+    name: "TheStore",
+    component: TheStore,
   },
   {
     path: "/SeeAllUsedAndNewCars",
@@ -78,9 +86,19 @@ const routes = [
     component: AboutSellingCar,
   },
   {
-    path: "/ShowroomView",
+    path: "/:ShowRoomName/:ShowRoomLocation/:locationStreet",
     name: "ShowroomView",
     component: ShowroomView,
+  },
+  {
+    path: "/:ClientStoreName/:StoreLocation/",
+    name: "ClientStore",
+    component: ClientStore,
+  },
+  {
+    path: "/ProductDetail/:ProductNumber/:ProductName/:ProductId",
+    name: "ProductDetail",
+    component: ProductDetail,
   },
 ];
 

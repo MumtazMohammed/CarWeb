@@ -17,16 +17,33 @@
               active-class="active"
             >
               <v-list-item-content>
-                <v-list-item-title class="nav-link">نضنها لك</v-list-item-title>
+                <v-list-item-title class="nav-link">الرئيسية</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <!-- other  -->
+            <v-list-item
+              v-for="(item, i) in items"
+              :key="i"
+              router
+              dark
+              :to="item.path"
+              class="singl-link ma-0"
+              color="transparent"
+              active-class="active"
+            >
+              <v-list-item-content>
+                <v-list-item-title
+                  class="nav-link"
+                  v-text="item.text"
+                ></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <!-- used or new or all  -->
             <v-menu
               bottom
               nudge-top="0"
-              open-on-hover
+              open-on-click
               close-delay="150"
-              nudge-left="50"
               origin="center center"
               offset-y
               transition="scale-transition"
@@ -36,8 +53,8 @@
                   <v-list-item
                     v-bind="attrs"
                     v-on="on"
+                    class="singl-link haraj ma-0"
                     color="transparent"
-                    class="singl-link ma-0"
                   >
                     <v-list-item-content>
                       <v-list-item-title class="nav-link">
@@ -72,25 +89,22 @@
                 </v-list-item>
               </v-list>
             </v-menu>
-            <!-- other  -->
             <v-list-item
-              v-for="(item, i) in items"
-              :key="i"
               router
               dark
-              :to="item.path"
+              to="/contact"
               class="singl-link ma-0"
               color="transparent"
               active-class="active"
             >
               <v-list-item-content>
-                <v-list-item-title
-                  class="nav-link"
-                  v-text="item.text"
-                ></v-list-item-title>
+                <v-list-item-title class="nav-link"
+                  >تواصل معنا</v-list-item-title
+                >
               </v-list-item-content>
             </v-list-item>
           </v-list>
+          <!--  -->
         </v-toolbar-items>
         <!-- search  -->
         <SearchCar />
@@ -112,7 +126,7 @@ export default {
       home: [
         {
           icon: "fa-home",
-          text: "نضمنها لك",
+          text: "الرئيسية",
           path: "/",
         },
       ],
@@ -120,6 +134,12 @@ export default {
         {
           title: "سيارات مضمونه ",
           src: "guaranteed.png",
+          path: "/SeeAllSpecialCar",
+          folder: "outsrc",
+        },
+        {
+          title: "سيارات إقساط ",
+          src: "calendar.png",
           path: "/SeeAllSpecialCar",
           folder: "outsrc",
         },
@@ -148,11 +168,10 @@ export default {
           text: "المعارض",
           path: "/TheShowRoom",
         },
-
         {
-          icon: "fa-address-book",
-          text: "تواصل معنا",
-          path: "/contact",
+          icon: "fa-shopping-cart",
+          text: "قطع الغيار",
+          path: "/TheStore",
         },
       ],
     };
@@ -223,8 +242,9 @@ export default {
   width: 30%;
   height: 5px;
   left: 0% !important;
+  top: 53px;
   background: $color-1;
-  transform: translate(-115%, 1100%);
+  transform: translate(-115%, 0%);
   opacity: 1 !important;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -239,7 +259,7 @@ export default {
   font-family: $fontfamliy;
   color: $fontcolorlinks;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .item-title:active {
@@ -262,5 +282,11 @@ export default {
 }
 .CarforSell-link::v-deep .v-list-item {
   min-height: 30px !important;
+}
+.haraj::v-deep.theme--light.v-list-item:hover:before {
+  opacity: 0;
+}
+.haraj::v-deep.theme--light.v-list-item:focus:before {
+  opacity: 0;
 }
 </style>

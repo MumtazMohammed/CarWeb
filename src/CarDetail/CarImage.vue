@@ -1,8 +1,8 @@
 <template>
   <div class="car-Image mt-4">
-    <v-row>
+    <v-row class="justify-space-around">
       <!-- car image  -->
-      <v-col xs="12" sm="12" md="6" class="rounded">
+      <v-col xs="12" sm="12" md="6" class="grey lighten-3">
         <div class="text-center">
           <v-dialog
             v-model="dialog"
@@ -11,20 +11,22 @@
             fullscreen
           >
             <template v-slot:activator="{ on, attrs }">
+              <v-card flat width="100%" color="transparent" class="rounded-0">
+                <v-card-text class="click mx-auto"
+                  >اضغط على الصورة لرؤية المزيد...</v-card-text
+                >
+              </v-card>
               <v-img
                 lazy
                 :src="getimageUrl(getCarInfo.folder, getCarInfo.image)"
+                :lazy-src="getimageUrl(getCarInfo.folder, getCarInfo.image)"
                 max-height="512"
                 max-width="768"
                 v-bind="attrs"
                 v-on="on"
                 class="ma-sm-auto"
+                style="border-radius: 3px"
               >
-                <v-card width="100%" color="white" class="rounded-0">
-                  <v-card-text class="click mx-auto"
-                    >اضغط على الصورة لرؤية المزيد...</v-card-text
-                  >
-                </v-card>
               </v-img>
             </template>
 
@@ -50,7 +52,12 @@
           </v-dialog>
         </div>
       </v-col>
-      <v-col xs="12" sm="12" md="6" class="pt-1 pb-0 remov-p-from-col-box-all">
+      <v-col
+        xs="12"
+        sm="12"
+        md="6"
+        class="pt-1 pb-0 remov-p-from-col-box-all grey lighten-3"
+      >
         <PriceAndLocation />
       </v-col>
     </v-row>
@@ -105,7 +112,7 @@ export default {
   font-family: $fontfamliy;
   font-size: 18px;
   color: $fontcolor !important;
-  background-color: $color-background !important;
+  // background-color: $color-background !important;
 }
 .diglog {
   align-items: flex-start !important;

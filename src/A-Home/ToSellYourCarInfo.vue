@@ -1,26 +1,17 @@
 <template>
   <div class="box">
-    <v-row class="align-center flex-column">
-      <v-flex class="d-flex align-center flex-column">
-        <p class="card_title">ثقة لجميع انواع السيارات</p>
-        <p class="card_title">في جميع انحاء اليمن</p>
-        <b class="card_title"> بيع | شراء </b>
-      </v-flex>
-
-      <v-card flat class="mt-2">
-        <v-card-actions class="d-flex justify-center">
-          <v-btn
-            router
-            to="/AboutSellingCar"
-            large
-            elevation="0"
-            class="btn pa-3"
-          >
-            ابداء الان في بيع سيارتك
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-row>
+    <v-card flat>
+      <p class="card_title text-center">ثقة في أيدي الجميع</p>
+      <p class="card_title text-center">سيارات | قطع غيار</p>
+    </v-card>
+    <v-card-actions class="d-flex justify-center">
+      <v-btn router to="/AboutSellingCar" elevation="0" class="btn pa-3">
+        ابداء الان في بيع سيارتك مجاناً
+      </v-btn>
+    </v-card-actions>
+    <div class="advertise">
+      <a class="white--text">للأعلان </a>
+    </div>
   </div>
 </template>
 <script>
@@ -42,16 +33,27 @@ export default {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  background: $linear-gradient;
+  @media (max-width: 960px) {
+    background: none;
+  }
   .card_title {
     font-size: 30px;
-    color: $fontcolor;
+    color: $fontcolorsm;
     font-family: $fontfamliy;
     font-weight: 500;
-    @media (max-width: 960px) {
+    @media (max-width: 1286px) {
       font-size: 26px;
     }
-    @media (max-width: 960px) {
+    @media (max-width: 1172px) {
       font-size: 23px;
+    }
+    @media (max-width: 960px) {
+      color: $fontcolor;
     }
     @media (max-width: 760px) {
       font-size: 21px;
@@ -64,43 +66,57 @@ export default {
     }
   }
   .card_title:nth-child(2) {
-    font-size: 25px;
-    color: $fontcolor;
+    font-size: 18px;
+    color: $fontcolorsm;
     font-family: $fontfamliy;
+
     @media (max-width: 960px) {
-      font-size: 23px;
-    }
-    @media (max-width: 960px) {
-      font-size: 20px;
+      color: $fontcolor;
     }
     @media (max-width: 760px) {
       font-size: 19px;
     }
-    @media (max-width: 600px) {
-      font-size: 24px;
-    }
+
     @media (max-width: 360px) {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
-  .card_title:nth-child(3) {
-    font-size: 20px;
-    color: $fontcolor;
-    font-family: $fontfamliy;
-  }
+
   .theme--light.v-card {
     background-color: rgba(0, 0, 0, 0) !important;
   }
   .btn {
     font-family: $fontfamliy;
-    color: $fontcolorsm;
-    font-size: 18px;
+    color: $fontcolor;
+    font-size: 14px;
     letter-spacing: 0;
     font-weight: 500;
-    background-color: $color-1 !important;
+    background-color: $color-4 !important;
+    @media (max-width: 960px) {
+      background-color: $color-1 !important;
+      color: $fontcolorsm;
+      font-size: 16px;
+    }
     .icon {
       font-size: 15px;
       color: grey;
+    }
+  }
+  .advertise {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    @media (max-width: 960px) {
+      position: relative;
+      bottom: 0px;
+      right: 0px;
+    }
+    a {
+      font-family: $fontfamliy;
+      font-size: 18px;
+      @media (max-width: 960px) {
+        color: $color-1 !important;
+      }
     }
   }
 }

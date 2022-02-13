@@ -5,7 +5,7 @@
       <v-col cols="12" class="text-center btns">
         <v-card flat class="pa-5 btn-box">
           <!-- owner  -->
-          <v-btn
+          <!-- <v-btn
             width="120"
             color=""
             outlined
@@ -35,14 +35,14 @@
                 <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
               </v-btn>
             </template>
-          </v-snackbar>
+          </v-snackbar> -->
           <!-- -------------------------------------- -->
           <!-- whatsapp  -->
           <v-btn
             outlined
             width="120"
             class="success btns-contact"
-            @click.stop="whatsapp = true"
+            @click.stop="(call = false), (whatsapp = true)"
           >
             وتس اب
           </v-btn>
@@ -83,7 +83,7 @@
             outlined
             width="120"
             class="info btns-contact"
-            @click.stop="call = true"
+            @click.stop="(call = true), (whatsapp = false)"
           >
             هاتف
           </v-btn>
@@ -120,7 +120,7 @@
           </v-snackbar>
           <!-- -------------------------------------- -->
           <!-- mail  -->
-          <v-btn
+          <!-- <v-btn
             width="120"
             outlined
             class="red btns-contact"
@@ -128,39 +128,40 @@
           >
             البريد الأكترواني
           </v-btn>
-        </v-card>
-        <v-snackbar
-          width="350"
-          height="150px"
-          min-width="200"
-          centered
-          v-model="gmail"
-          :vertical="vertical"
-          color="red"
-        >
-          <div class="v-snack__content pa-0">gmail</div>
 
-          <template v-slot:action="{ attrs }">
-            <v-btn
-              color="white"
-              icon
-              v-bind="attrs"
-              @click="gmail = false"
-              class="snackbar-close"
-            >
-              <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
-            </v-btn>
-            <v-btn
-              color="white"
-              icon
-              v-bind="attrs"
-              @click="gmail = false"
-              class="snackbar-copy"
-            >
-              <v-icon class="snackbar-copy"> far fa-copy</v-icon>
-            </v-btn>
-          </template>
-        </v-snackbar>
+          <v-snackbar
+            width="350"
+            height="150px"
+            min-width="200"
+            centered
+            v-model="gmail"
+            :vertical="vertical"
+            color="red"
+          >
+            <div class="v-snack__content pa-0">gmail</div>
+
+            <template v-slot:action="{ attrs }">
+              <v-btn
+                color="white"
+                icon
+                v-bind="attrs"
+                @click="gmail = false"
+                class="snackbar-close"
+              >
+                <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
+              </v-btn>
+              <v-btn
+                color="white"
+                icon
+                v-bind="attrs"
+                @click="gmail = false"
+                class="snackbar-copy"
+              >
+                <v-icon class="snackbar-copy"> far fa-copy</v-icon>
+              </v-btn>
+            </template>
+          </v-snackbar> -->
+        </v-card>
       </v-col>
     </v-row>
   </div>

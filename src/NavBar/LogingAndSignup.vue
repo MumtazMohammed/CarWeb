@@ -71,7 +71,7 @@ export default {
   @media (max-width: 959px) {
     justify-content: center;
     height: auto;
-    margin: 10px 0 !important;
+    margin: 30px 0 20px 0 !important;
   }
   .user {
     @media (max-width: 600px) {
@@ -102,12 +102,11 @@ export default {
     @media (max-width: 959px) {
       background: transparent !important;
       color: $fontcolor !important;
-      // padding: 0 5px !important;
-      border: 1px solid white;
+      border: 1px solid $fontcolorsm;
     }
     .sign-in-icon {
       color: $fontcolorsm !important;
-      font-size: 15px;
+      font-size: 16px;
 
       @media (max-width: 959px) {
         font-size: 13px;
@@ -117,9 +116,9 @@ export default {
       color: $fontcolorsm !important;
       letter-spacing: 0px;
       font-family: $fontfamliy;
-      font-size: 15px;
+      font-size: 16px;
       @media (max-width: 959px) {
-        font-size: 13px;
+        font-size: 14px;
       }
     }
   }

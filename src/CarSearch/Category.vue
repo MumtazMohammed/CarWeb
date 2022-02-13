@@ -19,7 +19,7 @@
       <v-row justify="center">
         <v-flex md12 sm12>
           <v-card-title class="search-text mb-2 pa-0">
-            أبحث عن سيارات جديدة او مستعملة
+            أبحث عن سيارات
           </v-card-title>
         </v-flex>
       </v-row>
@@ -147,7 +147,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $color-2;
+    background-color: $color-1;
     // opacity: 0.9;
   }
 

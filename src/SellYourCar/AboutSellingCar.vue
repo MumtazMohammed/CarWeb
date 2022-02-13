@@ -166,8 +166,11 @@ export default {
 .AboutSellingCar {
   width: 100%;
   min-height: 100vh;
+  @media (max-width: 1030px) {
+    min-height: 70vh;
+  }
   .line {
-    width: 50%;
+    width: 40%;
     height: 7px;
     background: $linear-gradient !important;
     display: flex;

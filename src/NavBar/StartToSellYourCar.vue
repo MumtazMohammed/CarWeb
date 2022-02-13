@@ -1,6 +1,13 @@
 <template>
   <div class="start-to-sell">
-    <v-btn router to="/AboutSellingCar" rounded color="#0881fa" class="sell">
+    <v-btn
+      router
+      to="/AboutSellingCar"
+      rounded
+      elevation="0"
+      color="white"
+      class="sell"
+    >
       أعرض سيارتك
     </v-btn>
   </div>
@@ -23,10 +30,10 @@ export default {
   margin-left: 5px;
   .sell {
     font-family: $fontfamliy;
-    font-weight: 500;
-    font-size: 13px;
+    font-weight: bold;
+    font-size: 16px;
     letter-spacing: 0;
-    color: white;
+    color: $color-2;
   }
 }
 </style>

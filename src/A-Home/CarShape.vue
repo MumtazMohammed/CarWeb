@@ -1,5 +1,5 @@
 <template>
-  <div class="Shape_box mt-16">
+  <div class="Shape_box my-5">
     <div class="Shape_container">
       <v-container class="px-md-7">
         <p class="text-center font-weight-bold tital">
@@ -15,7 +15,17 @@
             md="3"
             class="pa-1"
           >
-            <v-card flat class="d-flex align-center justify-center flex-column">
+            <v-card
+              router
+              :to="{
+                name: 'CarByShape',
+                params: {
+                  CarShape: Shape.Shape,
+                },
+              }"
+              flat
+              class="d-flex align-center justify-center flex-column cursor-pointer"
+            >
               <v-avatar width="120" height="120" tile>
                 <v-img
                   max-height="70"
@@ -25,17 +35,9 @@
                   :lazy-src="Shape.CarShape"
                 ></v-img>
               </v-avatar>
-              <router-link
-                class="CarShapeText pa-2 text-center"
-                :to="{
-                  name: 'CarByShape',
-                  params: {
-                    CarShape: Shape.Shape,
-                  },
-                }"
-              >
-                <a class="white--text">{{ Shape.Shape }} </a>
-              </router-link>
+              <a class="white--text CarShapeText pa-2 text-center"
+                >{{ Shape.Shape }}
+              </a>
             </v-card>
           </v-col>
         </v-row>
@@ -84,17 +86,19 @@ export default {
     }
   }
   .CarShapeText {
-    font-family: $fontfamliy2;
+    font-family: $fontfamliy;
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0;
-    background: $linear-gradient;
+    background: $color-1;
     text-decoration: none;
     width: 100%;
   }
   .tital {
     font-family: $fontfamliy;
     font-size: 30px;
+    color: $fontcolor;
+
     @media (max-width: 460px) {
       font-size: 26px;
     }

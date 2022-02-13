@@ -1,7 +1,7 @@
 <template>
   <div class="product_box pb-10">
     <NavBar />
-    <v-container class="">
+    <v-container>
       <v-col cols="12" class="pr-2">
         <h2 class="tital">
           (<span class="red--text"> {{ AllCars.length }}</span>

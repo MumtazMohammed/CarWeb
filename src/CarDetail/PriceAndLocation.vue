@@ -44,6 +44,9 @@
         <v-col cols="12" class="text-center pt-0 btns">
           <ContacSeller />
         </v-col>
+        <v-col cols="12" class="btns">
+          <ShareAndReport />
+        </v-col>
         <!-- contact eara  -->
 
         <!-- -------------------------------------- -->
@@ -56,12 +59,14 @@ import CarData from "../data-json/All-Car.json";
 import CarWarning from "../CarDetail/CarWarning.vue";
 import VipCard from "../CarDetail/VipCard.vue";
 import ContacSeller from "../CarDetail/ContacSeller.vue";
+import ShareAndReport from "../CarDetail/ShareAndReport.vue";
 export default {
   name: "PriceAndLocation",
   components: {
     CarWarning,
     VipCard,
     ContacSeller,
+    ShareAndReport,
   },
   data() {
     return {
@@ -108,7 +113,7 @@ export default {
   font-size: 30px;
 }
 .cartital {
-  font-family: $fontfamliy2 !important;
+  font-family: $fontfamliy !important;
   color: $fontcolor !important;
   font-weight: 500;
   text-align: center;

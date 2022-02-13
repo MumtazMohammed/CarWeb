@@ -1,5 +1,5 @@
 <template>
-  <div class="brand_box mt-8">
+  <div class="brand_box my-5">
     <div class="brand_container">
       <v-container class="px-md-7">
         <p class="text-center font-weight-bold tital">
@@ -16,8 +16,13 @@
             class="pa-1"
           >
             <v-card
+              router
+              :to="{
+                name: 'CarByBrand',
+                params: { CarType: Brand.cartype, CarName: Brand.carName },
+              }"
               flat
-              class="d-flex align-center justify-center flex-column img-card"
+              class="d-flex align-center justify-center flex-column img-card cursor-pointer"
             >
               <v-avatar width="200" height="120" tile>
                 <v-img
@@ -28,17 +33,9 @@
                   :lazy-src="getimageUrl(Brand.folder, Brand.carLogo)"
                 ></v-img>
               </v-avatar>
-              <router-link
-                class="CarBrandText mt-4"
-                :to="{
-                  name: 'CarByBrand',
-                  params: { CarType: Brand.cartype, CarName: Brand.carName },
-                }"
-              >
-                <a class="white--text">
-                  {{ Brand.carName }}
-                </a>
-              </router-link>
+              <a class="white--text CarBrandText mt-4">
+                {{ Brand.carName }}
+              </a>
             </v-card>
           </v-col>
         </v-row>
@@ -87,7 +84,7 @@ export default {
     }
   }
   .CarBrandText {
-    font-family: $fontfamliy2;
+    font-family: $fontfamliy;
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0;
@@ -95,11 +92,13 @@ export default {
     width: 100%;
     padding: 10px 0;
     text-align: center;
-    background: $linear-gradient;
+    background: $color-1;
   }
   .tital {
     font-family: $fontfamliy;
     font-size: 30px;
+    color: $fontcolor;
+
     @media (max-width: 460px) {
       font-size: 26px;
     }

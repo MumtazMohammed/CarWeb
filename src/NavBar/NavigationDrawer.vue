@@ -46,6 +46,27 @@
             </v-list-item-content>
           </v-list-item>
           <!--  -->
+          <!-- other  -->
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+            router
+            :to="item.path"
+            @click="drawer = false"
+            dark
+            color="white"
+          >
+            <v-list-item-icon class="icon-list">
+              <v-icon class="nav-icon" right v-text="item.icon"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title
+                class="nav-link-sm pa-2"
+                v-text="item.text"
+              ></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <!--  -->
           <!-- mutible car choise  -->
           <v-list-group action>
             <template v-slot:activator>
@@ -54,7 +75,7 @@
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title class="nav-link-sm pa-2">
-                  سيارات للبيع
+                  حراج السيارت
                 </v-list-item-title>
               </v-list-item-content>
             </template>
@@ -83,27 +104,25 @@
             </v-list-item>
           </v-list-group>
           <!--  -->
-          <!-- other  -->
-          <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-            router
-            :to="item.path"
-            @click="drawer = false"
-            dark
-            color="white"
-          >
-            <v-list-item-icon class="icon-list">
-              <v-icon class="nav-icon" right v-text="item.icon"></v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title
-                class="nav-link-sm pa-2"
-                v-text="item.text"
-              ></v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
         </v-list-item-group>
+        <!-- contact  -->
+        <v-list-item
+          @click="drawer = false"
+          router
+          to="/contact"
+          dark
+          color="white"
+          class="pr-0"
+        >
+          <v-list-item-icon class="icon-list">
+            <v-icon class="nav-icon" right>fa-headphones-alt</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title class="nav-link-sm pa-2">
+              تواصل معنا
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
   </div>
@@ -158,11 +177,10 @@ export default {
           text: "المعارض",
           path: "/TheShowRoom",
         },
-
         {
-          icon: "fa-headphones-alt",
-          text: "تواصل معنا",
-          path: "/contact",
+          icon: "fa-shopping-cart",
+          text: "قطع الغيار",
+          path: "/TheStore",
         },
       ],
     };
@@ -191,7 +209,7 @@ export default {
 // Nav for small screen
 .nav-tablet {
   z-index: 4;
-  background: $color-2 !important;
+  background: $color-1 !important;
 }
 .nav-tablet::v-deep .v-navigation-drawer__content {
   height: 100%;
