@@ -1,6 +1,6 @@
 <template>
   <div class="form">
-    <v-card>
+    <v-card color="grey lighten-2">
       <v-form v-model="valid" elevation-0 class="">
         <v-container>
           <v-col cols="12">
@@ -48,9 +48,9 @@
               @click="submit"
               min-width="40%"
               elevation="0"
-              class="send-btn grey lighten-1"
+              class="send-btn"
             >
-              أرســل
+              إرسال
             </v-btn>
           </v-col>
         </v-container>
@@ -98,8 +98,9 @@ export default {
     letter-spacing: 0px;
     font-family: $fontfamliy;
     font-size: 22px;
-    color: $fontcolor;
+    color: $fontcolorsm;
     font-weight: bold;
+    background-color: #525252 !important;
     @media (max-width: 500px) {
       width: 90% !important;
     }

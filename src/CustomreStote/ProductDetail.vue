@@ -8,7 +8,7 @@
           <v-row>
             <v-col cols="12" sm="6" md="6">
               <v-card-title
-                class="product-name"
+                class="product-name pa-0"
                 v-text="GetProductDetail.ProductName"
               >
               </v-card-title>
@@ -23,18 +23,45 @@
         <v-row class="justify-center">
           <!-- Products Image  -->
           <v-col cols="12" sm="8" md="4" lg="4">
-            <v-img
-              max-height="200"
-              contain
-              src="../assets/Store/LD1.jpg"
-            ></v-img>
-
-            <v-card-actions class="mt-3 justify-center flex-wrap">
-              <v-avatar style="margin: 2px" tile size="60">
-                <v-img contain src="../assets/Store/LD1.jpg"></v-img>
+            <v-card-actions class="justify-center">
+              <v-avatar tile size="250" class="mx-auto">
+                <v-img
+                  class="mx-auto"
+                  max-height="200"
+                  contain
+                  v-if="
+                    mainImg.length < 1
+                      ? (mainImg = getimageUrl(
+                          GetProductDetail.folder,
+                          GetProductDetail.image
+                        ))
+                      : mainImg
+                  "
+                  :src="mainImg"
+                ></v-img>
               </v-avatar>
-              <v-avatar style="margin: 2px" tile size="60">
-                <v-img contain src="../assets/Store/LD1.jpg"></v-img>
+            </v-card-actions>
+            <v-card-actions class="mt-3 justify-center flex-wrap">
+              <v-avatar
+                v-for="(SingleProductImage, i) in GetProductDetail.images"
+                :key="i"
+                tile
+                size="60"
+                class="mx-1"
+              >
+                <v-img
+                  style="width: 50px; height: 50px; cursor: pointer"
+                  contain
+                  :src="
+                    getimageUrl(GetProductDetail.folder, SingleProductImage)
+                  "
+                  @click="
+                    mainImg = getimageUrl(
+                      GetProductDetail.folder,
+                      SingleProductImage
+                    )
+                  "
+                ></v-img>
               </v-avatar>
             </v-card-actions>
           </v-col>
@@ -137,8 +164,12 @@
                 </v-list-item-action-text>
                 <v-list-item-action-text class="list-dic-pro">
                   وتتطابق مع سنوات الصنع التالية : <br />
-                  <span class="blue--text">
-                    {{ GetProductDetail.ProductCarYear }}</span
+                  <span
+                    v-for="(model, i) in GetProductDetail.ProductCarYear"
+                    :key="i"
+                    class="blue--text"
+                  >
+                    {{ model }} ,</span
                   >
                 </v-list-item-action-text>
               </v-list-item-content>
@@ -168,6 +199,8 @@ export default {
   components: { NavBar, ShareAndReport },
   data() {
     return {
+      mainImg: "",
+      IndexOfActive: 0,
       StoreProducts,
       ProductId: this.$route.params.ProductId,
     };
@@ -184,6 +217,16 @@ export default {
       return ProductDetail;
     },
   },
+  methods: {
+    getimageUrl(FolderName, ImageName) {
+      let image = require.context("@/assets/");
+      return image("./" + FolderName + "/" + ImageName);
+    },
+    ChangeAcivePic(index) {
+      this.mainImg = this.SingleProductImage.index;
+      this.IndexOfActive = index;
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -192,7 +235,7 @@ export default {
 .ProductDetail {
   width: 100%;
   font-family: $fontfamliy;
-  min-height: 50vh;
+  min-height: 80vh;
   padding: $padding;
 
   .product-name {
@@ -249,6 +292,10 @@ export default {
       letter-spacing: 0;
       font-weight: 400 !important;
     }
+  }
+  .active {
+    border: 2px solid orange;
+    border-radius: 5px;
   }
 }
 </style>

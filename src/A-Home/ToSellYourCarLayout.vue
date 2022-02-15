@@ -3,26 +3,21 @@
     <v-container fluid>
       <v-row class="row-Add">
         <!-- advertisement  -->
-
-        <v-col class="px-0" cols="12" md="8" sm="12">
-          <!-- <v-img
-            max-width="500px"
-            src="../assets/outsrc/undraw_off_road_-9-oae.svg"
-          >
-          </v-img> -->
+        <v-col class="pa-0 pt-0" cols="12" md="8" sm="12">
           <v-carousel hide-delimiters class="carousel" v-model="model">
             <v-carousel-item
               v-for="(item, i) in items"
               :key="i"
               reverse-transition="fade-transition"
               transition="fade-transition"
+              style="height: 100%"
             >
-              <v-img width="100%" height="377" :src="item.src"> </v-img>
+              <v-img min-height="150" min-width="200" :src="item.src"> </v-img>
             </v-carousel-item>
           </v-carousel>
         </v-col>
         <!-- weebsite welcome  -->
-        <v-col class="px-0 pr-1 mt-4 mt-md-0 mt-lg-0" cols="12" md="4" sm="12"
+        <v-col class="pa-0 pt-0 mt-4 mt-md-0 mt-lg-0" cols="12" md="4" sm="12"
           ><ToSellYourCarInfo />
         </v-col>
       </v-row>
@@ -66,8 +61,10 @@ export default {
 .selection {
   width: 100%;
   min-height: auto;
-  padding: $padding;
-
+  background: $linear-gradient;
+  @media (max-width: 959px) {
+    background: $backgroundcard;
+  }
   .v-input--selection-controls .v-input__slot > .v-label {
     font-family: "Tajawal", sans-serif !important;
   }
@@ -105,14 +102,35 @@ export default {
   }
   // Advtrasmentsidth: 310px !important;
   ::v-deep .v-window.v-item-group.theme--dark.v-carousel {
-    height: 376px !important;
-    @media (max-width: 960px) {
-      height: 300px !important;
+    height: 295px !important;
+    @media (max-width: 700px) {
+      height: 250px !important;
+    }
+    @media (max-width: 590px) {
+      height: 210px !important;
+    }
+    @media (max-width: 520px) {
+      height: 195px !important;
+    }
+  }
+  ::v-deep .v-image.v-responsive.theme--light {
+    height: 295px !important;
+    @media (max-width: 700px) {
+      height: 250px !important;
+    }
+    @media (max-width: 590px) {
+      height: 210px !important;
+    }
+    @media (max-width: 520px) {
+      height: 195px !important;
     }
   }
 
   .carousel::v-deep .v-image.v-responsive.v-carousel__item.theme--light {
-    height: 388px !important;
+    // height: 100% !important;
+    @media (max-width: 959px) {
+      // background: $color-1;
+    }
   }
 }
 </style>

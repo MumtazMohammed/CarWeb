@@ -152,7 +152,7 @@
 import NavBar from "../NavBar/TheNavBar.vue";
 
 export default {
-  name: "AboutSellingCar",
+  name: "AboutSellingCarFreeAdd",
   components: { NavBar },
   data() {
     return {};
@@ -178,7 +178,7 @@ export default {
   }
   .first {
     padding: $padding;
-    min-height: 90vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     h1,

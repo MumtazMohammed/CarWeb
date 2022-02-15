@@ -2,6 +2,7 @@
   <v-main>
     <NavBar />
     <ToSellYourCarLayout />
+    <ADD />
     <SpicalShowRoom />
     <SpicalCar :caritems="caritems" />
     <CarBrands :AllDateCar="AllDateCar" />
@@ -17,6 +18,7 @@ import ToSellYourCarLayout from "../A-Home/ToSellYourCarLayout.vue";
 import SpicalCar from "../A-Home/SpicalCar.vue";
 import SpicalShowRoom from "../A-Home/SpicalShowRoom.vue";
 import CarBrands from "../A-Home/CarBrands.vue";
+import ADD from "../A-Home/ADD.vue";
 import CarShape from "../A-Home/CarShape.vue";
 import CarPartsCategories from "../A-Home/CarPartsCategories.vue";
 import HowToBuy from "../A-Home/HowToBy.vue";
@@ -32,6 +34,7 @@ const components = {
   NavBar,
   SpicalShowRoom,
   CarPartsCategories,
+  ADD,
 };
 export default {
   name: "Home",

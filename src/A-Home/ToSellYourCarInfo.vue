@@ -5,7 +5,7 @@
       <p class="card_title text-center">سيارات | قطع غيار</p>
     </v-card>
     <v-card-actions class="d-flex justify-center">
-      <v-btn router to="/AboutSellingCar" elevation="0" class="btn pa-3">
+      <v-btn router to="/AboutSellingCarFreeAdd" elevation="0" class="btn pa-3">
         ابداء الان في بيع سيارتك مجاناً
       </v-btn>
     </v-card-actions>
@@ -37,7 +37,6 @@ export default {
   flex-direction: column;
   width: 100%;
   position: relative;
-  background: $linear-gradient;
   @media (max-width: 960px) {
     background: none;
   }

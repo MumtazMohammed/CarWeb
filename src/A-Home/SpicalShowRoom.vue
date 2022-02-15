@@ -1,21 +1,21 @@
 <template>
-  <div class="SpicalShowRoom my-5">
-    <v-container fluid>
+  <div class="SpicalShowRoom">
+    <v-container>
       <v-col>
-        <h3 class="tital text-center">أكثر المعارض شهرةً</h3>
+        <p class="tital font-weight-bold text-center">أكثر المعارض شهرةً</p>
         <span class="line my-2 mx-auto"></span>
       </v-col>
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide
           class="slide"
           width="250"
-          v-for="(showroom, i) in showrooms"
-          :key="i"
+          v-for="showroom in showrooms"
+          :key="showroom.id"
         >
           <v-card class="showroom-vip">
             <v-row class="justify-center">
               <v-col cols="12" class="d-flex justify-center">
-                <v-avatar tile size="220" color="transparent">
+                <v-avatar tile width="400" height="195" color="transparent">
                   <v-img
                     :src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
                     :lazy-src="
@@ -23,7 +23,7 @@
                     "
                     class="white--text align-end showroom-img"
                     color="primary"
-                    contain
+                    style="width: 400px; height: 200px"
                   ></v-img>
                 </v-avatar>
               </v-col>
@@ -88,7 +88,7 @@ export default {
     return {
       showrooms,
       swiperOption: {
-        slidesPerView: 4,
+        slidesPerView: 3,
         effect: "card",
         spaceBetween: 10,
         slidesPerGroup: 1,
@@ -184,10 +184,9 @@ export default {
       opacity: 1;
     }
   }
+
   .swiper::v-deep .swiper-wrapper {
-    @media (min-width: 1024px) {
-      justify-content: center;
-    }
+    justify-content: center !important;
   }
   .showroom-vip {
     cursor: pointer;

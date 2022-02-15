@@ -84,6 +84,7 @@ export default {
   position: fixed;
   bottom: 15px;
   right: 10px;
+  overflow: hidden;
   z-index: 5;
   background: $color-2;
   transform: translateX(100px);
@@ -91,9 +92,33 @@ export default {
 
   .btn-up-icon {
     font-size: 22px !important;
+    transition: all 0.4s 0s ease !important;
+    position: relative;
+    z-index: 5;
   }
 }
-
+.btn-up:hover {
+  box-shadow: 0 0 0 2px $color-1;
+}
+.btn-up:hover.btn-up::after {
+  width: 100px;
+  height: 100px;
+}
+.btn-up::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100px;
+  height: 0px;
+  // border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  transform: translate(-50%, 0%);
+  transition: all 0.4s 0s ease;
+}
+.btn-up:hover .btn-up-icon {
+  color: $color-1;
+}
 .is-hidden {
   transform: translateX(0px);
   @media (max-width: 600px) {

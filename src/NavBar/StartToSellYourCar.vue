@@ -2,7 +2,7 @@
   <div class="start-to-sell">
     <v-btn
       router
-      to="/AboutSellingCar"
+      to="/AboutSellingCarFreeAdd"
       rounded
       elevation="0"
       color="white"

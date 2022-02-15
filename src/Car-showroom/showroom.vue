@@ -299,10 +299,7 @@ export default {
       }
     }
   }
-  .showroom:hover,
-  .showroom-vip:hover {
-    transform: translateY(-3px);
-  }
+
   .search {
     margin: 0 auto;
     width: 50%;

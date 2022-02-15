@@ -55,7 +55,12 @@
             </v-card>
           </v-col>
           <!-- search by catgories  -->
-          <v-col class="pt-0 pt-md-3 pt-sm-3 pt-lg-3" sm="6" md="4" cols="12">
+          <v-col
+            class="list-col pt-0 pt-md-3 pt-sm-3 pt-lg-3"
+            sm="6"
+            md="4"
+            cols="12"
+          >
             <v-list dark class="pa-0 list rounded-4">
               <v-list-group no-action>
                 <template v-slot:activator>
@@ -296,26 +301,40 @@ export default {
   ::v-deep.v-list-group.v-list-group--active.v-list-group--no-action.primary--text {
     color: #fff !important;
   }
-  .list {
-    font-family: $fontfamliy !important;
-    background-color: $color-1;
-    .list-title {
-      font-size: 17px;
-      font-weight: 500;
-      height: 25px;
-      display: flex;
-      align-items: center;
-      letter-spacing: 0;
-    }
-    .list-title-link {
-      font-size: 15px;
-      font-weight: 500;
-      height: 25px;
-      display: flex;
-      align-items: center;
-      letter-spacing: 0;
-      color: $fontcolorsm;
-      cursor: pointer;
+  .list-col {
+    position: relative;
+    .list {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: calc(100% - 24px);
+      z-index: 1;
+      font-family: $fontfamliy !important;
+      background-color: $color-1;
+      @media (max-width: 600px) {
+        position: relative !important;
+        top: 0px;
+        left: 0px;
+        width: calc(100% - 0px);
+      }
+      .list-title {
+        font-size: 17px;
+        font-weight: 500;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0;
+      }
+      .list-title-link {
+        font-size: 15px;
+        font-weight: 500;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0;
+        color: $fontcolorsm;
+        cursor: pointer;
+      }
     }
   }
 }

@@ -14,8 +14,8 @@
         :autoplay="fales"
         :autoplay-timeout="0"
         :display="5"
-        :space="325"
-        :inverseScaling="0"
+        :space="335"
+        :inverseScaling="70"
         :perspective="0"
         :width="300"
         :controls-visible="true"
@@ -266,7 +266,7 @@ export default {
     font-size: 27px;
   }
   .line {
-    width: 115px;
+    width: 80px;
     height: 7px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;

@@ -12,7 +12,8 @@ import SeeAllSpecialCar from "../CarForSell/SeeAllSpecialCar.vue";
 import CarByBrand from "../CarForSell/CarByBrand.vue";
 import CarByShape from "../CarForSell/CarByShape.vue";
 import SginUp from "../Login/SignUp.vue";
-import AboutSellingCar from "../SellYourCar/AboutSellingCar.vue";
+import AboutSellingCarFreeAdd from "../SellCar-Store-Showroom/AboutSellingCarFreeAdd.vue";
+import AboutSellingCarPayAdd from "../SellCar-Store-Showroom/AboutSellingCarPayAdd.vue";
 import ShowroomView from "../Car-showroom/ShowroomView.vue";
 import ClientStore from "../CustomreStote/ClientStore.vue";
 import ProductDetail from "../CustomreStote/ProductDetail.vue";
@@ -81,9 +82,14 @@ const routes = [
     component: SginUp,
   },
   {
-    path: "/AboutSellingCar",
-    name: "AboutSellingCar",
-    component: AboutSellingCar,
+    path: "/AboutSellingCarFreeAdd",
+    name: "AboutSellingCarFreeAdd",
+    component: AboutSellingCarFreeAdd,
+  },
+  {
+    path: "/AboutSellingCarPayAdd",
+    name: "AboutSellingCarPayAdd",
+    component: AboutSellingCarPayAdd,
   },
   {
     path: "/:ShowRoomName/:ShowRoomLocation/:locationStreet",

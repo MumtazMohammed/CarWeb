@@ -191,6 +191,7 @@ export default {
   bottom: 65px;
   right: 10px;
   z-index: 5;
+  overflow: hidden;
   background: $color-2 !important;
   transform: translateX(100px);
   transition: all 0.4s 0s ease !important;
@@ -200,9 +201,33 @@ export default {
 
   .icon {
     color: $fontcolorsm !important;
-    font-size: 17px !important;
-    transition: color 0.1s ease;
+    font-size: 20px !important;
+    transition: all 0.4s 0s ease !important;
+    position: relative;
+    z-index: 5;
   }
+}
+.icon-serach:hover {
+  box-shadow: 0 0 0 2px $color-1;
+}
+.icon-serach:hover.icon-serach::after {
+  width: 100px;
+  height: 100px;
+}
+.icon-serach::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100px;
+  height: 0px;
+  // border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  transform: translate(-50%, 0%);
+  transition: all 0.4s 0s ease;
+}
+.icon-serach:hover .icon {
+  color: $color-1 !important;
 }
 .is-hidden {
   transform: translateX(0px);

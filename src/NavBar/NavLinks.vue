@@ -242,9 +242,9 @@ export default {
   width: 30%;
   height: 5px;
   left: 0% !important;
-  top: 53px;
+  top: 56px;
   background: $color-1;
-  transform: translate(-115%, 0%);
+  transform: translate(-119%, 0%);
   opacity: 1 !important;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;

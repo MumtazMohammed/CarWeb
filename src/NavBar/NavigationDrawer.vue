@@ -256,6 +256,7 @@ export default {
   transform: translateX(100px);
   transition: all 0.4s 0s ease !important;
   display: none;
+  overflow: hidden;
   @media (max-width: 959px) {
     display: flex;
   }
@@ -264,7 +265,32 @@ export default {
   }
   .btn-menu-icon {
     font-size: 22px !important;
+    transition: all 0.4s 0s ease !important;
+    position: relative;
+    z-index: 5;
   }
+}
+.btn-menu:hover {
+  box-shadow: 0 0 0 2px $color-1;
+}
+.btn-menu:hover.btn-menu::after {
+  width: 100px;
+  height: 100px;
+}
+.btn-menu::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100px;
+  height: 0px;
+  // border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  transform: translate(-50%, 0%);
+  transition: all 0.4s 0s ease;
+}
+.btn-menu:hover .btn-menu-icon {
+  color: $color-1;
 }
 .is-hidden {
   transform: translateX(0px);
