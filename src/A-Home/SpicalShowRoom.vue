@@ -187,6 +187,9 @@ export default {
 
   .swiper::v-deep .swiper-wrapper {
     justify-content: center !important;
+    @media (max-width: 780px) {
+    justify-content: start !important;
+    }
   }
   .showroom-vip {
     cursor: pointer;

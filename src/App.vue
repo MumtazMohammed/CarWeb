@@ -25,7 +25,7 @@
 
 <script>
 import NavigationDrawer from "./NavBar/NavigationDrawer.vue";
-import IconSearch from "./CarSearch/IconSearch.vue";
+import IconSearch from "./Search/IconSearch.vue";
 import FooterBar from "./footer/footer.vue";
 export default {
   name: "App",

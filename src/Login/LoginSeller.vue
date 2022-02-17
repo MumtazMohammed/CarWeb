@@ -1,22 +1,22 @@
 <template>
-  <div class="login">
+  <div class="LoginSeller">
     <v-container>
       <v-row justify="center">
-        <v-col cols="12" class="container-col pt-0">
+        <v-col cols="12"  class="container-col pt-0">
           <v-card flat>
-            <v-col cols="12" class="text-center">
+            <v-col cols="12" class="text-center pb-0">
               <v-avatar size="100px" tile>
-                <v-img src="../assets/user.png"> </v-img>
+                <v-img src="../assets/manager.png"> </v-img>
               </v-avatar>
             </v-col>
             <v-col cols="12">
               <v-text-field
                 v-model="firstname"
-                label="أسـم الـمستخدم"
+                label=" الرقم التعريفي"
                 required
                 hide-details
                 outlined
-                class="red--text"
+                class="red--text field"
                 append-icon="far fa-user"
               ></v-text-field>
             </v-col>
@@ -27,7 +27,7 @@
                 :type="show2 ? 'text' : 'password'"
                 name="input-10-2"
                 label="كلمة المرور"
-                class="input-group--focused font-weight-regular"
+                class="input-group--focused font-weight-regular field"
                 @click:append="show2 = !show2"
                 outlined
                 required
@@ -60,9 +60,11 @@
 </template>
 <script>
 export default {
-  name: "Login",
+  name: "LoginSeller",
   data() {
     return {
+      props: ["dialog"],
+      dia: false,
       valid: false,
       firstname: "",
       show2: false,
@@ -72,18 +74,29 @@ export default {
       },
     };
   },
+  methods: {
+    closedialog(event) {
+      this.dia = event.target.value;
+      this.$emit("dialogclose", this.dia);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import "../scss/virables";
 @import "../scss/mixin";
 
-.login {
+.LoginSeller {
   width: 100%;
   min-height: 100%;
+
+  .field {
+    font-family: $fontfamliy;
+    letter-spacing: 0;
+  }
 }
 .submet {
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy;
   letter-spacing: 0;
 }
 .forget {

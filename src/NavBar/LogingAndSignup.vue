@@ -13,7 +13,7 @@
       <v-dialog
         v-model="dialog"
         persistent
-        max-width="800px"
+        max-width="700px"
         max-height="500px"
         activator="v-dialog"
         class="v-dialog"
@@ -22,13 +22,13 @@
       >
         <template v-slot:activator="{ on, attrs }">
           <v-btn elevation="0" class="btn1" v-bind="attrs" v-on="on">
-            <b v-text="SignUp" class="sgin"></b>
+            <b v-text="btnSignUp" class="sgin"></b>
             <v-icon class="sign-in-icon" right>fas fa-sign-in-alt</v-icon>
           </v-btn>
         </template>
         <v-card>
           <v-toolbar
-            height="50px"
+            height="60"
             flat
             class="rounded-0"
             dark
@@ -37,9 +37,66 @@
             <v-btn color="#0881fa" icon @click="dialog = false">
               <v-icon>fas fa-times</v-icon>
             </v-btn>
+            <v-spacer></v-spacer>
+            <!-- user  -->
+            <v-tooltip top>
+              <template v-slot:activator="{ on, attrs }">
+                <v-avatar
+                  v-bind="attrs"
+                  v-on="on"
+                  class="mx-1 btn-icon"
+                  size="40"
+                  @click="
+                    (Login = true), (LoginSeller = false), (SignUp = false)
+                  "
+                >
+                  <v-img class="icon-choise" src="../assets/user.png"></v-img>
+                </v-avatar>
+              </template>
+              <span>تـسجيل الدخول</span>
+            </v-tooltip>
+            <!--  -->
+            <!-- seller  -->
+            <v-tooltip top>
+              <template v-slot:activator="{ on, attrs }">
+                <v-avatar
+                  v-bind="attrs"
+                  v-on="on"
+                  class="mx-1 btn-icon"
+                  size="40"
+                  @click="(LoginSeller = true), (Login = false)"
+                >
+                  <v-img
+                    class="icon-choise"
+                    src="../assets/manager.png"
+                  ></v-img>
+                </v-avatar>
+              </template>
+              <span> حساب بائع </span>
+            </v-tooltip>
+            <!--  -->
           </v-toolbar>
-          <v-toolbar-items class="toolbar-items">
+          <v-toolbar-items v-show="Login" class="toolbar-items">
             <Login :dialog="dialog" @dialogclose="dialog = $event" />
+          </v-toolbar-items>
+          <v-toolbar-items v-show="LoginSeller" class="toolbar-items">
+            <LoginSeller />
+          </v-toolbar-items>
+          <v-toolbar-items v-show="SignUp" class="toolbar-items">
+            <SignUp />
+          </v-toolbar-items>
+          <v-spacer></v-spacer>
+          <v-toolbar-items class="toolbar-items">
+            <v-card v-if="Login == true" class="d-flex" width="100%">
+              <v-card-text class="do-not-have-acount-text pl-1">
+                انشاء حساب ؟
+              </v-card-text>
+              <a
+                @click="(SignUp = true), (Login = false)"
+                class="do-not-have-acount-link pa-4 pr-2"
+                >أظغط هنا</a
+              >
+            </v-card>
           </v-toolbar-items>
         </v-card>
       </v-dialog>
@@ -49,14 +106,18 @@
 </template>
 <script>
 import Login from "../Login/Login.vue";
-const components = { Login };
+import LoginSeller from "../Login/LoginSeller.vue";
+import SignUp from "../Login/SignUp.vue";
+const components = { Login, LoginSeller, SignUp };
 export default {
   name: "LogingAndSignup",
   components,
   data() {
     return {
-      dra: false,
-      SignUp: "تـسجيل الـدخول",
+      Login: true,
+      LoginSeller: false,
+      SignUp: false,
+      btnSignUp: "تـسجيل الـدخول",
       dialog: false,
     };
   },
@@ -142,5 +203,19 @@ export default {
   @media (max-width: 350px) {
     margin: 0px !important;
   }
+}
+.btn-icon {
+  cursor: pointer;
+}
+.do-not-have-acount-text {
+  font-family: $fontfamliy;
+  font-size: 16px;
+  font-weight: 300 !important;
+  width: fit-content !important;
+}
+.do-not-have-acount-link {
+  font-family: $fontfamliy;
+  font-size: 15px;
+  text-decoration: none !important;
 }
 </style>

@@ -29,7 +29,12 @@
                     هل أنت صاحب معرض؟
                   </v-card-title>
                   <!-- <v-spacer></v-spacer> -->
-                  <v-btn elevation="0" large class="btn-if-you-have-showroom">
+                  <v-btn
+                    to="/AboutShowroom"
+                    elevation="0"
+                    large
+                    class="btn-if-you-have-showroom"
+                  >
                     سجل معرضك معنا
                   </v-btn>
                 </v-card-actions>

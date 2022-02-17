@@ -3,7 +3,7 @@
     <div class="Store-tital">
       <v-container>
         <v-col cols="12" class="pa-1">
-          <a>هل تريد الأنضمام لدى شركة ثقة التجارية</a>
+          <router-link to="/AboutStore"> هل تريد الأنضمام لدى شركة ثقة التجارية </router-link>
         </v-col>
         <v-row class="align-center justify-center flex-md-row-reverse mb-3">
           <v-col cols="12" sm="12" md="7" class="pa-1">

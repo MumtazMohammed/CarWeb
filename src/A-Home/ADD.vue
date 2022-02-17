@@ -1,7 +1,7 @@
 <template>
   <div class="Registration">
     <v-container>
-      <v-row class="justify-center">
+      <v-row class="row-card">
         <v-col cols="12">
           <p class="text-center font-weight-bold tital">
             {{ Tital }}
@@ -57,6 +57,7 @@ export default {
           folder: "outsrc",
           CardName: "أفتح معرضك معنا",
           CardClass: "Showroom",
+          path: "/AboutShowroom",
         },
         {
           id: 1,
@@ -64,6 +65,7 @@ export default {
           folder: "outsrc",
           CardName: "أفتح متجرك معنا",
           CardClass: "Store",
+          path: "/AboutStore",
         },
         {
           id: 2,
@@ -96,10 +98,23 @@ export default {
   align-items: center;
   justify-content: center;
 
+  .row-card {
+    justify-content: center;
+    @media (max-width: 600px) {
+      justify-content: start;
+    }
+    @media (max-width: 350px) {
+      justify-content: center;
+    }
+  }
   .card-col {
     @media (max-width: 350px) {
       flex: 0 0 80%;
       max-width: 80%;
+    }
+    @media (max-width: 250px) {
+      flex: 0 0 100%;
+      max-width: 100%;
     }
   }
   .card-text {
@@ -138,6 +153,9 @@ export default {
     display: block;
     @media (max-width: 438px) {
       width: 200px;
+    }
+    @media (max-width: 300px) {
+      width: 150px;
     }
   }
   // Showroom class

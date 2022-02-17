@@ -36,7 +36,7 @@
                 data-aos-once="true"
                 class="mt-5 btn justify-center"
               >
-                <v-btn x-large color="#F67280" class="white--text btn pa-4">
+                <v-btn elevation="0" x-large color="#F67280" class="white--text btn pa-4">
                   أعرض سيارتك الأن
                 </v-btn>
               </v-card-actions>
@@ -65,7 +65,7 @@
               data-aos-once="true"
               class=""
               cols="12"
-              sm="12"
+              sm="6"
               md="4"
             >
               <v-card
@@ -78,7 +78,7 @@
                   lazy-src="../assets/VIP-SellCar-ShowRoom-Store/undraw_my_app_re_gxtj.svg"
                 ></v-img>
                 <p class="my-8">
-                  سيتم عرض سيارتك في الصفحات الأولى على آلاف المشترين في اليمن
+                  سيتم عرض سيارتك في  الصفحة الرئيسية والصفحات الأولى  على البحث على آلاف المشترين في اليمن
                 </p>
               </v-card>
             </v-col>
@@ -90,7 +90,7 @@
               data-aos-mirror="true"
               data-aos-once="true"
               cols="12"
-              sm="12"
+              sm="6"
               md="4"
             >
               <v-card
@@ -115,7 +115,7 @@
               data-aos-mirror="true"
               data-aos-once="true"
               cols="12"
-              sm="12"
+              sm="6"
               md="4"
             >
               <v-card
@@ -141,7 +141,7 @@
               data-aos-mirror="true"
               data-aos-once="true"
               cols="12"
-              sm="12"
+              sm="6"
               md="4"
             >
               <v-card
@@ -164,7 +164,7 @@
               data-aos-mirror="false"
               data-aos-once="true"
               cols="12"
-              sm="12"
+              sm="6"
               md="4"
             >
               <v-card
@@ -176,7 +176,7 @@
                   src="../assets/VIP-SellCar-ShowRoom-Store/undraw_credit_card_re_blml.svg"
                   lazy-src="../assets/VIP-SellCar-ShowRoom-Store/undraw_credit_card_re_blml.svg"
                 ></v-img>
-                <p class="my-8">بيع سيارتك وبالسعر الذي يرضيك</p>
+                <p class="my-8"> رسوم الأعلان 20$ </p>
               </v-card>
             </v-col>
             <v-col
@@ -187,7 +187,7 @@
               data-aos-mirror="true"
               data-aos-once="true"
               cols="12"
-              sm="12"
+              sm="6"
               md="4"
             >
               <v-card
@@ -199,7 +199,7 @@
                   src="../assets/VIP-SellCar-ShowRoom-Store/undraw_dev_productivity_umsq.svg"
                   lazy-src="../assets/VIP-SellCar-ShowRoom-Store/undraw_dev_productivity_umsq.svg"
                 ></v-img>
-                <p class="my-8">مدة الأعلان 30 يوما</p>
+                <p class="my-8">مدة الأعلان 60 يوما</p>
               </v-card>
             </v-col>
           </v-row>
@@ -304,12 +304,29 @@ export default {
   @media (max-width: 1030px) {
     min-height: 70vh;
   }
+  .btn {
+    font-family: $fontfamliy;
+    letter-spacing: 0;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    @media (max-width: 959px) {
+      text-align: center;
+    }
+  }
   .line {
-    width: 40%;
+    width: 400px;
     height: 7px;
     background: $AboutSellingCarPayAdd !important;
     display: flex;
     border-radius: 10px;
+    @media (max-width: 600px) {
+      width: 300px;
+    }
+    @media (max-width: 405px) {
+      width: 200px;
+    }
   }
   .first {
     padding: $padding;
@@ -355,17 +372,6 @@ export default {
         font-size: 20px !important;
       }
     }
-    .btn {
-      font-family: $fontfamliy;
-      letter-spacing: 0;
-      font-size: 20px;
-      font-weight: bold;
-      position: relative;
-      z-index: 1;
-      @media (max-width: 959px) {
-        text-align: center;
-      }
-    }
   }
   //   .first::after {
   //     content: "";
@@ -404,6 +410,7 @@ export default {
       letter-spacing: 0;
       font-weight: bold;
       margin-top: 15px;
+      height: 75px;
       text-align: center;
       margin-bottom: 0px !important;
       @media (max-width: 650px) {

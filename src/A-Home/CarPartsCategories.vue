@@ -122,7 +122,10 @@ export default {
   background: $color-1;
   display: block;
   @media (max-width: 438px) {
-    width: 200px;
+    width: 120px;
+  }
+  @media (max-width: 300px) {
+    width: 100px;
   }
 }
 </style>

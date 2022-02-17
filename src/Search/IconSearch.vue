@@ -158,7 +158,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $color-2;
+    background-color: $color-1;
     // opacity: 0.9;
   }
 

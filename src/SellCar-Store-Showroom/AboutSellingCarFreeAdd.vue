@@ -7,21 +7,23 @@
         <v-container>
           <v-row class="justify-center align-center">
             <v-col cols="12" sm="12" md="6">
-              <h1>قم بعرض سيارتك للبيع في أكبر سوق السيارات في الـيمن</h1>
-              <h3>أعرض سيارتك على المشترين وتواصل معهم بسهولة واريحية</h3>
-              <div class="mt-5 btn">
-                <v-btn x-large color="#0881fa" class="white--text btn">
-                  أعرض سيارتك الأن
-                </v-btn>
-              </div>
+              <h1 class="text-center">
+                قم بعرض سيارتك للبيع في أكبر سوق السيارات في الـيمن
+              </h1>
+              <h3 class="text-center">
+                أعرض سيارتك على المشترين وتواصل معهم بسهولة واريحية
+              </h3>
+              <v-card-actions class="mt-5 justify-center">
+                <v-btn x-large class="pa-4 btn"> أعرض سيارتك الأن </v-btn>
+              </v-card-actions>
             </v-col>
-            <v-col cols="12" sm="6" md="6">
+            <!-- <v-col cols="12" sm="6" md="6">
               <v-img
                 contain
                 src="../assets/outsrc/undraw_fast_car_p-4-cu.svg"
                 lazy-src="../assets/outsrc/undraw_fast_car_p-4-cu.svg"
               ></v-img>
-            </v-col>
+            </v-col> -->
           </v-row>
         </v-container>
       </div>
@@ -178,13 +180,16 @@ export default {
   }
   .first {
     padding: $padding;
-    min-height: 80vh;
+    min-height: 50vh;
+    position: relative;
+    background-color: $color-1;
     display: flex;
     align-items: center;
+    justify-content: center;
     h1,
     h3 {
       font-family: $fontfamliy;
-      color: $fontcolor;
+      color: $fontcolorsm !important;
       @media (max-width: 959px) {
         text-align: center;
       }
@@ -192,7 +197,6 @@ export default {
 
     h3 {
       font-family: $fontfamliy;
-      color: $fontcolor;
       margin: 10px 0 0 0;
       @media (max-width: 959px) {
         font-size: 22px !important;
@@ -219,6 +223,7 @@ export default {
       letter-spacing: 0;
       font-size: 20px;
       font-weight: bold;
+      background-color: $color-background;
       @media (max-width: 959px) {
         text-align: center;
       }

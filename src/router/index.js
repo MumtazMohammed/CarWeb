@@ -14,6 +14,8 @@ import CarByShape from "../CarForSell/CarByShape.vue";
 import SginUp from "../Login/SignUp.vue";
 import AboutSellingCarFreeAdd from "../SellCar-Store-Showroom/AboutSellingCarFreeAdd.vue";
 import AboutSellingCarPayAdd from "../SellCar-Store-Showroom/AboutSellingCarPayAdd.vue";
+import AboutStore from "../SellCar-Store-Showroom/AboutStore.vue";
+import AboutShowroom from "../SellCar-Store-Showroom/AboutShowroom.vue";
 import ShowroomView from "../Car-showroom/ShowroomView.vue";
 import ClientStore from "../CustomreStote/ClientStore.vue";
 import ProductDetail from "../CustomreStote/ProductDetail.vue";
@@ -90,6 +92,16 @@ const routes = [
     path: "/AboutSellingCarPayAdd",
     name: "AboutSellingCarPayAdd",
     component: AboutSellingCarPayAdd,
+  },
+  {
+    path: "/AboutStore",
+    name: "AboutStore",
+    component: AboutStore,
+  },
+  {
+    path: "/AboutShowroom",
+    name: "AboutShowroom",
+    component: AboutShowroom,
   },
   {
     path: "/:ShowRoomName/:ShowRoomLocation/:locationStreet",

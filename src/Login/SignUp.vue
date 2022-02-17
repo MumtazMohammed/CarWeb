@@ -1,137 +1,122 @@
 <template>
   <div class="sign-up">
     <v-container>
-      <v-row align="center" justify="center" class="row1">
-        <v-col cols="12" sm="10" md="8" lg="6" class="">
-          <!-- <v-col cols="12" class="pa-0 d-flex avatar justify-center">
-            <div class="user-bak"></div>
-            <v-avatar size="70">
-              <img src="../assets/outsrc/user.png" alt="alt" />
-            </v-avatar>
-          </v-col> -->
-          <v-card class="card-con overflow-hidden py-4" ref="form">
-            <!-- <v-img
-              class="img"
-              src="../assets/outsrc/—Pngtree—banner sign up for social_6787856.png"
+      <v-card class="card-con overflow-hidden py-4" ref="form">
+        <div class="img-box">
+          <b>إنشاء حساب </b>
+        </div>
+        <v-row class="mt-6">
+          <v-col class="py-0" cols="12">
+            <v-text-field
+              ref="FirstName"
+              v-model="FirstName"
+              :rules="[() => !!FirstName || 'This field is required']"
+              :error-messages="errorMessages"
+              label="الأسم كامل"
+              placeholder="John Doe"
+              required
+              outlined
+            ></v-text-field>
+          </v-col>
+          <v-col class="py-0" cols="12">
+            <v-text-field
+              ref="number"
+              v-model="number"
+              :rules="[() => !!number || 'This field is required']"
+              label="جوال"
+              :error-messages="errorMessages"
+              required
+              outlined
+              placeholder="0111214125"
+              class="ma-0"
+            ></v-text-field>
+          </v-col>
+          <v-col class="py-0" cols="12">
+            <v-autocomplete
+              ref="country"
+              v-model="country"
+              :rules="[() => !!country || 'This field is required']"
+              :items="countries"
+              label="المحافظة"
+              placeholder="Select..."
+              required
+              outlined
+              class="ma-0"
+            ></v-autocomplete>
+          </v-col>
+          <v-col class="py-0" cols="12">
+            <v-text-field
+              ref="email"
+              v-model="email"
+              :rules="emailRules"
+              label="الـبريد الأكتروني"
+              required
+              outlined
+              placeholder="example@gmail.com"
+              class="ma-0"
+            ></v-text-field>
+          </v-col>
+          <v-col class="py-0" cols="12">
+            <v-text-field
+              :rules="[rules.required, rules.min]"
+              :type="show2 ? 'text' : 'password'"
+              v-model="password"
+              label="كلمة المرور"
+              class="input-group--focused ma-0 font-weight-regular"
+              outlined
+              required
             >
-            </v-img> -->
-            <div class="img-box">
-              <b>إنشاء حساب </b>
-            </div>
-            <v-card-text>
-              <v-row class="mt-2">
-                <v-col class="py-0 pl-sm-1 pl-md-1" md="6" sm="6" cols="12">
-                  <v-text-field
-                    ref="FirstName"
-                    v-model="FirstName"
-                    :rules="[() => !!FirstName || 'This field is required']"
-                    :error-messages="errorMessages"
-                    label="الأسم كامل"
-                    placeholder="John Doe"
-                    required
-                    outlined
-                  ></v-text-field>
-                </v-col>
-                <v-col class="py-0 pr-sm-1 pr-md-1" md="6" sm="6" cols="12">
-                  <v-text-field
-                    ref="number"
-                    v-model="number"
-                    :rules="[() => !!number || 'This field is required']"
-                    label="جوال"
-                    :error-messages="errorMessages"
-                    required
-                    outlined
-                    placeholder="0111214125"
-                    class="ma-0"
-                  ></v-text-field>
-                </v-col>
-                <v-col class="py-0 pl-sm-1 pl-md-1" md="4" sm="4" cols="12">
-                  <v-autocomplete
-                    ref="country"
-                    v-model="country"
-                    :rules="[() => !!country || 'This field is required']"
-                    :items="countries"
-                    label="المحافظة"
-                    placeholder="Select..."
-                    required
-                    outlined
-                    class="ma-0"
-                  ></v-autocomplete>
-                </v-col>
-                <v-col class="py-0 pr-sm-1 pr-md-1" md="8" sm="8" cols="12">
-                  <v-text-field
-                    ref="email"
-                    v-model="email"
-                    :rules="emailRules"
-                    label="الـبريد الأكتروني"
-                    required
-                    outlined
-                    placeholder="example@gmail.com"
-                    class="ma-0"
-                  ></v-text-field>
-                </v-col>
-                <v-col class="py-0" cols="12">
-                  <v-text-field
-                    :rules="[rules.required, rules.min]"
-                    :type="show2 ? 'text' : 'password'"
-                    v-model="password"
-                    label="كلمة المرور"
-                    class="input-group--focused ma-0 font-weight-regular"
-                    outlined
-                    required
-                  >
-                  </v-text-field>
-                </v-col>
-              </v-row>
-            </v-card-text>
-            <v-col cols="12" class="pt-0">
-              <v-card flat class="d-flex align-center">
-                <v-switch
-                  v-model="show2"
-                  @click:append="show2 = !show2"
-                  :type="show2 ? 'text' : 'password'"
-                  color="info"
-                  hide-details
-                  class="ma-0 pa-0 switch"
-                >
-                </v-switch>
-                <v-card-title class="pa-0 showPassLab">
-                  اظهار كلمة المرور
-                </v-card-title>
-              </v-card>
-            </v-col>
+            </v-text-field>
+          </v-col>
+          <v-col cols="12" class="pt-0">
+            <v-card flat class="d-flex align-center">
+              <v-switch
+                v-model="show2"
+                @click:append="show2 = !show2"
+                :type="show2 ? 'text' : 'password'"
+                color="info"
+                hide-details
+                class="ma-0 pa-0 switch"
+              >
+              </v-switch>
+              <v-card-title class="pa-0 showPassLab">
+                اظهار كلمة المرور
+              </v-card-title>
+            </v-card>
+          </v-col>
+          <v-col cols="12" class="pt-0">
             <v-card-actions class="justify-center pa-4">
               <v-btn class="btn1 elevation-0" @click="submit"> انشاء </v-btn>
             </v-card-actions>
-            <v-divider></v-divider>
-            <v-card-actions class="justify-center">
-              <v-row justify="center">
-                <v-col cols="7" class="pa-2">
-                  <v-card-title class="btn-title justify-center pa-0">
-                    أو
-                  </v-card-title>
-                </v-col>
-                <v-col cols="7" class="pa-2">
-                  <v-btn elevation="2" large width="100%" class="btn-go" text>
-                    جوجل
-                    <v-avatar tile class="mr-2" size="20">
-                      <img src="../assets/outsrc/google.png" alt="alt" />
-                    </v-avatar>
-                  </v-btn>
-                </v-col>
-                <v-col cols="7" class="pa-2">
-                  <v-btn elevation="2" large width="100%" class="btn-fac" text>
-                    فيسبوك
-                    <v-avatar tile class="mr-2" size="30">
-                      <img src="../assets/outsrc/facebook.png" alt="alt" />
-                    </v-avatar>
-                  </v-btn>
-                </v-col>
-              </v-row>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
+          </v-col>
+        </v-row>
+        <v-divider></v-divider>
+        <v-card-actions class="justify-center">
+          <v-row justify="center">
+            <v-col cols="7" class="pa-2">
+              <v-card-title class="btn-title justify-center pa-0">
+                أو
+              </v-card-title>
+            </v-col>
+            <v-col cols="7" class="pa-2">
+              <v-btn elevation="2" large width="100%" class="btn-go" text>
+                جوجل
+                <v-avatar tile class="mr-2" size="20">
+                  <img src="../assets/outsrc/google.png" alt="alt" />
+                </v-avatar>
+              </v-btn>
+            </v-col>
+            <v-col cols="7" class="pa-2">
+              <v-btn elevation="2" large width="100%" class="btn-fac" text>
+                فيسبوك
+                <v-avatar tile class="mr-2" size="30">
+                  <img src="../assets/outsrc/facebook.png" alt="alt" />
+                </v-avatar>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-card-actions>
+      </v-card>
     </v-container>
   </div>
 </template>

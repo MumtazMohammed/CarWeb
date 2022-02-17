@@ -12,20 +12,9 @@
         </div>
       </v-col>
       <!-- fillter -->
-      <v-row class="my-1" v-if="getCarInfo.length > 20">
-        <v-col class="pl-md-1 pl-sm-1 py-1" cols="12" md="3" sm="4">
-          <v-select
-            :items="Price"
-            label="ترتيب السعر من"
-            hide-details
-            dense
-            class="select-price"
-            color="primary"
-            outlined
-            flat
-          ></v-select>
-        </v-col>
-      </v-row>
+      <v-col cols="12" class="pr-2">
+        <CarFillter />
+      </v-col>
       <!--  -->
       <v-divider v-if="getCarInfo.length > 0"></v-divider>
       <v-row class="mt-1 car-box">
@@ -198,11 +187,13 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import NavBar from "../NavBar/TheNavBar.vue";
+import CarFillter from "../Search/CarFillter.vue";
 
 export default {
   name: "CarByBrand",
   components: {
     NavBar,
+    CarFillter,
   },
   data() {
     return {

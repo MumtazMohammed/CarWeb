@@ -113,7 +113,7 @@
   </div>
 </template>
 <script>
-import SearchCar from "../CarSearch/Category.vue";
+import SearchCar from "../Search/Category.vue";
 export default {
   name: "navlinks",
   components: {
