@@ -5,7 +5,7 @@
         cols="12"
         md="5"
         sm="6"
-        class="card-actions px-0 px-md-3 px-sm-3 px-lg-3"
+        class="card-actions "
       >
         <v-card-actions class="justify-center pa-0">
           <v-btn
@@ -104,7 +104,7 @@
           </v-card>
         </v-expand-transition>
       </v-col>
-      <v-col cols="12" md="3" sm="5" class="px-0 px-md-3 px-sm-3 px-lg-3">
+      <v-col cols="12" md="3" sm="5" class="">
         <v-select
           :items="items"
           label="ترتيب السعر من"

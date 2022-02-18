@@ -79,35 +79,14 @@
       <!-- car count and filter -->
       <v-container class="container-second">
         <v-row>
-          <v-col cols="12" sm="4" md="6" class="pa-2">
-            <v-card-title class="card-title-car-count-in-room px-1">
+          <v-col cols="12" class="pa-0">
+            <v-card-title class="card-title-car-count-in-room">
               عدد السيارات |
               <span class="mx-2 red--text">{{ 11 }}</span>
             </v-card-title>
           </v-col>
-          <v-col class="pa-2" cols="12" md="3" sm="4">
-            <v-select
-              :items="Price"
-              label="ترتيب السعر من"
-              hide-details
-              dense
-              class="select-price pa-3 pl-md-1 pl-sm-1 pb-sm-3 pb-md-3 pb-lg-3 pb-0"
-              color="primary"
-              outlined
-              flat
-            ></v-select>
-          </v-col>
-          <v-col class="pa-2" cols="12" md="3" sm="4">
-            <v-select
-              :items="Condtion"
-              label="حالة السيارة"
-              hide-details
-              dense
-              class="select-price pa-3 pr-md-1 pr-sm-1 pt-0 pt-sm-3 pt-md-3 pt-lg-3"
-              color="primary"
-              outlined
-              flat
-            ></v-select>
+          <v-col cols="12">
+            <CarFillter />
           </v-col>
         </v-row>
         <ShowroomViewCar />
@@ -119,10 +98,11 @@
 import NavBar from "../NavBar/TheNavBar.vue";
 import showrooms from "../data-json/showroom.json";
 import ShowroomViewCar from "../Car-showroom/ShowroomViewCar.vue";
+import CarFillter from "../Search/CarFillter.vue";
 
 export default {
   name: "ShowroomView",
-  components: { NavBar, ShowroomViewCar },
+  components: { NavBar, ShowroomViewCar, CarFillter },
   data() {
     return {
       showrooms,

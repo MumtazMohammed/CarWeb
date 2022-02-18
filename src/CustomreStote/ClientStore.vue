@@ -6,7 +6,7 @@
       <div class="ClientStoreInfo elevation-3">
         <v-container>
           <v-row class="justify-center">
-            <v-col cols="12" sm="6" md="5" class="my-auto">
+            <v-col cols="12" sm="8" md="8" class="my-auto">
               <div class="d-flex">
                 <v-avatar size="80" color="white">
                   <v-img
@@ -33,34 +33,17 @@
                 </v-card>
               </div>
             </v-col>
-            <v-col class="my-auto" cols="12" sm="6" md="5">
-              <v-card
-                class="d-flex align-center justify-end"
-                flat
-                color="transparent"
-              >
-                <!-- <div class="flex-column d-flex pa-3">
-                  <v-card-actions class="pa-0">
-                    <v-btn icon large>
-                      <v-icon class="Store-icon"> mdi-archive-plus </v-icon>
-                    </v-btn>
-                  </v-card-actions>
-                  <v-card-text
-                    class="pa-0 ClientStoreInfo-text-icon text-center"
-                    >متابعة</v-card-text
-                  >
-                </div> -->
-                <div class="flex-column d-flex pa-3">
-                  <v-card-actions class="pa-0">
-                    <v-btn icon large>
-                      <v-icon class="Store-icon"> mdi-contacts </v-icon>
-                    </v-btn>
-                  </v-card-actions>
-                  <v-card-text
-                    class="pa-0 ClientStoreInfo-text-icon text-center"
-                    >تواصل</v-card-text
-                  >
-                </div>
+            <v-col class="my-auto" cols="12" sm="4" md="4">
+              <v-card class="d-flex flex-md-column flex-sm-column flex-lg-column justify-center" flat color="transparent">
+                <v-card-subtitle class="text-end px-2 py-1">
+                  06516541561
+                </v-card-subtitle>
+                <v-card-subtitle class="text-end px-2 py-1">
+                  06516541561
+                </v-card-subtitle>
+                <v-card-subtitle class="text-end px-2 py-1">
+                  06516541561
+                </v-card-subtitle>
               </v-card>
             </v-col>
           </v-row>

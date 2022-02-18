@@ -5,8 +5,8 @@
         elevation="0"
         width="100%"
         class="btn-open-search"
-        dark
-        @click="expand = true"
+        large
+        @click="expand = !expand"
       >
         فلتر القطع بحسب موديل سيارتك
         <v-spacer></v-spacer>
@@ -18,31 +18,37 @@
     </v-card-actions>
     <v-expand-transition>
       <v-card class="search-card" v-show="expand" height="auto" width="100%">
-        <v-card-title class="py-1"> الشركة </v-card-title>
-        <v-card-text>
+        <v-card-text class="py-1">
+          <v-select
+            :items="CarParts.PartTital"
+            label="القطعة"
+            item-value="text"
+            solo
+            hide-details
+          ></v-select>
+        </v-card-text>
+        <v-card-text class="py-1">
           <v-select
             :items="select"
-            label="A Select List"
+            label="الشركة"
             item-value="text"
             solo
             hide-details
           ></v-select>
         </v-card-text>
-        <v-card-title class="py-1"> النوع </v-card-title>
-        <v-card-text>
+        <v-card-text class="py-1">
           <v-select
             :items="select2"
-            label="A Select List"
+            label="النوع"
             item-value="text"
             solo
             hide-details
           ></v-select>
         </v-card-text>
-        <v-card-title class="py-1"> السنة </v-card-title>
-        <v-card-text>
+        <v-card-text class="py-1">
           <v-select
             :items="select3"
-            label="A Select List"
+            label="السنة"
             item-value="text"
             solo
             hide-details
@@ -59,15 +65,6 @@
             بحث
           </v-btn>
           <v-spacer></v-spacer>
-          <v-btn
-            class="btn-close"
-            color="red"
-            large
-            text
-            @click="expand = false"
-          >
-            أغلاق
-          </v-btn>
         </v-card-actions>
       </v-card>
     </v-expand-transition>
@@ -75,11 +72,13 @@
 </template>
 <script>
 import StoreProducts from "../data-json/StoreProducts.json";
+import CarParts from "../data-json/CarParts.json";
 export default {
   name: "ClientProductCategories",
   components: {},
   data() {
     return {
+      CarParts,
       expand: false,
       StoreProducts,
       select: [

@@ -20,7 +20,7 @@
         md="5"
         lg="4"
       >
-        <ClientProductCategories />
+        <CategoriesPartsFilter />
       </v-col>
     </v-row>
     <v-row>
@@ -86,11 +86,11 @@
 </template>
 <script>
 import StoreProducts from "../data-json/StoreProducts.json";
-import ClientProductCategories from "./ClientProductCategories.vue";
+import CategoriesPartsFilter from "../Search/CategoriesPartsFilter.vue";
 export default {
   name: "ProductStore",
   components: {
-    ClientProductCategories,
+    CategoriesPartsFilter,
   },
   data() {
     return {
