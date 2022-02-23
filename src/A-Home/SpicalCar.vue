@@ -21,8 +21,8 @@
         :controls-visible="true"
         :controls-prev-html="navigationPrev"
         :controls-next-html="navigationNext"
-        :controlsWidth="38"
-        :controlsHeight="38"
+        :controlsWidth="42"
+        :controlsHeight="42"
       >
         <slide
           class="slide"
@@ -96,7 +96,7 @@
             <!-- car click to see more  -->
             <v-card-actions class="d-flex justify-center">
               <v-btn
-                class="btn-vip rounded-0"
+                class="btn-vip "
                 block
                 width="200"
                 :to="{
@@ -110,7 +110,7 @@
                 }"
                 depressed
               >
-                أقراء المزيد
+                رؤية السيارة
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -184,7 +184,7 @@ export default {
         }
         .chevron{
           color:#fff;
-          font-size: 20px;
+          font-size: 16px;
           transition: color .3s ease;
 
         }
@@ -223,7 +223,7 @@ export default {
         }
         .chevron{
          color:#fff;
-         font-size: 20px;
+         font-size: 16px;
          transition: color .3s ease;
 
         }
@@ -266,8 +266,8 @@ export default {
     font-size: 27px;
   }
   .line {
-    width: 80px;
-    height: 7px;
+    width: 50px;
+    height: 5px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;

@@ -186,7 +186,7 @@ export default {
 .btns-contact {
   color: rgb(255, 255, 255) !important;
   margin: 3px;
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy;
   letter-spacing: 0;
   font-size: 14px;
 }
@@ -224,6 +224,6 @@ export default {
 .v-snack__content {
   text-align: center !important;
   font-size: 24px;
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy;
 }
 </style>

@@ -1,17 +1,23 @@
 <template>
   <div class="box">
     <v-card flat>
-      <p class="card_title text-center">ثقة في أيدي الجميع</p>
-      <p class="card_title text-center">سيارات | قطع غيار</p>
+      <p class="card_title text-center mb-1">ثقة في أيدي الجميع</p>
+      <p class="card_title text-center">جميع السيارات في متناول يديك</p>
     </v-card>
     <v-card-actions class="d-flex justify-center">
-      <v-btn router to="/AboutSellingCarFreeAdd" elevation="0" class="btn pa-3">
+      <v-btn
+        router
+        to="/AboutSellingCarFreeAdd"
+        elevation="4"
+        large
+        class="btn pa-3"
+      >
         ابداء الان في بيع سيارتك مجاناً
       </v-btn>
     </v-card-actions>
-    <div class="advertise">
+    <!-- <div class="advertise">
       <a class="white--text">للأعلان </a>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -37,11 +43,12 @@ export default {
   flex-direction: column;
   width: 100%;
   position: relative;
+  padding: $padding;
   @media (max-width: 960px) {
     background: none;
   }
   .card_title {
-    font-size: 30px;
+    font-size: 35px;
     color: $fontcolorsm;
     font-family: $fontfamliy;
     font-weight: 500;
@@ -87,10 +94,10 @@ export default {
   .btn {
     font-family: $fontfamliy;
     color: $fontcolor;
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 0;
-    font-weight: 500;
-    background-color: $color-4 !important;
+    font-weight: bold;
+    background-color: $color-background !important;
     @media (max-width: 960px) {
       background-color: $color-1 !important;
       color: $fontcolorsm;

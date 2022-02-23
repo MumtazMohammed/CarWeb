@@ -161,6 +161,21 @@
           </v-card>
         </template>
       </v-dialog>
+      <!--add to favorite  -->
+      <v-btn
+        class="px-3"
+        large
+        elevation="0"
+        color="transparent"
+        v-bind="attrs"
+        v-on="on"
+        @click="favorite = !favorite"
+      >
+        <v-icon :class="favorite == true ? 'favorite' : ' '" right>
+          fa-solid fa-star
+        </v-icon>
+        مفضلة
+      </v-btn>
     </v-card-actions>
   </div>
 </template>
@@ -168,7 +183,9 @@
 export default {
   name: "share",
   data() {
-    return {};
+    return {
+      favorite: false,
+    };
   },
 };
 </script>
@@ -183,10 +200,6 @@ export default {
     letter-spacing: 0;
     color: $fontcolor !important;
     font-family: $fontfamliy !important;
-  }
-  .v-icon {
-    color: $fontcolorlinks !important;
-    opacity: 0.8;
   }
 }
 .v-dialog__content.v-dialog__content--active::v-deep .v-dialog--active {
@@ -227,5 +240,11 @@ export default {
   font-family: $fontfamliy;
   font-size: 16px !important;
   transition: transform 0.3s ease;
+}
+.v-icon {
+  color: $fontcolorlinks !important;
+}
+.favorite {
+  color: orange !important;
 }
 </style>

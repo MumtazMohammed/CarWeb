@@ -105,7 +105,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .cartital:nth-child(1) {
-  font-family: $fontfamliy2 !important;
+  font-family: $fontfamliy !important;
   color: $fontcolor !important;
   font-weight: 500;
   text-align: center;
@@ -118,12 +118,6 @@ export default {
   font-weight: 500;
   text-align: center;
   letter-spacing: 0 !important;
-}
-.card-ad-num {
-  // border-top-right-radius: 0px !important;
-  // border-top-left-radius: 0px !important;
-  // border-bottom-right-radius: 5px !important;
-  // border-bottom-left-radius: 5px !important;
 }
 .ad {
   font-family: $fontfamliy !important;
@@ -151,7 +145,7 @@ export default {
 .btns-contact {
   color: #fff !important;
   margin: 3px;
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy;
   letter-spacing: 0;
   font-size: 14px;
 }
@@ -180,6 +174,6 @@ export default {
 .v-snack__content {
   text-align: center !important;
   font-size: 24px;
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy;
 }
 </style>

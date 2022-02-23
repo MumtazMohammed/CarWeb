@@ -47,6 +47,7 @@
               origin="center center"
               offset-y
               transition="scale-transition"
+              style="z-index: 20;"
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-list>
@@ -167,11 +168,6 @@ export default {
           icon: "fa-shopping-cart",
           text: "المعارض",
           path: "/TheShowRoom",
-        },
-        {
-          icon: "fa-shopping-cart",
-          text: "قطع الغيار",
-          path: "/TheStore",
         },
       ],
     };

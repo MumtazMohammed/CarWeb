@@ -2,8 +2,8 @@
   <div class="SpicalShowRoom">
     <v-container>
       <v-col>
-        <p class="tital font-weight-bold text-center">أكثر المعارض شهرةً</p>
-        <span class="line my-2 mx-auto"></span>
+        <p class="tital mb-2 font-weight-bold text-center">أكثر المعارض شهرةً</p>
+        <span class="line my-3 mx-auto"></span>
       </v-col>
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide
@@ -90,7 +90,7 @@ export default {
       swiperOption: {
         slidesPerView: 3,
         effect: "card",
-        spaceBetween: 10,
+        spaceBetween: 15,
         slidesPerGroup: 1,
         loop: false,
         loopFillGroupWithBlank: true,
@@ -109,7 +109,7 @@ export default {
         },
         breakpoints: {
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 3,
           },
           768: {
             slidesPerView: 3,
@@ -185,14 +185,14 @@ export default {
     }
   }
 
-  .swiper::v-deep .swiper-wrapper {
-    justify-content: center !important;
-    @media (max-width: 780px) {
-    justify-content: start !important;
-    }
-  }
+  // .swiper::v-deep .swiper-wrapper {
+  //   justify-content: center !important;
+  //   @media (max-width: 780px) {
+  //   justify-content: start !important;
+  //   }
+  // }
   .showroom-vip {
-    cursor: pointer;
+    cursor: default;
     overflow: hidden;
     // background: $linear-gradient;
     transition: all 0.2s ease !important;
@@ -258,8 +258,8 @@ export default {
     font-size: 27px;
   }
   .line {
-    width: 175px;
-    height: 7px;
+    width: 100px;
+    height: 5px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;

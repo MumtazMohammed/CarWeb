@@ -41,7 +41,7 @@
               </ul>
             </v-col>
             <v-col cols="12" class="pb-0">
-              <p class="mb-0 pb-3 gold">المعرض الذهبي</p>
+              <p class="mb-0 pb-3 Featured">المعرض المتميز</p>
             </v-col>
             <v-col cols="12">
               <ul>
@@ -95,14 +95,21 @@ export default {
         {
           title: " عرض سيارات لا محدود .",
         },
-        {
-          title: " رسوم لفتح المعرض لدينا  450$  فقط   .",
-        },
+
         {
           title: "أول شهر لتسجل معنا مجانا .",
         },
+        {
+          title: "سيكون لديك سعر خاص في الخصائص المتوفرة لدينا.",
+        },
+        {
+          title: " رسوم لفتح المعرض لدينا  450$  فقط   .",
+        },
       ],
       cardVip: [
+        {
+          title: "يشمل جميع الخصائص .",
+        },
         {
           title: "سيتم عرض معرضك في الصفحة الرئسية .",
         },
@@ -110,11 +117,11 @@ export default {
           title: "سيتم إظهار معرضك في العرض الأول في المعرض .",
         },
         {
-          title: "سيتم تغير لون معرضك الى المعرض الذهبي  .",
+          title: "سيتم تغير لون معرضك الى المعرض المتميز  .",
         },
 
         {
-          title: " رسوم لفتح المعرض الذهبي لدينا شامل 570$  فقط   .",
+          title: " رسوم لفتح المعرض المتميز لدينا 570$  فقط   .",
         },
         {
           title: " لا يشمل عرض الأفتتاح .",
@@ -202,15 +209,17 @@ export default {
       color: $fontcolorsm;
       font-size: 22px;
       letter-spacing: 0;
+      font-weight: bold;
       border-bottom: 1px solid white;
     }
-    .gold {
+    .Featured {
       font-family: $fontfamliy;
       color: $fontcolorsm;
       font-size: 22px;
       letter-spacing: 0;
-      border-bottom: 1px solid $SpicalCarColor;
-      color: $SpicalCarColor !important;
+      font-weight: bold;
+      border-bottom: 1px solid $fontcolorsm;
+      color: $fontcolorsm !important;
     }
   }
 }

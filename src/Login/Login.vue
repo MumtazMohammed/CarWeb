@@ -83,7 +83,7 @@ export default {
   min-height: 100%;
 }
 .submet {
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy;
   letter-spacing: 0;
 }
 .forget {

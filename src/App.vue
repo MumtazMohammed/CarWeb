@@ -6,7 +6,8 @@
     <v-btn
       ref="button"
       icon
-      large
+      elevation="6"
+      x-large
       class="btn-up"
       color="white"
       v-bind:class="{
@@ -17,20 +18,17 @@
     >
       <v-icon class="btn-up-icon">fas fa-angle-up</v-icon>
     </v-btn>
-    <NavigationDrawer />
     <IconSearch />
     <FooterBar />
   </v-app>
 </template>
 
 <script>
-import NavigationDrawer from "./NavBar/NavigationDrawer.vue";
 import IconSearch from "./Search/IconSearch.vue";
 import FooterBar from "./footer/footer.vue";
 export default {
   name: "App",
   components: {
-    NavigationDrawer,
     FooterBar,
     IconSearch,
   },
@@ -83,44 +81,24 @@ export default {
 .btn-up {
   position: fixed;
   bottom: 15px;
-  right: 10px;
+  right: 8px;
   overflow: hidden;
   z-index: 5;
-  background: $color-2;
-  transform: translateX(100px);
+  background: $color-1;
   transition: all 0.4s 0s ease !important;
-
+  opacity: 0;
+  pointer-events: none;
   .btn-up-icon {
-    font-size: 22px !important;
+    font-size: 18px !important;
     transition: all 0.4s 0s ease !important;
     position: relative;
     z-index: 5;
   }
 }
-.btn-up:hover {
-  box-shadow: 0 0 0 2px $color-1;
-}
-.btn-up:hover.btn-up::after {
-  width: 100px;
-  height: 100px;
-}
-.btn-up::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 100px;
-  height: 0px;
-  // border-radius: 50%;
-  background-color: rgb(255, 255, 255);
-  transform: translate(-50%, 0%);
-  transition: all 0.4s 0s ease;
-}
-.btn-up:hover .btn-up-icon {
-  color: $color-1;
-}
 .is-hidden {
-  transform: translateX(0px);
+  opacity: 1;
+  pointer-events: auto;
+
   @media (max-width: 600px) {
     transform: scale(0.9);
   }

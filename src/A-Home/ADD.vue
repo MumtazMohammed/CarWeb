@@ -3,10 +3,10 @@
     <v-container>
       <v-row class="row-card">
         <v-col cols="12">
-          <p class="text-center font-weight-bold tital">
+          <p class="text-center mb-2 font-weight-bold tital">
             {{ Tital }}
           </p>
-          <span class="line mt-5 mb-8 mx-auto"></span>
+          <span class="line my-3 mx-auto"></span>
         </v-col>
         <v-col
           v-for="Card in Cards"
@@ -22,7 +22,10 @@
             :class="Card.CardClass"
             height="220"
             router
-            :to="Card.path"
+            :to="{
+              name: `${Card.path}`,
+              params: { MyAdd: 'إعلاناتي' },
+            }"
           >
             <v-img
               class="mx-auto"
@@ -49,23 +52,15 @@ export default {
   data() {
     return {
       reveal: false,
-      Tital: "خلي ثقتك لدينا وأنضم معنا",
+      Tital: " ضع ثقتك بنا وأنضم معنا",
       Cards: [
         {
-          id: 0,
+          id: 1,
           CardImg: "undraw_order_a_car_-3-tww.svg",
           folder: "outsrc",
           CardName: "أفتح معرضك معنا",
           CardClass: "Showroom",
-          path: "/AboutShowroom",
-        },
-        {
-          id: 1,
-          CardImg: "undraw_business_shop_qw-5-t.svg",
-          folder: "outsrc",
-          CardName: "أفتح متجرك معنا",
-          CardClass: "Store",
-          path: "/AboutStore",
+          path: "AboutShowroom",
         },
         {
           id: 2,
@@ -73,7 +68,7 @@ export default {
           folder: "outsrc",
           CardName: "خلي إعلان سيارتك علينا",
           CardClass: "Sell",
-          path: "/AboutSellingCarPayAdd",
+          path: "AboutSellingCarPayAdd",
         },
       ],
     };
@@ -143,20 +138,15 @@ export default {
     }
   }
   .line {
-    width: 270px;
-    height: 7px;
+    width: 100px;
+    height: 5px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: $color-1;
     display: block;
-    @media (max-width: 438px) {
-      width: 200px;
-    }
-    @media (max-width: 300px) {
-      width: 150px;
-    }
+
   }
   // Showroom class
   .Showroom {

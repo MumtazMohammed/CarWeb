@@ -137,8 +137,6 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/virables";
 @import "@/scss/mixin";
-.car-info {
-}
 .detail-card {
   background: $linear-gradient;
 }

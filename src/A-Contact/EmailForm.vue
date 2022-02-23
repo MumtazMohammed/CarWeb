@@ -1,6 +1,6 @@
 <template>
   <div class="form">
-    <v-card color="grey lighten-2">
+    <v-card color="grey darken-2">
       <v-form v-model="valid" elevation-0 class="">
         <v-container>
           <v-col cols="12">
@@ -112,7 +112,7 @@ export default {
   .header-tital {
     letter-spacing: 0;
     font-family: $fontfamliy;
-    color: $fontcolor;
+    color: $fontcolorsm;
   }
 }
 </style>

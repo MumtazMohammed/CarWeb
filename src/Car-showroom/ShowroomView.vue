@@ -154,7 +154,7 @@ export default {
     .card-title {
       font-size: 38px !important;
       font-weight: bold;
-      color: $SpicalCarColor !important;
+      color: $fontcolorsm !important;
       @media (max-width: 500px) {
         font-size: 25px !important;
       }

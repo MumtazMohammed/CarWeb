@@ -1,24 +1,32 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+// the navigation pages 
 import Home from "../views/TheHome.vue";
 import TheStore from "../views/TheStore.vue";
 import TheShowRoom from "../views/TheShowRoom.vue";
-import SeeAllUsedAndNewCars from "../CarForSell/SeeAllUsedAndNewCars.vue";
+import Contact from "../views/TheContact.vue";
+// Car detail And Image 
+import ViewCar from "../CarDetail/ViewCar.vue";
+// Cars Card 
 import UsedCar from "../CarForSell/UsedCar.vue";
 import NewCar from "../CarForSell/NewCar.vue";
-import Contact from "../views/TheContact.vue";
-import ViewCar from "../CarDetail/ViewCar.vue";
+import SeeAllUsedAndNewCars from "../CarForSell/SeeAllUsedAndNewCars.vue";
 import SeeAllSpecialCar from "../CarForSell/SeeAllSpecialCar.vue";
 import CarByBrand from "../CarForSell/CarByBrand.vue";
 import CarByShape from "../CarForSell/CarByShape.vue";
+// SginUp 
 import SginUp from "../Login/SignUp.vue";
+// Start Ad car Page  
 import AboutSellingCarFreeAdd from "../SellCar-Store-Showroom/AboutSellingCarFreeAdd.vue";
 import AboutSellingCarPayAdd from "../SellCar-Store-Showroom/AboutSellingCarPayAdd.vue";
-import AboutStore from "../SellCar-Store-Showroom/AboutStore.vue";
+// Showroom 
 import AboutShowroom from "../SellCar-Store-Showroom/AboutShowroom.vue";
 import ShowroomView from "../Car-showroom/ShowroomView.vue";
-import ClientStore from "../CustomreStote/ClientStore.vue";
-import ProductDetail from "../CustomreStote/ProductDetail.vue";
+// User Profile 
+import TheUserPage from "../UserPage/TheUserPage.vue";
+import UserProfile from "../UserPage/UserProfile.vue";
+import UserAdd from "../UserPage/UserAdd.vue";
+import UserSaveAd from "../UserPage/UserSaveAd.vue";
 
 Vue.use(VueRouter);
 
@@ -94,29 +102,46 @@ const routes = [
     component: AboutSellingCarPayAdd,
   },
   {
-    path: "/AboutStore",
-    name: "AboutStore",
-    component: AboutStore,
-  },
-  {
     path: "/AboutShowroom",
     name: "AboutShowroom",
     component: AboutShowroom,
   },
+
   {
     path: "/:ShowRoomName/:ShowRoomLocation/:locationStreet",
     name: "ShowroomView",
     component: ShowroomView,
   },
+  // User Profile 
   {
-    path: "/:ClientStoreName/:StoreLocation/",
-    name: "ClientStore",
-    component: ClientStore,
-  },
-  {
-    path: "/ProductDetail/:ProductNumber/:ProductName/:ProductId",
-    name: "ProductDetail",
-    component: ProductDetail,
+    path: "/:UserPage",
+    name: "TheUserPage",
+    redirect: 'TheUserPage.UserAdd',
+    component: TheUserPage,
+    children: [
+      {
+        
+        path: "/:MyAdd",
+        name: "TheUserPage.UserAdd",
+        component: UserAdd,
+     
+      },
+      {
+        
+        path: "/UserProfile/:Acount",
+        name: "UserProfile",
+        component: UserProfile,
+     
+      },
+      {
+        
+        path: "/UserSaveAd/:SaveAd",
+        name: "UserSaveAd",
+        component: UserSaveAd,
+     
+      },
+   
+    ]
   },
 ];
 

@@ -87,7 +87,28 @@
             }"
             :class="showroom.VIP == true ? 'showroom-vip' : 'showroom'"
           >
+            <v-card
+              width="100%"
+              flat
+              v-if="showroom.VIP == true"
+              class="Featured-card d-flex rounded-0"
+            >
+              <v-card-text class="white--text text-center Featured-text py-2">
+                مميز
+              </v-card-text>
+            </v-card>
             <v-img
+              v-if="showroom.VIP == true"
+              :src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
+              :lazy-src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
+              class="white--text align-end showroom-img #424342"
+              color="primary"
+              style="width: 410px; height: 212px; margin: 0 auto"
+              width="350"
+            >
+            </v-img>
+            <v-img
+              v-else
               :src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
               :lazy-src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
               class="white--text align-end showroom-img #424342"
@@ -96,16 +117,6 @@
               width="450"
               height="200"
             >
-              <v-avatar
-                v-if="showroom.VIP == true"
-                class="VIP-avatar"
-                size="50"
-                color="black"
-              >
-                <v-img
-                  src="../assets/showroom/VIP/—Pngtree—vip member icon design element_5463096.png"
-                ></v-img>
-              </v-avatar>
             </v-img>
             <v-card-title v-text="showroom.ShowroomName" class="title">
             </v-card-title>
@@ -209,6 +220,7 @@ export default {
     .btn-if-you-have-showroom {
       font-family: $fontfamliy !important;
       color: $color-1 !important;
+      font-weight: bold !important;
       letter-spacing: 0 !important;
       font-size: 1.15rem !important;
       @media (max-width: 375px) {
@@ -263,11 +275,11 @@ export default {
   .showroom-vip {
     cursor: pointer;
     overflow: hidden;
-    background-color: $SpicalCarColor2;
+    background-color: $color-1;
     transition: all 0.2s ease !important;
     .title {
       font-family: $fontfamliy !important;
-      color: $SpicalCarColor !important;
+      color: $fontcolorsm !important;
       letter-spacing: 0 !important;
       font-size: 1rem !important;
       @media (max-width: 780px) {
@@ -281,7 +293,7 @@ export default {
       }
     }
     .icon {
-      color: $SpicalCarColor !important;
+      color: $fontcolorsm !important;
       font-size: 20px;
     }
     .text {
@@ -292,7 +304,7 @@ export default {
       color: $fontcolorsm;
 
       span {
-        color: $color-1;
+        color: $fontcolorsm;
         margin: 0 3px;
         font-weight: 500;
         font-size: 18px;
@@ -340,10 +352,14 @@ export default {
     border-top-left-radius: 0px !important;
     border-bottom-left-radius: 0px !important;
   }
-  .VIP-avatar {
-    position: absolute;
-    top: 2px;
-    right: 2px;
+  .Featured-card {
+    position: relative;
+    background-color: $color-1;
+    .Featured-text {
+      font-family: $fontfamliy !important;
+      font-size: 18px;
+      font-weight: 500;
+    }
   }
 }
 .v-select {

@@ -10,12 +10,12 @@
           </h2>
         </v-col>
         <!-- fillter section  -->
-        <v-col cols="12" class="pr-2">
+        <v-col cols="12" class="pr-2 mb-1">
           <CarFillter />
         </v-col>
         <!--  -->
         <v-divider></v-divider>
-        <v-row class="mt-1 car-box">
+        <v-row class="mt-2 car-box">
           <v-col
             cols="12"
             sm="6"
@@ -25,7 +25,11 @@
             :key="CarData.id"
           >
             <!-- using methods to conect the image to the corect folder   -->
+
             <v-card class="card-vip pa-1" flat>
+              <v-card v-show="CarData.Token == true" dark class="token">
+                <v-card-text class="pa-2 text"> محجوز </v-card-text>
+              </v-card>
               <v-row>
                 <v-col class="" cols="12">
                   <!-- <p class="ma-0 spical">مضمونه</p> -->
@@ -39,6 +43,16 @@
                     :src="getimageUrl(CarData.folder, CarData.image)"
                     height="170px"
                   >
+                    <v-card
+                      v-if="CarData.discount == true"
+                      dark
+                      color="success"
+                      class="discount"
+                    >
+                      <v-card-text class="pa-2 text">
+                        خصم <span>{{ CarData.discountAmount }}</span>
+                      </v-card-text>
+                    </v-card>
                   </v-img>
                 </v-col>
               </v-row>
@@ -69,9 +83,20 @@
               <!-- car praic and kilo  -->
               <v-row class="mb-1 justify-center">
                 <v-col cols="5" class="pa-0">
+                  <!-- discount  -->
                   <v-card-subtitle
-                    class="green--text font-weight-medium text-right pa-2"
+                    :class="
+                      CarData.discount == true
+                        ? 'oldprice'
+                        : 'green--text font-weight-medium text-right pa-2'
+                    "
+                    class=""
                     >{{ CarData.payment }}</v-card-subtitle
+                  >
+                  <v-card-subtitle
+                    v-if="CarData.discount == true"
+                    class="green--text font-weight-medium text-right pa-2"
+                    >{{ CarData.discountPrice }}</v-card-subtitle
                   >
                 </v-col>
                 <v-divider color="#0773df" vertical></v-divider>
@@ -85,7 +110,6 @@
               <v-card-actions class="d-flex justify-center">
                 <v-btn
                   block
-                  class="rounded-0"
                   width="200"
                   :to="{
                     name: 'ViewCar',
@@ -98,7 +122,7 @@
                   }"
                   depressed
                 >
-                  أقراء المزيد
+                  رؤية السيارة
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -160,32 +184,15 @@ export default {
   width: 100%;
   height: auto;
   position: relative;
-  .car-box {
-    @media (max-width: 600px) {
-      justify-content: center;
-    }
-  }
   .filtt:first-child {
     @media (max-width: 600px) {
       padding-bottom: 3px !important;
     }
-    // @media (max-width: 450px) {
-    //   padding: 5px 5px !important;
-    // }
-    // @media (max-width: 350px) {
-    //   padding: 5px 2px !important;
-    // }
   }
   .filtt:last-child {
     @media (max-width: 600px) {
       padding-top: 3px !important;
     }
-    // @media (max-width: 450px) {
-    //   padding: 5px 5px !important;
-    // }
-    // @media (max-width: 350px) {
-    //   padding: 5px 2px !important;
-    // }
   }
   .boredr-all-box {
     @media (max-width: 880px) {
@@ -325,8 +332,51 @@ export default {
     max-width: 100% !important;
   }
 }
-.select-price {
-  font-family: $fontfamliy;
-  font-weight: 500;
+.discount {
+  position: absolute;
+  top: 5px;
+  width: 100px;
+  right: 0px;
+  border-radius: 20px 0px 20px 20px !important;
+  .text {
+    font-family: $fontfamliy;
+    font-size: 16px !important;
+    font-weight: 500;
+    span {
+      font-size: 18px !important;
+      font-weight: 500;
+      margin-right: 10px;
+    }
+  }
+}
+.oldprice {
+  text-decoration: line-through;
+  color: rgba(108, 108, 108, 0.469) !important;
+  padding: 8px;
+  position: absolute;
+  transform: translateY(-50%);
+  font-size: 14px !important;
+}
+// booked up
+.token {
+  background-color: rgba(0, 0, 0, 0.653) !important;
+  width: 100%;
+  height: 100%;
+  @include flexcenter();
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  cursor: default;
+  .text {
+    text-align: center;
+    font-size: 55px !important;
+    color: $color-4 !important;
+    font-family: $fontfamliy;
+    font-weight: bold;
+    letter-spacing: 0;
+    pointer-events: none;
+    transform: rotate(-10deg) !important;
+  }
 }
 </style>

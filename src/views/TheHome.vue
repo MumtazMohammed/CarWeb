@@ -7,8 +7,9 @@
     <SpicalCar :caritems="caritems" />
     <CarBrands :AllDateCar="AllDateCar" />
     <CarShape :AllDateCar="AllDateCar" />
-    <CarPartsCategories />
+    <!-- <CarPartsCategories /> -->
     <HowToBuy />
+    <ContactUs />
   </v-main>
 </template>
 
@@ -17,10 +18,11 @@ import NavBar from "../NavBar/TheNavBar.vue";
 import ToSellYourCarLayout from "../A-Home/ToSellYourCarLayout.vue";
 import SpicalCar from "../A-Home/SpicalCar.vue";
 import SpicalShowRoom from "../A-Home/SpicalShowRoom.vue";
+import ContactUs from "../A-Home/ContactUs.vue";
 import CarBrands from "../A-Home/CarBrands.vue";
 import ADD from "../A-Home/ADD.vue";
 import CarShape from "../A-Home/CarShape.vue";
-import CarPartsCategories from "../A-Home/CarPartsCategories.vue";
+// import CarPartsCategories from "../A-Home/CarPartsCategories.vue";
 import HowToBuy from "../A-Home/HowToBy.vue";
 import DateCar from "../data-json/car-data.json";
 import AllDateCar from "../data-json/All-Car.json";
@@ -33,8 +35,9 @@ const components = {
   HowToBuy,
   NavBar,
   SpicalShowRoom,
-  CarPartsCategories,
+  // CarPartsCategories,ssssss
   ADD,
+  ContactUs,
 };
 export default {
   name: "Home",

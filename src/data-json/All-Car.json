@@ -9,6 +9,8 @@
     "modle": "2021",
     "type": "NM-4",
     "negotiable": "قابل للتفاوض",
+    "Token": true,
+
     "condtion": "جديد",
     "EngineModel": "2AZ-FE",
     "kilometer": "0 كيلو",
@@ -101,6 +103,8 @@
     "Shape": "سـيدان",
     "company": "هونداي",
     "boost": "دفـع أمامي",
+    "Token": true,
+
     "name": "ألنترا",
     "negotiable": "غير قابل للتفاوض",
     "modle": 2015,
@@ -182,6 +186,9 @@
   {
     "id": 14,
     "folder": "Toyota",
+    "discount": true,
+    "discountPrice": "$33,000",
+    "discountAmount": "%7",
     "Vip": true,
     "boost": "دفـع أمامي",
     "adNum": 655646,
@@ -247,6 +254,8 @@
     "Shape": "سـيدان",
     "company": "مـازدا",
     "adNum": 655646,
+    "Token": true,
+
     "name": "مازدا3",
     "modle": 2016,
     "fuel": "بـتروال",
@@ -295,6 +304,9 @@
   {
     "id": 18,
     "folder": "Toyota",
+    "discount": true,
+    "discountPrice": "$33,000",
+    "discountAmount": "7%",
     "boost": "دفـع رباعي",
     "company": "تيوتا",
     "adNum": 655646,
@@ -307,7 +319,7 @@
     "type": "NM-4",
     "EngineModel": "2AZ-FE",
     "engainpower": "3",
-    "condtion": "مستعمل",
+    "condtion": "جديد",
     "kilometer": "500000 كيلو",
     "negotiable": "قابل للتفاوض",
     "ccolor": "فيراني",

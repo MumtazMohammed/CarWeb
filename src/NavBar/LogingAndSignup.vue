@@ -167,7 +167,7 @@ export default {
     }
     .sign-in-icon {
       color: $fontcolorsm !important;
-      font-size: 16px;
+      font-size: 14px;
 
       @media (max-width: 959px) {
         font-size: 13px;
@@ -177,7 +177,7 @@ export default {
       color: $fontcolorsm !important;
       letter-spacing: 0px;
       font-family: $fontfamliy;
-      font-size: 16px;
+      font-size: 14px;
       @media (max-width: 959px) {
         font-size: 14px;
       }

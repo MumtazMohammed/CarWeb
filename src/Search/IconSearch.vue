@@ -7,7 +7,8 @@
           'icon-serach': scrollPosition < 600,
           'is-hidden': scrollPosition > 600,
         }"
-        large
+        x-large
+        elevation="6"
         icon
         ref="button"
         v-bind="attrs"
@@ -188,12 +189,13 @@ export default {
 }
 .icon-serach {
   position: fixed;
-  bottom: 65px;
-  right: 10px;
+  bottom: 75px;
+  right: 8px;
   z-index: 5;
   overflow: hidden;
-  background: $color-2 !important;
-  transform: translateX(100px);
+  background: $color-1 !important;
+  opacity: 0;
+  pointer-events: none;
   transition: all 0.4s 0s ease !important;
   @media (max-width: 600px) {
     bottom: 60px;
@@ -201,36 +203,15 @@ export default {
 
   .icon {
     color: $fontcolorsm !important;
-    font-size: 20px !important;
+    font-size: 17px !important;
     transition: all 0.4s 0s ease !important;
     position: relative;
     z-index: 5;
   }
 }
-.icon-serach:hover {
-  box-shadow: 0 0 0 2px $color-1;
-}
-.icon-serach:hover.icon-serach::after {
-  width: 100px;
-  height: 100px;
-}
-.icon-serach::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 100px;
-  height: 0px;
-  // border-radius: 50%;
-  background-color: rgb(255, 255, 255);
-  transform: translate(-50%, 0%);
-  transition: all 0.4s 0s ease;
-}
-.icon-serach:hover .icon {
-  color: $color-1 !important;
-}
 .is-hidden {
-  transform: translateX(0px);
+  opacity: 1;
+  pointer-events: auto;
   @media (max-width: 600px) {
     transform: scale(0.9);
   }

@@ -31,54 +31,51 @@
 
       <div class="Second">
         <v-container>
-          <v-row class="justify-center">
+          <v-row class="">
             <v-col cols="12" class="">
               <h1>ليش بيع سيارتك على موقعنا هو الحل الأنسب لك ؟</h1>
             </v-col>
             <v-col cols="12" class="d-flex justify-center mb-6">
               <span class="line"></span>
             </v-col>
-            <v-col
-              cols="12"
-              sm="12"
-              md="4"
-              class="d-flex flex-column align-center justify-center"
-            >
-              <v-img
-                max-width="250"
-                contain
-                src="../assets/outsrc/undraw_destination_re_sr74.svg"
-                lazy-src="../assets/outsrc/undraw_destination_re_sr74.svg"
-              ></v-img>
-              <p class="my-8">سيتم عرض سيارتك على الآف المشترين في اليمن</p>
+            <v-col cols="12" sm="6" md="4">
+              <v-card class="pa-2">
+                <v-img
+                  max-width="250"
+                  contain
+                  style="height: 200px"
+                  src="../assets/outsrc/normalAdd3.svg"
+                  lazy-src="../assets/outsrc/normalAdd3.svg"
+                  class="mx-auto"
+                ></v-img>
+                <p class="my-2 p">سيتم عرض سيارتك على الآف المشترين في اليمن</p>
+              </v-card>
             </v-col>
-            <v-col
-              cols="12"
-              sm="12"
-              md="4"
-              class="d-flex flex-column align-center justify-center"
-            >
-              <v-img
-                max-width="110"
-                contain
-                src="../assets/outsrc/undraw_post_online_re_1b82.svg"
-                lazy-src="../assets/outsrc/undraw_post_online_re_1b82.svg"
-              ></v-img>
-              <p class="my-8">تواصل مع المشترين بكل سهولة واريحية</p>
+            <v-col cols="12" sm="6" md="4">
+              <v-card class="pa-2">
+                <v-img
+                  max-width="250"
+                  class="mx-auto"
+                  contain
+                  style="height: 200px"
+                  src="../assets/outsrc/normalAdd2.svg"
+                  lazy-src="../assets/outsrc/normalAdd2.svg"
+                ></v-img>
+                <p class="my-2 p">تواصل مع المشترين بكل سهولة واريحية</p>
+              </v-card>
             </v-col>
-            <v-col
-              cols="12"
-              sm="12"
-              md="4"
-              class="d-flex flex-column align-center justify-center"
-            >
-              <v-img
-                max-width="250"
-                contain
-                src="../assets/outsrc/undraw_make_it_rain_iwk4.svg"
-                lazy-src="../assets/outsrc/undraw_make_it_rain_iwk4.svg"
-              ></v-img>
-              <p class="my-8">بيع سيارتك بنفسك وبالسعر الذي يرضيك</p>
+            <v-col cols="12" sm="6" md="4">
+              <v-card class="pa-2">
+                <v-img
+                  max-width="250"
+                  class="mx-auto"
+                  contain
+                  style="height: 200px"
+                  src="../assets/outsrc/normalAdd1.svg"
+                  lazy-src="../assets/outsrc/normalAdd1.svg"
+                ></v-img>
+                <p class="my-2 p">بيع سيارتك بنفسك وبالسعر الذي يرضيك</p>
+              </v-card>
             </v-col>
           </v-row>
         </v-container>
@@ -98,8 +95,9 @@
                 <v-img
                   contain
                   max-width="350"
-                  src="../assets/outsrc/undraw_add_information_j2wg.svg"
-                  lazy-src="../assets/outsrc/undraw_add_information_j2wg.svg"
+                  style="height: 200px"
+                  src="../assets/outsrc/normalAdd4.svg"
+                  lazy-src="../assets/outsrc/normalAdd4.svg"
                 ></v-img>
               </v-col>
               <v-col cols="11" sm="10" md="7">
@@ -125,8 +123,9 @@
                 <v-img
                   contain
                   max-width="350"
-                  src="../assets/outsrc/undraw_phone_call_grmk.svg"
-                  lazy-src="../assets/outsrc/undraw_phone_call_grmk.svg"
+                  src="../assets/outsrc/normalAdd5.svg"
+                  lazy-src="../assets/outsrc/normalAdd5.svg"
+                  style="height: 200px"
                 ></v-img>
               </v-col>
               <v-col cols="11" sm="10" md="7">
@@ -310,6 +309,12 @@ export default {
         flex-direction: row-reverse;
       }
     }
+  }
+  .p {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>

@@ -52,5 +52,11 @@
     "cartype": "BMW",
     "carName": "بي ام دبليو",
     "carLogo": "bmw.png"
+  },
+  {
+    "folder": "CarLogo",
+    "cartype": "more",
+    "carName": "غير ذالك",
+    "carLogo": "more.png"
   }
 ]

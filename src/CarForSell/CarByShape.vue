@@ -17,12 +17,12 @@
         </div>
       </v-col>
       <!-- fillter -->
-      <v-col cols="12" class="pr-2">
+      <v-col cols="12" class="pr-2 mb-1">
         <CarFillter />
       </v-col>
       <!--  -->
-      <v-divider v-if="getCarInfo.length > 0"></v-divider>
-      <v-row class="mt-1 car-box">
+      <v-divider></v-divider>
+      <v-row class="mt-2 car-box">
         <v-col
           cols="6"
           sm="4"
@@ -32,12 +32,25 @@
           :key="CarData.id"
         >
           <!-- using methods to conect the image to the corect folder   -->
-          <!-- vip car  -->
-          <v-card v-if="CarData.Vip == true" class="card-vip pa-1" flat>
+          <v-card
+            :class="CarData.Vip == true ? 'card-vip' : 'card'"
+            class="pa-1"
+            flat
+          >
+            <!-- booked up  -->
+            <v-card v-show="CarData.Token == true" dark class="token">
+              <v-card-text class="pa-2 text"> محجوز </v-card-text>
+            </v-card>
             <v-row>
               <v-col class="" cols="12">
-                <p class="py-2 ma-0 px-0 text-center top-vip">
+                <p
+                  v-if="CarData.Vip == true"
+                  class="py-2 ma-0 px-0 text-center top-vip"
+                >
                   مضمون وريح راسك
+                </p>
+                <p v-else class="py-2 ma-0 px-0 text-center adbywho">
+                  أعلان : {{ CarData.ad }}
                 </p>
                 <b class="pa-0 text-center CarNumVip"> </b>
                 <v-img
@@ -45,6 +58,16 @@
                   :src="getimageUrl(CarData.folder, CarData.image)"
                   height="170px"
                 >
+                  <v-card
+                    v-if="CarData.discount == true"
+                    dark
+                    color="success"
+                    class="discount"
+                  >
+                    <v-card-text class="pa-2 text">
+                      خصم <span>{{ CarData.discountAmount }}</span>
+                    </v-card-text>
+                  </v-card>
                 </v-img>
               </v-col>
             </v-row>
@@ -53,87 +76,10 @@
             <v-row class="pa-0 mt-1" align="center">
               <v-col cols="12" class="pa-3 pr-5">
                 <v-card-subtitle class="font-weight-medium pa-1"
-                  >{{ CarData.company }} {{ CarData.name }}
-                  {{ CarData.modle }}
+                  >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
                 </v-card-subtitle>
               </v-col>
             </v-row>
-            <!-- car praic and kilo  -->
-            <!-- car location  and condition  -->
-            <v-row class="mb-1 justify-center">
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle class="text-right location-condtion pa-2">{{
-                  CarData.location
-                }}</v-card-subtitle>
-              </v-col>
-              <v-divider color="#0773df" vertical></v-divider>
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle class="text-left location-condtion pa-2"
-                  >{{ CarData.condtion }}
-                </v-card-subtitle>
-              </v-col>
-            </v-row>
-            <v-row class="mb-1 justify-center">
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle
-                  class="green--text font-weight-medium text-right pa-2"
-                  >{{ CarData.payment }}</v-card-subtitle
-                >
-              </v-col>
-              <v-divider color="#0773df" vertical></v-divider>
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle class="text-left font-weight-regular pa-2"
-                  >{{ CarData.kilometer }}
-                </v-card-subtitle>
-              </v-col>
-            </v-row>
-            <!-- car click to see more  -->
-            <v-card-actions class="d-flex justify-center">
-              <v-btn
-                block
-                class="btn-vip rounded-0"
-                width="200"
-                :to="{
-                  name: 'ViewCar',
-                  params: {
-                    carName: CarData.name,
-                    carShape: CarData.Shape,
-                    carId: CarData.id,
-                    Company: CarData.folder,
-                  },
-                }"
-                depressed
-              >
-                أقراء المزيد
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-          <!-- not vip car  -->
-          <v-card v-if="CarData.Vip == false" class="card pa-1" flat>
-            <v-row>
-              <v-col class="" cols="12">
-                <p class="py-2 ma-0 px-0 text-center adbywho">
-                  أعلان : {{ CarData.ad }}
-                </p>
-                <v-img
-                  :lazy-src="getimageUrl(CarData.folder, CarData.image)"
-                  :src="getimageUrl(CarData.folder, CarData.image)"
-                  height="170px"
-                >
-                </v-img>
-              </v-col>
-            </v-row>
-            <!-- car info  -->
-            <!-- car Name  -->
-            <v-row class="pa-0 mt-1" align="center">
-              <v-col cols="12" class="pa-3 pr-5">
-                <v-card-subtitle class="font-weight-medium pa-1"
-                  >{{ CarData.company }} {{ CarData.name }}
-                  {{ CarData.modle }}
-                </v-card-subtitle>
-              </v-col>
-            </v-row>
-            <!-- car praic and kilo  -->
             <!-- car location  and condition  -->
             <v-row class="mb-1 justify-center">
               <v-col cols="5" class="pa-0">
@@ -148,11 +94,23 @@
                 </v-card-subtitle>
               </v-col>
             </v-row>
+            <!-- car praic and kilo  -->
             <v-row class="mb-1 justify-center">
               <v-col cols="5" class="pa-0">
+                <!-- discount  -->
                 <v-card-subtitle
-                  class="green--text font-weight-medium text-right pa-2"
+                  :class="
+                    CarData.discount == true
+                      ? 'oldprice'
+                      : 'green--text font-weight-medium text-right pa-2'
+                  "
+                  class=""
                   >{{ CarData.payment }}</v-card-subtitle
+                >
+                <v-card-subtitle
+                  v-if="CarData.discount == true"
+                  class="green--text font-weight-medium text-right pa-2"
+                  >{{ CarData.discountPrice }}</v-card-subtitle
                 >
               </v-col>
               <v-divider vertical></v-divider>
@@ -166,7 +124,7 @@
             <v-card-actions class="d-flex justify-center">
               <v-btn
                 block
-                class="btn grey lighten-1 rounded-0"
+                :class="CarData.Vip == true ? 'btn-vip' : 'btn'"
                 width="200"
                 :to="{
                   name: 'ViewCar',
@@ -177,9 +135,9 @@
                     Company: CarData.folder,
                   },
                 }"
-                depressed
+                large
               >
-                أقراء المزيد
+                رؤية السيارة
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -278,23 +236,6 @@ export default {
     font-size: 20px;
     color: #8c8c8c;
   }
-  .btn-vip {
-    color: $fontcolorsm;
-    font-family: $fontfamliy;
-    font-weight: 500;
-    font-size: 17px;
-    padding: 10px;
-    letter-spacing: 0;
-    background: $linear-gradient;
-  }
-  .btn {
-    color: $fontcolor;
-    font-family: $fontfamliy;
-    font-weight: 500;
-    font-size: 17px;
-    padding: 10px;
-    letter-spacing: 0;
-  }
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
   .theme--light.v-btn--active:hover:before {
     opacity: 0;
@@ -320,66 +261,86 @@ export default {
     font-family: $fontfamliy;
   }
 }
-.top-vip {
-  font-family: $fontfamliy;
-  color: $fontcolorsm;
-  letter-spacing: 0;
-  font-size: 16px;
-  font-weight: 600;
-  background: $linear-gradient;
-}
-.CarNumVip {
-  position: absolute;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  right: 0;
-  color: $fontcolor;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  background-color: #fff;
-  clip-path: circle(50% at 50% 50%);
-}
-.CarNumVip:before {
-  content: "";
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  width: 13px;
-  height: 13px;
-  background-color: #fff;
-  clip-path: circle(50% at 50% 50%);
-  z-index: 2;
-}
-.CarNumVip:after {
-  content: "";
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: $color-1;
-  clip-path: circle(50% at 50% 50%);
-}
-.adbywho {
-  font-family: $fontfamliy;
-  color: $fontcolor;
-  letter-spacing: 0;
-  font-size: 16px;
-  font-weight: 400;
-}
+
+// featured
 .card-vip {
-  border: 0.5px solid $color-1 !important;
+  border: 0.1px solid $color-1 !important;
   overflow: hidden;
+  .top-vip {
+    font-family: $fontfamliy;
+    color: $fontcolorsm;
+    letter-spacing: 0;
+    font-size: 16px;
+    font-weight: 600;
+    background: $linear-gradient;
+  }
+  .CarNumVip {
+    position: absolute;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    color: $fontcolor;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    background-color: #fff;
+    clip-path: circle(50% at 50% 50%);
+  }
+  .CarNumVip:before {
+    content: "";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 13px;
+    height: 13px;
+    background-color: #fff;
+    clip-path: circle(50% at 50% 50%);
+    z-index: 2;
+  }
+  .CarNumVip:after {
+    content: "";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: $color-1;
+    clip-path: circle(50% at 50% 50%);
+  }
+  .btn-vip {
+    color: $fontcolorsm;
+    font-family: $fontfamliy;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 10px;
+    letter-spacing: 0;
+    background: $linear-gradient;
+  }
 }
+// No featured
 .card {
-  border: 0.5px solid $color-4 !important;
+  border: 0.5px solid rgba(128, 128, 128, 0.449) !important;
   overflow: hidden;
+  .btn {
+    color: $fontcolor;
+    font-family: $fontfamliy;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 10px;
+    letter-spacing: 0;
+  }
+  .adbywho {
+    font-family: $fontfamliy;
+    color: $fontcolor;
+    letter-spacing: 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
 }
 
 @media (min-width: 960px) {
@@ -407,8 +368,52 @@ export default {
     font-size: 17px;
   }
 }
-.select-price {
-  font-family: $fontfamliy;
-  font-weight: 500;
+// discount
+.discount {
+  position: absolute;
+  top: 5px;
+  width: 100px;
+  right: 0px;
+  border-radius: 20px 0px 20px 20px !important;
+  .text {
+    font-family: $fontfamliy;
+    font-size: 16px !important;
+    font-weight: 500;
+    span {
+      font-size: 18px !important;
+      font-weight: 500;
+      margin-right: 10px;
+    }
+  }
+}
+.oldprice {
+  text-decoration: line-through;
+  color: rgba(108, 108, 108, 0.469) !important;
+  padding: 8px;
+  position: absolute;
+  transform: translateY(-50%);
+  font-size: 14px !important;
+}
+// booked up
+.token {
+  background-color: rgba(0, 0, 0, 0.653) !important;
+  width: 100%;
+  height: 100%;
+  @include flexcenter();
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  cursor: default;
+  .text {
+    text-align: center;
+    font-size: 55px !important;
+    color: $color-4 !important;
+    font-family: $fontfamliy;
+    font-weight: bold;
+    letter-spacing: 0;
+    pointer-events: none;
+    transform: rotate(-10deg) !important;
+  }
 }
 </style>

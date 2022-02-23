@@ -2,11 +2,11 @@
   <div class="Shape_box my-5">
     <div class="Shape_container">
       <v-container class="px-md-7">
-        <p class="text-center font-weight-bold tital">
+        <p class="text-center mb-2 font-weight-bold tital">
           {{ Tital }}
         </p>
-        <span class="line mt-5 mb-8 mx-auto"></span>
-        <v-row>
+        <span class="line my-3 mx-auto"></span>
+        <v-row class="mt-2">
           <v-col
             v-for="(Shape, i) in CarShape"
             :key="i"
@@ -118,16 +118,14 @@ export default {
   }
 }
 .line {
-  width: 300px;
-  height: 7px;
+  width: 100px;
+  height: 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   background: $color-1;
   display: block;
-  @media (max-width: 438px) {
-    width: 200px;
-  }
+
 }
 </style>

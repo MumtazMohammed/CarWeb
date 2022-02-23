@@ -6,8 +6,24 @@
       </router-link>
       <!-- nav link for md screen and up  -->
       <v-spacer></v-spacer>
+      <!-- user Access  -->
+      <router-link
+        :to="{
+          name: 'TheUserPage',
+          params: { UserPage: 'صفحة المستخدم' },
+        }"
+      >
+        <v-card-actions class="user-box-name">
+          <v-card-subtitle class="pa-1 pl-2 user-name"
+            >mohammed Ameen</v-card-subtitle
+          >
+          <v-avatar size="35" color="transparent">
+            <v-img src="../assets/pp.jpg"></v-img>
+          </v-avatar>
+        </v-card-actions>
+      </router-link>
       <!-- loing btn  -->
-      <LogingAndSignup class="hidden-sm-and-down" />
+      <!-- <LogingAndSignup class="hidden-sm-and-down" /> -->
 
       <!-- bar icon for show links  -->
       <v-app-bar-nav-icon
@@ -197,11 +213,7 @@ export default {
         text: "المعارض",
         path: "/TheShowRoom",
       },
-      {
-        icon: "fa-shopping-cart",
-        text: "قطع الغيار",
-        path: "/TheStore",
-      },
+ 
     ],
   }),
   methods: {
@@ -290,13 +302,18 @@ a {
     font-size: 28px !important;
   }
 }
-// .close-btn {
-//   position: absolute;
-//   left: 0px;
-//   top: 0;
-// }
 .one-group-close-and-sell {
   display: flex;
   justify-content: space-between;
+}
+// user
+.user-box-name {
+  cursor: pointer;
+  .user-name {
+    color: $fontcolor;
+    font-size: 15px;
+    letter-spacing: 0px;
+    font-family: $fontfamliy;
+  }
 }
 </style>

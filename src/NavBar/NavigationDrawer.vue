@@ -177,11 +177,6 @@ export default {
           text: "المعارض",
           path: "/TheShowRoom",
         },
-        {
-          icon: "fa-shopping-cart",
-          text: "قطع الغيار",
-          path: "/TheStore",
-        },
       ],
     };
   },

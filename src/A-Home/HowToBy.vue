@@ -1,11 +1,11 @@
 <template>
   <div class="HowToBuy mt-5">
     <v-container>
-      <p class="text-center font-weight-bold tital">
+      <p class="text-center mb-2 font-weight-bold tital">
         {{ Tital }}
       </p>
       <span class="line my-3 mx-auto"></span>
-      <v-row class="justify-center mt-2">
+      <v-row class="justify-center">
         <v-col cols="12" sm="10" md="10">
           <div>
             <v-expansion-panels dark v-model="panel" multiple>
@@ -40,15 +40,15 @@ export default {
       Tital: " مـعلومات قد تحظى بي أهـتمامك",
       items: [
         {
-          how: "كيف يتم شراء السيارات من الموقع",
+          how: "كيف تشتري سيارتك من الموقع",
           text: "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.",
         },
         {
-          how: "كيف يتم بيع السيارات على الموقع",
+          how: "كيف تبيع سيارتك على الموقع",
           text: "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.",
         },
         {
-          how: "كيف يتم الأعلان على الموقع",
+          how: "كيف تفتج معرضك على الموقع",
           text: "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.",
         },
       ],
@@ -89,23 +89,14 @@ export default {
     }
   }
   .line {
-    width: 320px;
-    height: 7px;
+    width: 100px;
+    height: 5px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background: $color-1;
     display: block;
-    @media (max-width: 460px) {
-      width: 30px;
-    }
-    @media (max-width: 438px) {
-      width: 250px;
-    }
-    @media (max-width: 300px) {
-      width: 200px;
-    }
   }
   .expansion-header {
     font-family: $fontfamliy;
@@ -114,7 +105,7 @@ export default {
     font-size: 16px;
     font-weight: 600;
     min-height: 45px;
-    background: $linear-gradient;
+    background: $color-1;
   }
   .expansion-content {
     font-family: $fontfamliy;
