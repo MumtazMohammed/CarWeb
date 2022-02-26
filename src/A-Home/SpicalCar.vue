@@ -14,37 +14,33 @@
         :autoplay="fales"
         :autoplay-timeout="0"
         :display="5"
-        :space="335"
+        :space="350"
         :inverseScaling="70"
         :perspective="0"
         :width="300"
         :controls-visible="true"
         :controls-prev-html="navigationPrev"
         :controls-next-html="navigationNext"
-        :controlsWidth="42"
-        :controlsHeight="42"
+        :controlsWidth="45"
+        :controlsHeight="45"
       >
         <slide
           class="slide"
           v-for="(CarSell, i) in CarSells"
           :key="CarSell.id"
           :index="i"
-          :width="300"
-          :height="200"
         >
           <!-- using methods to conect the image to the corect folder   -->
-          <v-card
-            width="300"
-            elevation="0"
-            class="overflow-hidden pa-1 card-vip"
-          >
+          <v-card width="320" class="overflow-hidden pa-1 card-vip">
             <v-row>
               <v-col class="" cols="12">
-                <!-- <p class="ma-0 spical">مضمونه</p> -->
-                <p class="py-2 ma-0 px-0 text-center top-vip">
-                  مضمون وريح راسك
+                <p class="py-2 ma-0 px-0 text-center top-verified">
+                  <v-icon class="verified-icon white--text"
+                    >mdi-check-bold</v-icon
+                  >
+                  موثوق
                 </p>
-                <b class="pa-0 text-center CarNumVip"> </b>
+                <b class="pa-0 text-center verified"> </b>
                 <v-img
                   :src="getimageUrl(CarSell.folder, CarSell.image)"
                   :lazy-src="getimageUrl(CarSell.folder, CarSell.image)"
@@ -53,8 +49,7 @@
                 </v-img>
               </v-col>
             </v-row>
-            <!-- car info  -->
-            <!-- car Name  -->
+            <!-- car Name and compny  -->
             <v-row class="pa-0 mt-1">
               <v-col cols="12" class="pa-3 pr-5">
                 <v-card-subtitle
@@ -71,7 +66,7 @@
                   CarSell.location
                 }}</v-card-subtitle>
               </v-col>
-              <v-divider color="#0773df" vertical></v-divider>
+              <v-divider vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left location-condtion pa-2"
                   >{{ CarSell.condtion }}
@@ -86,7 +81,7 @@
                   >{{ CarSell.payment }}</v-card-subtitle
                 >
               </v-col>
-              <v-divider color="#0773df" vertical></v-divider>
+              <v-divider vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left font-weight-regular pa-2"
                   >{{ CarSell.kilometer }}
@@ -96,7 +91,7 @@
             <!-- car click to see more  -->
             <v-card-actions class="d-flex justify-center">
               <v-btn
-                class="btn-vip "
+                class="btn-vip"
                 block
                 width="200"
                 :to="{
@@ -164,7 +159,7 @@ export default {
          justify-content: center;
          border-radius: 50%;
          overflow: hidden;
-}
+        opacity: 0.8 !important;
         }
         span{
          width: auto;
@@ -175,9 +170,6 @@ export default {
         }
          .next:hover {
          opacity: 1 !important;
-         box-shadow: 0px 0px 0px 3px  #fff;
-
-
         }
          .next:hover .chevron {
           color:#fff;
@@ -204,6 +196,8 @@ export default {
          justify-content: center;
          border-radius: 50%;
          overflow: hidden;
+         opacity: 0.8 !important;
+
         }
         span{
          width: auto;
@@ -214,9 +208,6 @@ export default {
         }
          .prev:hover {
          opacity: 1 !important;
-         box-shadow: 0px 0px 0px 3px #fff;
-
-
         }
          .prev:hover .chevron {
           color:#fff;
@@ -316,54 +307,69 @@ export default {
     font-family: $fontfamliy;
   }
 }
-.top-vip {
+.top-verified {
   font-family: $fontfamliy;
   color: $fontcolorsm;
   letter-spacing: 0;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: bold;
   background: $linear-gradient;
+  border-top-left-radius: 5px;
 }
-.CarNumVip {
+.verified {
   position: absolute;
-  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   top: 0;
   right: 0;
   color: $fontcolor;
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   text-align: center;
   background-color: #fff;
-  clip-path: circle(50% at 50% 50%);
+  border-radius: 50%;
 }
-.CarNumVip:before {
+.verified:after {
   content: "";
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  width: 13px;
-  height: 13px;
-  background-color: #fff;
-  clip-path: circle(50% at 50% 50%);
-  z-index: 2;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  border: 2px solid $color-1;
 }
-.CarNumVip:after {
+.verified:before {
   content: "";
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background-color: $color-1;
-  clip-path: circle(50% at 50% 50%);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+.verified-icon {
+  font-size: 17px !important;
+  // font-weight: 400;
+  color: #fff;
 }
 .card-vip {
-  border: 0.5px solid $color-1 !important;
+  // border: 0.5px solid $color-1 !important;
   overflow: hidden;
 }
 @media (min-width: 960px) {
@@ -386,11 +392,6 @@ export default {
   height: 450px !important;
   margin: 0px auto !important;
 }
-.carousel-3d-slide {
-  margin: 0px !important;
-  height: 300px !important;
-  border: 0 !important;
-}
 .carousel-3d-container .current figure {
   margin: 0;
 }
@@ -399,12 +400,8 @@ export default {
     margin: 0 !important;
     background-color: unset;
     border: 0px;
-    height: auto !important;
-    width: 300px !important;
-  }
-  .carousel-3d-slider[data-v-07917306] {
-    height: auto !important;
-    width: 300px !important;
+    height: 450px !important;
+    width: 350px !important;
   }
 }
 </style>

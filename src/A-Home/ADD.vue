@@ -8,19 +8,21 @@
           </p>
           <span class="line my-3 mx-auto"></span>
         </v-col>
+      </v-row>
+      <v-row class="row-card">
         <v-col
           v-for="Card in Cards"
           :key="Card.id"
           cols="6"
-          sm="4"
-          md="3"
+          sm="5"
+          md="4"
           class="pa-2 card-col"
         >
           <v-card
             elevation="4"
-            class="pa-2"
+            class="d-flex flex-column align-center justify-space-between"
             :class="Card.CardClass"
-            height="220"
+            height="170"
             router
             :to="{
               name: `${Card.path}`,
@@ -30,11 +32,12 @@
             <v-img
               class="mx-auto"
               contain
-              height="130"
+              height="100"
               :src="getimageUrl(Card.folder, Card.CardImg)"
             ></v-img>
+            <v-spacer></v-spacer>
             <v-card-text
-              class="mt-2 text-center card-text"
+              class="text-center card-text pa-2"
               v-text="Card.CardName"
             >
             </v-card-text>
@@ -52,7 +55,7 @@ export default {
   data() {
     return {
       reveal: false,
-      Tital: " ضع ثقتك بنا وأنضم معنا",
+      Tital: " ضـع ثقتـك بنـا",
       Cards: [
         {
           id: 1,
@@ -146,7 +149,9 @@ export default {
     border-bottom-right-radius: 5px;
     background-color: $color-1;
     display: block;
-
+    @media (max-width: 350px) {
+    width: 70px;
+    }
   }
   // Showroom class
   .Showroom {
@@ -154,7 +159,7 @@ export default {
     overflow: hidden;
     border-color: #35477d;
     border-width: 0px;
-    border-bottom-width: 6px;
+    border-bottom-width: 4px;
     border-style: solid;
     transition: all 0.3s 0s ease;
   }
@@ -184,7 +189,7 @@ export default {
     overflow: hidden;
     border-color: #c06c84;
     border-width: 0px;
-    border-bottom-width: 6px;
+    border-bottom-width: 4px;
     border-style: solid;
     transition: all 0.3s 0s ease;
   }

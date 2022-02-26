@@ -7,7 +7,7 @@
       width="100%"
       class="mb-0 VipCard"
     >
-      موثوق من قبل شركة ثقة
+      تم التحقق من أوراق السيارة
     </v-alert>
   </div>
 </template>

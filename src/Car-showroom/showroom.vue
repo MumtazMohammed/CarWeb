@@ -10,16 +10,21 @@
                 flat
                 class="d-flex card-if-you-have-showroom rounded-0 py-2"
               >
-                <!-- search  -->
-                <v-card-actions class="search align-end">
-                  <v-text-field
+                <!-- search for showroom -->
+                <v-card-actions class="search">
+                  <v-autocomplete
+                    v-model="select"
+                    :loading="loading"
+                    :items="items"
+                    :search-input.sync="search"
+                    cache-items
                     flat
-                    label="أبحث عن معرض"
-                    :rules="rules"
+                    hide-no-data
                     hide-details
-                    solo
-                    color="transparent"
-                  ></v-text-field>
+                    label="أبحث عن معرض ؟"
+                    solo-inverted
+                    large
+                  ></v-autocomplete>
                   <v-icon class="search-icon pa-3" large>mdi-magnify</v-icon>
                 </v-card-actions>
 
@@ -31,7 +36,7 @@
                   <!-- <v-spacer></v-spacer> -->
                   <v-btn
                     to="/AboutShowroom"
-                    elevation="0"
+                    outlined
                     large
                     class="btn-if-you-have-showroom"
                   >
@@ -87,28 +92,7 @@
             }"
             :class="showroom.VIP == true ? 'showroom-vip' : 'showroom'"
           >
-            <v-card
-              width="100%"
-              flat
-              v-if="showroom.VIP == true"
-              class="Featured-card d-flex rounded-0"
-            >
-              <v-card-text class="white--text text-center Featured-text py-2">
-                مميز
-              </v-card-text>
-            </v-card>
             <v-img
-              v-if="showroom.VIP == true"
-              :src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
-              :lazy-src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
-              class="white--text align-end showroom-img #424342"
-              color="primary"
-              style="width: 410px; height: 212px; margin: 0 auto"
-              width="350"
-            >
-            </v-img>
-            <v-img
-              v-else
               :src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
               :lazy-src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
               class="white--text align-end showroom-img #424342"
@@ -117,6 +101,17 @@
               width="450"
               height="200"
             >
+              <!-- Featured showeoom  -->
+              <v-card
+                flat
+                shaped
+                v-if="showroom.VIP == true"
+                class="Featured-card   rounded-bl-0 rounded-tr-0"
+              >
+                <v-card-text class="white--text text-center Featured-text py-1 px-2">
+                  متميز
+                </v-card-text>
+              </v-card>
             </v-img>
             <v-card-title v-text="showroom.ShowroomName" class="title">
             </v-card-title>
@@ -151,12 +146,64 @@ export default {
       showrooms,
       ShowRoomCar,
       ShowRoomName: this.$route.params.ShowRoomName,
-      rules: [
-        (value) => !!value || "Required.",
-        (value) => (value && value.length >= 3) || "Min 3 characters",
-      ],
-      states: [
-        "جميع المحافظات",
+      // showroom search
+      loading: false,
+      items: [],
+      search: null,
+      select: null,
+      Showroom: [
+        "Alabama",
+        "Alaska",
+        "American Samoa",
+        "Arizona",
+        "Arkansas",
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware",
+        "District of Columbia",
+        "Federated States of Micronesia",
+        "Florida",
+        "Georgia",
+        "Guam",
+        "Hawaii",
+        "Idaho",
+        "Illinois",
+        "Indiana",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Louisiana",
+        "Maine",
+        "Marshall Islands",
+        "Maryland",
+        "Massachusetts",
+        "Michigan",
+        "Minnesota",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "Nevada",
+        "New Hampshire",
+        "New Jersey",
+        "New Mexico",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Northern Mariana Islands",
+        "Ohio",
+        "Oklahoma",
+        "Oregon",
+        "Palau",
+        "Pennsylvania",
+        "Puerto Rico",
+        "Rhode Island",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
         "Vermont",
         "Virgin Island",
         "Virginia",
@@ -171,6 +218,21 @@ export default {
     getimageUrl(FolderName, ImageName) {
       let image = require.context("@/assets/");
       return image("./" + FolderName + "/" + ImageName);
+    },
+    querySelections(v) {
+      this.loading = true;
+      // Simulated ajax query
+      setTimeout(() => {
+        this.items = this.Showroom.filter((e) => {
+          return (e || "").toLowerCase().indexOf((v || "").toLowerCase()) > -1;
+        });
+        this.loading = false;
+      }, 500);
+    },
+  },
+  watch: {
+    search(val) {
+      val && val !== this.Showroom && this.querySelections(val);
     },
   },
 };
@@ -193,7 +255,7 @@ export default {
     }
   }
   .card-if-you-have-showroom {
-    background: $color-1;
+    background: $color-background;
     justify-content: center;
     flex-direction: column-reverse;
 
@@ -202,7 +264,7 @@ export default {
     }
     .title-if-you-have-showroom {
       font-family: $fontfamliy !important;
-      color: $fontcolorsm !important;
+      color: $fontcolor !important;
       letter-spacing: 0 !important;
       font-size: 1.8rem !important;
       font-weight: bold !important;
@@ -319,12 +381,10 @@ export default {
 
   .search {
     margin: 0 auto;
+    height: auto;
     width: 50%;
     border-top-right-radius: 0px !important;
     border-bottom-right-radius: 0px !important;
-    @media (max-width: 850px) {
-      width: 50%;
-    }
     @media (max-width: 600px) {
       width: 100%;
     }
@@ -332,12 +392,10 @@ export default {
     .search-icon {
       height: 48px;
       font-size: 24px !important;
+      margin-bottom: 2px;
       background-color: $color-1;
       border-radius: 4px 0 0 4px;
       color: $fontcolorsm;
-      border-top: thin solid white;
-      border-left: thin solid white;
-      border-bottom: thin solid white;
     }
   }
   .v-text-field::v-deep .v-label.theme--light {
@@ -353,11 +411,13 @@ export default {
     border-bottom-left-radius: 0px !important;
   }
   .Featured-card {
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
     background-color: $color-1;
     .Featured-text {
       font-family: $fontfamliy !important;
-      font-size: 18px;
+      font-size: 13px;
       font-weight: 500;
     }
   }

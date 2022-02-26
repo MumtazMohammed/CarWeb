@@ -198,7 +198,7 @@ export default {
   pointer-events: none;
   transition: all 0.4s 0s ease !important;
   @media (max-width: 600px) {
-    bottom: 60px;
+    bottom: 70px;
   }
 
   .icon {

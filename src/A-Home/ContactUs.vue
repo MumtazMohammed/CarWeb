@@ -1,8 +1,8 @@
 <template>
   <div class="contact">
     <v-container>
-      <v-card width="700" color="#424342" class="mx-auto">
-        <v-card-actions class="justify-center">
+      <v-card width="700" color="#0881fa" class="mx-auto py-3">
+        <v-card-actions class="justify-center pb-3 pt-0">
           <v-avatar size="60" color="transparent" tile>
             <img
               src="../assets/outsrc/call.png"
@@ -19,7 +19,7 @@
           من الساعة 9 صباحاً حتى 5 مساءً, الجمعة من 1 مساءً الى 5 مساءً .
         </v-card-text>
         <v-card-actions class="justify-center">
-          <v-btn outlined large text dark class="contact-btn">
+          <v-btn outlined  large  dark class="contact-btn">
             <v-avatar class="ml-1" size="20" tile color="transparent">
               <img src="../assets/social/whatsapp.png" alt="alt" />
             </v-avatar>
@@ -65,7 +65,7 @@ export default {
     }
   }
   .divider {
-    border-color: $color-1;
+    border-color: $color-background;
   }
   .contact-btn {
     font-size: 14px !important;

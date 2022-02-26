@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 // the navigation pages 
 import Home from "../views/TheHome.vue";
-import TheStore from "../views/TheStore.vue";
 import TheShowRoom from "../views/TheShowRoom.vue";
 import Contact from "../views/TheContact.vue";
 // Car detail And Image 
@@ -41,11 +40,7 @@ const routes = [
     name: "TheShowRoom",
     component: TheShowRoom,
   },
-  {
-    path: "/TheStore",
-    name: "TheStore",
-    component: TheStore,
-  },
+
   {
     path: "/SeeAllUsedAndNewCars",
     name: "SeeAllUsedAndNewCars",

@@ -170,6 +170,7 @@
         v-bind="attrs"
         v-on="on"
         @click="favorite = !favorite"
+        v-on:click="AddCarToFavorite(getCarInfo)"
       >
         <v-icon :class="favorite == true ? 'favorite' : ' '" right>
           fa-solid fa-star
@@ -180,12 +181,33 @@
   </div>
 </template>
 <script>
+import CarData from "../data-json/All-Car.json";
 export default {
   name: "share",
   data() {
     return {
       favorite: false,
+      GetCarData: CarData,
+      carName: this.$route.params.carName,
+      carId: this.$route.params.carId,
     };
+  },
+  methods: {
+    AddCarToFavorite(getCarInfo) {
+      console.log(getCarInfo);
+    },
+  },
+  computed: {
+    getCarInfo() {
+      let Carinformation = "";
+      for (let i = 0; i < this.GetCarData.length; i++) {
+        if (this.GetCarData[i].id == this.carId) {
+          Carinformation = this.GetCarData[i];
+          break;
+        }
+      }
+      return Carinformation;
+    },
   },
 };
 </script>

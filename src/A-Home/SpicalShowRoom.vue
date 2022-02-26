@@ -2,7 +2,7 @@
   <div class="SpicalShowRoom">
     <v-container>
       <v-col>
-        <p class="tital mb-2 font-weight-bold text-center">أكثر المعارض شهرةً</p>
+        <p class="tital mb-2 font-weight-bold text-center"> المعارض المتميزة</p>
         <span class="line my-3 mx-auto"></span>
       </v-col>
       <swiper class="swiper" :options="swiperOption">

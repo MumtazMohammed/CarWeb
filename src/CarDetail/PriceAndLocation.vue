@@ -28,7 +28,7 @@
           <VipCard />
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-card flat class="card-ad-num rounded-0">
+          <v-card flat class="card-ad-num ">
             <v-card-text class="ad">
               أعلان : <span>{{ getCarInfo.ad }}</span>
             </v-card-text>
@@ -37,9 +37,6 @@
               رقم : <span>{{ getCarInfo.adNum }}</span></v-card-text
             >
           </v-card>
-        </v-col>
-        <v-col v-if="getCarInfo.Vip == false" cols="12" class="py-0">
-          <CarWarning />
         </v-col>
         <v-col cols="12" class="text-center pt-0 btns">
           <ContacSeller />
@@ -56,14 +53,12 @@
 </template>
 <script>
 import CarData from "../data-json/All-Car.json";
-import CarWarning from "../CarDetail/CarWarning.vue";
 import VipCard from "../CarDetail/VipCard.vue";
 import ContacSeller from "../CarDetail/ContacSeller.vue";
 import ShareAndReport from "../CarDetail/ShareAndReport.vue";
 export default {
   name: "PriceAndLocation",
   components: {
-    CarWarning,
     VipCard,
     ContacSeller,
     ShareAndReport,

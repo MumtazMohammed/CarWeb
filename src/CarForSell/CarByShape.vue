@@ -33,7 +33,7 @@
         >
           <!-- using methods to conect the image to the corect folder   -->
           <v-card
-            :class="CarData.Vip == true ? 'card-vip' : 'card'"
+            :class="CarData.Vip == true ? 'card-verified' : 'card'"
             class="pa-1"
             flat
           >
@@ -43,15 +43,22 @@
             </v-card>
             <v-row>
               <v-col class="" cols="12">
-                <p
-                  v-if="CarData.Vip == true"
-                  class="py-2 ma-0 px-0 text-center top-vip"
-                >
-                  مضمون وريح راسك
-                </p>
-                <p v-else class="py-2 ma-0 px-0 text-center adbywho">
-                  أعلان : {{ CarData.ad }}
-                </p>
+                <!-- verified  -->
+                <div v-if="CarData.Vip == true">
+                  <p class="py-2 ma-0 px-0 text-center top-verified">
+                    <v-icon class="verified-icon white--text">
+                      mdi-check-bold
+                    </v-icon>
+                    موثوق
+                  </p>
+                  <b class="pa-0 text-center verified"> </b>
+                </div>
+                <!-- not verified  -->
+                <div v-else>
+                  <p class="py-2 ma-0 px-0 text-center adbywho">
+                    أعلان : {{ CarData.ad }}
+                  </p>
+                </div>
                 <b class="pa-0 text-center CarNumVip"> </b>
                 <v-img
                   :lazy-src="getimageUrl(CarData.folder, CarData.image)"
@@ -124,7 +131,7 @@
             <v-card-actions class="d-flex justify-center">
               <v-btn
                 block
-                :class="CarData.Vip == true ? 'btn-vip' : 'btn'"
+                :class="CarData.Vip == true ? 'btn-verified' : 'btn'"
                 width="200"
                 :to="{
                   name: 'ViewCar',
@@ -262,57 +269,71 @@ export default {
   }
 }
 
-// featured
-.card-vip {
-  border: 0.1px solid $color-1 !important;
+// verified car card
+.card-verified {
   overflow: hidden;
-  .top-vip {
+  .top-verified {
     font-family: $fontfamliy;
     color: $fontcolorsm;
     letter-spacing: 0;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: bold;
     background: $linear-gradient;
+    border-top-left-radius: 5px;
   }
-  .CarNumVip {
+  .verified {
     position: absolute;
-    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     top: 0;
     right: 0;
     color: $fontcolor;
-    width: 25px;
-    height: 25px;
+    width: 32px;
+    height: 32px;
     text-align: center;
     background-color: #fff;
-    clip-path: circle(50% at 50% 50%);
+    border-radius: 50%;
   }
-  .CarNumVip:before {
+  .verified:after {
     content: "";
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    width: 13px;
-    height: 13px;
-    background-color: #fff;
-    clip-path: circle(50% at 50% 50%);
-    z-index: 2;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    border: 2px solid $color-1;
   }
-  .CarNumVip:after {
+  .verified:before {
     content: "";
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     background-color: $color-1;
-    clip-path: circle(50% at 50% 50%);
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
   }
-  .btn-vip {
+  .verified-icon {
+    font-size: 17px !important;
+    // font-weight: 400;
+    color: #fff;
+  }
+  .btn-verified {
     color: $fontcolorsm;
     font-family: $fontfamliy;
     font-weight: 500;
@@ -322,9 +343,8 @@ export default {
     background: $linear-gradient;
   }
 }
-// No featured
+// not verified car card
 .card {
-  border: 0.5px solid rgba(128, 128, 128, 0.449) !important;
   overflow: hidden;
   .btn {
     color: $fontcolor;
@@ -401,6 +421,8 @@ export default {
   height: 100%;
   @include flexcenter();
   position: absolute;
+  border-radius: 0px !important;
+
   top: 0;
   left: 0;
   z-index: 10;
