@@ -4,7 +4,32 @@
       <router-link router to="/">
         <v-toolbar-title class="NavTitle"> ثــقـة </v-toolbar-title>
       </router-link>
-      <!-- nav link for md screen and up  -->
+      <v-spacer></v-spacer>
+      <!-- search  -->
+      <v-card
+        width="400"
+        color="#424342"
+        flat
+        dark
+        class="hidden-sm-and-down rounded-pill card-search overflow-hidden"
+      >
+        <div class="d-flex">
+          <div class="icon-search">
+            <v-avatar
+              size="25"
+              tile
+              class="icon-search-img"
+              color="transparent"
+            >
+              <img
+                src="../assets/outsrc/steering-wheel.png"
+                alt="../assets/outsrc/steering-wheel.png"
+              />
+            </v-avatar>
+          </div>
+          <SearchCar />
+        </div>
+      </v-card>
       <v-spacer></v-spacer>
       <!-- user Access  -->
       <router-link
@@ -12,6 +37,7 @@
           name: 'TheUserPage',
           params: { UserPage: 'صفحة المستخدم' },
         }"
+        class="hidden-sm-and-down"
       >
         <v-card-actions class="user-box-name">
           <v-card-subtitle class="pa-1 pl-2 user-name"
@@ -53,9 +79,53 @@
           </v-app-bar-nav-icon>
           <StartToSellYourCar />
         </div>
-        <LogingAndSignup />
+        <!-- sign up or sign in  -->
+        <LogingAndSignup class="hidden-screen-only" />
+        <!-- sign in already  -->
+        <router-link
+          :to="{
+            name: 'TheUserPage',
+            params: { UserPage: 'صفحة المستخدم' },
+          }"
+        >
+          <v-card-actions class="user-box-name justify-center mt-3">
+            <v-card-subtitle class="pa-1 pl-2 user-name">
+              mohammed Ameen
+            </v-card-subtitle>
+            <v-avatar size="35" color="transparent">
+              <v-img src="../assets/pp.jpg"></v-img>
+            </v-avatar>
+          </v-card-actions>
+        </router-link>
+        <!--  -->
         <v-divider color="white"></v-divider>
-        <v-list class="pt-0">
+        <!-- btn for payed Add and Open Car store  -->
+        <v-list shaped>
+          <v-card-text class="py-1 link-description">خدماتنا</v-card-text>
+          <v-list-item-group>
+            <v-list-item
+              @click="drawer = false"
+              v-for="(item, i) in Servise"
+              :key="i"
+              dark
+              color="white"
+            >
+              <v-list-item-icon class="icon-list">
+                <v-icon class="nav-icon" right v-text="item.icon"></v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title
+                  class="nav-link-sm pa-2"
+                  v-text="item.text"
+                ></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+        <!--  -->
+        <v-divider color="white"></v-divider>
+        <!-- router Links  -->
+        <v-list shaped class="">
           <v-list-item-group v-model="model" mandatory dark color="white">
             <!-- home Linke  -->
             <v-list-item
@@ -66,7 +136,7 @@
               color="white"
             >
               <v-list-item-icon class="icon-list">
-                <v-icon class="nav-icon" right>fa-home</v-icon>
+                <v-icon class="nav-icon" right>mdi-home-outline</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title class="nav-link-sm pa-2">
@@ -100,7 +170,7 @@
             <v-list-group action>
               <template v-slot:activator>
                 <v-list-item-icon class="icon-list">
-                  <v-icon class="nav-icon" right>fas fa-car</v-icon>
+                  <v-icon class="nav-icon" right>mdi-car-hatchback</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
                   <v-list-item-title class="nav-link-sm pa-2">
@@ -144,7 +214,7 @@
             class="pr-0"
           >
             <v-list-item-icon class="icon-list">
-              <v-icon class="nav-icon" right>fa-headphones-alt</v-icon>
+              <v-icon class="nav-icon" right>mdi-headphones</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title class="nav-link-sm pa-2">
@@ -163,6 +233,7 @@
 import Navlinks from "./NavLinks.vue";
 import LogingAndSignup from "./LogingAndSignup.vue";
 import StartToSellYourCar from "./StartToSellYourCar.vue";
+import SearchCar from "../Search/Category.vue";
 
 export default {
   name: "navbar",
@@ -170,10 +241,15 @@ export default {
     LogingAndSignup,
     Navlinks,
     StartToSellYourCar,
+    SearchCar,
   },
   data: () => ({
     drawer: false,
     model: 1,
+    Servise: [
+      { text: "أفتح معرضك معنا", icon: "mdi-store-cog-outline" },
+      { text: "خلي إعلان سيارتك علينا", icon: "mdi-car-2-plus" },
+    ],
     home: [
       {
         icon: "fa-home",
@@ -209,11 +285,10 @@ export default {
     ],
     items: [
       {
-        icon: "fa-store",
+        icon: "mdi-store-outline",
         text: "المعارض",
         path: "/TheShowRoom",
       },
- 
     ],
   }),
   methods: {
@@ -230,23 +305,24 @@ export default {
 .v-btn--icon.v-size--default .v-icon {
   font-size: 28px !important;
 }
-
+.link-description {
+  font-family: $fontfamliy;
+  color: $fontcolorsm;
+  letter-spacing: 0;
+  font-size: 18px;
+}
 .NavTitle {
   color: $fontcolor;
   font-size: 22px;
   letter-spacing: 0px !important;
-  font-family: "Tajawal", sans-serif;
+  font-family: $fontfamliy;
   font-weight: 500;
   pointer-events: none;
   width: fit-content;
   text-align: start;
   text-decoration: none;
 }
-// @media (max-width: 600px) {
-//   .NavTitle {
-//     width: 30%;
-//   }
-// }
+
 a {
   text-decoration: none;
 }
@@ -260,6 +336,10 @@ a {
 .nav-tablet {
   z-index: 4;
   background: $color-1 !important;
+  .user-name {
+    font-family: $fontfamliy;
+    color: $fontcolorsm !important;
+  }
 }
 .nav-tablet::v-deep .v-navigation-drawer__content {
   height: 100%;
@@ -272,11 +352,11 @@ a {
   padding-right: 0px;
 }
 .nav-link-sm {
-  font-size: 16px;
+  font-size: 14px;
   color: $fontcolorsm;
   font-family: $fontfamliy;
   letter-spacing: 0px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .mutible-link-sm {
   color: $fontcolorsm;
@@ -289,7 +369,7 @@ a {
   margin: 20px 10px 20px 0px !important;
   @include flexcenter();
   .nav-icon {
-    font-size: 22px;
+    font-size: 20px;
     color: $fontcolorsm;
   }
 }
@@ -314,6 +394,32 @@ a {
     font-size: 15px;
     letter-spacing: 0px;
     font-family: $fontfamliy;
+  }
+}
+.icon-search {
+  color: $fontcolorsm !important;
+  background-color: $color-1;
+  height: 44px !important;
+  width: 50px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px !important;
+  transition: color 0.1s ease;
+}
+.card-search:hover .icon-search-img {
+  animation-name: search;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+@keyframes search {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 </style>

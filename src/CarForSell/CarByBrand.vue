@@ -31,10 +31,6 @@
             :class="CarData.Vip == true ? 'card-verified' : 'card'"
             class="pa-1"
           >
-            <!-- booked up -->
-            <v-card v-show="CarData.Token == true" dark class="token">
-              <v-card-text class="pa-2 text"> محجوز </v-card-text>
-            </v-card>
             <v-row>
               <v-col class="" cols="12">
                 <!-- verified  -->
@@ -59,15 +55,22 @@
                   :src="getimageUrl(CarData.folder, CarData.image)"
                   height="170px"
                 >
+                  <!-- discount  -->
                   <v-card
                     v-if="CarData.discount == true"
                     dark
+                    shaped
                     color="success"
                     class="discount"
                   >
                     <v-card-text class="pa-2 text">
-                      خصم <span>{{ CarData.discountAmount }}</span>
+                      <v-icon class="discount-icon">mdi-spa-outline</v-icon>
+                      خصم <span class="mr-1">{{ CarData.discountAmount }}</span>
                     </v-card-text>
+                  </v-card>
+                  <!-- booked up -->
+                  <v-card v-show="CarData.Token == true" dark class="token">
+                    <v-card-text class="pa-2 text"> محجوز... </v-card-text>
                   </v-card>
                 </v-img>
               </v-col>
@@ -397,19 +400,23 @@ export default {
 // discount
 .discount {
   position: absolute;
-  top: 5px;
-  width: 100px;
+  top: 0px;
+  width: auto;
   right: 0px;
-  border-radius: 20px 0px 20px 20px !important;
+  // border-radius: 20px 0px 20px 20px !important;
+  display: flex;
   .text {
     font-family: $fontfamliy;
-    font-size: 16px !important;
+    font-size: 14px !important;
     font-weight: 500;
     span {
-      font-size: 18px !important;
+      font-size: 14px !important;
       font-weight: 500;
-      margin-right: 10px;
     }
+  }
+  .discount-icon {
+    font-size: 16px !important;
+    color: #ffffffb3;
   }
 }
 .oldprice {
@@ -424,9 +431,9 @@ export default {
 .token {
   background-color: rgba(0, 0, 0, 0.653) !important;
   width: 100%;
+  height: 100%;
   border-radius: 0px !important;
 
-  height: 100%;
   @include flexcenter();
   position: absolute;
   top: 0;
@@ -435,13 +442,12 @@ export default {
   cursor: default;
   .text {
     text-align: center;
-    font-size: 55px !important;
-    color: $color-4 !important;
+    font-size: 35px !important;
+    color: $fontcolorsm !important;
     font-family: $fontfamliy;
     font-weight: bold;
     letter-spacing: 0;
     pointer-events: none;
-    transform: rotate(-10deg) !important;
   }
 }
 </style>

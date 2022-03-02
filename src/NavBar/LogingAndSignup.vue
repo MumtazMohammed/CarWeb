@@ -14,7 +14,7 @@
         v-model="dialog"
         persistent
         max-width="700px"
-        max-height="500px"
+        height="200"
         activator="v-dialog"
         class="v-dialog"
         overlay-opacity="0.9"
@@ -217,5 +217,8 @@ export default {
   font-family: $fontfamliy;
   font-size: 15px;
   text-decoration: none !important;
+}
+::v-deep .v-dialog:not(.v-dialog--fullscreen) {
+  max-height: 95%;
 }
 </style>

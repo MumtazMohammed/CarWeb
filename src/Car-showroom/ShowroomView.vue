@@ -3,14 +3,8 @@
     <NavBar />
     <div class="ShowroomView">
       <!-- showroom information  -->
-      <div
-        class="mb-2"
-        :class="
-          getShowRoomInfo.VIP == true
-            ? 'showroom-information-VIP'
-            : 'showroom-information'
-        "
-      >
+      <div class="mb-2 showroom-information">
+        <!--  -->
         <v-container>
           <v-row class="justify-center flex-md-row-reverse flex-lg-row-reverse">
             <v-col cols="12" sm="12" md="8">
@@ -143,50 +137,11 @@ export default {
   letter-spacing: 0 !important;
   padding-bottom: 25px;
 
-  .showroom-information-VIP {
-    background: url("../assets/showroom/VIP/5495486.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: calc(100vh - 135px);
-    padding: $padding;
-    .card-title {
-      font-size: 38px !important;
-      font-weight: bold;
-      color: $fontcolorsm !important;
-      @media (max-width: 500px) {
-        font-size: 25px !important;
-      }
-      @media (max-width: 450px) {
-        font-size: 20px !important;
-      }
-      @media (max-width: 370px) {
-        font-size: 19px !important;
-      }
-    }
-    .card-text {
-      font-size: 17px !important;
-      font-weight: normal !important;
-      color: $color-4 !important;
-    }
-    .card-text-phone-No {
-      font-size: 16px !important;
-      font-weight: 400 !important;
-      color: $color-4 !important;
-    }
-    .card-title-car-count-in-room {
-      font-weight: bold;
-      @media (max-width: 600px) {
-        justify-content: center;
-        font-size: 25px !important;
-      }
-    }
-  }
   .showroom-information {
-    background-color: $color-1;
+    background-color: $color-2;
     min-height: calc(100vh - 135px);
     padding: $padding;
+    position: relative;
     .card-title {
       font-size: 38px !important;
       font-weight: bold;
@@ -233,6 +188,16 @@ export default {
   .container-second {
     @media (min-width: 960px) {
       max-width: 1100px;
+    }
+  }
+  .featured {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    .featured-text {
+      font-family: $fontfamliy;
+      font-size: 16px !important;
     }
   }
 }

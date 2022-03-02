@@ -6,15 +6,14 @@
         <span class="line my-2 mx-auto"></span>
       </v-col>
       <!--  -->
-
       <carousel-3d
         :disable3d="false"
         :clickable="false"
         :animationSpeed="400"
-        :autoplay="fales"
+        :autoplay="false"
         :autoplay-timeout="0"
         :display="5"
-        :space="350"
+        :space="365"
         :inverseScaling="70"
         :perspective="0"
         :width="300"

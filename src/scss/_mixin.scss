@@ -3,3 +3,8 @@
     align-items: center ;
     justify-content: center ; 
 }
+@mixin flexstart() {
+    display: flex ;
+    align-items: center ;
+    justify-content: start ; 
+}

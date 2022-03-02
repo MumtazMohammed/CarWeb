@@ -1,27 +1,27 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// the navigation pages 
+// the navigation pages
 import Home from "../views/TheHome.vue";
 import TheShowRoom from "../views/TheShowRoom.vue";
 import Contact from "../views/TheContact.vue";
-// Car detail And Image 
+// Car detail And Image
 import ViewCar from "../CarDetail/ViewCar.vue";
-// Cars Card 
+// Cars Card
 import UsedCar from "../CarForSell/UsedCar.vue";
 import NewCar from "../CarForSell/NewCar.vue";
 import SeeAllUsedAndNewCars from "../CarForSell/SeeAllUsedAndNewCars.vue";
 import SeeAllSpecialCar from "../CarForSell/SeeAllSpecialCar.vue";
 import CarByBrand from "../CarForSell/CarByBrand.vue";
 import CarByShape from "../CarForSell/CarByShape.vue";
-// SginUp 
+// SginUp
 import SginUp from "../Login/SignUp.vue";
-// Start Ad car Page  
+// Start Ad car Page
 import AboutSellingCarFreeAdd from "../SellCar-Store-Showroom/AboutSellingCarFreeAdd.vue";
 import AboutSellingCarPayAdd from "../SellCar-Store-Showroom/AboutSellingCarPayAdd.vue";
-// Showroom 
+// Showroom
 import AboutShowroom from "../SellCar-Store-Showroom/AboutShowroom.vue";
 import ShowroomView from "../Car-showroom/ShowroomView.vue";
-// User Profile 
+// User Profile
 import TheUserPage from "../UserPage/TheUserPage.vue";
 import UserProfile from "../UserPage/UserProfile.vue";
 import UserAdd from "../UserPage/UserAdd.vue";
@@ -107,36 +107,29 @@ const routes = [
     name: "ShowroomView",
     component: ShowroomView,
   },
-  // User Profile 
+  // User Profile
   {
     path: "/:UserPage",
     name: "TheUserPage",
-    redirect: 'TheUserPage.UserAdd',
+    redirect: "TheUserPage.UserAdd",
     component: TheUserPage,
     children: [
       {
-        
         path: "/:MyAdd",
         name: "TheUserPage.UserAdd",
         component: UserAdd,
-     
       },
       {
-        
         path: "/UserProfile/:Acount",
         name: "UserProfile",
         component: UserProfile,
-     
       },
       {
-        
         path: "/UserSaveAd/:SaveAd",
         name: "UserSaveAd",
         component: UserSaveAd,
-     
       },
-   
-    ]
+    ],
   },
 ];
 

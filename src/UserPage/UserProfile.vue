@@ -36,9 +36,15 @@
             </div>
             <v-divider></v-divider>
 
-            <div class="d-flex align-center">
+            <div
+              class="d-flex align-start justify-start flex-column flex-lg-row flex-md-row flex-sm-row"
+            >
               <v-card-title class="title">البريد الأكترواني : </v-card-title>
-              <p class="pa-4 pr-0 ma-0 email">{{ Email }}</p>
+              <p
+                class="pa-2 pa-lg-4 pa-md-4 pa-sm-4 pr-lg-0 pr-md-0 pr-sm-0 ma-0 email"
+              >
+                {{ Email }}
+              </p>
             </div>
             <v-divider></v-divider>
             <div class="d-flex align-center">
@@ -46,14 +52,27 @@
               <p class="pa-4 pr-0 ma-0">{{ UserPlace }}</p>
             </div>
           </v-card>
-          <v-card-actions>
+          <v-card-actions class="flex-wrap justify-center align-center">
+            <v-btn
+              @click="(currentUserInfo = !currentUserInfo), (edit = !edit)"
+              color="green darken-2"
+              class="user-edit-btn ma-2"
+              width="200"
+            >
+              تعديل الحساب
+
+              <v-spacer></v-spacer>
+              <v-icon>mdi-account-edit-outline</v-icon>
+            </v-btn>
             <v-btn
               @click="(currentUserInfo = !currentUserInfo), (edit = !edit)"
               color="red darken-2"
-              class="user-edit-btn"
+              class="user-edit-btn ma-2"
+              width="200"
             >
-              تعديل الحساب
-              <v-icon left>mdi-account-edit-outline</v-icon>
+              حذف الحساب
+              <v-spacer></v-spacer>
+              <v-icon>mdi-delete-circle-outline</v-icon>
             </v-btn>
           </v-card-actions>
         </v-col>

@@ -27,7 +27,7 @@
           <v-card
             v-bind:class="{
               'card-verified': CarData.Vip == true,
-              'card': CarData.Vip == false,
+              card: CarData.Vip == false,
             }"
             class="pa-1"
           >
@@ -407,6 +407,7 @@ export default {
   }
   .discount-icon {
     font-size: 16px !important;
+    color: #ffffffb3;
   }
 }
 .oldprice {

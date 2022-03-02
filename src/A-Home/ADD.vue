@@ -150,7 +150,7 @@ export default {
     background-color: $color-1;
     display: block;
     @media (max-width: 350px) {
-    width: 70px;
+      width: 70px;
     }
   }
   // Showroom class

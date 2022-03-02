@@ -19,7 +19,7 @@
           من الساعة 9 صباحاً حتى 5 مساءً, الجمعة من 1 مساءً الى 5 مساءً .
         </v-card-text>
         <v-card-actions class="justify-center">
-          <v-btn outlined  large  dark class="contact-btn">
+          <v-btn outlined large dark class="contact-btn">
             <v-avatar class="ml-1" size="20" tile color="transparent">
               <img src="../assets/social/whatsapp.png" alt="alt" />
             </v-avatar>

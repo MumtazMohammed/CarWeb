@@ -34,7 +34,11 @@
               </div>
             </v-col>
             <v-col class="my-auto" cols="12" sm="4" md="4">
-              <v-card class="d-flex flex-md-column flex-sm-column flex-lg-column justify-center" flat color="transparent">
+              <v-card
+                class="d-flex flex-md-column flex-sm-column flex-lg-column justify-center"
+                flat
+                color="transparent"
+              >
                 <v-card-subtitle class="text-end px-2 py-1">
                   06516541561
                 </v-card-subtitle>

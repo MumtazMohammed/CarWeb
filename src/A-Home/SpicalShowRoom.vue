@@ -2,7 +2,7 @@
   <div class="SpicalShowRoom">
     <v-container>
       <v-col>
-        <p class="tital mb-2 font-weight-bold text-center"> المعارض المتميزة</p>
+        <p class="tital mb-2 font-weight-bold text-center">المعارض المتميزة</p>
         <span class="line my-3 mx-auto"></span>
       </v-col>
       <swiper class="swiper" :options="swiperOption">
@@ -135,23 +135,6 @@ export default {
       let image = require.context("@/assets/");
       return image("./" + FolderName + "/" + ImageName);
     },
-
-    onSetTranslate() {
-      console.log("onSetTranslate");
-    },
-    onSwiperSlideChangeTransitionStart() {
-      console.log("onSwiperSlideChangeTransitionStart");
-    },
-    onSwiperClickSlide(index, reallyIndex) {
-      console.log("Swiper click slide!", reallyIndex);
-    },
-  },
-  mounted() {
-    console.log(
-      "Swiper instances:",
-      this.$refs.swiperComponent.$swiper,
-      this.swiper
-    );
   },
 };
 </script>

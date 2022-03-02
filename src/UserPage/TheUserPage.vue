@@ -1,7 +1,7 @@
 <template>
   <v-app class="TheUserPage">
     <NavigationUser />
-      <router-view />
+    <router-view />
   </v-app>
 </template>
 <script>
@@ -21,6 +21,5 @@ export default {
   width: 100%;
   min-height: auto;
   background-color: $color-background;
-
 }
 </style>

@@ -37,7 +37,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  // background: $linear-gradient;
+  background: $color-background;
   .header-tital {
     letter-spacing: 0;
     font-family: $fontfamliy;

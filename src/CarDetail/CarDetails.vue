@@ -32,7 +32,8 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right>mdi-shape-outline</v-icon
+              <v-icon class="grey--text text--lighten-1" right
+                >mdi-shape-outline</v-icon
               >
               الـفئة : <b class="pa-0">{{ getCarInfo.type }}</b></v-card-text
             >

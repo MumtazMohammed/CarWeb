@@ -1,5 +1,5 @@
 <template>
-  <div class="car-Image mt-4">
+  <div class="car-Image">
     <v-row class="justify-space-around">
       <!-- car image  -->
       <v-col xs="12" sm="12" md="6" class="grey lighten-3">

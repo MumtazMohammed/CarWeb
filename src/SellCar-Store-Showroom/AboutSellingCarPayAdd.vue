@@ -36,7 +36,12 @@
                 data-aos-once="true"
                 class="mt-5 btn justify-center"
               >
-                <v-btn elevation="0" x-large color="#F67280" class="white--text btn pa-4">
+                <v-btn
+                  elevation="0"
+                  x-large
+                  color="#F67280"
+                  class="white--text btn pa-4"
+                >
                   أعرض سيارتك الأن
                 </v-btn>
               </v-card-actions>
@@ -78,7 +83,8 @@
                   lazy-src="../assets/VIP-SellCar-ShowRoom-Store/undraw_my_app_re_gxtj.svg"
                 ></v-img>
                 <p class="my-8">
-                  سيتم عرض سيارتك في  الصفحة الرئيسية والصفحات الأولى  على البحث على آلاف المشترين في اليمن
+                  سيتم عرض سيارتك في الصفحة الرئيسية والصفحات الأولى على البحث
+                  على آلاف المشترين في اليمن
                 </p>
               </v-card>
             </v-col>
@@ -176,7 +182,7 @@
                   src="../assets/VIP-SellCar-ShowRoom-Store/undraw_credit_card_re_blml.svg"
                   lazy-src="../assets/VIP-SellCar-ShowRoom-Store/undraw_credit_card_re_blml.svg"
                 ></v-img>
-                <p class="my-8"> رسوم الأعلان 20$ </p>
+                <p class="my-8">رسوم الأعلان 20$</p>
               </v-card>
             </v-col>
             <v-col

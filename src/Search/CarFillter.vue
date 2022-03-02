@@ -1,12 +1,7 @@
 <template>
   <div class="CarFillter">
     <v-row class="justify-space-between">
-      <v-col
-        cols="12"
-        md="5"
-        sm="6"
-        class="card-actions "
-      >
+      <v-col cols="12" md="5" sm="6" class="card-actions">
         <v-card-actions class="justify-center pa-0">
           <v-btn
             elevation="0"

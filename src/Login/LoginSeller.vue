@@ -2,56 +2,58 @@
   <div class="LoginSeller">
     <v-container>
       <v-row justify="center">
-        <v-col cols="12"  class="container-col pt-0">
+        <v-col cols="12" class="container-col pt-0">
           <v-card flat>
             <v-col cols="12" class="text-center pb-0">
               <v-avatar size="100px" tile>
                 <v-img src="../assets/manager.png"> </v-img>
               </v-avatar>
             </v-col>
-            <v-col cols="12">
-              <v-text-field
-                v-model="firstname"
-                label=" الرقم التعريفي"
-                required
-                hide-details
-                outlined
-                class="red--text field"
-                append-icon="far fa-user"
-              ></v-text-field>
-            </v-col>
-            <v-col cols="12" class="pb-0">
-              <v-text-field
-                :append-icon="show2 ? 'fas fa-eye ' : 'fas fa-eye-slash'"
-                :rules="[rules.required, rules.min]"
-                :type="show2 ? 'text' : 'password'"
-                name="input-10-2"
-                label="كلمة المرور"
-                class="input-group--focused font-weight-regular field"
-                @click:append="show2 = !show2"
-                outlined
-                required
-              >
-              </v-text-field>
-            </v-col>
-            <v-col cols="12" class="pa-0">
-              <v-card-actions class="justify-center">
-                <v-btn
-                  dark
-                  color="#0881fa"
-                  elevation="0"
-                  min-width="50%"
-                  class="submet"
+            <v-form>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="firstname"
+                  label=" الرقم التعريفي"
+                  required
+                  hide-details
+                  outlined
+                  class="red--text field"
+                  append-icon="far fa-user"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" class="pb-0">
+                <v-text-field
+                  :append-icon="show2 ? 'fas fa-eye ' : 'fas fa-eye-slash'"
+                  :rules="[rules.required, rules.min]"
+                  :type="show2 ? 'text' : 'password'"
+                  name="input-10-2"
+                  label="كلمة المرور"
+                  class="input-group--focused font-weight-regular field"
+                  @click:append="show2 = !show2"
+                  outlined
+                  required
                 >
-                  تـسجيل الدخول</v-btn
-                >
-              </v-card-actions>
-            </v-col>
-            <v-col cols="12" class="pa-2 d-flex justify-center">
-              <v-card-actions class="pa-0">
-                <a class="forget">هل نسيت كلمة المرور</a>
-              </v-card-actions>
-            </v-col>
+                </v-text-field>
+              </v-col>
+              <v-col cols="12" class="pa-0">
+                <v-card-actions class="justify-center">
+                  <v-btn
+                    dark
+                    color="#0881fa"
+                    elevation="0"
+                    min-width="50%"
+                    class="submet"
+                  >
+                    تـسجيل الدخول</v-btn
+                  >
+                </v-card-actions>
+              </v-col>
+              <v-col cols="12" class="pa-2 d-flex justify-center">
+                <v-card-actions class="pa-0">
+                  <a class="forget">هل نسيت كلمة المرور</a>
+                </v-card-actions>
+              </v-col>
+            </v-form>
           </v-card>
         </v-col>
       </v-row>

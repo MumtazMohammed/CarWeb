@@ -54,7 +54,7 @@ export default {
   width: 100%;
   min-height: 100vh;
 }
-.v-footer{
-    display: none !important;
+.v-footer {
+  display: none !important;
 }
 </style>

@@ -1,43 +1,9 @@
 <template>
-  <!-- this component will be under the image  -->
   <div class="ContactSeller">
     <v-row>
       <v-col cols="12" class="text-center btns">
         <v-card flat class="pa-5 btn-box">
-          <!-- owner  -->
-          <!-- <v-btn
-            width="120"
-            color=""
-            outlined
-            class="grey darken-2 btns-contact"
-            @click.stop="owner = true"
-          >
-            معلومات
-          </v-btn>
-          <v-snackbar
-            height="200px"
-            min-width="200"
-            width="500"
-            centered
-            v-model="owner"
-            :vertical="vertical"
-          >
-            <div class="v-snack__content pa-0">owner</div>
-
-            <template v-slot:action="{ attrs }">
-              <v-btn
-                color="white"
-                icon
-                v-bind="attrs"
-                @click="owner = false"
-                class="snackbar-close-owner"
-              >
-                <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
-              </v-btn>
-            </template>
-          </v-snackbar> -->
-          <!-- -------------------------------------- -->
-          <!-- whatsapp  -->
+          <!-- whatsaap  -->
           <v-btn
             outlined
             width="120"
@@ -47,10 +13,15 @@
             وتس اب
           </v-btn>
           <v-snackbar
+            elevation="16"
+            text
+            outlined
+            shaped
             v-model="whatsapp"
             height="150px"
             width="350"
             min-width="200"
+            transition="slide-x-transition"
             centered
             :vertical="vertical"
             color="success"
@@ -58,7 +29,7 @@
             <div class="v-snack__content pa-0">whatsaap</div>
             <template class="snackbar-close" v-slot:action="{ attrs }">
               <v-btn
-                color="white"
+                color="success"
                 icon
                 v-bind="attrs"
                 @click="whatsapp = false"
@@ -67,7 +38,7 @@
                 <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
               </v-btn>
               <v-btn
-                color="white"
+                color="success"
                 icon
                 v-bind="attrs"
                 @click="whatsapp = false"
@@ -77,7 +48,6 @@
               </v-btn>
             </template>
           </v-snackbar>
-          <!-- -------------------------------------- -->
           <!-- telephone  -->
           <v-btn
             outlined
@@ -88,6 +58,11 @@
             هاتف
           </v-btn>
           <v-snackbar
+            elevation="16"
+            text
+            shaped
+            transition="slide-x-transition"
+            outlined
             height="150px"
             width="350"
             min-width="200"
@@ -99,7 +74,7 @@
             <div class="v-snack__content pa-0">call</div>
             <template v-slot:action="{ attrs }">
               <v-btn
-                color="white"
+                color="primary"
                 icon
                 v-bind="attrs"
                 @click="call = false"
@@ -108,7 +83,7 @@
                 <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
               </v-btn>
               <v-btn
-                color="white"
+                color="primary"
                 icon
                 v-bind="attrs"
                 @click="call = false"
@@ -118,49 +93,6 @@
               </v-btn>
             </template>
           </v-snackbar>
-          <!-- -------------------------------------- -->
-          <!-- mail  -->
-          <!-- <v-btn
-            width="120"
-            outlined
-            class="red btns-contact"
-            @click.stop="gmail = true"
-          >
-            البريد الأكترواني
-          </v-btn>
-
-          <v-snackbar
-            width="350"
-            height="150px"
-            min-width="200"
-            centered
-            v-model="gmail"
-            :vertical="vertical"
-            color="red"
-          >
-            <div class="v-snack__content pa-0">gmail</div>
-
-            <template v-slot:action="{ attrs }">
-              <v-btn
-                color="white"
-                icon
-                v-bind="attrs"
-                @click="gmail = false"
-                class="snackbar-close"
-              >
-                <v-icon class="snackbar-close"> far fa-times-circle </v-icon>
-              </v-btn>
-              <v-btn
-                color="white"
-                icon
-                v-bind="attrs"
-                @click="gmail = false"
-                class="snackbar-copy"
-              >
-                <v-icon class="snackbar-copy"> far fa-copy</v-icon>
-              </v-btn>
-            </template>
-          </v-snackbar> -->
         </v-card>
       </v-col>
     </v-row>
@@ -169,13 +101,13 @@
 <script>
 export default {
   name: "ContactSeller",
-
   data() {
     return {
       call: false,
       gmail: false,
       whatsapp: false,
       owner: false,
+      vertical: false,
     };
   },
 };
@@ -207,23 +139,24 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 5px;
+  margin: 1px;
 }
 .snackbar-close-owner {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 5px;
+  margin: 1px;
 }
 .snackbar-copy {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 5px;
+  margin: 1px;
 }
 .v-snack__content {
   text-align: center !important;
   font-size: 24px;
   font-family: $fontfamliy;
+  justify-content: center;
 }
 </style>

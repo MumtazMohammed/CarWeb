@@ -13,14 +13,27 @@
       <v-divider></v-divider>
       <v-row class="mt-2">
         <!-- price  -->
-        <v-col cols="6">
-          <h5 class="h5 pr-2">الـسعر *</h5>
-          <h2 class="text-center green--text">{{ getCarInfo.payment }}</h2>
+        <v-col cols="4" md="4">
+          <h5 class="pr-2 car-place-price-titles">الـسعر *</h5>
+          <h2 class="text-center green--text pt-1 car-place-price-text">
+            {{ getCarInfo.payment }}
+          </h2>
+        </v-col>
+        <!-- price Instalment  -->
+        <v-col v-if="getCarInfo.Instalment" cols="4" md="4">
+          <h5 class="pr-2 car-place-price-titles">شهرياً *</h5>
+          <h2 class="text-center green--text pt-1 car-place-price-text">
+            {{ getCarInfo.Instalment }}
+          </h2>
         </v-col>
         <!-- place -->
-        <v-col cols="6">
-          <h5 class="h5 pr-2">الـمنطقة *</h5>
-          <h2 class="text-center cartital">{{ getCarInfo.location }}</h2>
+        <v-col cols="4" md="4">
+          <h5 class="pr-2 car-place-price-titles">الـمنطقة *</h5>
+          <h2
+            class="text-center grey--text text--darken-1 pt-1 car-place-price-text"
+          >
+            {{ getCarInfo.location }}
+          </h2>
         </v-col>
       </v-row>
       <v-row>
@@ -28,7 +41,7 @@
           <VipCard />
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-card flat class="card-ad-num ">
+          <v-card flat class="card-ad-num">
             <v-card-text class="ad">
               أعلان : <span>{{ getCarInfo.ad }}</span>
             </v-card-text>
@@ -113,6 +126,16 @@ export default {
   font-weight: 500;
   text-align: center;
   letter-spacing: 0 !important;
+}
+.car-place-price-titles {
+  font-family: $fontfamliy !important;
+  font-weight: bold;
+  font-size: 18px;
+}
+.car-place-price-text {
+  font-family: $fontfamliy !important;
+  font-weight: bold;
+  font-size: 18px;
 }
 .ad {
   font-family: $fontfamliy !important;

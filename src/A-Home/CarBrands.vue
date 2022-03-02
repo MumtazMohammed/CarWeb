@@ -122,6 +122,5 @@ export default {
   border-bottom-right-radius: 5px;
   background: $color-1;
   display: block;
-
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <v-footer dark padless color="#424342 ">
+    <v-footer dark padless color="#f8f9fa ">
       <v-container>
         <v-card flat color="transparent" tile class="">
           <v-row class="justify-center">
@@ -20,6 +20,7 @@
                 شركة ثـقــة هي أول منصة متكاملة للتجارة الإلكترونية للسيارات في
                 اليمن .
               </v-card-text>
+              <v-divider class="my-2"></v-divider>
               <v-card-text class="text-center trust-text mb-2">
                 ثقتكم هي أولويتنا
               </v-card-text>
@@ -27,12 +28,14 @@
             </v-col>
           </v-row>
           <v-row class="justify-center">
-            <v-col cols="12" sm="11" md="8" class="pt-0">
+            <v-col cols="12" sm="12" md="12" class="pt-0">
               <v-tabs
                 class="justify-center"
                 next-icon="mdi-chevron-right"
                 prev-icon="mdi-chevron-left"
                 show-arrows
+                grow
+                optional
                 background-color="transparent"
                 color="primary"
               >
@@ -92,7 +95,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .footer {
-  border-top: 4px solid #0881fa !important;
+  border-top: 2px solid #0881fa !important;
   background-color: #fff !important;
 }
 .brand-logo {
@@ -119,7 +122,7 @@ export default {
   font-family: $fontfamliy;
   font-size: 26px;
   font-weight: bold;
-  color: $color-4;
+  color: $fontcolorlinks;
   @media (max-width: 650px) {
     font-size: 23px;
   }
@@ -132,7 +135,7 @@ export default {
   font-family: $fontfamliy;
   font-size: 15px !important;
   font-weight: bold !important;
-  // color: rgb(78, 78, 78) !important;
+  color: rgb(78, 78, 78) !important;
 }
 .brand-Privacy {
   letter-spacing: 0px;
@@ -140,19 +143,22 @@ export default {
   font-size: 14px;
   display: flex;
   font-weight: 400;
-  color: $fontcolorsm !important;
+  color: $color-1 !important;
 }
 ::v-deep .v-slide-group__content.v-tabs-bar__content {
   justify-content: center;
 }
 .line {
   width: 50px;
-  height: 5px;
+  height: 3px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   background-color: $color-1;
   display: block;
+}
+::v-deep .theme--dark.v-icon {
+  color: #0881fa;
 }
 </style>

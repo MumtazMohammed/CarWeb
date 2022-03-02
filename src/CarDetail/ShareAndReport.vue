@@ -167,9 +167,7 @@
         large
         elevation="0"
         color="transparent"
-        v-bind="attrs"
-        v-on="on"
-        @click="favorite = !favorite"
+        @click="(favorite = !favorite), ToFavorite"
         v-on:click="AddCarToFavorite(getCarInfo)"
       >
         <v-icon :class="favorite == true ? 'favorite' : ' '" right>
@@ -182,10 +180,12 @@
 </template>
 <script>
 import CarData from "../data-json/All-Car.json";
+import { bus } from "../main";
 export default {
   name: "share",
   data() {
     return {
+      itemes: [],
       favorite: false,
       GetCarData: CarData,
       carName: this.$route.params.carName,
@@ -193,8 +193,12 @@ export default {
     };
   },
   methods: {
-    AddCarToFavorite(getCarInfo) {
-      console.log(getCarInfo);
+    AddCarToFavorite(GetCarData) {
+      this.itemes.push(GetCarData);
+      console.log(GetCarData);
+    },
+    ToFavorite: function () {
+      bus.$emit("MyFavorites", this.itemes);
     },
   },
   computed: {

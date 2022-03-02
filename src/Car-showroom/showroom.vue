@@ -10,8 +10,23 @@
                 flat
                 class="d-flex card-if-you-have-showroom rounded-0 py-2"
               >
+                <v-card-actions class="btn-box-if-you-have-showroom pa-4 pt-0">
+                  <v-card-title class="title-if-you-have-showroom">
+                    هل أنت صاحب معرض؟
+                  </v-card-title>
+                  <v-btn
+                    to="/AboutShowroom"
+                    large
+                    color="transparent"
+                    class="btn-if-you-have-showroom"
+                  >
+                    سجل معرضك معنا
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+              <v-card color="#0881fa" class="pa-1 search">
                 <!-- search for showroom -->
-                <v-card-actions class="search">
+                <v-card-actions>
                   <v-autocomplete
                     v-model="select"
                     :loading="loading"
@@ -22,26 +37,10 @@
                     hide-no-data
                     hide-details
                     label="أبحث عن معرض ؟"
-                    solo-inverted
+                    solo
                     large
                   ></v-autocomplete>
                   <v-icon class="search-icon pa-3" large>mdi-magnify</v-icon>
-                </v-card-actions>
-
-                <!-- <v-spacer></v-spacer> -->
-                <v-card-actions class="btn-box-if-you-have-showroom pa-4 pt-0">
-                  <v-card-title class="title-if-you-have-showroom">
-                    هل أنت صاحب معرض؟
-                  </v-card-title>
-                  <!-- <v-spacer></v-spacer> -->
-                  <v-btn
-                    to="/AboutShowroom"
-                    outlined
-                    large
-                    class="btn-if-you-have-showroom"
-                  >
-                    سجل معرضك معنا
-                  </v-btn>
                 </v-card-actions>
               </v-card>
             </v-col>
@@ -49,8 +48,8 @@
         </v-col>
       </v-row>
       <!-- search  -->
-      <v-row class="mt-1">
-        <v-col cols="12" sm="6" md="4" class="py-1">
+      <v-row class="">
+        <v-col cols="12" sm="6" md="4" class="">
           <v-card color="" outlined flat class="d-flex align-center pa-0">
             <v-card-text class="place-text pa-0 pr-2">عرض حسب </v-card-text>
             <v-select
@@ -80,7 +79,6 @@
           class="pa-2 showroom-box-col"
         >
           <v-card
-            flat
             router
             :to="{
               name: 'ShowroomView',
@@ -106,9 +104,11 @@
                 flat
                 shaped
                 v-if="showroom.VIP == true"
-                class="Featured-card   rounded-bl-0 rounded-tr-0"
+                class="Featured-card rounded-bl-0 rounded-tr-0"
               >
-                <v-card-text class="white--text text-center Featured-text py-1 px-2">
+                <v-card-text
+                  class="white--text text-center Featured-text py-1 px-2"
+                >
                   متميز
                 </v-card-text>
               </v-card>
@@ -245,6 +245,7 @@ export default {
   min-height: calc(100vh - 150px);
   // padding: $padding;
   padding-bottom: 25px;
+  background-color: $color-background;
 
   .showroom-box-col {
     @media (max-width: 600px) {
@@ -293,7 +294,7 @@ export default {
   .showroom {
     cursor: pointer;
     overflow: hidden;
-    background-color: $simplebackground;
+    background-color: #fff;
     transition: all 0.2s ease !important;
     .title {
       font-family: $fontfamliy !important;
@@ -383,8 +384,6 @@ export default {
     margin: 0 auto;
     height: auto;
     width: 50%;
-    border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
     @media (max-width: 600px) {
       width: 100%;
     }
@@ -393,9 +392,9 @@ export default {
       height: 48px;
       font-size: 24px !important;
       margin-bottom: 2px;
-      background-color: $color-1;
+      background-color: #fff;
       border-radius: 4px 0 0 4px;
-      color: $fontcolorsm;
+      color: $color-1;
     }
   }
   .v-text-field::v-deep .v-label.theme--light {

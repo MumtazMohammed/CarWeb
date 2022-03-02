@@ -1,6 +1,6 @@
 <template>
   <div class="navlinks-box">
-    <v-row>
+    <v-row class="mb-1 hidden-sm-and-down">
       <v-col
         class="d-flex align-center justify-md-center py-md-0 py-sm-0 py-2"
         cols="12"
@@ -40,14 +40,16 @@
             </v-list-item>
             <!-- used or new or all  -->
             <v-menu
+              offset-overflow
+              dark
               bottom
               nudge-top="0"
-              open-on-click
+              open-on-hover
               close-delay="150"
               origin="center center"
               offset-y
               transition="scale-transition"
-              style="z-index: 20;"
+              style="z-index: 20"
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-list>
@@ -77,11 +79,9 @@
                   class="mb-1 mutible-link-list-item"
                   active-class="singl-link "
                 >
-                  <v-list-item-icon class="icon-list ml-1">
-                    <v-avatar size="25px" tile color="transparent">
-                      <v-img :src="getimageUrl(item.folder, item.src)"></v-img>
-                    </v-avatar>
-                  </v-list-item-icon>
+                  <v-list-item-avatar size="20" class="icon-list ml-1">
+                    <v-img :src="getimageUrl(item.folder, item.src)"></v-img>
+                  </v-list-item-avatar>
                   <v-list-item-content class="pa-1">
                     <v-list-item-title class="item-title">
                       {{ item.title }}
@@ -107,10 +107,29 @@
           </v-list>
           <!--  -->
         </v-toolbar-items>
-        <!-- search  -->
-        <SearchCar />
       </v-col>
     </v-row>
+    <!-- search btn  -->
+
+    <v-card
+      width="200"
+      color="#424342"
+      flat
+      class="card-search overflow-hidden hidden-md-and-up rounded-b-0 rounded-tr-sm rounded-tl-pill toolbar"
+    >
+      <v-card-actions class="pa-0">
+        <div class="icon-search">
+          <v-avatar size="25" tile class="icon-search-img" color="transparent">
+            <img
+              src="../assets/outsrc/steering-wheel.png"
+              alt="../assets/outsrc/steering-wheel.png"
+            />
+          </v-avatar>
+        </div>
+        <SearchCar />
+      </v-card-actions>
+    </v-card>
+    <!--  -->
   </div>
 </template>
 <script>
@@ -199,11 +218,14 @@ export default {
   z-index: 1;
   overflow: hidden;
   @include flexcenter();
-
+  @media (max-width: 960px) {
+    justify-content: start;
+    padding: 5px 0 0 0;
+  }
   .nav-link {
     color: $fontcolorlinks;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     font-family: $fontfamliy;
     letter-spacing: 0;
     height: 30px;
@@ -235,12 +257,12 @@ export default {
 .active:before {
   content: "";
   position: absolute;
-  width: 30%;
-  height: 5px;
+  width: 40%;
+  height: 3px;
   left: 0% !important;
   top: 56px;
   background: $color-1;
-  transform: translate(-119%, 0%);
+  transform: translate(-74%, 0%);
   opacity: 1 !important;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -253,19 +275,19 @@ export default {
 }
 .item-title {
   font-family: $fontfamliy;
-  color: $fontcolorlinks;
   font-weight: 600;
   font-size: 14px;
+  color: #afafaf;
 }
 
 .item-title:active {
-  color: #fff;
+  color: #fff !important;
   z-index: 5;
   position: relative;
 }
+
 .CarforSell-link::v-deep .theme--light.v-list-item--active:before {
   opacity: 1;
-  background-color: $color-1 !important;
 }
 .menu-icon {
   font-size: 15px !important;
@@ -276,13 +298,46 @@ export default {
   position: relative;
   z-index: 5;
 }
-.CarforSell-link::v-deep .v-list-item {
-  min-height: 30px !important;
-}
+// .CarforSell-link::v-deep .v-list-item {
+//   min-height: 30px !important;
+// }
 .haraj::v-deep.theme--light.v-list-item:hover:before {
   opacity: 0;
 }
 .haraj::v-deep.theme--light.v-list-item:focus:before {
   opacity: 0;
+}
+.CarforSell-link::v-deep.v-list .v-list-item--active {
+  color: #fff;
+}
+.toolbar::v-deep .v-toolbar__content {
+  padding-right: 3px;
+}
+// search for car btn
+.icon-search {
+  color: $fontcolorsm !important;
+  background-color: $color-1;
+  height: 44px !important;
+  width: 50px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px !important;
+  transition: color 0.1s ease;
+}
+.card-search:hover .icon-search-img {
+  animation-name: search;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+@keyframes search {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>

@@ -5,7 +5,12 @@
       <v-row v-if="Ishidden == true">
         <v-col cols="12">
           <v-card-actions>
-            <v-btn color="#0881fa" elevation="0" class="AddCardBtn">
+            <v-btn
+              @click="(isEditing = true), (Ishidden = false)"
+              color="#0881fa"
+              elevation="0"
+              class="AddCardBtn"
+            >
               إضافة إعلان
               <v-icon left>mdi-plus</v-icon>
             </v-btn>
@@ -14,68 +19,88 @@
       </v-row>
       <v-row v-if="Ishidden == true">
         <v-col cols="12">
-          <v-card-title class="title"> إعلاناتي... </v-card-title>
+          <v-card-title class="title grey--text text--darken-2">
+            إعلاناتي...
+          </v-card-title>
         </v-col>
       </v-row>
+      <!-- car card  -->
       <v-row v-if="Ishidden == true">
-        <v-col cols="12" sm="5" md="4">
-          <!-- <v-card-title
-            v-if="(deletePost == false, isEdit == false)"
-            class="title"
-            >لا يوجد أي أعلان لديك حتى الأن</v-card-title
-          > -->
-          <v-card v-show="deletePost">
-            <v-card-actions class="justify-center">
-              <v-avatar size="160" color="blue">
-                <img
-                  contain
-                  src="../assets/Mazda/mazda1.jpg"
-                  alt="../assets/Hyundai/image2.jpg"
-                />
-              </v-avatar>
-            </v-card-actions>
-            <v-card-title class="title">مـازدا مازدا3</v-card-title>
-            <v-card-actions>
-              <span width="50" class="white--text green rounded-pill pa-1"
-                >$35,000</span
-              >
-              <v-spacer></v-spacer>
-              <v-btn
-                @click="(isEditing = true), (Ishidden = false)"
-                dark
-                icon
-                class="primary"
-              >
-                <v-icon>mdi-pencil</v-icon>
-              </v-btn>
-              <v-btn @click="snackbar = true" icon dark class="red">
-                <v-icon>mdi-close</v-icon>
-              </v-btn>
-            </v-card-actions>
-            <!--********** if user sure to delete the post  **************-->
-            <v-snackbar min-width="220" class="title" v-model="snackbar" centered>
-              {{ text }}
-              <template v-slot:action="{ attrs }">
+        <v-col cols="12" md="4" sm="6">
+          <!-- some info about the car -->
+          <v-card flat color="grey darken-3" shaped v-show="deletePost">
+            <!-- edit btn and delete btn  -->
+            <v-card-actions class="justify-space-between">
+              <div>
                 <v-btn
-                  color="green"
-                  v-bind="attrs"
+                  @click="(isEditing = true), (Ishidden = false)"
+                  dark
                   icon
-                  @click="(snackbar = false), (deletePost = false)"
+                  class="primary mx-1"
                 >
-                  <v-icon>mdi-check-bold</v-icon>
+                  <v-icon>mdi-pencil</v-icon>
                 </v-btn>
-                <v-btn
-                  color="red"
-                  class="mr-1"
-                  icon
-                  v-bind="attrs"
-                  @click="snackbar = false"
-                >
+                <v-btn @click="snackbar = true" icon dark class="red mx-1">
                   <v-icon>mdi-close</v-icon>
                 </v-btn>
-              </template>
-            </v-snackbar>
+              </div>
+              <div>
+                <v-card-subtitle class="py-1 grey--text">
+                  14 / 10 / 2020
+                </v-card-subtitle>
+                <v-card-subtitle width="50" class="grey--text pa-0 text-center">
+                  <v-icon right class="grey--text">mdi-eye-outline</v-icon>
+                  12
+                </v-card-subtitle>
+              </div>
+            </v-card-actions>
+            <!--  -->
+            <div class="d-flex flex-no-wrap justify-space-between">
+              <div class="d-flex flex-column justify-space-between">
+                <v-card-title class="title">مـازدا مازدا3</v-card-title>
+                <v-card-title width="50" class="green--text">
+                  $35,000
+                </v-card-title>
+              </div>
+              <div>
+                <!--********** snackbar for the user if user sure to delete the post  **************-->
+                <v-snackbar
+                  min-width="220"
+                  class="title"
+                  v-model="snackbar"
+                  centered
+                  absolute
+                  color="red"
+                >
+                  {{ text }}
+                  <template v-slot:action="{ attrs }">
+                    <v-btn
+                      v-bind="attrs"
+                      icon
+                      @click="(snackbar = false), (deletePost = false)"
+                    >
+                      <v-icon>mdi-check-bold</v-icon>
+                    </v-btn>
+                    <v-btn
+                      class="mr-1"
+                      icon
+                      v-bind="attrs"
+                      @click="snackbar = false"
+                    >
+                      <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                  </template>
+                </v-snackbar>
+              </div>
+              <v-avatar class="ma-3" size="125" tile>
+                <v-img
+                  src="../assets/Mazda/mazda1.jpg"
+                  alt="../assets/Hyundai/image2.jpg"
+                ></v-img>
+              </v-avatar>
+            </div>
           </v-card>
+          <!--  -->
         </v-col>
       </v-row>
       <!--****************** edit post  ***************-->
@@ -132,6 +157,7 @@ export default {
   .title {
     font-family: $fontfamliy !important;
     letter-spacing: 0;
+    color: $fontcolorsm;
   }
   .btn {
     font-family: $fontfamliy !important;

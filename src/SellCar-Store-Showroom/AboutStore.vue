@@ -46,7 +46,7 @@
         <v-container>
           <v-row class="justify-center">
             <v-col cols="12" class="">
-              <h1>ليش فتح متجرك لدينا  هو الأفضل لك؟</h1>
+              <h1>ليش فتح متجرك لدينا هو الأفضل لك؟</h1>
             </v-col>
             <v-col cols="12" class="d-flex justify-center mb-6">
               <span class="line"></span>
@@ -323,7 +323,7 @@ export default {
       margin-top: 15px;
       text-align: center;
       height: 70px;
-      
+
       margin-bottom: 0px !important;
       @media (max-width: 650px) {
         font-size: 13px;

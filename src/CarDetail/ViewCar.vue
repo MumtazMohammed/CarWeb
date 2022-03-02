@@ -2,7 +2,7 @@
   <div class="car-reviw">
     <NavBar />
     <div class="car-reviw">
-      <v-container class="mt-6">
+      <v-container>
         <v-row>
           <v-col cols="12" class="CarImage"> <CarImage /> </v-col>
           <!-- <v-col cols="12" class="CarImage"><Desgin /> </v-col> -->

@@ -3,12 +3,11 @@
     <v-btn
       router
       to="/AboutSellingCarFreeAdd"
-      rounded
       elevation="0"
       color="white"
       class="sell"
     >
-      أعرض سيارتك
+      أعرض سيارتك مجاناً
     </v-btn>
   </div>
 </template>
@@ -31,7 +30,7 @@ export default {
   .sell {
     font-family: $fontfamliy;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 0;
     color: $color-2;
   }

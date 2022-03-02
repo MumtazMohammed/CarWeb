@@ -11,7 +11,7 @@
         <!-- <v-col cols="12" class=""> -->
 
         <v-col cols="12" md="7" sm="8" class="">
-          <v-card class="d-flex align-center card-whatsaap">
+          <v-card flat class="d-flex align-center card-whatsaap">
             <v-avatar tile size="30" class="mr-2" color="white">
               <img src="../assets/social/whatsapp.png" />
             </v-avatar>
@@ -25,7 +25,7 @@
           </v-card>
         </v-col>
         <v-col cols="12" md="7" sm="8" class="">
-          <v-card color="" class="d-flex align-center card-call">
+          <v-card flat color="" class="d-flex align-center card-call">
             <v-avatar tile size="30" class="mr-2" color="white">
               <img src="../assets/social/telephone.png" />
             </v-avatar>

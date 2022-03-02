@@ -2,16 +2,14 @@
   <v-dialog class="dialog" v-model="dialog" persistent max-width="650">
     <template v-slot:activator="{ on, attrs }">
       <v-btn
-        class="nav-linkk rounded-0"
+        class="nav-linkk rounded-0 pr-0 pr-md-4 pr-lg-4"
         elevation="0"
         color="transparent"
         large
         v-bind="attrs"
         v-on="on"
       >
-        <v-icon left class="icon-search">fa-search</v-icon>
-
-        أبحث عن سيارتك
+        أبحث عن سيارة
       </v-btn>
     </template>
     <div class="search">
@@ -176,26 +174,25 @@ export default {
   font-weight: 500;
 }
 .nav-linkk {
-  color: $fontcolorlinks !important;
+  color: #eee !important;
   font-size: 16px !important;
-  font-weight: 600;
+  font-weight: 500;
   font-family: $fontfamliy;
   letter-spacing: 0;
-  transition: color 0.1s ease;
-  @media (max-width: 600px) {
-    font-size: 15px !important;
+  width: 350px;
+  transition: all 0.2s linear;
+  @media (max-width: 960px) {
+    width: 160px;
   }
-
-  .icon-search {
-    color: $fontcolorlinks !important;
-    font-size: 14px !important;
-    transition: color 0.1s ease;
-    @media (max-width: 600px) {
-      font-size: 15px !important;
-      margin-left: 2px !important;
-    }
+  @media (max-width: 600px) {
+    font-size: 16px !important;
   }
 }
+button.nav-linkk.rounded-0.pr-0.pr-md-4.pr-lg-4.v-btn.v-btn--has-bg.theme--dark.elevation-0.v-size--large.transparent::v-deep
+  .theme--dark.v-btn:focus:before {
+  opacity: 0;
+}
+
 @media (max-width: 900px) {
   .v-card__title.search-text {
     font-size: 16px !important;
@@ -218,17 +215,5 @@ export default {
   @media (max-width: 500px) {
     margin: 5px !important;
   }
-}
-.nav-linkk:hover {
-  color: $fontcolor !important;
-}
-.nav-linkk::v-deep.theme--light.v-btn:hover:before {
-  opacity: 0;
-}
-.nav-linkk::v-deep.theme--light.v-btn:focus:before {
-  opacity: 0;
-}
-.nav-linkk:hover .icon-search {
-  color: $fontcolor !important;
 }
 </style>
