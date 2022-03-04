@@ -196,11 +196,11 @@ export default {
   background: $color-1 !important;
   opacity: 0;
   pointer-events: none;
+  transform: scale(1.5);
   transition: all 0.4s 0s ease !important;
   @media (max-width: 600px) {
     bottom: 70px;
   }
-
   .icon {
     color: $fontcolorsm !important;
     font-size: 17px !important;
@@ -212,6 +212,8 @@ export default {
 .is-hidden {
   opacity: 1;
   pointer-events: auto;
+  transform: scale(1);
+
   @media (max-width: 600px) {
     transform: scale(0.9);
   }

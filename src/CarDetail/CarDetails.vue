@@ -117,6 +117,14 @@
               الـممشى : <b class="pa-0">{{ getCarInfo.kilometer }}</b>
             </v-card-text>
           </v-flex>
+          <v-flex xs12 sm4 md3>
+            <v-card-text class="table_data-child px-1 pl-0">
+              <v-icon class="grey--text text--lighten-1" right
+                >mdi-map-marker-radius</v-icon
+              >
+              المنطقة : <b class="pa-0">{{ getCarInfo.location }}</b>
+            </v-card-text>
+          </v-flex>
           <v-row justify="center" class="mt-2">
             <v-col cols="12" md="12" class="disc-p">
               <v-card flat color="transparent" class="disc-title pa-2">

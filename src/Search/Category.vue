@@ -2,10 +2,9 @@
   <v-dialog class="dialog" v-model="dialog" persistent max-width="650">
     <template v-slot:activator="{ on, attrs }">
       <v-btn
-        class="nav-linkk rounded-0 pr-0 pr-md-4 pr-lg-4"
+        class="btn-car-search rounded-0 pr-0 pr-md-4 pr-lg-4"
         elevation="0"
         color="transparent"
-        large
         v-bind="attrs"
         v-on="on"
       >
@@ -173,7 +172,7 @@ export default {
   font-weight: 500;
   font-weight: 500;
 }
-.nav-linkk {
+.btn-car-search {
   color: #eee !important;
   font-size: 16px !important;
   font-weight: 500;
@@ -182,13 +181,14 @@ export default {
   width: 350px;
   transition: all 0.2s linear;
   @media (max-width: 960px) {
+    height: 30px;
+
     width: 160px;
-  }
-  @media (max-width: 600px) {
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
 }
-button.nav-linkk.rounded-0.pr-0.pr-md-4.pr-lg-4.v-btn.v-btn--has-bg.theme--dark.elevation-0.v-size--large.transparent::v-deep
+button.btn-car-search
+  .rounded-0.pr-0.pr-md-4.pr-lg-4.v-btn.v-btn--has-bg.theme--dark.elevation-0.v-size--large.transparent::v-deep
   .theme--dark.v-btn:focus:before {
   opacity: 0;
 }
@@ -214,6 +214,14 @@ button.nav-linkk.rounded-0.pr-0.pr-md-4.pr-lg-4.v-btn.v-btn--has-bg.theme--dark.
 ::v-deep .v-dialog.v-dialog--active.v-dialog--persistent {
   @media (max-width: 500px) {
     margin: 5px !important;
+  }
+}
+.btn-car-search::v-deep.v-btn:not(.v-btn--round).v-size--default {
+  @media (min-width: 960px) {
+    height: 44px;
+  }
+  @media (max-width: 960px) {
+    height: 30px;
   }
 }
 </style>

@@ -8,7 +8,7 @@
       <!-- search  -->
       <v-card
         width="400"
-        color="#424342"
+        color="#0881fa"
         flat
         dark
         class="hidden-sm-and-down rounded-pill card-search overflow-hidden"

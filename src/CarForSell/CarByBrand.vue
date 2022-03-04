@@ -27,6 +27,7 @@
           :key="CarData.id"
         >
           <!-- using methods to conect the image to the corect folder   -->
+          <!-- bindind verified style to the card  -->
           <v-card
             :class="CarData.Vip == true ? 'card-verified' : 'card'"
             class="pa-1"
@@ -49,7 +50,6 @@
                     أعلان : {{ CarData.ad }}
                   </p>
                 </div>
-
                 <v-img
                   :lazy-src="getimageUrl(CarData.folder, CarData.image)"
                   :src="getimageUrl(CarData.folder, CarData.image)"
@@ -248,10 +248,6 @@ export default {
       font-size: 17px;
     }
   }
-  .v-btn--icon.v-size--default .v-icon {
-    font-size: 20px;
-    color: #8c8c8c;
-  }
   // featured
   .card-verified {
     overflow: hidden;
@@ -346,10 +342,7 @@ export default {
       font-weight: 400;
     }
   }
-  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
-  .theme--light.v-btn--active:hover:before {
-    opacity: 0;
-  }
+
   .v-btn.v-size--default::v-deep .theme--light.v-btn--active:hover:before,
   .theme--light.v-btn--active:before {
     opacity: 0;

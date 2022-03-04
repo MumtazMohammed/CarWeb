@@ -1,5 +1,5 @@
 <template>
-  <div class="brand_box my-5">
+  <div class="brand_box ">
     <div class="brand_container">
       <v-container class="px-md-7">
         <p class="text-center mb-2 font-weight-bold tital">

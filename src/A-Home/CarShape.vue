@@ -1,5 +1,5 @@
 <template>
-  <div class="Shape_box my-5">
+  <div class="Shape_box">
     <div class="Shape_container">
       <v-container class="px-md-7">
         <p class="text-center mb-2 font-weight-bold tital">
@@ -71,7 +71,6 @@ export default {
 
 .Shape_box {
   padding: $padding;
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   width: 100%;

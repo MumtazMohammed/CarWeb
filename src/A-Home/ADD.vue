@@ -95,6 +95,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: $color-background;
 
   .row-card {
     justify-content: center;

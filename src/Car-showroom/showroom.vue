@@ -11,21 +11,22 @@
                 class="d-flex card-if-you-have-showroom rounded-0 py-2"
               >
                 <v-card-actions class="btn-box-if-you-have-showroom pa-4 pt-0">
-                  <v-card-title class="title-if-you-have-showroom">
+                  <v-card-title class="title-if-you-have-showroom mb-1">
                     هل أنت صاحب معرض؟
                   </v-card-title>
                   <v-btn
                     to="/AboutShowroom"
+                    elevation="0"
                     large
-                    color="transparent"
+                    color=""
                     class="btn-if-you-have-showroom"
                   >
                     سجل معرضك معنا
                   </v-btn>
                 </v-card-actions>
               </v-card>
-              <v-card color="#0881fa" class="pa-1 search">
-                <!-- search for showroom -->
+              <!-- search for showroom -->
+              <v-card color="#0881fa" class="search">
                 <v-card-actions>
                   <v-autocomplete
                     v-model="select"
@@ -40,7 +41,9 @@
                     solo
                     large
                   ></v-autocomplete>
-                  <v-icon class="search-icon pa-3" large>mdi-magnify</v-icon>
+                  <v-icon class="search-icon pa-3" large>
+                    mdi-store-search-outline
+                  </v-icon>
                 </v-card-actions>
               </v-card>
             </v-col>
@@ -265,7 +268,7 @@ export default {
     }
     .title-if-you-have-showroom {
       font-family: $fontfamliy !important;
-      color: $fontcolor !important;
+      color: $fontcolorlinks !important;
       letter-spacing: 0 !important;
       font-size: 1.8rem !important;
       font-weight: bold !important;
@@ -282,10 +285,12 @@ export default {
     }
     .btn-if-you-have-showroom {
       font-family: $fontfamliy !important;
-      color: $color-1 !important;
-      font-weight: bold !important;
+      color: $fontcolor !important;
+      font-weight: 500 !important;
       letter-spacing: 0 !important;
-      font-size: 1.15rem !important;
+      font-size: 17px !important;
+      border: 2px solid $color-1;
+      position: relative;
       @media (max-width: 375px) {
         font-size: 1rem !important;
       }
@@ -392,9 +397,9 @@ export default {
       height: 48px;
       font-size: 24px !important;
       margin-bottom: 2px;
-      background-color: #fff;
+      background-color: transparent;
       border-radius: 4px 0 0 4px;
-      color: $color-1;
+      color: $fontcolorsm;
     }
   }
   .v-text-field::v-deep .v-label.theme--light {
@@ -405,10 +410,10 @@ export default {
     font-family: $fontfamliy !important;
     font-weight: 500;
   }
-  ::v-deep .v-text-field--solo {
-    border-top-left-radius: 0px !important;
-    border-bottom-left-radius: 0px !important;
-  }
+  // ::v-deep .v-text-field--solo {
+  //   border-top-left-radius: 0px !important;
+  //   border-bottom-left-radius: 0px !important;
+  // }
   .Featured-card {
     position: absolute;
     top: 0;

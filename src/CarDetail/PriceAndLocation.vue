@@ -11,31 +11,111 @@
         </p>
       </v-col>
       <v-divider></v-divider>
-      <v-row class="mt-2">
-        <!-- price  -->
-        <v-col cols="4" md="4">
-          <h5 class="pr-2 car-place-price-titles">الـسعر *</h5>
-          <h2 class="text-center green--text pt-1 car-place-price-text">
-            {{ getCarInfo.payment }}
-          </h2>
-        </v-col>
+      <v-card color="transparent" flat class="mt-2">
+        <!-- btns for changing the price of cash or Instalment  -->
+        <v-row>
+          <v-col class="pl-0 col" cols="6">
+            <v-btn
+              class="rounded-b-0 rounded-tl-0 btn"
+              :class="
+                ShowPriceOption == true
+                  ? 'btn-show-car-payment-price-active'
+                  : 'btn-show-car-payment-price '
+              "
+              large
+              elevation="0"
+              block
+              @click="ShowPriceOption = true"
+            >
+              كاش
+            </v-btn>
+          </v-col>
+          <v-col class="pr-0 col" cols="6">
+            <v-btn
+              :class="
+                ShowPriceOption == false
+                  ? 'btn-show-car-payment-price-active'
+                  : 'btn-show-car-payment-price '
+              "
+              class="rounded-b-0 rounded-tr-0 btn"
+              large
+              block
+              elevation="0"
+              @click="ShowPriceOption = false"
+            >
+              أقساط
+            </v-btn>
+          </v-col>
+        </v-row>
+        <!-- price  cash -->
+        <div v-if="ShowPriceOption">
+          <v-card flat class="overflow-hidden rounded-t-0 mb-1">
+            <v-row class="my-1">
+              <v-col cols="12">
+                <h1 class="text-center green--text pt-1 car-price-cash-price">
+                  {{ getCarInfo.payment }}
+                  <span class="car-price-cash-text">ريال</span>
+                </h1>
+              </v-col>
+              <v-col cols="12" class="text-center">
+                <ContacSeller />
+              </v-col>
+            </v-row>
+          </v-card>
+        </div>
         <!-- price Instalment  -->
-        <v-col v-if="getCarInfo.Instalment" cols="4" md="4">
-          <h5 class="pr-2 car-place-price-titles">شهرياً *</h5>
-          <h2 class="text-center green--text pt-1 car-place-price-text">
-            {{ getCarInfo.Instalment }}
-          </h2>
-        </v-col>
-        <!-- place -->
-        <v-col cols="4" md="4">
-          <h5 class="pr-2 car-place-price-titles">الـمنطقة *</h5>
-          <h2
-            class="text-center grey--text text--darken-1 pt-1 car-place-price-text"
-          >
-            {{ getCarInfo.location }}
-          </h2>
-        </v-col>
-      </v-row>
+        <div v-else>
+          <v-card flat class="overflow-hidden rounded-t-0 mb-1">
+            <v-row class="my-1">
+              <v-col cols="12">
+                <v-card-actions class="justify-center">
+                  <span class="text-center green--text car-place-price-price">
+                    {{ getCarInfo.payment }}
+                  </span>
+                  <p class="ma-0 mr-3 car-Instalment-price-text">
+                    ريال <br />
+                    شهرياً
+                  </p>
+                </v-card-actions>
+              </v-col>
+            </v-row>
+            <v-card flat class="rounded-0 pa-2" color="primary lighten-4">
+              <v-row>
+                <v-col cols="6" sm="4" md="4">
+                  <h5 class="car-place-price-titles">مدة القسط :</h5>
+                  <span class="ml-1 text-body-1 car-place-price-text">
+                    {{ getCarInfo.payment }}
+                  </span>
+                  <span class="car-place-price-text">شهر</span>
+                </v-col>
+                <v-col cols="6" sm="4" md="4">
+                  <h5 class="car-place-price-titles">الدفعة الأولى :</h5>
+                  <span class="ml-1 text-body-1 car-place-price-text">
+                    {{ getCarInfo.payment }}
+                  </span>
+                  <span class="car-place-price-text">ريال</span>
+                </v-col>
+                <v-col cols="6" sm="4" md="4">
+                  <h5 class="car-place-price-titles">الدفعة الأخيرة :</h5>
+                  <span class="ml-1 text-body-1 car-place-price-text">
+                    {{ getCarInfo.payment }}
+                  </span>
+                  <span class="car-place-price-text">ريال</span>
+                </v-col>
+              </v-row>
+            </v-card>
+            <!-- place -->
+            <!-- <v-col cols="4" md="4">
+            <h5 class="pr-2 car-place-price-titles">الـمنطقة *</h5>
+            <h2
+              class="text-center grey--text text--darken-1 pt-1 car-place-price-text"
+            >
+              {{ getCarInfo.location }}
+            </h2>
+          </v-col> -->
+          </v-card>
+        </div>
+      </v-card>
       <v-row>
         <v-col v-if="getCarInfo.Vip == true" cols="12" class="pb-0">
           <VipCard />
@@ -51,15 +131,9 @@
             >
           </v-card>
         </v-col>
-        <v-col cols="12" class="text-center pt-0 btns">
-          <ContacSeller />
-        </v-col>
         <v-col cols="12" class="btns">
-          <ShareAndReport />
+          <Share />
         </v-col>
-        <!-- contact eara  -->
-
-        <!-- -------------------------------------- -->
       </v-row>
     </v-col>
   </div>
@@ -68,23 +142,20 @@
 import CarData from "../data-json/All-Car.json";
 import VipCard from "../CarDetail/VipCard.vue";
 import ContacSeller from "../CarDetail/ContacSeller.vue";
-import ShareAndReport from "../CarDetail/ShareAndReport.vue";
+import Share from "../CarDetail/Share.vue";
 export default {
   name: "PriceAndLocation",
   components: {
     VipCard,
     ContacSeller,
-    ShareAndReport,
+    Share,
   },
   data() {
     return {
       GetCarData: CarData,
       carName: this.$route.params.carName,
       carId: this.$route.params.carId,
-      call: false,
-      gmail: false,
-      whatsapp: false,
-      owner: false,
+      ShowPriceOption: true,
     };
   },
   // this is help full to call the image inside folder and inject to the src
@@ -129,13 +200,24 @@ export default {
 }
 .car-place-price-titles {
   font-family: $fontfamliy !important;
-  font-weight: bold;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 13px;
 }
 .car-place-price-text {
   font-family: $fontfamliy !important;
+  font-weight: 300;
+  font-size: 15px;
+}
+.car-price-cash-price {
+  font-family: $fontfamliy !important;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
+}
+.car-price-cash-text {
+  font-family: $fontfamliy !important;
+  font-weight: 500;
+  font-size: 17px;
+  color: $fontcolor;
 }
 .ad {
   font-family: $fontfamliy !important;
@@ -155,43 +237,30 @@ export default {
   letter-spacing: 0 !important;
   font-size: 18px;
 }
-
-.h5 {
-  font-family: $fontfamliy;
+.btn-show-car-payment-price {
+  font-family: $fontfamliy !important;
+  font-size: 20px !important;
+  letter-spacing: 0;
+  color: $fontcolorsm !important;
+  background-color: $color-1 !important;
+}
+.btn-show-car-payment-price-active {
+  font-family: $fontfamliy !important;
+  font-size: 20px !important;
+  letter-spacing: 0;
+  color: $fontcolor !important;
+  background-color: $fontcolorsm !important;
 }
 
-.btns-contact {
-  color: #fff !important;
-  margin: 3px;
-  font-family: $fontfamliy;
-  letter-spacing: 0;
+.car-Instalment-price-text {
+  font-family: $fontfamliy !important;
   font-size: 14px;
 }
-// search
-
-.remov-p-from-col-box-all {
-  @media (max-width: 500px) {
-    padding: 1px !important;
-  }
+.car-place-price-price {
+  font-size: 18px;
+  font-weight: bold;
 }
-.snackbar-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.snackbar-close-owner {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.snackbar-copy {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.v-snack__content {
-  text-align: center !important;
-  font-size: 24px;
-  font-family: $fontfamliy;
+::v-deep.theme--light.v-btn:hover:before {
+  opacity: 0;
 }
 </style>

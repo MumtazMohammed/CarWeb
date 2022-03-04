@@ -1,5 +1,5 @@
 <template>
-  <div class="HowToBuy mt-5">
+  <div class="HowToBuy">
     <v-container>
       <p class="text-center mb-2 font-weight-bold tital">
         {{ Tital }}

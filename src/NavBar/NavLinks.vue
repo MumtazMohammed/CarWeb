@@ -113,13 +113,14 @@
 
     <v-card
       width="200"
-      color="#424342"
+      height="30"
+      color="#0881fa"
       flat
-      class="card-search overflow-hidden hidden-md-and-up rounded-b-0 rounded-tr-sm rounded-tl-pill toolbar"
+      class="card-search overflow-hidden hidden-md-and-up rounded-tr-0 rounded-bl-0 rounded-br-0 toolbar"
     >
-      <v-card-actions class="pa-0">
+      <v-card-actions class="pa-0 align-start">
         <div class="icon-search">
-          <v-avatar size="25" tile class="icon-search-img" color="transparent">
+          <v-avatar size="22" tile class="icon-search-img" color="transparent">
             <img
               src="../assets/outsrc/steering-wheel.png"
               alt="../assets/outsrc/steering-wheel.png"
@@ -317,7 +318,7 @@ export default {
 .icon-search {
   color: $fontcolorsm !important;
   background-color: $color-1;
-  height: 44px !important;
+  height: 30px !important;
   width: 50px !important;
   display: flex;
   justify-content: center;
