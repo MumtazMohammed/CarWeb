@@ -11,117 +11,184 @@
         </p>
       </v-col>
       <v-divider></v-divider>
-      <v-card color="transparent" flat class="mt-2">
+      <v-card color="transparent" flat class="my-2">
         <!-- btns for changing the price of cash or Instalment  -->
-        <v-row>
-          <v-col class="pl-0 col" cols="6">
-            <v-btn
-              class="rounded-b-0 rounded-tl-0 btn"
+        <v-row class="justify-center">
+          <!-- cash btn  -->
+          <v-col
+            :class="getCarInfo.Instalment == true ? 'col-6' : 'col-12 '"
+            class="col"
+          >
+            <a
+              class="pa-2 rounded-b-0 btn"
               :class="
                 ShowPriceOption == true
                   ? 'btn-show-car-payment-price-active'
                   : 'btn-show-car-payment-price '
               "
-              large
-              elevation="0"
-              block
               @click="ShowPriceOption = true"
             >
               كاش
-            </v-btn>
+            </a>
           </v-col>
-          <v-col class="pr-0 col" cols="6">
-            <v-btn
+          <!-- instalment btn  -->
+          <v-col v-if="getCarInfo.Instalment == true" class="col" cols="6">
+            <a
               :class="
                 ShowPriceOption == false
                   ? 'btn-show-car-payment-price-active'
                   : 'btn-show-car-payment-price '
               "
-              class="rounded-b-0 rounded-tr-0 btn"
-              large
-              block
-              elevation="0"
+              class="pa-2 rounded-b-0 rounded-tr-2 rounded-tl-2 btn"
               @click="ShowPriceOption = false"
             >
-              أقساط
-            </v-btn>
+              إقساط
+            </a>
           </v-col>
         </v-row>
-        <!-- price  cash -->
-        <div v-if="ShowPriceOption">
-          <v-card flat class="overflow-hidden rounded-t-0 mb-1">
-            <v-row class="my-1">
-              <v-col cols="12">
-                <h1 class="text-center green--text pt-1 car-price-cash-price">
-                  {{ getCarInfo.payment }}
-                  <span class="car-price-cash-text">ريال</span>
-                </h1>
-              </v-col>
-              <v-col cols="12" class="text-center">
-                <ContacSeller />
-              </v-col>
-            </v-row>
-          </v-card>
-        </div>
-        <!-- price Instalment  -->
-        <div v-else>
-          <v-card flat class="overflow-hidden rounded-t-0 mb-1">
-            <v-row class="my-1">
-              <v-col cols="12">
-                <v-card-actions class="justify-center">
-                  <span class="text-center green--text car-place-price-price">
+        <div class="mb-2">
+          <!-- price  cash -->
+          <div v-if="ShowPriceOption">
+            <v-card flat class="overflow-hidden rounded-t-0 mb-1">
+              <v-row class="mt-1">
+                <v-col cols="12">
+                  <h1 class="text-center green--text pt-1 car-price-cash-price">
                     {{ getCarInfo.payment }}
-                  </span>
-                  <p class="ma-0 mr-3 car-Instalment-price-text">
-                    ريال <br />
-                    شهرياً
-                  </p>
-                </v-card-actions>
-              </v-col>
-            </v-row>
-            <v-card flat class="rounded-0 pa-2" color="primary lighten-4">
-              <v-row>
-                <v-col cols="6" sm="4" md="4">
-                  <h5 class="car-place-price-titles">مدة القسط :</h5>
-                  <span class="ml-1 text-body-1 car-place-price-text">
-                    {{ getCarInfo.payment }}
-                  </span>
-                  <span class="car-place-price-text">شهر</span>
+                    <span class="car-price-cash-text">ريال</span>
+                  </h1>
                 </v-col>
-                <v-col cols="6" sm="4" md="4">
-                  <h5 class="car-place-price-titles">الدفعة الأولى :</h5>
-                  <span class="ml-1 text-body-1 car-place-price-text">
-                    {{ getCarInfo.payment }}
-                  </span>
-                  <span class="car-place-price-text">ريال</span>
-                </v-col>
-                <v-col cols="6" sm="4" md="4">
-                  <h5 class="car-place-price-titles">الدفعة الأخيرة :</h5>
-                  <span class="ml-1 text-body-1 car-place-price-text">
-                    {{ getCarInfo.payment }}
-                  </span>
-                  <span class="car-place-price-text">ريال</span>
+                <!-- contact seller  -->
+                <v-col cols="12" class="text-center">
+                  <v-card-actions class="justify-center">
+                    <v-btn
+                      @click="ShowContac = !ShowContac"
+                      color="white"
+                      large
+                      width="300"
+                      class="btns-contact"
+                      @click.stop="call = true"
+                    >
+                      تواصل مع البائع
+                    </v-btn>
+                  </v-card-actions>
+                  <v-expand-transition>
+                    <v-card
+                      v-if="ShowContac"
+                      flat
+                      class="rounded-0"
+                      width="100%"
+                      height="auto"
+                    >
+                      <v-card-actions class="flex-wrap">
+                        <!-- seller phone call  -->
+                        <v-col cols="12" sm="6" md="6">
+                          <v-list-item
+                            v-for="(call, x) in getCarInfo.PhoneNo"
+                            :key="x"
+                          >
+                            <v-list-item-avatar size="20" tile>
+                              <v-img
+                                src="../assets/social/phone-call-svgrepo-com.svg"
+                                alt="../assets/social/phone-call-svgrepo-com.svg"
+                              ></v-img>
+                            </v-list-item-avatar>
+                            <v-list-item-content>
+                              <v-list-item-title
+                                class="text-start"
+                                v-text="call"
+                              ></v-list-item-title>
+                            </v-list-item-content>
+                          </v-list-item>
+                        </v-col>
+                        <!-- seller whatsaap  -->
+                        <v-col cols="12" sm="6" md="6">
+                          <v-list-item
+                            v-for="(call, x) in getCarInfo.PhoneWhatsapp"
+                            :key="x"
+                          >
+                            <v-list-item-avatar size="20" tile>
+                              <v-img
+                                src="../assets/social/whatsapp-svgrepo-com.svg"
+                                alt="../assets/social/whatsapp-svgrepo-com.svg"
+                              ></v-img>
+                            </v-list-item-avatar>
+                            <v-list-item-content>
+                              <v-list-item-title
+                                class="text-start"
+                                v-text="call"
+                              ></v-list-item-title>
+                            </v-list-item-content>
+                          </v-list-item>
+                        </v-col>
+                      </v-card-actions>
+                    </v-card>
+                  </v-expand-transition>
                 </v-col>
               </v-row>
             </v-card>
-            <!-- place -->
-            <!-- <v-col cols="4" md="4">
-            <h5 class="pr-2 car-place-price-titles">الـمنطقة *</h5>
-            <h2
-              class="text-center grey--text text--darken-1 pt-1 car-place-price-text"
-            >
-              {{ getCarInfo.location }}
-            </h2>
-          </v-col> -->
-          </v-card>
+          </div>
+          <!-- price Instalment  -->
+          <div v-else>
+            <v-card flat class="overflow-hidden rounded-t-0 mb-1">
+              <v-row class="my-1">
+                <v-col cols="12">
+                  <v-card-actions class="justify-center">
+                    <span class="text-center green--text car-place-price-price">
+                      {{ getCarInfo.InstalmentPerMonth }}
+                    </span>
+                    <p class="ma-0 mr-3 car-Instalment-price-text">
+                      ريال <br />
+                      شهرياً
+                    </p>
+                  </v-card-actions>
+                </v-col>
+              </v-row>
+              <v-card flat class="rounded-0 pa-2" color="primary lighten-4">
+                <v-row>
+                  <v-col cols="6" sm="4" md="4">
+                    <h5 class="car-place-price-titles">مدة القسط :</h5>
+                    <span class="ml-1 text-body-1 car-place-price-text">
+                      {{ getCarInfo.InstalmentMonts }}
+                    </span>
+                    <span class="car-place-price-text">شهر</span>
+                  </v-col>
+                  <v-col cols="6" sm="4" md="4">
+                    <h5 class="car-place-price-titles">الدفعة الأولى :</h5>
+                    <span
+                      class="ml-1 text-body-1 green--text text--darken-1 car-place-price-text"
+                    >
+                      {{ getCarInfo.InstalmentFirstPay }}
+                    </span>
+                    <span class="car-place-price-text">ريال</span>
+                  </v-col>
+                  <v-col cols="6" sm="4" md="4">
+                    <h5 class="car-place-price-titles">الدفعة الأخيرة :</h5>
+                    <span
+                      class="ml-1 text-body-1 green--text text--darken-1 car-place-price-text"
+                    >
+                      {{ getCarInfo.InstalmentLastPay }}
+                    </span>
+                    <span class="car-place-price-text">ريال</span>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-card>
+          </div>
         </div>
       </v-card>
-      <v-row>
-        <v-col v-if="getCarInfo.Vip == true" cols="12" class="pb-0">
+      <v-row class="">
+        <v-col v-if="getCarInfo.Vip" cols="12" class="pb-0">
           <VipCard />
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-card flat class="card-ad-num">
+          <v-card
+            flat
+            v-bind:class="{
+              'rounded-t-0 ': getCarInfo.Vip,
+              ' mt-2': !getCarInfo.Vip,
+            }"
+            class="card-ad-num"
+          >
             <v-card-text class="ad">
               أعلان : <span>{{ getCarInfo.ad }}</span>
             </v-card-text>
@@ -141,13 +208,11 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import VipCard from "../CarDetail/VipCard.vue";
-import ContacSeller from "../CarDetail/ContacSeller.vue";
 import Share from "../CarDetail/Share.vue";
 export default {
   name: "PriceAndLocation",
   components: {
     VipCard,
-    ContacSeller,
     Share,
   },
   data() {
@@ -156,6 +221,7 @@ export default {
       carName: this.$route.params.carName,
       carId: this.$route.params.carId,
       ShowPriceOption: true,
+      ShowContac: false,
     };
   },
   // this is help full to call the image inside folder and inject to the src
@@ -239,17 +305,25 @@ export default {
 }
 .btn-show-car-payment-price {
   font-family: $fontfamliy !important;
-  font-size: 20px !important;
-  letter-spacing: 0;
-  color: $fontcolorsm !important;
-  background-color: $color-1 !important;
+  font-size: 23px !important;
+  letter-spacing: 0 !important;
+  color: $fontcolorlinks !important;
+  background-color: transparent !important;
+  width: 100% !important;
+  font-weight: 500;
+  display: block;
+  text-align: center;
 }
 .btn-show-car-payment-price-active {
   font-family: $fontfamliy !important;
-  font-size: 20px !important;
-  letter-spacing: 0;
+  font-size: 23px !important;
+  letter-spacing: 0 !important;
   color: $fontcolor !important;
+  font-weight: 500;
   background-color: $fontcolorsm !important;
+  width: 100% !important;
+  display: block;
+  text-align: center;
 }
 
 .car-Instalment-price-text {
@@ -262,5 +336,40 @@ export default {
 }
 ::v-deep.theme--light.v-btn:hover:before {
   opacity: 0;
+}
+.btn {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  transition: all 0.2s linear !important;
+  cursor: pointer;
+}
+// btn contact
+.btns-contact {
+  font-family: $fontfamliy;
+  letter-spacing: 0;
+  font-size: 17px !important;
+  position: relative;
+  color: $fontcolorlinks !important;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btns-contact::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background-color: $color-1;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+.btns-contact:hover.btns-contact::after {
+  width: 100%;
+}
+.btns-contact:hover {
+  color: $fontcolorsm !important;
+  border-color: transparent !important;
 }
 </style>

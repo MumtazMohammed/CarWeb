@@ -10,7 +10,11 @@
     "type": "NM-4",
     "negotiable": "قابل للتفاوض",
     "Token": true,
-
+    "Instalment": true,
+    "InstalmentFirstPay": 30000,
+    "InstalmentLastPay": 38000,
+    "InstalmentMonts": 36,
+    "InstalmentPerMonth": 15644,
     "condtion": "جديد",
     "EngineModel": "2AZ-FE",
     "kilometer": "0 كيلو",
@@ -36,7 +40,9 @@
       "mercedes2.jpg",
       "mercedes2.jpg",
       "mercedes2.jpg"
-    ]
+    ],
+    "PhoneWhatsapp": ["01121331731", "01121331731", "01121331731"],
+    "PhoneNo": ["01121331731", "01121331731", "01121331731"]
   },
   {
     "type": "NM-4",
@@ -63,7 +69,9 @@
     "payment": "$16000",
     "discription": "نعم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً تم توليد هذا النص العرب من موقعه لفه مثال نص عربى كبير هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة . مثال نص عربى كبير",
     "image": "corala.jpg",
-    "images": ["corala.jpg", "corala2.jpg", "corala3.jpg"]
+    "images": ["corala.jpg", "corala2.jpg", "corala3.jpg"],
+    "PhoneWhatsapp": ["01121331731", "01121331731", "01121331731"],
+    "PhoneNo": ["01121331731", "01121331731", "01121331731"]
   },
 
   {
@@ -268,7 +276,11 @@
     "company": "مـازدا",
     "adNum": 655646,
     "Token": true,
-
+    "Instalment": true,
+    "InstalmentFirstPay": 30000,
+    "InstalmentLastPay": 38000,
+    "InstalmentMonts": 36,
+    "InstalmentPerMonth": 15644,
     "name": "مازدا3",
     "modle": 2016,
     "fuel": "بـتروال",

@@ -110,13 +110,12 @@
       </v-col>
     </v-row>
     <!-- search btn  -->
-
-    <v-card
+    <v-toolbar
       width="200"
-      height="30"
+      height="40"
       color="#0881fa"
       flat
-      class="card-search overflow-hidden hidden-md-and-up rounded-tr-0 rounded-bl-0 rounded-br-0 toolbar"
+      class="card-search overflow-hidden hidden-md-and-up toolbar"
     >
       <v-card-actions class="pa-0 align-start">
         <div class="icon-search">
@@ -129,8 +128,7 @@
         </div>
         <SearchCar />
       </v-card-actions>
-    </v-card>
-    <!--  -->
+    </v-toolbar>
   </div>
 </template>
 <script>
@@ -316,15 +314,11 @@ export default {
 }
 // search for car btn
 .icon-search {
-  color: $fontcolorsm !important;
-  background-color: $color-1;
   height: 30px !important;
   width: 50px !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px !important;
-  transition: color 0.1s ease;
 }
 .card-search:hover .icon-search-img {
   animation-name: search;

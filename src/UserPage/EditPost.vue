@@ -1,7 +1,7 @@
 <template>
   <div class="editPost">
     <v-row class="justify-center">
-      <v-col cols="12" sm="10" md="8">
+      <v-col cols="12">
         <v-card class="overflow-hidden">
           <v-toolbar flat color="grey darken-2">
             <v-toolbar-title class="font-weight-light title white--text">
@@ -21,93 +21,159 @@
             </v-btn>
           </v-toolbar>
           <v-card-text>
-            <v-autocomplete
-              solo
-              :items="states"
-              :filter="customFilter"
-              color="white"
-              item-text="name"
-              label="الشركة"
-            ></v-autocomplete>
-            <v-autocomplete
-              solo
-              :items="states"
-              :filter="customFilter"
-              color="white"
-              item-text="name"
-              label="النوع"
-            ></v-autocomplete>
-            <v-text-field solo color="white" label="الـفئة"></v-text-field>
-            <v-autocomplete
-              solo
-              :items="states"
-              :filter="customFilter"
-              color="white"
-              item-text="name"
-              label="موديل"
-            ></v-autocomplete>
-            <v-autocomplete
-              solo
-              :items="states"
-              :filter="customFilter"
-              color="white"
-              item-text="name"
-              label="وارد"
-            ></v-autocomplete>
-            <v-autocomplete
-              solo
-              :items="states"
-              :filter="customFilter"
-              color="white"
-              item-text="name"
-              label="المواصفات"
-            ></v-autocomplete>
-            <v-text-field solo color="white" label="حجم الـمحرك"></v-text-field>
-            <v-text-field
-              solo
-              color="white"
-              label="لـون الـمركبه"
-            ></v-text-field>
-            <v-autocomplete
-              solo
-              :items="states"
-              :filter="customFilter"
-              color="white"
-              item-text="name"
-              label="نـوع الـدفع"
-            ></v-autocomplete>
-            <v-autocomplete
-              solo
-              :items="states"
-              :filter="customFilter"
-              color="white"
-              item-text="name"
-              label="نوع القير"
-            ></v-autocomplete>
-            <v-autocomplete
-              solo
-              :items="states"
-              :filter="customFilter"
-              color="white"
-              item-text="name"
-              label="حـالـة الـسيارة"
-            ></v-autocomplete>
-            <v-text-field solo color="white" label="الـممشى"></v-text-field>
+            <v-row>
+              <v-col cols="12" md="6">
+                <v-autocomplete
+                  solo
+                  :items="states"
+                  :filter="customFilter"
+                  color="white"
+                  item-text="name"
+                  label="الشركة"
+                  hide-details="true"
+                ></v-autocomplete>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-autocomplete
+                  solo
+                  :items="states"
+                  :filter="customFilter"
+                  color="white"
+                  item-text="name"
+                  label="النوع"
+                  hide-details="true"
+                ></v-autocomplete>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  hide-details="true"
+                  solo
+                  color="white"
+                  label="الـفئة"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-autocomplete
+                  solo
+                  :items="states"
+                  :filter="customFilter"
+                  color="white"
+                  item-text="name"
+                  label="سنة الصنع"
+                  hide-details="true"
+                ></v-autocomplete>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-autocomplete
+                  solo
+                  :items="states"
+                  :filter="customFilter"
+                  color="white"
+                  item-text="name"
+                  label="الوارد"
+                  hide-details="true"
+                ></v-autocomplete>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  solo
+                  color="white"
+                  label="لـون الـمركبه"
+                  hide-details="true"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-autocomplete
+                  solo
+                  :items="states"
+                  :filter="customFilter"
+                  color="white"
+                  item-text="name"
+                  label="نوع القير"
+                  hide-details="true"
+                ></v-autocomplete>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  solo
+                  color="white"
+                  label="حجم الـمحرك"
+                  hide-details="true"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-autocomplete
+                  solo
+                  :items="states"
+                  :filter="customFilter"
+                  color="white"
+                  item-text="name"
+                  label="نـوع الـدفع"
+                  hide-details="true"
+                ></v-autocomplete>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-autocomplete
+                  solo
+                  :items="states"
+                  :filter="customFilter"
+                  color="white"
+                  item-text="name"
+                  label="حـالـة الـسيارة"
+                  hide-details="true"
+                ></v-autocomplete>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  solo
+                  color="white"
+                  label="نوع الوقود"
+                  hide-details="true"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-autocomplete
+                  solo
+                  :items="states"
+                  :filter="customFilter"
+                  color="white"
+                  item-text="name"
+                  label="المواصفات"
+                  hide-details="true"
+                ></v-autocomplete>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  hide-details="true"
+                  solo
+                  color="white"
+                  label="الـممشى"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  solo
+                  color="white"
+                  label="المنطقة"
+                  hide-details="true"
+                ></v-text-field>
+              </v-col>
+            </v-row>
           </v-card-text>
           <v-divider></v-divider>
-          <v-card-actions>
-            <v-btn class="btn" color="info" @click="save"> حفظ </v-btn>
+          <v-card-actions class="justify-center">
+            <v-btn width="200" class="btn" color="success" @click="save">
+              حفظ
+            </v-btn>
           </v-card-actions>
           <v-snackbar
-            color="success font-weight-bold"
-            class="title"
+            color="success "
             v-model="hasSaved"
             :timeout="2000"
-            absolute
-            bottom
-            right
+            app
+            centered
           >
-            تم حفظ التعديل
+            <v-card-title class="title pa-1"> تم حفظ التعديل </v-card-title>
           </v-snackbar>
         </v-card>
       </v-col>
@@ -158,5 +224,15 @@ export default {
 .editPost {
   font-family: $fontfamliy !important;
   letter-spacing: 0;
+}
+.btn {
+  font-family: $fontfamliy !important;
+  letter-spacing: 0 !important;
+  font-size: 22px !important;
+}
+.v-card__title.title.pa-1 {
+  font-family: $fontfamliy !important;
+  letter-spacing: 0 !important;
+  font-size: 22px !important;
 }
 </style>

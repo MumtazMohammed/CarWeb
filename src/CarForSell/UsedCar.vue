@@ -230,7 +230,7 @@ export default {
       max-width: 100%;
     }
     @media (max-width: 450px) {
-      padding: 5px 5px !important;
+      padding: 12px !important;
     }
   }
   .boredr-all-box {

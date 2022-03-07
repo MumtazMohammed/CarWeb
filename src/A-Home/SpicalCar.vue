@@ -16,7 +16,7 @@
         :space="365"
         :inverseScaling="70"
         :perspective="0"
-        :width="300"
+        :width="320"
         :controls-visible="true"
         :controls-prev-html="navigationPrev"
         :controls-next-html="navigationNext"

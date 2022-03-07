@@ -25,7 +25,6 @@ import ShowroomView from "../Car-showroom/ShowroomView.vue";
 import TheUserPage from "../UserPage/TheUserPage.vue";
 import UserProfile from "../UserPage/UserProfile.vue";
 import UserAdd from "../UserPage/UserAdd.vue";
-import UserSaveAd from "../UserPage/UserSaveAd.vue";
 
 Vue.use(VueRouter);
 
@@ -123,11 +122,6 @@ const routes = [
         path: "/UserProfile/:Acount",
         name: "UserProfile",
         component: UserProfile,
-      },
-      {
-        path: "/UserSaveAd/:SaveAd",
-        name: "UserSaveAd",
-        component: UserSaveAd,
       },
     ],
   },

@@ -49,7 +49,7 @@
         </v-card-actions>
       </router-link>
       <!-- loing btn  -->
-      <!-- <LogingAndSignup class="hidden-sm-and-down" /> -->
+      <LogingAndSignup class="hidden-sm-and-down" />
 
       <!-- bar icon for show links  -->
       <v-app-bar-nav-icon

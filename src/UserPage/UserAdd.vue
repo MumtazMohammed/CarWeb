@@ -7,7 +7,7 @@
           <v-card-actions>
             <v-btn
               @click="(isEditing = true), (Ishidden = false)"
-              color="#0881fa"
+              color="grey"
               elevation="0"
               class="AddCardBtn"
             >
@@ -19,16 +19,16 @@
       </v-row>
       <v-row v-if="Ishidden == true">
         <v-col cols="12">
-          <v-card-title class="title grey--text text--darken-2">
+          <v-card-title class="title pt-1 grey--text text--darken-2">
             إعلاناتي...
           </v-card-title>
         </v-col>
       </v-row>
       <!-- car card  -->
-      <v-row v-if="Ishidden == true">
-        <v-col cols="12" md="4" sm="6">
+      <v-row class="mt-0" v-if="Ishidden == true">
+        <v-col cols="12" md="6" sm="6">
           <!-- some info about the car -->
-          <v-card flat color="grey darken-3" shaped v-show="deletePost">
+          <v-card flat color="grey darken-3" class="" v-show="deletePost">
             <!-- edit btn and delete btn  -->
             <v-card-actions class="justify-space-between">
               <div>
@@ -146,8 +146,8 @@ export default {
 @import "../scss/mixin";
 .UserAdd {
   width: 100%;
-  padding: $padding;
-  min-height: 100vh;
+  padding-bottom: 25px;
+  min-height: 60vh;
   .AddCardBtn {
     color: $fontcolorsm !important;
     font-size: 18px !important;

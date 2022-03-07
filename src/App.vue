@@ -88,7 +88,7 @@ export default {
   transition: all 0.4s 0s ease !important;
   opacity: 0;
   pointer-events: none;
-  transform: scale(1.5);
+  transform: scale(1.2);
   .btn-up-icon {
     font-size: 18px !important;
     transition: all 0.4s 0s ease !important;
@@ -99,9 +99,9 @@ export default {
 .is-hidden {
   opacity: 1;
   pointer-events: auto;
-  transform: scale(1);
+  transform: scale(0.9);
   @media (max-width: 600px) {
-    transform: scale(0.9);
+    transform: scale(0.8);
   }
 }
 </style>

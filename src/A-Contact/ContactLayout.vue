@@ -37,7 +37,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $color-background;
+  background: transparent;
   .header-tital {
     letter-spacing: 0;
     font-family: $fontfamliy;

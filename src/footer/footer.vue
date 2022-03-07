@@ -28,7 +28,7 @@
             </v-col>
           </v-row>
           <v-row class="justify-center">
-            <v-col cols="12" sm="12" md="12" class="pt-0">
+            <v-col cols="12" sm="12" md="8" class="pt-0">
               <v-tabs
                 class="justify-center"
                 next-icon="mdi-chevron-right"
@@ -39,11 +39,11 @@
                 background-color="transparent"
                 color="primary"
               >
-                <v-tabs-slider color="#0881fa"></v-tabs-slider>
+                <v-tabs-slider color="#6c6c6c"></v-tabs-slider>
                 <v-tab
                   v-for="(item, i) in items"
                   :key="i"
-                  class="text-center link"
+                  class="text-center link px-1"
                   v-text="item.text"
                   :to="item.path"
                   color=""
@@ -52,11 +52,16 @@
               </v-tabs>
             </v-col>
           </v-row>
-          <v-row>
-            <v-col cols="12">
+          <v-row class="justify-end">
+            <v-col cols="10" md="12" sm="11">
               <v-card color="transparent" flat class="d-flex">
-                <a class="mx-2 brand-Privacy">الأحكام والشروط</a> |
-                <a class="mx-2 brand-Privacy">سياسة الخصوصية</a>
+                <a class="mx-2 brand-Privacy grey--text text--darken-1">
+                  الأحكام والشروط
+                </a>
+                <span class="grey--text">|</span>
+                <a class="mx-2 brand-Privacy grey--text text--darken-1">
+                  سياسة الخصوصية
+                </a>
               </v-card>
             </v-col>
           </v-row>
@@ -95,7 +100,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .footer {
-  border-top: 2px solid #0881fa !important;
+  border-top: 1px solid #91919149 !important;
   background-color: #fff !important;
 }
 .brand-logo {
@@ -135,7 +140,7 @@ export default {
   font-family: $fontfamliy;
   font-size: 15px !important;
   font-weight: bold !important;
-  color: rgb(78, 78, 78) !important;
+  color: rgba(110, 110, 110, 0.592) !important;
 }
 .brand-Privacy {
   letter-spacing: 0px;
@@ -143,7 +148,6 @@ export default {
   font-size: 14px;
   display: flex;
   font-weight: 400;
-  color: $color-1 !important;
 }
 ::v-deep .v-slide-group__content.v-tabs-bar__content {
   justify-content: center;

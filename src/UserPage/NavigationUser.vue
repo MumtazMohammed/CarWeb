@@ -7,7 +7,6 @@
       class="px-0 px-md-16 px-lg-16"
     >
       <v-tabs
-        icons-and-text
         align-with-title
         class="justify-center"
         optional
@@ -25,20 +24,6 @@
           color="blue"
         >
           إعلاناتي
-          <v-icon>mdi-plus-box-multiple</v-icon>
-        </v-tab>
-        <v-tab
-          router
-          :to="{
-            name: 'UserSaveAd',
-            params: { SaveAd: 'المفضلة' },
-          }"
-          exact-path
-          class="nav-link"
-          color="blue"
-        >
-          المفضلة
-          <v-icon>mdi-cart-heart</v-icon>
         </v-tab>
         <v-tab
           router
@@ -51,7 +36,6 @@
           color="blue"
         >
           حسابي
-          <v-icon>mdi-card-account-details-outline</v-icon>
         </v-tab>
       </v-tabs>
     </v-toolbar>
@@ -118,7 +102,7 @@ export default {
     }
   }
   ::v-deep .v-slide-group__content {
-    justify-content: center;
+    // justify-content: center;
   }
 }
 .link-home-icon {

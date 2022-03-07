@@ -2,11 +2,11 @@
   <div class="LoginSeller">
     <v-container>
       <v-row justify="center">
-        <v-col cols="12" class="container-col pt-0">
+        <v-col cols="12" lg="7" md="7" sm="10" class="container-col">
           <v-card flat>
             <v-col cols="12" class="text-center pb-0">
               <v-avatar size="100px" tile>
-                <v-img src="../assets/manager.png"> </v-img>
+                <v-img src="../assets/seller-agent-svgrepo-com.svg"> </v-img>
               </v-avatar>
             </v-col>
             <v-form>

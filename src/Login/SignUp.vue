@@ -1,13 +1,13 @@
 <template>
   <div class="sign-up">
-    <v-container>
-      <v-card class="card-con overflow-hidden py-4" ref="form">
+    <v-container class="pt-0">
+      <v-card class="card-con overflow-hidden pb-4" ref="form">
         <div class="img-box">
           <b>إنشاء حساب </b>
         </div>
-        <v-form>
+        <v-form class="pa-2">
           <v-row class="mt-6">
-            <v-col class="py-0" cols="12">
+            <v-col class="py-0" cols="12" sm="6" md="6">
               <v-text-field
                 ref="FirstName"
                 v-model="FirstName"
@@ -19,7 +19,7 @@
                 outlined
               ></v-text-field>
             </v-col>
-            <v-col class="py-0" cols="12">
+            <v-col class="py-0" cols="12" sm="6" md="6">
               <v-text-field
                 ref="number"
                 v-model="number"
@@ -32,7 +32,7 @@
                 class="ma-0"
               ></v-text-field>
             </v-col>
-            <v-col class="py-0" cols="12">
+            <v-col class="py-0" cols="12" sm="6" md="6">
               <v-autocomplete
                 ref="country"
                 v-model="country"
@@ -45,7 +45,7 @@
                 class="ma-0"
               ></v-autocomplete>
             </v-col>
-            <v-col class="py-0" cols="12">
+            <v-col class="py-0" cols="12" sm="6" md="6">
               <v-text-field
                 ref="email"
                 v-model="email"
@@ -57,12 +57,24 @@
                 class="ma-0"
               ></v-text-field>
             </v-col>
-            <v-col class="py-0" cols="12">
+            <v-col class="py-0" cols="12" sm="6" md="6">
               <v-text-field
                 :rules="[rules.required, rules.min]"
                 :type="show2 ? 'text' : 'password'"
                 v-model="password"
                 label="كلمة المرور"
+                class="input-group--focused ma-0 font-weight-regular"
+                outlined
+                required
+              >
+              </v-text-field>
+            </v-col>
+            <v-col class="py-0" cols="12" sm="6" md="6">
+              <v-text-field
+                :rules="[rules.required, rules.min]"
+                :type="show2 ? 'text' : 'password'"
+                v-model="password"
+                label="تأكيد كلمة المرور "
                 class="input-group--focused ma-0 font-weight-regular"
                 outlined
                 required
@@ -96,12 +108,12 @@
         <v-divider></v-divider>
         <v-card-actions class="justify-center">
           <v-row justify="center">
-            <v-col cols="7" class="pa-2">
+            <v-col cols="12" class="pa-2">
               <v-card-title class="btn-title justify-center pa-0">
                 أو
               </v-card-title>
             </v-col>
-            <v-col cols="7" class="pa-2">
+            <v-col cols="7" md="5" sm="5" class="pa-2">
               <v-btn elevation="2" large width="100%" class="btn-go" text>
                 جوجل
                 <v-avatar tile class="mr-2" size="20">
@@ -109,7 +121,7 @@
                 </v-avatar>
               </v-btn>
             </v-col>
-            <v-col cols="7" class="pa-2">
+            <v-col cols="7" md="5" sm="5" class="pa-2">
               <v-btn elevation="2" large width="100%" class="btn-fac" text>
                 فيسبوك
                 <v-avatar tile class="mr-2" size="30">
@@ -209,7 +221,7 @@ nav {
 .sign-up {
   width: 100%;
   min-height: calc(100vh - 124px);
-  // background: linear-gradient(90deg, #f32727 0%, #880204 100%);
+  font-family: $fontfamliy;
   .card-con {
     position: relative;
     background-color: rgb(255, 255, 255) !important;
@@ -249,10 +261,9 @@ nav {
   }
   .img-box {
     width: 100%;
-    height: 30px;
-    position: absolute;
-    top: 0px;
+    height: 50px;
     background: $color-1 !important;
+    position: relative;
     z-index: 5;
     display: flex;
     justify-content: center;
@@ -267,28 +278,28 @@ nav {
   .img-box::after {
     content: "";
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
     top: 1.5px;
     right: 1.5px;
     border-radius: 50%;
     background-color: white;
-    box-shadow: 0px 18px 0px white;
+    box-shadow: 0px 42px 0px white;
   }
   .img-box::before {
     content: "";
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
     top: 1.5px;
     left: 1.5px;
     border-radius: 50%;
     background-color: white;
-    box-shadow: 0px 18px 0px white;
+    box-shadow: 0px 42px 0px white;
   }
 
   .img-box b {
-    font-size: 16px;
+    font-size: 19px;
     font-family: $fontfamliy;
     font-weight: 500;
     color: #fff;

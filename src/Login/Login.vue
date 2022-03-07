@@ -2,11 +2,11 @@
   <div class="login">
     <v-container>
       <v-row justify="center">
-        <v-col cols="12" class="container-col pt-0">
+        <v-col cols="12" lg="7" md="7" sm="10" class="container-col">
           <v-card flat>
             <v-col cols="12" class="text-center">
               <v-avatar size="100px" tile>
-                <v-img src="../assets/user.png"> </v-img>
+                <v-img src="../assets/user-svgrepo-com.svg"> </v-img>
               </v-avatar>
             </v-col>
             <v-form>
@@ -82,7 +82,8 @@ export default {
 
 .login {
   width: 100%;
-  min-height: 100%;
+  min-height: 50vh;
+  font-family: $fontfamliy;
 }
 .submet {
   font-family: $fontfamliy;

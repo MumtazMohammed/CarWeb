@@ -183,8 +183,11 @@ export default {
   @media (max-width: 960px) {
     height: 30px;
 
-    width: 160px;
-    font-size: 14px !important;
+    width: 190px;
+    font-size: 17px !important;
+  }
+  ::v-deep.v-btn__content{
+    justify-content: start;
   }
 }
 button.btn-car-search

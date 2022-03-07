@@ -5,7 +5,7 @@
         <!-- reg with us  -->
         <v-col cols="12" sm="12" md="12">
           <v-row class="justify-center">
-            <v-col cols="12" sm="12" md="12" class="pt-0 px-0">
+            <v-col cols="11" sm="12" md="12" class="pt-0 px-0">
               <v-card
                 flat
                 class="d-flex card-if-you-have-showroom rounded-0 py-2"
@@ -21,55 +21,100 @@
                     color=""
                     class="btn-if-you-have-showroom"
                   >
-                    سجل معرضك معنا
+                    أحجز معرضك
                   </v-btn>
                 </v-card-actions>
               </v-card>
               <!-- search for showroom -->
-              <v-card color="#0881fa" class="search">
-                <v-card-actions>
-                  <v-autocomplete
-                    v-model="select"
-                    :loading="loading"
-                    :items="items"
-                    :search-input.sync="search"
-                    cache-items
-                    flat
-                    hide-no-data
-                    hide-details
-                    label="أبحث عن معرض ؟"
+              <v-card color="white" class="search overflow-hidden">
+                <v-card-actions class="pa-0">
+                  <!-- delete text  -->
+                  <v-btn
+                    v-if="search.length > 0 && ShowSerachCardvisble"
+                    small
+                    icon
+                    color="white"
+                    class="mr-1 red darken-1"
+                    @click="reset()"
+                  >
+                    <v-icon class="">mdi-close</v-icon>
+                  </v-btn>
+                  <!-- customiza search -->
+                  <v-text-field
+                    class="rounded-b-0"
+                    v-model="search"
                     solo
                     large
-                  ></v-autocomplete>
-                  <v-icon class="search-icon pa-3" large>
-                    mdi-store-search-outline
-                  </v-icon>
+                    flat
+                    label="أبحث عن معرض ؟"
+                    hide-details="true"
+                    background-color="#fff"
+                    append-icon="mdi-store-search-outline"
+                    @focus="ShowSerachCardvisble = true"
+                  ></v-text-field>
                 </v-card-actions>
+                <!-- search stroe names  -->
+                <v-expand-transition>
+                  <v-card
+                    v-if="search.length > 0 && ShowSerachCardvisble"
+                    @blur="ShowSerachCardvisble = false"
+                    elevation="0"
+                    max-width="97%"
+                    height="270"
+                    class="mx-auto overflow-auto rounded-t-0"
+                  >
+                    <v-list-item
+                      router
+                      :to="{
+                        name: 'ShowroomView',
+                        params: {
+                          ShowRoomName: showroom.ShowroomName,
+                          ShowRoomLocation: showroom.location,
+                          locationStreet: showroom.locationStreet,
+                        },
+                      }"
+                      v-for="showroom in filteredStore"
+                      :key="showroom.id"
+                    >
+                      <v-list-item-avatar>
+                        <v-avatar size="50" color="#424342">
+                          <v-img
+                            contain
+                            :src="
+                              getimageUrl(showroom.folder, showroom.ShowroomImg)
+                            "
+                            :lazy-src="
+                              getimageUrl(showroom.folder, showroom.ShowroomImg)
+                            "
+                          >
+                          </v-img>
+                        </v-avatar>
+                      </v-list-item-avatar>
+                      <v-list-item-content>
+                        <v-list-item-title v-text="showroom.ShowroomName">
+                        </v-list-item-title>
+                        <v-spacer></v-spacer>
+                        <v-list-item-subtitle v-text="showroom.location">
+                        </v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    <v-card-title
+                      class="not-found"
+                      v-if="filteredStore.length < 1"
+                    >
+                      لا يوجد معرض بهذا الاسم (<span class="mx-2 red--text">{{
+                        search
+                      }}</span>
+                      )
+                    </v-card-title>
+                  </v-card>
+                </v-expand-transition>
               </v-card>
+              <!--end search  -->
             </v-col>
           </v-row>
         </v-col>
       </v-row>
-      <!-- search  -->
-      <v-row class="">
-        <v-col cols="12" sm="6" md="4" class="">
-          <v-card color="" outlined flat class="d-flex align-center pa-0">
-            <v-card-text class="place-text pa-0 pr-2">عرض حسب </v-card-text>
-            <v-select
-              v-model="e1"
-              :items="states"
-              menu-props="auto"
-              label="Select"
-              hide-details
-              single-line
-              solo
-              flat
-              class="pa-0"
-            ></v-select>
-          </v-card>
-        </v-col>
-      </v-row>
-      <!--end search  -->
       <v-row>
         <!-- showroom -->
         <v-col
@@ -79,7 +124,7 @@
           sm="6"
           md="4"
           lg="3"
-          class="pa-2 showroom-box-col"
+          class="showroom-box-col pa-2"
         >
           <v-card
             router
@@ -150,71 +195,11 @@ export default {
       ShowRoomCar,
       ShowRoomName: this.$route.params.ShowRoomName,
       // showroom search
-      loading: false,
-      items: [],
-      search: null,
+      search: "",
       select: null,
-      Showroom: [
-        "Alabama",
-        "Alaska",
-        "American Samoa",
-        "Arizona",
-        "Arkansas",
-        "California",
-        "Colorado",
-        "Connecticut",
-        "Delaware",
-        "District of Columbia",
-        "Federated States of Micronesia",
-        "Florida",
-        "Georgia",
-        "Guam",
-        "Hawaii",
-        "Idaho",
-        "Illinois",
-        "Indiana",
-        "Iowa",
-        "Kansas",
-        "Kentucky",
-        "Louisiana",
-        "Maine",
-        "Marshall Islands",
-        "Maryland",
-        "Massachusetts",
-        "Michigan",
-        "Minnesota",
-        "Mississippi",
-        "Missouri",
-        "Montana",
-        "Nebraska",
-        "Nevada",
-        "New Hampshire",
-        "New Jersey",
-        "New Mexico",
-        "New York",
-        "North Carolina",
-        "North Dakota",
-        "Northern Mariana Islands",
-        "Ohio",
-        "Oklahoma",
-        "Oregon",
-        "Palau",
-        "Pennsylvania",
-        "Puerto Rico",
-        "Rhode Island",
-        "South Carolina",
-        "South Dakota",
-        "Tennessee",
-        "Texas",
-        "Utah",
-        "Vermont",
-        "Virgin Island",
-        "Virginia",
-        "Washington",
-        "West Virginia",
-        "Wisconsin",
-        "Wyoming",
-      ],
+      benched: 0,
+      ShowSerachCard: "",
+      ShowSerachCardvisble: false,
     };
   },
   methods: {
@@ -222,20 +207,21 @@ export default {
       let image = require.context("@/assets/");
       return image("./" + FolderName + "/" + ImageName);
     },
-    querySelections(v) {
-      this.loading = true;
-      // Simulated ajax query
-      setTimeout(() => {
-        this.items = this.Showroom.filter((e) => {
-          return (e || "").toLowerCase().indexOf((v || "").toLowerCase()) > -1;
-        });
-        this.loading = false;
-      }, 500);
+    reset() {
+      return (this.search = "");
     },
   },
-  watch: {
-    search(val) {
-      val && val !== this.Showroom && this.querySelections(val);
+  computed: {
+    filteredStore: function () {
+      return this.showrooms.filter((showroom) => {
+        return showroom.ShowroomName.match(this.search);
+      });
+    },
+    items() {
+      return Array.from({ length: this.length }, (k, v) => v + 1);
+    },
+    length() {
+      return 7000;
     },
   },
 };
@@ -248,21 +234,20 @@ export default {
   min-height: calc(100vh - 150px);
   // padding: $padding;
   padding-bottom: 25px;
-  background-color: $color-background;
+  background-color: transparent;
 
   .showroom-box-col {
     @media (max-width: 600px) {
       padding: 8px 66px !important;
     }
     @media (max-width: 485px) {
-      padding: 5px !important;
+      padding: 12px !important;
     }
   }
   .card-if-you-have-showroom {
-    background: $color-background;
+    background: transparent;
     justify-content: center;
     flex-direction: column-reverse;
-
     @media (max-width: 850px) {
       align-items: center;
     }
@@ -270,7 +255,7 @@ export default {
       font-family: $fontfamliy !important;
       color: $fontcolorlinks !important;
       letter-spacing: 0 !important;
-      font-size: 1.8rem !important;
+      font-size: 1.6rem !important;
       font-weight: bold !important;
       @media (max-width: 850px) {
         justify-content: center;
@@ -285,11 +270,11 @@ export default {
     }
     .btn-if-you-have-showroom {
       font-family: $fontfamliy !important;
-      color: $fontcolor !important;
+      color: $fontcolorsm !important;
       font-weight: 500 !important;
       letter-spacing: 0 !important;
       font-size: 17px !important;
-      border: 2px solid $color-1;
+      background-color: $color-1;
       position: relative;
       @media (max-width: 375px) {
         font-size: 1rem !important;
@@ -389,17 +374,10 @@ export default {
     margin: 0 auto;
     height: auto;
     width: 50%;
+    font-family: $fontfamliy;
+    letter-spacing: 0px;
     @media (max-width: 600px) {
       width: 100%;
-    }
-
-    .search-icon {
-      height: 48px;
-      font-size: 24px !important;
-      margin-bottom: 2px;
-      background-color: transparent;
-      border-radius: 4px 0 0 4px;
-      color: $fontcolorsm;
     }
   }
   .v-text-field::v-deep .v-label.theme--light {
@@ -410,10 +388,7 @@ export default {
     font-family: $fontfamliy !important;
     font-weight: 500;
   }
-  // ::v-deep .v-text-field--solo {
-  //   border-top-left-radius: 0px !important;
-  //   border-bottom-left-radius: 0px !important;
-  // }
+
   .Featured-card {
     position: absolute;
     top: 0;
@@ -421,7 +396,7 @@ export default {
     background-color: $color-1;
     .Featured-text {
       font-family: $fontfamliy !important;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 500;
     }
   }
@@ -434,10 +409,7 @@ export default {
   font-family: $fontfamliy !important;
   height: 22px;
 }
-.place-text {
-  width: 30%;
-  font-family: $fontfamliy !important;
-  color: $fontcolor !important;
-  letter-spacing: 0 !important;
+.not-found {
+  font-size: 14px !important;
 }
 </style>
