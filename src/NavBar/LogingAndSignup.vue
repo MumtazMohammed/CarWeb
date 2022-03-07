@@ -19,7 +19,7 @@
         transition="dialog-transition"
       >
         <template v-slot:activator="{ on, attrs }">
-          <v-btn elevation="0" class="btn1" v-bind="attrs" v-on="on">
+          <v-btn elevation="2" class="btn1" v-bind="attrs" v-on="on">
             <b v-text="btnSignUp" class="sgin"></b>
             <v-icon class="sign-in-icon" right>fas fa-sign-in-alt</v-icon>
           </v-btn>
@@ -34,7 +34,7 @@
           >
             <!-- close the dialog  -->
             <div>
-              <v-btn color="red"  icon @click="dialog = false">
+              <v-btn color="red" icon @click="dialog = false">
                 <v-icon>fas fa-times</v-icon>
               </v-btn>
             </div>
@@ -79,20 +79,23 @@
               </v-card-actions>
             </v-card>
           </v-toolbar>
-          <v-toolbar-items v-show="Login" class="toolbar-items">
+          <v-toolbar-items v-show="Login" class="toolbar-items justify-center">
             <Login :dialog="dialog" @dialogclose="dialog = $event" />
           </v-toolbar-items>
-          <v-toolbar-items v-show="LoginSeller" class="toolbar-items">
+          <v-toolbar-items
+            v-show="LoginSeller"
+            class="toolbar-items justify-center"
+          >
             <LoginSeller />
           </v-toolbar-items>
-          <v-toolbar-items v-show="SignUp" class="toolbar-items">
+          <v-toolbar-items v-show="SignUp" class="toolbar-items justify-center">
             <SignUp />
           </v-toolbar-items>
           <v-spacer></v-spacer>
           <!-- to make a new account  -->
           <v-toolbar-items class="toolbar-items">
             <v-card v-if="Login" flat color="transparent" width="100%">
-              <v-card-actions>
+              <v-card-actions class="justify-center">
                 <v-card-text class="do-not-have-acount-text pl-1">
                   انشاء حساب ؟
                 </v-card-text>
@@ -165,27 +168,28 @@ export default {
     font-size: 18px !important;
   }
   .btn1 {
-    background-color: $color-1 !important;
     @media (max-width: 959px) {
       background: transparent !important;
       color: $fontcolor !important;
       border: 1px solid $fontcolorsm;
     }
     .sign-in-icon {
-      color: $fontcolorsm !important;
+      color: $fontcolorlinks !important;
       font-size: 14px;
-
+      margin-top: 2px;
       @media (max-width: 959px) {
         font-size: 13px;
+        color: $fontcolorsm !important;
       }
     }
     .sgin {
-      color: $fontcolorsm !important;
+      color: $fontcolorlinks !important;
       letter-spacing: 0px;
       font-family: $fontfamliy;
       font-size: 14px;
       @media (max-width: 959px) {
         font-size: 14px;
+        color: $fontcolorsm !important;
       }
     }
   }

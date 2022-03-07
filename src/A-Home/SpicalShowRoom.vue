@@ -5,7 +5,13 @@
         <p class="tital mb-2 font-weight-bold text-center">المعارض المتميزة</p>
         <span class="line my-3 mx-auto"></span>
       </v-col>
-      <swiper class="swiper" :options="swiperOption">
+      <swiper
+        :modules="[Thumbs]"
+        watch-slides-progress
+        @swiper="setThumbsSwiper"
+        class="swiper"
+        :options="swiperOption"
+      >
         <swiper-slide
           class="slide"
           width="250"
@@ -77,20 +83,20 @@
 import showrooms from "../data-json/SpicalShowRoom.json";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
-
 export default {
   name: "SpicalShowRoom",
   components: {
     Swiper,
     SwiperSlide,
   },
+
   data() {
     return {
       showrooms,
       swiperOption: {
         slidesPerView: 3,
-        effect: "card",
         spaceBetween: 15,
+        effect: "Flip",
         slidesPerGroup: 1,
         loop: false,
         loopFillGroupWithBlank: true,
@@ -165,6 +171,7 @@ export default {
       width: 18px !important;
       height: 5px;
       opacity: 1;
+      background-color: #0a57ba ;
     }
   }
 
@@ -241,7 +248,7 @@ export default {
     font-size: 27px;
   }
   .line {
-    width: 100px;
+    width: 30px;
     height: 5px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;

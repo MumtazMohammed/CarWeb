@@ -114,7 +114,7 @@ export default {
   }
 }
 .line {
-  width: 100px;
+  width: 30px;
   height: 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;

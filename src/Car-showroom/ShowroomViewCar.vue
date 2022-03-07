@@ -5,7 +5,7 @@
       cols="6"
       sm="4"
       md="3"
-      class="pa-1 boredr-all-box"
+      class="boredr-all-box"
       v-for="CarData in ShowRoomCar"
       :key="CarData.id"
     >
@@ -44,11 +44,10 @@
               <v-card
                 v-if="CarData.discount == true"
                 dark
-                shaped
-                color="success"
-                class="discount"
+                color="orange darken-2"
+                class="discount rounded-br-0 rounded-bl-xl rounded-tl-xl rounded-tr-0"
               >
-                <v-card-text class="pa-2 text">
+                <v-card-text class="px-2 py-1 text">
                   <v-icon class="discount-icon">mdi-spa-outline</v-icon>
                   خصم <span class="mr-1">{{ CarData.discountAmount }}</span>
                 </v-card-text>
@@ -161,21 +160,20 @@ export default {
   }
 }
 .boredr-all-box {
+  @media (min-width: 540px) {
+    padding: 5px !important;
+  }
   @media (max-width: 880px) {
     max-width: 50%;
-  }
-  @media (max-width: 600px) {
-    padding: 5px 4px !important;
   }
   @media (max-width: 540px) {
     padding: 5px 80px !important;
     max-width: 100%;
   }
   @media (max-width: 450px) {
-    padding: 5px 5px !important;
+    padding: 12px !important;
   }
 }
-
 .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
 .theme--light.v-btn--active:hover:before {
   opacity: 0;
@@ -306,23 +304,25 @@ export default {
 // discount
 .discount {
   position: absolute;
-  top: 0px;
+  top: 50%;
+  transform: translateY(-50%);
   width: auto;
   right: 0px;
   // border-radius: 20px 0px 20px 20px !important;
   display: flex;
   .text {
     font-family: $fontfamliy;
-    font-size: 14px !important;
+    font-size: 16px !important;
     font-weight: 500;
+    color: $fontcolorsm !important;
     span {
-      font-size: 14px !important;
+      font-size: 16px !important;
       font-weight: 500;
     }
   }
   .discount-icon {
     font-size: 16px !important;
-    color: #ffffffb3;
+    color: $fontcolorsm !important;
   }
 }
 .oldprice {

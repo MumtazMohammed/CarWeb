@@ -183,16 +183,13 @@
   </div>
 </template>
 <script>
-import showrooms from "../data-json/showroom.json";
-import ShowRoomCar from "../data-json/ShowRoomCar.json";
 export default {
   name: "showroom",
   components: {},
   data() {
     return {
       e1: "جميع المحافظات",
-      showrooms,
-      ShowRoomCar,
+      showrooms: this.$attrs.showrooms,
       ShowRoomName: this.$route.params.ShowRoomName,
       // showroom search
       search: "",

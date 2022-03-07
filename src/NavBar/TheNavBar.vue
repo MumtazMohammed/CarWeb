@@ -80,7 +80,7 @@
           <StartToSellYourCar />
         </div>
         <!-- sign up or sign in  -->
-        <LogingAndSignup class="hidden-screen-only" />
+        <LogingAndSignup  />
         <!-- sign in already  -->
         <router-link
           :to="{

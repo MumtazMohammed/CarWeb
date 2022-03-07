@@ -49,7 +49,7 @@
                 </v-card-actions>
               </v-col>
               <v-col cols="12" class="pa-2 d-flex justify-center">
-                <v-card-actions class="pa-0">
+                <v-card-actions class="pa-0 ">
                   <a class="forget">هل نسيت كلمة المرور</a>
                 </v-card-actions>
               </v-col>

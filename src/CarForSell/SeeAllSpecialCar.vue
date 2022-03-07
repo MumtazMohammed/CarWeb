@@ -46,11 +46,11 @@
                     <v-card
                       v-if="CarData.discount == true"
                       dark
-                      shaped
-                      color="success"
-                      class="discount"
+                      flat
+                      color="orange darken-2"
+                      class="discount rounded-br-0 rounded-bl-xl rounded-tl-xl rounded-tr-0"
                     >
-                      <v-card-text class="pa-2 text">
+                      <v-card-text class="px-2 py-1 text">
                         <v-icon class="discount-icon">mdi-spa-outline</v-icon>
                         خصم
                         <span class="mr-1">{{ CarData.discountAmount }}</span>
@@ -283,6 +283,7 @@ export default {
     font-weight: bold;
     background: $linear-gradient;
     border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
   .verified {
     position: absolute;
@@ -360,23 +361,26 @@ export default {
 // discount
 .discount {
   position: absolute;
-  top: 0px;
+  top: 50%;
+  transform: translateY(-50%);
   width: auto;
   right: 0px;
   // border-radius: 20px 0px 20px 20px !important;
   display: flex;
   .text {
     font-family: $fontfamliy;
-    font-size: 14px !important;
+    font-size: 16px !important;
     font-weight: 500;
+    color: #ffffff !important;
+
     span {
-      font-size: 14px !important;
+      font-size: 16px !important;
       font-weight: 500;
     }
   }
   .discount-icon {
     font-size: 16px !important;
-    color: #ffffffb3;
+    color: #ffffff;
   }
 }
 .oldprice {

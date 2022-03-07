@@ -6,105 +6,65 @@
           <b>إنشاء حساب </b>
         </div>
         <v-form class="pa-2">
-          <v-row class="mt-6">
-            <v-col class="py-0" cols="12" sm="6" md="6">
-              <v-text-field
-                ref="FirstName"
-                v-model="FirstName"
-                :rules="[() => !!FirstName || 'This field is required']"
-                :error-messages="errorMessages"
-                label="الأسم كامل"
-                placeholder="John Doe"
-                required
-                outlined
-              ></v-text-field>
-            </v-col>
-            <v-col class="py-0" cols="12" sm="6" md="6">
-              <v-text-field
-                ref="number"
-                v-model="number"
-                :rules="[() => !!number || 'This field is required']"
-                label="جوال"
-                :error-messages="errorMessages"
-                required
-                outlined
-                placeholder="0111214125"
-                class="ma-0"
-              ></v-text-field>
-            </v-col>
-            <v-col class="py-0" cols="12" sm="6" md="6">
-              <v-autocomplete
-                ref="country"
-                v-model="country"
-                :rules="[() => !!country || 'This field is required']"
-                :items="countries"
-                label="المحافظة"
-                placeholder="Select..."
-                required
-                outlined
-                class="ma-0"
-              ></v-autocomplete>
-            </v-col>
-            <v-col class="py-0" cols="12" sm="6" md="6">
-              <v-text-field
-                ref="email"
-                v-model="email"
-                :rules="emailRules"
-                label="الـبريد الأكتروني"
-                required
-                outlined
-                placeholder="example@gmail.com"
-                class="ma-0"
-              ></v-text-field>
-            </v-col>
-            <v-col class="py-0" cols="12" sm="6" md="6">
-              <v-text-field
-                :rules="[rules.required, rules.min]"
+          <v-col class="py-0 mx-auto" cols="12">
+            <v-text-field
+              ref="FirstName"
+              v-model="FirstName"
+              :rules="[() => !!FirstName || 'This field is required']"
+              :error-messages="errorMessages"
+              label="الأسم كامل"
+              placeholder="John Doe"
+              required
+              outlined
+            ></v-text-field>
+          </v-col>
+          <v-col class="py-0 mx-auto" cols="12">
+            <v-text-field
+              ref="number"
+              v-model="number"
+              :rules="[() => !!number || 'This field is required']"
+              label="جوال"
+              :error-messages="errorMessages"
+              required
+              outlined
+              placeholder="0111214125"
+              class="ma-0"
+            ></v-text-field>
+          </v-col>
+          <v-col class="py-0 mx-auto" cols="12">
+            <v-text-field
+              :rules="[rules.required, rules.min]"
+              :type="show2 ? 'text' : 'password'"
+              v-model="password"
+              label="كلمة المرور"
+              class="input-group--focused ma-0 font-weight-regular"
+              outlined
+              required
+            >
+            </v-text-field>
+          </v-col>
+          <v-col cols="12" class="pt-0">
+            <v-card flat class="d-flex align-center">
+              <v-switch
+                v-model="show2"
+                @click:append="show2 = !show2"
                 :type="show2 ? 'text' : 'password'"
-                v-model="password"
-                label="كلمة المرور"
-                class="input-group--focused ma-0 font-weight-regular"
-                outlined
-                required
+                color="info"
+                hide-details
+                class="ma-0 pa-0 switch"
               >
-              </v-text-field>
-            </v-col>
-            <v-col class="py-0" cols="12" sm="6" md="6">
-              <v-text-field
-                :rules="[rules.required, rules.min]"
-                :type="show2 ? 'text' : 'password'"
-                v-model="password"
-                label="تأكيد كلمة المرور "
-                class="input-group--focused ma-0 font-weight-regular"
-                outlined
-                required
-              >
-              </v-text-field>
-            </v-col>
-            <v-col cols="12" class="pt-0">
-              <v-card flat class="d-flex align-center">
-                <v-switch
-                  v-model="show2"
-                  @click:append="show2 = !show2"
-                  :type="show2 ? 'text' : 'password'"
-                  color="info"
-                  hide-details
-                  class="ma-0 pa-0 switch"
-                >
-                </v-switch>
-                <v-card-title class="pa-0 showPassLab">
-                  اظهار كلمة المرور
-                </v-card-title>
-              </v-card>
-            </v-col>
-            <v-col cols="12" class="pt-0">
-              <v-card-actions class="justify-center pa-4">
-                <v-btn class="btn1 elevation-0" @click="submit"> انشاء </v-btn>
-              </v-card-actions>
-            </v-col>
-          </v-row>
+              </v-switch>
+              <v-card-title class="pa-0 showPassLab">
+                اظهار كلمة المرور
+              </v-card-title>
+            </v-card>
+          </v-col>
+          <v-col cols="12" class="pt-0">
+            <v-card-actions class="justify-center pa-4">
+              <v-btn class="btn1 elevation-0" @click="submit"> انشاء </v-btn>
+            </v-card-actions>
+          </v-col>
         </v-form>
-
         <v-divider></v-divider>
         <v-card-actions class="justify-center">
           <v-row justify="center">
@@ -219,9 +179,15 @@ nav {
   display: none !important;
 }
 .sign-up {
-  width: 100%;
+  width: 60%;
   min-height: calc(100vh - 124px);
   font-family: $fontfamliy;
+  @media (max-width: 850px) {
+    width: 70%;
+  }
+  @media (max-width: 650px) {
+    width: 100%;
+  }
   .card-con {
     position: relative;
     background-color: rgb(255, 255, 255) !important;

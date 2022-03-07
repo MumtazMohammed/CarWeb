@@ -13,10 +13,10 @@
         :autoplay="false"
         :autoplay-timeout="0"
         :display="5"
-        :space="365"
-        :inverseScaling="70"
-        :perspective="0"
-        :width="320"
+        :space="355"
+        :inverseScaling="100"
+        :perspective="25"
+        :width="350"
         :controls-visible="true"
         :controls-prev-html="navigationPrev"
         :controls-next-html="navigationNext"
@@ -25,36 +25,55 @@
       >
         <slide
           class="slide"
-          v-for="(CarSell, i) in CarSells"
-          :key="CarSell.id"
+          v-for="(CarData, i) in CarSells"
+          :key="CarData.id"
           :index="i"
         >
           <!-- using methods to conect the image to the corect folder   -->
-          <v-card width="320" class="overflow-hidden pa-1 card-vip">
+          <v-card width="340" class="pa-1 card-verified">
             <v-row>
               <v-col class="" cols="12">
-                <p class="py-2 ma-0 px-0 text-center top-verified">
-                  <v-icon class="verified-icon white--text"
-                    >mdi-check-bold</v-icon
-                  >
-                  موثوق
-                </p>
-                <b class="pa-0 text-center verified"> </b>
+                <!-- verified  -->
+                <div>
+                  <p class="py-2 ma-0 px-0 text-center top-verified">
+                    <v-icon class="verified-icon white--text">
+                      mdi-check-bold
+                    </v-icon>
+                    موثوق
+                  </p>
+                  <b class="pa-0 text-center verified"> </b>
+                </div>
                 <v-img
-                  :src="getimageUrl(CarSell.folder, CarSell.image)"
-                  :lazy-src="getimageUrl(CarSell.folder, CarSell.image)"
+                  :lazy-src="getimageUrl(CarData.folder, CarData.image)"
+                  :src="getimageUrl(CarData.folder, CarData.image)"
                   height="170px"
                 >
+                  <!-- discount  -->
+                  <v-card
+                    v-if="CarData.discount"
+                    dark
+                    flat
+                    color="orange darken-2"
+                    class="discount rounded-br-0 rounded-bl-xl rounded-tl-xl rounded-tr-0"
+                  >
+                    <v-card-text class="px-2 py-1 text d-flex">
+                      <v-icon class="discount-icon">mdi-spa-outline</v-icon>
+                      خصم <span class="mr-1">{{ CarData.discountAmount }}</span>
+                    </v-card-text>
+                  </v-card>
+                  <!-- booked up  -->
+                  <v-card v-show="CarData.Token == true" dark class="token">
+                    <v-card-text class="pa-2 text"> محجوز ... </v-card-text>
+                  </v-card>
                 </v-img>
               </v-col>
             </v-row>
-            <!-- car Name and compny  -->
+            <!-- car info  -->
+            <!-- car Name  -->
             <v-row class="pa-0 mt-1">
               <v-col cols="12" class="pa-3 pr-5">
-                <v-card-subtitle
-                  class="text-start font-weight-medium pa-1 car-name"
-                  >{{ CarSell.company }} {{ CarSell.name }}
-                  {{ CarSell.modle }}
+                <v-card-subtitle class="font-weight-medium text-start pa-1"
+                  >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
                 </v-card-subtitle>
               </v-col>
             </v-row>
@@ -62,47 +81,58 @@
             <v-row class="mb-1 justify-center">
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-right location-condtion pa-2">{{
-                  CarSell.location
+                  CarData.location
                 }}</v-card-subtitle>
               </v-col>
               <v-divider vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left location-condtion pa-2"
-                  >{{ CarSell.condtion }}
+                  >{{ CarData.condtion }}
                 </v-card-subtitle>
               </v-col>
             </v-row>
             <!-- car praic and kilo  -->
             <v-row class="mb-1 justify-center">
               <v-col cols="5" class="pa-0">
+                <!-- discount  -->
                 <v-card-subtitle
+                  :class="
+                    CarData.discount == true
+                      ? 'oldprice'
+                      : 'green--text font-weight-medium text-right pa-2'
+                  "
+                  class=""
+                  >{{ CarData.payment }}</v-card-subtitle
+                >
+                <v-card-subtitle
+                  v-if="CarData.discount == true"
                   class="green--text font-weight-medium text-right pa-2"
-                  >{{ CarSell.payment }}</v-card-subtitle
+                  >{{ CarData.discountPrice }}</v-card-subtitle
                 >
               </v-col>
               <v-divider vertical></v-divider>
               <v-col cols="5" class="pa-0">
                 <v-card-subtitle class="text-left font-weight-regular pa-2"
-                  >{{ CarSell.kilometer }}
+                  >{{ CarData.kilometer }}
                 </v-card-subtitle>
               </v-col>
             </v-row>
             <!-- car click to see more  -->
             <v-card-actions class="d-flex justify-center">
               <v-btn
-                class="btn-vip"
                 block
+                class="btn-verified"
                 width="200"
                 :to="{
                   name: 'ViewCar',
                   params: {
-                    Company: CarSell.folder,
-                    carName: CarSell.name,
-                    carShape: CarSell.Shape,
-                    carId: CarSell.id,
+                    carName: CarData.name,
+                    carShape: CarData.Shape,
+                    carId: CarData.id,
+                    Company: CarData.folder,
                   },
                 }"
-                depressed
+                large
               >
                 رؤية السيارة
               </v-btn>
@@ -256,7 +286,7 @@ export default {
     font-size: 27px;
   }
   .line {
-    width: 50px;
+    width: 30px;
     height: 5px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -280,7 +310,7 @@ export default {
     font-size: 20px;
     color: #8c8c8c;
   }
-  .btn-vip {
+  .btn-verified {
     color: $fontcolorsm;
     font-family: $fontfamliy;
     font-weight: 500;
@@ -297,7 +327,19 @@ export default {
     opacity: 0;
   }
   .v-card__subtitle {
-    font-size: 15px;
+    font-size: 17px;
+    font-weight: 300;
+    font-family: $fontfamliy;
+    @media (max-width: 1040px) {
+      font-size: 15px;
+    }
+    @media (max-width: 960px) {
+      font-size: 17px;
+    }
+  }
+  .location-condtion {
+    font-size: 16px;
+    font-weight: 500;
     font-family: $fontfamliy;
   }
   .car-name {
@@ -314,6 +356,7 @@ export default {
   font-weight: bold;
   background: $linear-gradient;
   border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .verified {
   position: absolute;
@@ -401,6 +444,65 @@ export default {
     border: 0px;
     height: 450px !important;
     width: 350px !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+// discount
+.discount {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  right: 0px;
+  // border-radius: 20px 0px 20px 20px !important;
+  display: flex;
+  .text {
+    font-family: $fontfamliy;
+    font-size: 16px !important;
+    font-weight: 500;
+    color: #ffffff !important;
+
+    span {
+      font-size: 16px !important;
+      font-weight: 500;
+    }
+  }
+  .discount-icon {
+    font-size: 16px !important;
+    color: #ffffff !important;
+    margin-left: 5px;
+  }
+}
+.oldprice {
+  text-decoration: line-through;
+  color: rgba(108, 108, 108, 0.469) !important;
+  padding: 8px;
+  position: absolute;
+  transform: translateY(-50%);
+  font-size: 14px !important;
+}
+// booked up
+.token {
+  background-color: rgba(0, 0, 0, 0.653) !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px !important;
+  @include flexcenter();
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  cursor: default;
+  .text {
+    text-align: center;
+    font-size: 35px !important;
+    color: $fontcolorsm !important;
+    font-family: $fontfamliy;
+    font-weight: bold;
+    letter-spacing: 0;
+    pointer-events: none;
   }
 }
 </style>

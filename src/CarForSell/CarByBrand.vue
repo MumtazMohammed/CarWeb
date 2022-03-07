@@ -59,11 +59,11 @@
                   <v-card
                     v-if="CarData.discount == true"
                     dark
-                    shaped
-                    color="success"
+                    flat
+                    color="orange darken-2"
                     class="discount"
                   >
-                    <v-card-text class="pa-2 text">
+                    <v-card-text class="px-2 py-0 text">
                       <v-icon class="discount-icon">mdi-spa-outline</v-icon>
                       خصم <span class="mr-1">{{ CarData.discountAmount }}</span>
                     </v-card-text>
@@ -259,6 +259,7 @@ export default {
       font-weight: bold;
       background: $linear-gradient;
       border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
     }
     .verified {
       position: absolute;
@@ -393,17 +394,17 @@ export default {
 // discount
 .discount {
   position: absolute;
-  top: 0px;
+  top: 50%;
+  transform: translateY(-50%);
   width: auto;
   right: 0px;
-  // border-radius: 20px 0px 20px 20px !important;
   display: flex;
   .text {
     font-family: $fontfamliy;
-    font-size: 14px !important;
+    font-size: 16px !important;
     font-weight: 500;
     span {
-      font-size: 14px !important;
+      font-size: 16px !important;
       font-weight: 500;
     }
   }
