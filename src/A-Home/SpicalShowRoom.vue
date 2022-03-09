@@ -14,14 +14,14 @@
       >
         <swiper-slide
           class="slide"
-          width="250"
-          v-for="showroom in showrooms"
+          width="200"
+          v-for="showroom in getCarInfo"
           :key="showroom.id"
         >
           <v-card class="showroom-vip">
             <v-row class="justify-center">
               <v-col cols="12" class="d-flex justify-center">
-                <v-avatar tile width="400" height="195" color="transparent">
+                <v-avatar tile width="400" height="135" color="#0881fa">
                   <v-img
                     :src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
                     :lazy-src="
@@ -29,13 +29,16 @@
                     "
                     class="white--text align-end showroom-img"
                     color="primary"
-                    style="width: 400px; height: 200px"
+                    contain
                   ></v-img>
                 </v-avatar>
               </v-col>
             </v-row>
-            <v-card-title v-text="showroom.ShowroomName" class="title">
-            </v-card-title>
+            <v-card-subtitle
+              v-text="showroom.ShowroomName"
+              class="title py-1 text-truncate"
+            >
+            </v-card-subtitle>
             <v-card-actions>
               <!--showroom location  -->
               <v-icon class="icon">mdi-map-marker-outline</v-icon>
@@ -49,7 +52,7 @@
                 سيارة
               </v-card-text>
             </v-card-actions>
-            <v-card-actions class="justify-center">
+            <v-card-actions class="justify-center py-0">
               <v-btn
                 router
                 :to="{
@@ -80,7 +83,7 @@
 </template>
 
 <script>
-import showrooms from "../data-json/SpicalShowRoom.json";
+import featuredshowrooms from "../data-json/showroom.json";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 export default {
@@ -92,7 +95,7 @@ export default {
 
   data() {
     return {
-      showrooms,
+      featuredshowrooms,
       swiperOption: {
         slidesPerView: 3,
         spaceBetween: 15,
@@ -142,6 +145,17 @@ export default {
       return image("./" + FolderName + "/" + ImageName);
     },
   },
+  computed: {
+    getCarInfo() {
+      let GetShowroomfeatured = [];
+      for (let i = 0; i < this.featuredshowrooms.length; i++) {
+        if (this.featuredshowrooms[i].featured == true) {
+          GetShowroomfeatured.push(this.featuredshowrooms[i]);
+        }
+      }
+      return GetShowroomfeatured;
+    },
+  },
 };
 </script>
 
@@ -150,7 +164,7 @@ export default {
 @import "@/scss/mixin";
 .SpicalShowRoom {
   width: 100%;
-  min-height: 80vh;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,23 +172,22 @@ export default {
   background-color: $color-background;
 
   .swiper {
-    height: 460px !important;
+    height: 340px !important;
 
     .swiper-pagination::v-deep .swiper-pagination-bullet {
       width: 13px !important;
-      border-radius: 20%;
-      height: 5px;
+      border-radius: 30px;
+      height: 6px;
       opacity: 0.3;
       margin: 0 2px;
     }
     .swiper-pagination::v-deep .swiper-pagination-bullet-active {
-      width: 18px !important;
-      height: 5px;
+      width: 20px !important;
+      height: 6px;
       opacity: 1;
-      background-color: #0a57ba ;
+      background-color: #0a57ba;
     }
   }
-
   // .swiper::v-deep .swiper-wrapper {
   //   justify-content: center !important;
   //   @media (max-width: 780px) {
@@ -191,9 +204,7 @@ export default {
       color: $fontcolor !important;
       letter-spacing: 0 !important;
       font-size: 1rem !important;
-      height: 60px;
-      display: flex;
-      align-items: flex-start;
+      display: block;
       @media (max-width: 780px) {
         font-size: 17px !important;
       }

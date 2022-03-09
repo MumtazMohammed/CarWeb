@@ -3,12 +3,22 @@
     <NavBar />
     <div class="car-reviw">
       <v-container>
-        <v-row>
-          <v-col cols="12" class="CarImage"> <CarImage /> </v-col>
+        <v-row class="mt-1">
+          <v-col cols="12" class="CarImage grey lighten-3">
+            <CarImage />
+          </v-col>
           <!-- <v-col cols="12" class="CarImage"><Desgin /> </v-col> -->
           <v-col cols="12" class="CarDetails pa-3"><CarDetails /> </v-col>
         </v-row>
       </v-container>
+      <v-row class="my-1">
+        <v-col cols="12" class="">
+          <v-container>
+            <v-card-title class="SeeAll py-1"> رؤية الكل </v-card-title>
+          </v-container>
+          <ShowVerifiedCar />
+        </v-col>
+      </v-row>
       <!-- getimageUrl(getCarInfo.folder, getCarInfo.image) -->
     </div>
   </div>
@@ -19,9 +29,10 @@ import NavBar from "../NavBar/TheNavBar.vue";
 import CarData from "../data-json/All-Car.json";
 import CarImage from "../CarDetail/CarImage.vue";
 import CarDetails from "../CarDetail/CarDetails.vue";
+import ShowVerifiedCar from "./ShowVerifiedCar.vue";
 export default {
   // name: "ViewCar",
-  components: { CarImage, CarDetails, NavBar },
+  components: { CarImage, CarDetails, NavBar, ShowVerifiedCar },
   data() {
     return {
       dialog: false,
@@ -63,7 +74,12 @@ export default {
   position: relative;
 
   .car-reviw:last-child {
-    background-color: $color-background;
+    // background-color: $color-background;
+  }
+  .SeeAll {
+    font-family: $fontfamliy;
+    color: $color-1;
+    text-decoration: underline;
   }
 }
 </style>

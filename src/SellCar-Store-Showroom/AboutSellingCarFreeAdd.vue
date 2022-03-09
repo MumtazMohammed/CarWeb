@@ -171,7 +171,7 @@ export default {
     min-height: 70vh;
   }
   .line {
-    width: 40%;
+    width: 30px;
     height: 7px;
     background: $linear-gradient !important;
     display: flex;

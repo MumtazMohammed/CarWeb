@@ -159,7 +159,7 @@ export default {
         {
           title: "سيارات إقساط ",
           src: "calendar.png",
-          path: "/SeeAllSpecialCar",
+          path: "/InstalmentCars",
           folder: "outsrc",
         },
         {

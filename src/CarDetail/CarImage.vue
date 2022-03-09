@@ -2,7 +2,7 @@
   <div class="car-Image">
     <v-row class="justify-space-around">
       <!-- car image  -->
-      <v-col xs="12" sm="12" md="6" class="grey lighten-3">
+      <v-col xs="12" sm="12" md="6" class="">
         <div class="text-center">
           <v-dialog
             v-model="dialog"
@@ -33,7 +33,14 @@
             <v-btn class="btn pa-6" dark icon @click="dialog = false">
               <v-icon class="icon">fas fa-times</v-icon>
             </v-btn>
-            <v-carousel max dark width="100%" height="100%" hide-delimiters>
+            <v-carousel
+              touch
+              max
+              dark
+              width="100%"
+              height="100%"
+              hide-delimiters
+            >
               <v-carousel-item
                 v-for="(singleImage, x) in getCarInfo.images"
                 :key="x"
@@ -52,12 +59,7 @@
           </v-dialog>
         </div>
       </v-col>
-      <v-col
-        xs="12"
-        sm="12"
-        md="6"
-        class="pt-1 pb-0 remov-p-from-col-box-all grey lighten-3"
-      >
+      <v-col xs="12" sm="12" md="6" class="pt-1 pb-0 remov-p-from-col-box-all">
         <PriceAndLocation />
       </v-col>
     </v-row>

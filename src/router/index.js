@@ -9,6 +9,7 @@ import ViewCar from "../CarDetail/ViewCar.vue";
 // Cars Card
 import UsedCar from "../CarForSell/UsedCar.vue";
 import NewCar from "../CarForSell/NewCar.vue";
+import InstalmentCars from "../CarForSell/InstalmentCars.vue";
 import SeeAllUsedAndNewCars from "../CarForSell/SeeAllUsedAndNewCars.vue";
 import SeeAllSpecialCar from "../CarForSell/SeeAllSpecialCar.vue";
 import CarByBrand from "../CarForSell/CarByBrand.vue";
@@ -54,6 +55,11 @@ const routes = [
     path: "/NewCar",
     name: "NewCar",
     component: NewCar,
+  },
+  {
+    path: "/InstalmentCars",
+    name: "InstalmentCars",
+    component: InstalmentCars,
   },
   {
     path: "/SeeAllSpecialCar",

@@ -322,7 +322,7 @@ export default {
     }
   }
   .line {
-    width: 400px;
+    width: 30px;
     height: 7px;
     background: $AboutSellingCarPayAdd !important;
     display: flex;

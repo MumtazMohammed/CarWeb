@@ -1,41 +1,54 @@
 <template>
-  <div class="product_box">
-    <v-container fluid>
-      <v-col>
-        <h3 class="tital text-center">نضمنها لك</h3>
-        <span class="line my-2 mx-auto"></span>
+  <div class="Car-Cards pb-10">
+    <NavBar />
+    <v-container>
+      <v-col cols="12" class="">
+        <h2 class="tital">
+          (<span class="red--text"> {{ getCarInfo.length }}</span> ) - سـيـارة
+          جديدة للبيع
+        </h2>
+      </v-col>
+
+      <!-- fillter -->
+      <v-col cols="12" class="pr-2 mb-1">
+        <CarFillter />
       </v-col>
       <!--  -->
-      <carousel-3d
-        :disable3d="false"
-        :clickable="false"
-        :animationSpeed="600"
-        :autoplay="false"
-        :autoplay-timeout="0"
-        :display="5"
-        :space="325"
-        :inverseScaling="100"
-        :perspective="25"
-        :width="300"
-        :height="398"
-        :controls-visible="true"
-        :controls-prev-html="navigationPrev"
-        :controls-next-html="navigationNext"
-        :controlsWidth="45"
-        :controlsHeight="45"
-      >
-        <slide
-          class="slide"
-          v-for="(CarData, i) in getCarInfo"
+      <v-divider></v-divider>
+      <v-row class="mt-2 car-box">
+        <!-- message if not found car  -->
+        <v-col cols="12" v-if="getCarInfo.length < 1">
+          <h2 class="tital text-center">لا يوجد سيارات إقساط حتى الأن</h2>
+          <v-card-actions class="justify-center">
+            <v-avatar tile size="300" color="transparent">
+              <v-img
+                contain
+                src="../assets/outsrc/undraw_no_data_re_kwbl.svg"
+                lazy-src="../assets/outsrc/undraw_no_data_re_kwbl.svg"
+                alt="../assets/outsrc/undraw_no_data_re_kwbl.svg"
+              >
+              </v-img>
+            </v-avatar>
+          </v-card-actions>
+        </v-col>
+        <!--  -->
+        <v-col
+          cols="6"
+          sm="4"
+          md="3"
+          class="pa-1 boredr-all-box"
+          v-for="CarData in getCarInfo"
           :key="CarData.id"
-          :index="i"
         >
           <!-- using methods to conect the image to the corect folder   -->
-          <v-card width="300" flat class="pa-1 card-verified">
+          <v-card
+            :class="CarData.Vip == true ? 'card-verified' : 'card'"
+            class="pa-1"
+          >
             <v-row>
               <v-col class="" cols="12">
                 <!-- verified  -->
-                <div>
+                <div v-if="CarData.Vip == true">
                   <p class="py-2 ma-0 px-0 text-center top-verified">
                     <v-icon class="verified-icon white--text">
                       mdi-check-bold
@@ -43,6 +56,12 @@
                     موثوق
                   </p>
                   <b class="pa-0 text-center verified"> </b>
+                </div>
+                <!-- not verified  -->
+                <div v-else>
+                  <p class="py-2 ma-0 px-0 text-center adbywho">
+                    أعلان : {{ CarData.ad }}
+                  </p>
                 </div>
                 <v-img
                   :lazy-src="getimageUrl(CarData.folder, CarData.image)"
@@ -58,12 +77,9 @@
                     color="orange darken-4"
                     class="discount rounded-t-pill"
                   >
-                    <v-card-text class="px-3 py-0 text text-center">
+                    <v-card-text class="px-3 text-center py-0 text">
                       <v-icon class="discount-icon">mdi-spa-outline</v-icon>
-                      خصم
-                      <span class="mr-1 span">
-                        {{ CarData.discountAmount }}
-                      </span>
+                      خصم <span class="mr-1">{{ CarData.discountAmount }}</span>
                     </v-card-text>
                   </v-card>
                   <!-- booked up  -->
@@ -76,8 +92,7 @@
             <!-- car info  -->
             <!-- car Name  -->
             <v-col cols="12" class="pa-3 pr-5">
-              <v-card-subtitle
-                class="font-weight-medium pa-1 text-start text-truncate"
+              <v-card-subtitle class="font-weight-medium pa-1 text-truncate"
                 >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
               </v-card-subtitle>
             </v-col>
@@ -104,15 +119,11 @@
               <!-- if instalment  -->
               <v-col cols="7" class="pa-0">
                 <div v-if="CarData.Instalment">
-                  <v-card-subtitle
-                    class="text-center d-flex justify-center pa-2 text-truncate"
-                  >
+                  <v-card-subtitle class="text-center pa-2 text-truncate">
                     <span class="text-center green--text car-place-price-price">
                       {{ CarData.InstalmentPerMonth }}
                     </span>
-                    <span
-                      class="ma-0 mr-1 black--text car-Instalment-price-text"
-                    >
+                    <span class="ma-0 black--text car-Instalment-price-text">
                       ريال / شهرياً
                     </span>
                   </v-card-subtitle>
@@ -144,7 +155,7 @@
             <v-card-actions class="d-flex justify-center">
               <v-btn
                 block
-                class="btn-verified"
+                :class="CarData.Vip == true ? 'btn-verified' : 'btn'"
                 width="200"
                 :to="{
                   name: 'ViewCar',
@@ -153,6 +164,7 @@
                     carShape: CarData.Shape,
                     carId: CarData.id,
                     Company: CarData.folder,
+                    Instalment: CarData.Instalment,
                   },
                 }"
                 large
@@ -161,38 +173,44 @@
               </v-btn>
             </v-card-actions>
           </v-card>
-        </slide>
-      </carousel-3d>
-
-      <!--  -->
-      <div class="text-center mt-4 mb-2">
-        <v-btn
-          elevation="0"
-          large
-          class="link-SeeAllCar"
-          to="/SeeAllSpecialCar"
-        >
-          شاهد جميع السيارات المضمونه لدينا
-        </v-btn>
-      </div>
-      <!--  -->
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
 <script>
-import { Carousel3d, Slide } from "vue-carousel-3d";
+import AllCarData from "../data-json/All-Car.json";
+import NavBar from "../NavBar/TheNavBar.vue";
+import CarFillter from "../Search/CarFillter.vue";
+
 export default {
-  name: "firstproduct",
+  name: "InstalmentCars",
   components: {
-    Carousel3d,
-    Slide,
+    NavBar,
+    CarFillter,
   },
   data() {
     return {
-      CarSells: this.$attrs.AllDateCar,
+      AllCarData: AllCarData,
+      carName: this.$route.params.carName,
+      carId: this.$route.params.carId,
+      CarShape: this.$route.params.CarShape,
+      Company: this.$route.params.Company,
+      Instalment: this.$route.params.Instalment,
+      Price: [" الأعلى سعرا", "الأقل سعرا"],
     };
   },
-
+  computed: {
+    getCarInfo() {
+      let GetCarByInstalment = [];
+      for (let i = 0; i < this.AllCarData.length; i++) {
+        if (this.AllCarData[i].Instalment == true) {
+          GetCarByInstalment.push(this.AllCarData[i]);
+        }
+      }
+      return GetCarByInstalment;
+    },
+  },
   // this is help full to call the image inside folder and inject to the src
   methods: {
     getimageUrl(FolderName, ImageName) {
@@ -200,132 +218,22 @@ export default {
       return image("./" + FolderName + "/" + ImageName);
     },
   },
-  computed: {
-    getCarInfo() {
-      let GetCarVerified = [];
-      for (let i = 0; i < this.CarSells.length; i++) {
-        if (this.CarSells[i].Vip == true) {
-          GetCarVerified.push(this.CarSells[i]);
-        }
-      }
-      return GetCarVerified;
-    },
-    navigationNext() {
-      return `     <style scoped>
-        .next {
-         transition: all .3s ease;
-         background-color: #0881fa;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         border-radius: 50%;
-         overflow: hidden;
-        opacity: 0.7 !important;
-        }
-        span{
-         width: auto;
-         height: auto;
-         display: flex;
-         align-items: center;
-         justify-content: center
-        }
-         .next:hover {
-         opacity: 1 !important;
-        }
-         .next:hover .chevron {
-          color:#fff;
-        }
-        .chevron{
-          color:#fff;
-          font-size: 16px;
-          transition: color .3s ease;
-
-        }
-      </style>
-
-      <i class="fas chevron fa-chevron-right"></i>
-      `;
-    },
-    navigationPrev() {
-      return `
-       <style scoped>
-        .prev {
-         transition: all .3s ease;
-         background-color: #0881fa;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         border-radius: 50%;
-         overflow: hidden;
-         opacity: 0.7 !important;
-
-        }
-        span{
-         width: auto;
-         height: auto;
-         display: flex;
-         align-items: center;
-         justify-content: center
-        }
-         .prev:hover {
-         opacity: 1 !important;
-        }
-         .prev:hover .chevron {
-          color:#fff;
-        }
-        .chevron{
-         color:#fff;
-         font-size: 16px;
-         transition: color .3s ease;
-
-        }
-      </style>
-      <i class="fas chevron fa-chevron-left"></i>`;
-    },
-  },
 };
 </script>
-
 <style lang="scss" scoped>
 @import "@/scss/virables";
 @import "@/scss/mixin";
-
-.product_box {
-  width: auto;
-  height: auto;
-  position: relative;
-  padding: $padding;
-  background-color: $color-background;
-
-  .link-SeeAllCar {
-    font-family: $fontfamliy;
-    color: $fontcolorsm !important;
-    letter-spacing: 0;
-    font-size: 20px !important;
-    background-color: $color-1 !important;
-    text-decoration: none !important;
-    @media (max-width: 360px) {
-      font-size: 16px !important;
-    }
-    @media (max-width: 320px) {
-      font-size: 14px !important;
+.Car-Cards {
+  width: 100%;
+  min-height: 100vh;
+  .car-box {
+    @media (max-width: 540px) {
+      justify-content: center;
     }
   }
-
   .tital {
     color: $fontcolor;
     font-family: $fontfamliy;
-    font-size: 27px;
-  }
-  .line {
-    width: 30px;
-    height: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background: $color-1;
-    display: block;
   }
   .title-box {
     margin: 15px 0;
@@ -337,25 +245,139 @@ export default {
       cursor: pointer;
     }
   }
-
+  .filtt {
+    @media (max-width: 540px) {
+      padding: 5px 90px !important;
+    }
+    @media (max-width: 450px) {
+      padding: 5px 15px !important;
+    }
+  }
+  .boredr-all-box {
+    @media (max-width: 880px) {
+      max-width: 50%;
+    }
+    @media (max-width: 540px) {
+      padding: 5px 80px !important;
+      max-width: 100%;
+    }
+    @media (max-width: 450px) {
+      padding: 12px !important;
+    }
+  }
+  .tital {
+    font-family: $fontfamliy;
+    font-size: 25px;
+    @media (max-width: 600px) {
+      font-size: 20px;
+    }
+    @media (max-width: 360px) {
+      font-size: 17px;
+    }
+  }
   .v-btn--icon.v-size--default .v-icon {
     font-size: 20px;
     color: #8c8c8c;
   }
-  .btn-verified {
-    color: $fontcolorsm;
-    font-family: $fontfamliy;
-    font-weight: 500;
-    font-size: 17px;
-    padding: 10px;
-    letter-spacing: 0;
-    background: $linear-gradient;
+  .card-verified {
+    overflow: hidden;
+    .top-verified {
+      font-family: $fontfamliy;
+      color: $fontcolorsm;
+      letter-spacing: 0;
+      font-size: 16px;
+      font-weight: bold;
+      background: $linear-gradient;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .verified {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      color: $fontcolor;
+      width: 32px;
+      height: 32px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 50%;
+    }
+    .verified:after {
+      content: "";
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      border: 2px solid $color-1;
+    }
+    .verified:before {
+      content: "";
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      width: 18px;
+      height: 18px;
+      background-color: $color-1;
+      clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+      );
+    }
+    .verified-icon {
+      font-size: 17px !important;
+      // font-weight: 400;
+      color: #fff;
+    }
+    .btn-verified {
+      color: $fontcolorsm;
+      font-family: $fontfamliy;
+      font-weight: 500;
+      font-size: 17px;
+      padding: 10px;
+      letter-spacing: 0;
+      background: $linear-gradient;
+    }
   }
-
-  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before {
+  // No featured
+  .card {
+    overflow: hidden;
+    .btn {
+      color: $fontcolor;
+      font-family: $fontfamliy;
+      font-weight: 500;
+      font-size: 17px;
+      padding: 10px;
+      letter-spacing: 0;
+    }
+    .adbywho {
+      font-family: $fontfamliy;
+      color: $fontcolor;
+      letter-spacing: 0;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
+  .theme--light.v-btn--active:hover:before {
     opacity: 0;
   }
-  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:hover:before {
+  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:hover:before,
+  .theme--light.v-btn--active:before {
     opacity: 0;
   }
   .v-card__subtitle {
@@ -379,77 +401,6 @@ export default {
     color: $fontcolorsm;
     border-radius: 20px;
   }
-  .car-name {
-    font-size: 17px;
-    font-weight: 500 !important;
-    font-family: $fontfamliy;
-  }
-}
-.top-verified {
-  font-family: $fontfamliy;
-  color: $fontcolorsm;
-  letter-spacing: 0;
-  font-size: 16px;
-  font-weight: bold;
-  background: $linear-gradient;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-.verified {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  right: 0;
-  color: $fontcolor;
-  width: 32px;
-  height: 32px;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 50%;
-}
-.verified:after {
-  content: "";
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  width: 27px;
-  height: 27px;
-  border-radius: 50%;
-  border: 2px solid $color-1;
-}
-.verified:before {
-  content: "";
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  width: 18px;
-  height: 18px;
-  background-color: $color-1;
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
-}
-.verified-icon {
-  font-size: 17px !important;
-  // font-weight: 400;
-  color: #fff;
-}
-.card-vip {
-  // border: 0.5px solid $color-1 !important;
-  overflow: hidden;
 }
 @media (min-width: 960px) {
   .container {
@@ -461,34 +412,7 @@ export default {
     max-width: 100% !important;
   }
 }
-.imgae-cars {
-  @media (max-width: 500px) {
-    width: 100% !important;
-  }
-}
 
-.carousel-3d-container {
-  height: 450px !important;
-  margin: 0px auto !important;
-}
-.carousel-3d-container .current figure {
-  margin: 0;
-}
-.carousel-3d-container {
-  .carousel-3d-slide {
-    margin: 0 !important;
-    background-color: unset;
-    border: 0px;
-    height: auto !important;
-    width: 300px !important;
-    display: flex;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: flex-start;
-    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%),
-      0 1px 5px 0 rgb(0 0 0 / 12%);
-  }
-}
 // discount
 .discount {
   position: absolute;
@@ -504,10 +428,9 @@ export default {
     font-weight: 500;
     color: #ffffff !important;
 
-    .span {
-      font-size: 15px !important;
+    span {
+      font-size: 16px !important;
       font-weight: 500;
-      display: inline-block !important;
     }
   }
   .discount-icon {
@@ -517,11 +440,12 @@ export default {
 }
 .oldprice {
   text-decoration: line-through;
-  color: rgba(108, 108, 108, 0.673) !important;
+  color: $fontcolorlinks !important;
   padding: 8px;
   position: absolute;
   transform: translateY(-50%);
-  font-size: 14px !important;
+  font-size: 17px !important;
+  opacity: 0.7;
 }
 // booked up
 .token {
@@ -529,6 +453,7 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 0px !important;
+
   @include flexcenter();
   position: absolute;
   top: 0;
@@ -559,6 +484,7 @@ export default {
   margin-right: 2px;
 }
 .car-if-not-Instalment-price-text {
+  font-size: 12px;
   font-weight: 500 !important;
   font-family: $fontfamliy;
 }

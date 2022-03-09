@@ -4,7 +4,7 @@
     <ToSellYourCarLayout />
     <ADD />
     <SpicalShowRoom />
-    <SpicalCar :caritems="caritems" />
+    <SpicalCar :AllDateCar="AllDateCar" />
     <CarBrands :AllDateCar="AllDateCar" />
     <CarShape :AllDateCar="AllDateCar" />
     <!-- <CarPartsCategories /> -->

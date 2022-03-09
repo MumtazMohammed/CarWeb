@@ -136,31 +136,30 @@
                 locationStreet: showroom.locationStreet,
               },
             }"
-            :class="showroom.VIP == true ? 'showroom-vip' : 'showroom'"
+            :class="showroom.featured == true ? 'showroom-vip' : 'showroom'"
           >
             <v-img
               :src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
               :lazy-src="getimageUrl(showroom.folder, showroom.ShowroomImg)"
               class="white--text align-end showroom-img #424342"
-              color="primary"
-              style="width: 450px; height: 250px; margin: 0 auto"
-              width="450"
-              height="200"
+              color="white"
+              style="background-position: top"
+              height="170px"
             >
-              <!-- Featured showeoom  -->
-              <v-card
-                flat
-                shaped
-                v-if="showroom.VIP == true"
-                class="Featured-card rounded-bl-0 rounded-tr-0"
-              >
-                <v-card-text
-                  class="white--text text-center Featured-text py-1 px-2"
-                >
-                  متميز
-                </v-card-text>
-              </v-card>
             </v-img>
+            <!-- Featured showeoom  -->
+            <v-card
+              flat
+              shaped
+              v-if="showroom.featured == true"
+              class="Featured-card rounded-bl-0 rounded-tr-0"
+            >
+              <v-card-text
+                class="grey--text text--darken-2 text-center Featured-text py-1 px-2"
+              >
+                متميز
+              </v-card-text>
+            </v-card>
             <v-card-title v-text="showroom.ShowroomName" class="title">
             </v-card-title>
             <v-card-actions>
@@ -390,7 +389,7 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: $color-1;
+    background-color: $color-4;
     .Featured-text {
       font-family: $fontfamliy !important;
       font-size: 15px;
@@ -408,5 +407,8 @@ export default {
 }
 .not-found {
   font-size: 14px !important;
+}
+::v-deep .v-image__image.v-image__image--cover {
+  background-position: top !important;
 }
 </style>

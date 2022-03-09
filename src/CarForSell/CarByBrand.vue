@@ -3,13 +3,10 @@
     <NavBar />
     <v-container fluid>
       <v-col class="pr-0" cols="12">
-        <h2 v-if="getCarInfo.length > 0" class="tital">
+        <h2 class="tital">
           (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة
           {{ CarName }} للبيع في اليمن
         </h2>
-        <div v-else class="white d-flex justify-center">
-          <p class="no-car">لا يوجد سيارت متاحا {{ CarName }}</p>
-        </div>
       </v-col>
       <!-- fillter -->
       <v-col cols="12" class="pr-2 mb-1">
@@ -18,6 +15,22 @@
       <!--  -->
       <v-divider v-if="getCarInfo.length > 0"></v-divider>
       <v-row class="mt-2 car-box">
+        <!-- message if not found car  -->
+        <v-col cols="12" v-if="getCarInfo.length < 1">
+          <h2 class="tital text-center">لا يوجد سيارات بنفس طلبك حتى الأن</h2>
+          <v-card-actions class="justify-center">
+            <v-avatar tile size="300" color="transparent">
+              <v-img
+                contain
+                src="../assets/outsrc/undraw_no_data_re_kwbl.svg"
+                lazy-src="../assets/outsrc/undraw_no_data_re_kwbl.svg"
+                alt="../assets/outsrc/undraw_no_data_re_kwbl.svg"
+              >
+              </v-img>
+            </v-avatar>
+          </v-card-actions>
+        </v-col>
+        <!--  -->
         <v-col
           cols="6"
           sm="4"
@@ -53,17 +66,18 @@
                 <v-img
                   :lazy-src="getimageUrl(CarData.folder, CarData.image)"
                   :src="getimageUrl(CarData.folder, CarData.image)"
-                  height="170px"
+                  height="130px"
                 >
                   <!-- discount  -->
                   <v-card
                     v-if="CarData.discount == true"
                     dark
                     flat
-                    color="orange darken-2"
-                    class="discount"
+                    width="200"
+                    color="orange darken-4"
+                    class="discount rounded-t-pill"
                   >
-                    <v-card-text class="px-2 py-0 text">
+                    <v-card-text class="px-3 py-0 text-center text">
                       <v-icon class="discount-icon">mdi-spa-outline</v-icon>
                       خصم <span class="mr-1">{{ CarData.discountAmount }}</span>
                     </v-card-text>
@@ -77,53 +91,66 @@
             </v-row>
             <!-- car info  -->
             <!-- car Name  -->
-            <v-row class="pa-0 mt-1" align="center">
-              <v-col cols="12" class="pa-3 pr-5">
-                <v-card-subtitle class="font-weight-medium pa-1"
-                  >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
-                </v-card-subtitle>
-              </v-col>
-            </v-row>
-            <!-- car location  and condition  -->
-            <v-row class="mb-1 justify-center">
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle class="text-right location-condtion pa-2">{{
-                  CarData.location
-                }}</v-card-subtitle>
-              </v-col>
-              <v-divider vertical></v-divider>
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle class="text-left location-condtion pa-2"
-                  >{{ CarData.condtion }}
-                </v-card-subtitle>
-              </v-col>
-            </v-row>
-            <!-- car praic and kilo  -->
-            <v-row class="mb-1 justify-center">
+            <v-col cols="12" class="pa-3 pr-5">
+              <v-card-subtitle class="font-weight-medium pa-1 text-truncate"
+                >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
+              </v-card-subtitle>
+            </v-col>
+            <!-- car praic   -->
+            <v-card-actions class="justify-center">
               <v-col cols="5" class="pa-0">
                 <!-- discount  -->
                 <v-card-subtitle
                   :class="
                     CarData.discount == true
                       ? 'oldprice'
-                      : 'green--text font-weight-medium text-right pa-2'
+                      : 'green--text font-weight-medium text-right pa-2 '
                   "
-                  class=""
-                  >{{ CarData.payment }}</v-card-subtitle
-                >
+                  class="text-center"
+                  >{{ CarData.payment }}
+                </v-card-subtitle>
                 <v-card-subtitle
                   v-if="CarData.discount == true"
-                  class="green--text font-weight-medium text-right pa-2"
+                  class="green--text font-weight-medium text-center pa-2"
                   >{{ CarData.discountPrice }}</v-card-subtitle
                 >
               </v-col>
               <v-divider vertical></v-divider>
-              <v-col cols="5" class="pa-0">
-                <v-card-subtitle class="text-left font-weight-regular pa-2"
-                  >{{ CarData.kilometer }}
-                </v-card-subtitle>
+              <!-- if instalment  -->
+              <v-col cols="7" class="pa-0">
+                <div v-if="CarData.Instalment">
+                  <v-card-subtitle class="text-center pa-2 text-truncate">
+                    <span class="text-center green--text car-place-price-price">
+                      {{ CarData.InstalmentPerMonth }}
+                    </span>
+                    <span class="ma-0 black--text car-Instalment-price-text">
+                      ريال / شهرياً
+                    </span>
+                  </v-card-subtitle>
+                </div>
+                <div v-else>
+                  <v-card-subtitle
+                    class="text-center pa-2 car-if-not-Instalment-price-text"
+                  >
+                    كاش
+                  </v-card-subtitle>
+                </div>
               </v-col>
-            </v-row>
+            </v-card-actions>
+            <!-- car location  and condition  -->
+            <v-col cols="12">
+              <v-card-actions class="justify-center pa-0">
+                <span class="location-condtion-place pa-1 px-2">
+                  {{ CarData.location }}
+                </span>
+                <span class="location-condtion-place pa-1 px-2">
+                  {{ CarData.condtion }}
+                </span>
+                <span class="location-condtion-place pa-1 px-2 text-truncate"
+                  >{{ CarData.kilometer }}
+                </span>
+              </v-card-actions>
+            </v-col>
             <!-- car click to see more  -->
             <v-card-actions class="d-flex justify-center">
               <v-btn
@@ -359,10 +386,15 @@ export default {
       font-size: 17px;
     }
   }
-  .location-condtion {
-    font-size: 16px;
+  .location-condtion-place {
+    display: block;
+    font-size: 13px;
     font-weight: 400;
     font-family: $fontfamliy;
+    background-color: $color-3;
+    margin: 0 2px !important;
+    color: $fontcolorsm;
+    border-radius: 20px;
   }
 }
 
@@ -394,17 +426,17 @@ export default {
 // discount
 .discount {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0;
+  transform: translatex(-50%);
   width: auto;
-  right: 0px;
+  left: 50%;
   display: flex;
   .text {
     font-family: $fontfamliy;
     font-size: 16px !important;
     font-weight: 500;
     span {
-      font-size: 16px !important;
+      font-size: 14px !important;
       font-weight: 500;
     }
   }
@@ -415,11 +447,12 @@ export default {
 }
 .oldprice {
   text-decoration: line-through;
-  color: rgba(108, 108, 108, 0.469) !important;
+  color: $fontcolorlinks !important;
   padding: 8px;
   position: absolute;
   transform: translateY(-50%);
-  font-size: 14px !important;
+  font-size: 17px !important;
+  opacity: 0.7;
 }
 // booked up
 .token {
@@ -443,5 +476,22 @@ export default {
     letter-spacing: 0;
     pointer-events: none;
   }
+}
+// instalment price
+.car-place-price-price {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: $fontfamliy;
+}
+.car-Instalment-price-text {
+  font-size: 13px;
+  width: fit-content;
+  font-weight: 500;
+  font-family: $fontfamliy;
+  margin-right: 2px;
+}
+.car-if-not-Instalment-price-text {
+  font-weight: 500 !important;
+  font-family: $fontfamliy;
 }
 </style>

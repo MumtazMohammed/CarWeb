@@ -6,7 +6,7 @@
     "locationStreet": "تعز-الحوبان-مقابل مدرسة الروضه",
     "ShowroomImg": "orignal-1615322218-744.png",
     "folder": "showroom",
-    "VIP": true,
+    "featured": true,
     "first": 1
   },
   {
@@ -16,7 +16,7 @@
     "locationStreet": "صنعاء-الحوبان-مقابل مدرسة الروضه",
     "ShowroomImg": "orignal-1635857145-70.png",
     "folder": "showroom",
-    "VIP": false,
+    "featured": true,
     "first": 2
   },
   {
@@ -26,7 +26,7 @@
     "locationStreet": "اب-الحوبان-مقابل مدرسة الروضه",
     "ShowroomImg": "orignal-1636369009-302.png",
     "folder": "showroom",
-    "VIP": true,
+    "featured": true,
     "first": 1
   },
   {
@@ -36,7 +36,7 @@
     "locationStreet": "عدن-الحوبان-مقابل مدرسة الروضه",
     "ShowroomImg": "orignal-1636369009-302.png",
     "folder": "showroom",
-    "VIP": false,
+    "featured": false,
     "first": 2
   },
   {
@@ -46,7 +46,7 @@
     "locationStreet": "الحديده-الحوبان-مقابل مدرسة الروضه",
     "ShowroomImg": "orignal-1641451163-200.png",
     "folder": "showroom",
-    "VIP": true,
+    "featured": false,
     "first": 1
   }
 ]

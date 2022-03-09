@@ -15,9 +15,8 @@
             <v-carousel-item
               v-for="(item, i) in items"
               :key="i"
-              reverse-transition="fade-transition"
-              transition="fade-transition"
               style="height: 100%"
+              class="carouselItem"
             >
               <v-img
                 min-height="150"
@@ -148,5 +147,8 @@ export default {
       // background: $color-1;
     }
   }
+}
+.carouselItem {
+  transition: all 1s ease;
 }
 </style>

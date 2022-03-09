@@ -1,5 +1,5 @@
 <template>
-  <div class="car-info py-10">
+  <div class="car-info ">
     <v-row justify="center">
       <v-col cols="12" class="pa-0">
         <v-card-title class="justify-center card-title">
