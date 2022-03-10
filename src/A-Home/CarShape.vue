@@ -2,9 +2,7 @@
   <div class="Shape_box">
     <div class="Shape_container">
       <v-container class="px-md-7">
-        <p class="text-center mb-2 font-weight-bold tital">
-          {{ Tital }}
-        </p>
+        <p class="text-center mb-2 font-weight-bold tital" v-text="Tital"></p>
         <span class="line my-3 mx-auto"></span>
         <v-row class="mt-2">
           <v-col

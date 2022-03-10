@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <v-footer dark padless color="#f8f9fa ">
+    <v-footer dark padless color="transparent ">
       <v-container>
         <v-card flat color="transparent" tile class="">
           <v-row class="justify-center">
@@ -52,27 +52,42 @@
               </v-tabs>
             </v-col>
           </v-row>
-          <v-row class="justify-end">
-            <v-col cols="10" md="12" sm="11">
-              <v-card color="transparent" flat class="d-flex">
-                <a class="mx-2 brand-Privacy grey--text text--darken-1">
-                  الأحكام والشروط
-                </a>
+          <v-row class="justify-center">
+            <v-col cols="10" md="5" sm="11">
+              <v-card-actions color="transparent" class="pa-4" >
+                <router-link
+                  :to="{
+                    name: 'TheTerms',
+                    params: { Terms: ' الأحكام والشروط' },
+                  }"
+                  class="mx-2 brand-Privacy grey--text text--darken-1"
+                >
+                  <a> الأحكام والشروط </a>
+                </router-link>
                 <span class="grey--text">|</span>
-                <a class="mx-2 brand-Privacy grey--text text--darken-1">
-                  سياسة الخصوصية
-                </a>
-              </v-card>
+                <router-link
+                  :to="{
+                    name: 'ThePrivacy',
+                    params: { Privacy: ' سياسة الخصوصية' },
+                  }"
+                  class="mx-2 brand-Privacy grey--text text--darken-1"
+                >
+                  <a> سياسة الخصوصية </a>
+                </router-link>
+              </v-card-actions>
+            </v-col>
+            <v-col cols="10" md="5" sm="11">
+              <v-card-text
+                class="grey--text text-end brand-logo text--darken-1"
+              >
+                <strong class="ml-2">
+                  &COPY; جميع الحقوق محفوظة لشركة ثـقـــة
+                </strong>
+                2022 —
+                {{ new Date().getFullYear() }}
+              </v-card-text>
             </v-col>
           </v-row>
-          <v-divider></v-divider>
-          <v-card-text class="grey--text text-end brand-logo text--darken-1">
-            <strong class="ml-2">
-              &COPY; جميع الحقوق محفوظة لشركة ثـقـــة
-            </strong>
-            2022 —
-            {{ new Date().getFullYear() }}
-          </v-card-text>
         </v-card>
       </v-container>
     </v-footer>

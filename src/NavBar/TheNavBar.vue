@@ -39,17 +39,19 @@
         }"
         class="hidden-sm-and-down"
       >
-        <v-card-actions class="user-box-name">
-          <v-card-subtitle class="pa-1 pl-2 user-name"
-            >mohammed Ameen</v-card-subtitle
-          >
-          <v-avatar size="35" color="transparent">
-            <v-img src="../assets/pp.jpg"></v-img>
-          </v-avatar>
-        </v-card-actions>
+        <v-card shaped>
+          <v-card-actions class="user-box-name pa-1">
+            <v-avatar size="35" color="transparent">
+              <v-img src="../assets/pp.jpg"></v-img>
+            </v-avatar>
+            <v-card-subtitle class="py-0 px-2 user-name">
+              <span class="d-inline">{{ welcomeTouser }}</span> mohammed Ameen
+            </v-card-subtitle>
+          </v-card-actions>
+        </v-card>
       </router-link>
       <!-- loing btn  -->
-      <LogingAndSignup class="hidden-sm-and-down" />
+      <!-- <LogingAndSignup class="hidden-sm-and-down" /> -->
 
       <!-- bar icon for show links  -->
       <v-app-bar-nav-icon
@@ -80,7 +82,7 @@
           <StartToSellYourCar />
         </div>
         <!-- sign up or sign in  -->
-        <LogingAndSignup  />
+        <LogingAndSignup />
         <!-- sign in already  -->
         <router-link
           :to="{
@@ -88,14 +90,17 @@
             params: { UserPage: 'صفحة المستخدم' },
           }"
         >
-          <v-card-actions class="user-box-name justify-center mt-3">
-            <v-card-subtitle class="pa-1 pl-2 user-name">
-              mohammed Ameen
-            </v-card-subtitle>
-            <v-avatar size="35" color="transparent">
-              <v-img src="../assets/pp.jpg"></v-img>
-            </v-avatar>
-          </v-card-actions>
+          <v-card flat width="250" class="mb-2 mx-auto">
+            <v-card-actions class="user-box-name pa-1">
+              <v-avatar size="35" color="transparent">
+                <v-img src="../assets/pp.jpg"></v-img>
+              </v-avatar>
+              <v-card-subtitle class="py-0 px-2 user-name text-truncate">
+                <span class="d-inline">{{ welcomeTouser }}</span>
+                mohammed Ameen
+              </v-card-subtitle>
+            </v-card-actions>
+          </v-card>
         </router-link>
         <!--  -->
         <v-divider color="white"></v-divider>
@@ -245,6 +250,7 @@ export default {
   },
   data: () => ({
     drawer: false,
+    welcomeTouser: "مرحباً ,",
     model: 1,
     Servise: [
       { text: "أفتح معرضك معنا", icon: "mdi-store-cog-outline" },
@@ -390,7 +396,7 @@ a {
 .user-box-name {
   cursor: pointer;
   .user-name {
-    color: $fontcolor;
+    color: $fontcolor !important;
     font-size: 15px;
     letter-spacing: 0px;
     font-family: $fontfamliy;

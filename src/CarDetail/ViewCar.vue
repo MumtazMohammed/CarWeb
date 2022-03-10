@@ -11,12 +11,15 @@
           <v-col cols="12" class="CarDetails pa-3"><CarDetails /> </v-col>
         </v-row>
       </v-container>
-      <v-row class="my-1">
+      <v-row class="my-0">
         <v-col cols="12" class="">
           <v-container>
             <v-card-title class="SeeAll py-1"> رؤية الكل </v-card-title>
           </v-container>
           <ShowVerifiedCar />
+        </v-col>
+        <v-col cols="12" class="pa-0">
+          <StartToAd />
         </v-col>
       </v-row>
       <!-- getimageUrl(getCarInfo.folder, getCarInfo.image) -->
@@ -30,9 +33,10 @@ import CarData from "../data-json/All-Car.json";
 import CarImage from "../CarDetail/CarImage.vue";
 import CarDetails from "../CarDetail/CarDetails.vue";
 import ShowVerifiedCar from "./ShowVerifiedCar.vue";
+import StartToAd from "./StartToAd.vue";
 export default {
   // name: "ViewCar",
-  components: { CarImage, CarDetails, NavBar, ShowVerifiedCar },
+  components: { CarImage, CarDetails, NavBar, ShowVerifiedCar, StartToAd },
   data() {
     return {
       dialog: false,

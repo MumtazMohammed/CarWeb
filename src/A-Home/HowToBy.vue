@@ -1,14 +1,12 @@
 <template>
   <div class="HowToBuy">
     <v-container>
-      <p class="text-center mb-2 font-weight-bold tital">
-        {{ Tital }}
-      </p>
+      <p class="text-center mb-2 font-weight-bold tital" v-text="Tital"></p>
       <span class="line my-3 mx-auto"></span>
       <v-row class="justify-center">
         <v-col cols="12" sm="10" md="10">
           <div>
-            <v-expansion-panels dark v-model="panel" multiple>
+            <v-expansion-panels dark popout v-model="panel" multiple>
               <v-expansion-panel v-for="(item, i) in items" :key="i">
                 <v-expansion-panel-header class="expansion-header py-1">{{
                   item.how
@@ -53,7 +51,6 @@ export default {
         },
       ],
       panel: [0],
-      readonly: false,
     };
   },
 };

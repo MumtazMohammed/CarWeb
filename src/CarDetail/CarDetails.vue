@@ -196,9 +196,7 @@ export default {
   color: $fontcolorsm;
   letter-spacing: 0 !important;
   font-family: $fontfamliy;
-  @media (max-width: 400px) {
-    font-size: 12px !important;
-  }
+
 }
 .table_data-child b {
   font-size: 17px !important;
@@ -206,9 +204,7 @@ export default {
   color: $fontcolorsm;
   padding: 5px;
   font-family: $fontfamliy;
-  @media (max-width: 400px) {
-    font-size: 14px !important;
-  }
+
 }
 
 .card-title {

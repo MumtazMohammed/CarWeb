@@ -2,7 +2,7 @@
   <div class="SpicalShowRoom">
     <v-container>
       <v-col>
-        <p class="tital mb-2 font-weight-bold text-center">المعارض المتميزة</p>
+        <p class="tital mb-2 font-weight-bold text-center" v-text="Tital"></p>
         <span class="line my-3 mx-auto"></span>
       </v-col>
       <swiper
@@ -95,6 +95,7 @@ export default {
 
   data() {
     return {
+      Tital: "المعارض المتميزة",
       featuredshowrooms,
       swiperOption: {
         slidesPerView: 3,

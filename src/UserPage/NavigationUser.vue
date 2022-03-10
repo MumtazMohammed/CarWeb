@@ -101,9 +101,6 @@ export default {
       font-size: 15px !important;
     }
   }
-  ::v-deep .v-slide-group__content {
-    // justify-content: center;
-  }
 }
 .link-home-icon {
   animation: home 0.5s infinite 0s alternate-reverse linear;

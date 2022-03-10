@@ -1,51 +1,49 @@
 <template>
   <div class="Registration">
     <v-container>
-      <v-col cols="12" class="pb-0">
-        <p class="text-center mb-2 font-weight-bold tital" v-text="Tital"></p>
-        <span class="line my-3 mx-auto"></span>
-      </v-col>
-    </v-container>
-    <div class="Registration-card">
-      <v-container>
-        <v-row class="row-card">
-          <v-col
-            v-for="Card in Cards"
-            :key="Card.id"
-            cols="6"
-            sm="4"
-            md="3"
-            class="pa-2 card-col"
+      <!-- <v-row class="row-card">
+        <v-col cols="12">
+          <p class="text-center mb-2 font-weight-bold tital" v-text="Tital"></p>
+          <span class="line my-3 mx-auto"></span>
+        </v-col>
+      </v-row> -->
+      <v-row class="row-card">
+        <v-col
+          v-for="Card in Cards"
+          :key="Card.id"
+          cols="6"
+          sm="4"
+          md="3"
+          class="pa-2 card-col"
+        >
+          <v-card
+          :color="Card.color"
+            elevation="4"
+            class="d-flex flex-column align-center justify-space-between"
+            :class="Card.CardClass"
+            height="170"
+            router
+            :to="{
+              name: `${Card.path}`,
+              params: { MyAdd: 'إعلاناتي' },
+            }"
           >
-            <v-card
-              :color="Card.color"
-              elevation="4"
-              class="d-flex flex-column align-center justify-space-between"
-              :class="Card.CardClass"
-              router
-              :to="{
-                name: `${Card.path}`,
-                params: { MyAdd: 'إعلاناتي' },
-              }"
+            <v-img
+              class="mx-auto"
+              contain
+              height="100"
+              :src="getimageUrl(Card.folder, Card.CardImg)"
+            ></v-img>
+            <v-spacer></v-spacer>
+            <v-card-text
+              class="text-center card-text pa-2 grey lighten-4"
+              v-text="Card.CardName"
             >
-              <v-img
-                class="mx-auto"
-                height="140"
-                style="height: 140px; width: 160px; border-radius: 0px"
-                :src="getimageUrl(Card.folder, Card.CardImg)"
-              >
-              </v-img>
-              <v-spacer></v-spacer>
-              <v-card-text
-                class="text-center text-truncate card-text pa-2 grey lighten-4"
-                v-text="Card.CardName"
-              >
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </div>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -102,17 +100,12 @@ export default {
 @import "@/scss/mixin";
 .Registration {
   width: 100%;
-  min-height: auto;
-  padding: $padding;
-  background-color: $color-background;
+  min-height: 40vh;
+  padding-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  .Registration-card {
-    // background-color: $color-1;
-    min-height: 30vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .row-card {
     justify-content: center;
     @media (max-width: 600px) {
@@ -174,10 +167,6 @@ export default {
   .Showroom {
     position: relative;
     overflow: hidden;
-    // border-color: #35477d;
-    // border-width: 0px;
-    // border-bottom-width: 4px;
-    // border-style: solid;
     transition: all 0.3s 0s ease;
   }
   .Showroom:hover {
@@ -189,10 +178,10 @@ export default {
   .Store {
     position: relative;
     overflow: hidden;
-    // border-color: #6c5b7b;
-    // border-width: 0px;
-    // border-bottom-width: 6px;
-    // border-style: solid;
+    border-color: #6c5b7b;
+    border-width: 0px;
+    border-bottom-width: 6px;
+    border-style: solid;
     transition: all 0.3s 0s ease;
   }
   .Store:hover {
@@ -204,13 +193,20 @@ export default {
   .Sell {
     position: relative;
     overflow: hidden;
-    // border-color: #c06c84;
-    // border-width: 0px;
-    // border-bottom-width: 4px;
-    // border-style: solid;
+
     transition: all 0.3s 0s ease;
   }
   .Sell:hover {
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
+  }
+  .Sellfree {
+    position: relative;
+    overflow: hidden;
+
+    transition: all 0.3s 0s ease;
+  }
+  .Sellfree:hover {
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
       0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
   }

@@ -2,7 +2,7 @@
   <div class="product_box">
     <v-container fluid>
       <v-col>
-        <h3 class="tital text-center">نضمنها لك</h3>
+        <h3 class="tital text-center" v-text="Tital"></h3>
         <span class="line my-2 mx-auto"></span>
       </v-col>
       <!--  -->
@@ -189,6 +189,7 @@ export default {
   },
   data() {
     return {
+      Tital: "نضمنها لك",
       CarSells: this.$attrs.AllDateCar,
     };
   },
