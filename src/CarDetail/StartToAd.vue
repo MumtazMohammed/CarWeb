@@ -1,12 +1,6 @@
 <template>
   <div class="Registration">
     <v-container>
-      <!-- <v-row class="row-card">
-        <v-col cols="12">
-          <p class="text-center mb-2 font-weight-bold tital" v-text="Tital"></p>
-          <span class="line my-3 mx-auto"></span>
-        </v-col>
-      </v-row> -->
       <v-row class="row-card">
         <v-col
           v-for="Card in Cards"
@@ -17,23 +11,23 @@
           class="pa-2 card-col"
         >
           <v-card
-          :color="Card.color"
+            :color="Card.color"
             elevation="4"
             class="d-flex flex-column align-center justify-space-between"
             :class="Card.CardClass"
-            height="170"
             router
             :to="{
               name: `${Card.path}`,
               params: { MyAdd: 'إعلاناتي' },
             }"
           >
-            <v-img
-              class="mx-auto"
-              contain
-              height="100"
-              :src="getimageUrl(Card.folder, Card.CardImg)"
-            ></v-img>
+            <v-avatar class="my-2" size="80" tile color="transparent">
+              <v-img
+                class="mx-auto"
+                :src="getimageUrl(Card.folder, Card.CardImg)"
+              >
+              </v-img>
+            </v-avatar>
             <v-spacer></v-spacer>
             <v-card-text
               class="text-center card-text pa-2 grey lighten-4"
@@ -58,30 +52,30 @@ export default {
       Cards: [
         {
           id: 1,
-          CardImg: "showroom.jpg",
+          CardImg: "showroom.png",
           folder: "outsrc",
           CardName: "أفتح معرضك معنا",
           CardClass: "Showroom",
           path: "AboutShowroom",
-          color: "#1c509b",
+          color: "#0881fa",
         },
         {
           id: 2,
-          CardImg: "deal.jpg",
+          CardImg: "deal.png",
           folder: "outsrc",
           CardName: "خلي إعلان سيارتك علينا",
           CardClass: "Sell",
           path: "AboutSellingCarPayAdd",
-          color: "#fff",
+          color: "#0881fa",
         },
         {
           id: 3,
-          CardImg: "freeSell.jpg",
+          CardImg: "tax.png",
           folder: "outsrc",
           CardName: " إعلان سيارتك مجاناً",
           CardClass: "Sell",
           path: "AboutSellingCarFreeAdd",
-          color: "#63bcb8",
+          color: "#0881fa",
         },
       ],
     };

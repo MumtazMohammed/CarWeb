@@ -19,7 +19,7 @@
         transition="dialog-transition"
       >
         <template v-slot:activator="{ on, attrs }">
-          <v-btn elevation="2" class="btn1" v-bind="attrs" v-on="on">
+          <v-btn elevation="0" class="btn1" v-bind="attrs" v-on="on">
             <b v-text="btnSignUp" class="sgin"></b>
             <v-icon class="sign-in-icon" right>fas fa-sign-in-alt</v-icon>
           </v-btn>

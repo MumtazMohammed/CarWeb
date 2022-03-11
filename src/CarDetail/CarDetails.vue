@@ -1,5 +1,5 @@
 <template>
-  <div class="car-info ">
+  <div class="car-info">
     <v-row justify="center">
       <v-col cols="12" class="pa-0">
         <v-card-title class="justify-center card-title">
@@ -16,7 +16,7 @@
         <v-card flat class="d-flex detail-card flex-wrap pa-5">
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-car-key</v-icon
               >
               مـاركة : <b class="pa-0">{{ getCarInfo.company }}</b>
@@ -24,7 +24,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-car-side</v-icon
               >
               الـنوع : <b class="pa-0">{{ getCarInfo.name }}</b>
@@ -32,7 +32,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-shape-outline</v-icon
               >
               الـفئة : <b class="pa-0">{{ getCarInfo.type }}</b></v-card-text
@@ -40,13 +40,13 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right>mdi-cogs</v-icon>
+              <v-icon class="grey--text text--lighten-2" right>mdi-cogs</v-icon>
               الـسنة : <b class="pa-0">{{ getCarInfo.modle }}</b>
             </v-card-text>
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-arrow-left-bottom-bold</v-icon
               >
               الـوارد :
@@ -55,7 +55,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-format-color-fill</v-icon
               >
               لـون الـمركبه : <b class="pa-0">{{ getCarInfo.ccolor }}</b>
@@ -63,7 +63,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-car-shift-pattern</v-icon
               >
               نـوع القير : <b class="pa-0">{{ getCarInfo.transmission }}</b>
@@ -71,7 +71,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-engine-outline</v-icon
               >
               حجم الـمحرك : <b class="12a-0">{{ getCarInfo.engainpower }}</b>
@@ -79,7 +79,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-source-pull</v-icon
               >
               نـوع الـدفع : <b class="pa-0">{{ getCarInfo.boost }}</b>
@@ -87,7 +87,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-car-info</v-icon
               >
               حـالـة الـسيارة : <b class="pa-0">{{ getCarInfo.condtion }}</b>
@@ -95,7 +95,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-gas-station</v-icon
               >
               نوع الوقود : <b class="pa-0">{{ getCarInfo.fuel }}</b>
@@ -103,7 +103,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-car-settings</v-icon
               >
               الـمواصفات : <b class="pa-0">{{ getCarInfo.kilometer }}</b>
@@ -111,7 +111,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-car-speed-limiter</v-icon
               >
               الـممشى : <b class="pa-0">{{ getCarInfo.kilometer }}</b>
@@ -119,7 +119,7 @@
           </v-flex>
           <v-flex xs12 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
-              <v-icon class="grey--text text--lighten-1" right
+              <v-icon class="grey--text text--lighten-2" right
                 >mdi-map-marker-radius</v-icon
               >
               المنطقة : <b class="pa-0">{{ getCarInfo.location }}</b>
@@ -127,8 +127,8 @@
           </v-flex>
           <v-row justify="center" class="mt-2">
             <v-col cols="12" md="12" class="disc-p">
-              <v-card flat color="transparent" class="disc-title pa-2">
-                <v-card-title class="disc-title py-2 grey darken-2">
+              <v-card color="transparent" class="disc-title">
+                <v-card-title class="disc-title">
                   تفاصيل أكثر عن السيارة....
                 </v-card-title>
                 <v-card-text class="disc-text pa-2">
@@ -188,7 +188,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .detail-card {
-  background: $color-2 !important;
+  background: $color-1 !important;
 }
 .table_data-child {
   font-size: 16px !important;
@@ -196,7 +196,6 @@ export default {
   color: $fontcolorsm;
   letter-spacing: 0 !important;
   font-family: $fontfamliy;
-
 }
 .table_data-child b {
   font-size: 17px !important;
@@ -204,7 +203,6 @@ export default {
   color: $fontcolorsm;
   padding: 5px;
   font-family: $fontfamliy;
-
 }
 
 .card-title {
@@ -239,9 +237,9 @@ export default {
   border-radius: 3px !important;
 }
 .line {
-  width: 100px;
+  width: 30px;
   height: 5px;
-  background-color: $color-2;
+  background-color: $color-1;
   display: block;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;

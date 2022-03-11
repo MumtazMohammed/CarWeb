@@ -93,10 +93,11 @@
                               ></v-img>
                             </v-list-item-avatar>
                             <v-list-item-content>
-                              <v-list-item-title
-                                class="text-start"
+                              <a
                                 v-text="call"
-                              ></v-list-item-title>
+                                :href="`tel:${{ call }}`"
+                                class="text-start text-decoration-none"
+                              ></a>
                             </v-list-item-content>
                           </v-list-item>
                         </v-col>
@@ -113,10 +114,11 @@
                               ></v-img>
                             </v-list-item-avatar>
                             <v-list-item-content>
-                              <v-list-item-title
-                                class="text-start"
+                              <a
                                 v-text="call"
-                              ></v-list-item-title>
+                                :href="`https://wa.me/+6${{ call }}`"
+                                class="text-start text-decoration-none"
+                              ></a>
                             </v-list-item-content>
                           </v-list-item>
                         </v-col>

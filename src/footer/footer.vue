@@ -54,7 +54,7 @@
           </v-row>
           <v-row class="justify-center">
             <v-col cols="10" md="5" sm="11">
-              <v-card-actions color="transparent" class="pa-4" >
+              <v-card-actions color="transparent" class="pa-4">
                 <router-link
                   :to="{
                     name: 'TheTerms',

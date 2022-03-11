@@ -186,7 +186,7 @@ export default {
     width: 190px;
     font-size: 17px !important;
   }
-  ::v-deep.v-btn__content{
+  ::v-deep.v-btn__content {
     justify-content: start;
   }
 }

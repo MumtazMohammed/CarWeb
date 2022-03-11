@@ -2,7 +2,7 @@
   <v-main>
     <NavBar />
     <div class="about">
-      <ShowRoom :showrooms='showrooms'/>
+      <ShowRoom :showrooms="showrooms" />
     </div>
   </v-main>
 </template>
