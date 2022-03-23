@@ -314,7 +314,7 @@ export default {
   }
 
   .tital {
-    color: $fontcolor;
+    color: $fontcolorlinks;
     font-family: $fontfamliy;
     font-size: 27px;
   }

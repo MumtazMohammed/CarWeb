@@ -95,7 +95,7 @@ export default {
   .header-tital {
     letter-spacing: 0;
     font-family: $fontfamliy;
-    color: $fontcolor;
+    color: $fontcolorlinks;
   }
   .warning-tital {
     letter-spacing: 0;

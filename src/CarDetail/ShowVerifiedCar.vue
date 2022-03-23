@@ -1,6 +1,10 @@
 <template>
   <div class="ShowVerifiedCar">
     <v-container>
+      <v-col cols="12">
+        <a class="SeeAll"> رؤية الكل </a>
+      </v-col>
+
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="(CarData, index) in getCarInfo" :key="index">
           <v-card class="card-verified pa-1 overflow-hidden">
@@ -238,6 +242,11 @@ export default {
   width: 100%;
   height: auto;
   position: relative;
+  .SeeAll {
+    font-family: $fontfamliy;
+    text-decoration: underline;
+    font-size: 20px;
+  }
   .filtt:first-child {
     @media (max-width: 600px) {
       padding-bottom: 3px !important;

@@ -32,12 +32,9 @@ export default {
 @import "@/scss/mixin";
 .contact {
   width: 100%;
-  min-height: calc(100vh - 230px);
-  padding: 30px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
+  min-height: 100vh;
+  background-color: $simplebackground;
+  padding: $padding;
   .header-tital {
     letter-spacing: 0;
     font-family: $fontfamliy;

@@ -32,16 +32,10 @@
       </v-card>
       <v-spacer></v-spacer>
       <!-- user Access  -->
-      <router-link
-        :to="{
-          name: 'TheUserPage',
-          params: { UserPage: 'صفحة المستخدم' },
-        }"
-        class="hidden-sm-and-down"
-      >
-        <v-card shaped>
+      <router-link to="/TheUserPage" class="hidden-sm-and-down">
+        <v-card color="#eee">
           <v-card-actions class="user-box-name pa-1">
-            <v-avatar size="35" color="transparent">
+            <v-avatar size="35" tile color="transparent">
               <v-img src="../assets/pp.jpg"></v-img>
             </v-avatar>
             <v-card-subtitle class="py-0 px-2 user-name">
@@ -50,8 +44,21 @@
           </v-card-actions>
         </v-card>
       </router-link>
+      <!-- Showroom Access  -->
+      <router-link to="/TheShowRoomPage" class="hidden-sm-and-down">
+        <v-card color="#eee">
+          <v-card-actions class="user-box-name pa-1">
+            <v-avatar size="35" tile color="transparent">
+              <v-img src="../assets/showroom/orignal-1635857145-70.png"></v-img>
+            </v-avatar>
+            <v-card-subtitle class="py-0 px-2 Showroom-name">
+              معرض ويلس بلس للسيارات
+            </v-card-subtitle>
+          </v-card-actions>
+        </v-card>
+      </router-link>
       <!-- loing btn  -->
-      <!-- <LogingAndSignup class="hidden-sm-and-down" /> -->
+      <LogingAndSignup class="hidden-sm-and-down" />
 
       <!-- bar icon for show links  -->
       <v-app-bar-nav-icon
@@ -81,18 +88,11 @@
           </v-app-bar-nav-icon>
           <StartToSellYourCar />
         </div>
-        <!-- sign up or sign in  -->
-        <LogingAndSignup />
         <!-- sign in already  -->
-        <router-link
-          :to="{
-            name: 'TheUserPage',
-            params: { UserPage: 'صفحة المستخدم' },
-          }"
-        >
+        <router-link to="/TheUserPage">
           <v-card flat width="250" class="mb-2 mx-auto">
             <v-card-actions class="user-box-name pa-1">
-              <v-avatar size="35" color="transparent">
+              <v-avatar tile size="35" color="transparent">
                 <v-img src="../assets/pp.jpg"></v-img>
               </v-avatar>
               <v-card-subtitle class="py-0 px-2 user-name text-truncate">
@@ -103,7 +103,58 @@
           </v-card>
         </router-link>
         <!--  -->
-        <v-divider color="white"></v-divider>
+        <!-- Showroom Access  -->
+        <router-link to="/TheShowRoomPage">
+          <v-card flat width="250" class="mb-2 mx-auto">
+            <v-card-actions class="user-box-name pa-1">
+              <v-avatar size="35" tile color="transparent">
+                <v-img
+                  src="../assets/showroom/orignal-1635857145-70.png"
+                ></v-img>
+              </v-avatar>
+              <v-card-subtitle class="py-0 px-2 Showroom-name">
+                معرض ويلس بلس للسيارات
+              </v-card-subtitle>
+            </v-card-actions>
+          </v-card>
+        </router-link>
+        <!-- mutible car choise  -->
+        <v-list shaped dark>
+          <v-list-group color="white" action>
+            <template v-slot:activator>
+              <v-list-item-icon class="icon-list">
+                <v-icon class="nav-icon white--text" right> mdi-login </v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title class="nav-link-sm pa-2">
+                  تـسجيل الـدخول
+                </v-list-item-title>
+              </v-list-item-content>
+            </template>
+            <v-list shaped>
+              <v-list-item
+                class="multible-link-box"
+                color="white"
+                router
+                @click="drawer = false"
+                :to="Login.path"
+                v-for="(Login, i) in Login"
+                :key="i"
+              >
+                <v-list-item-content class="">
+                  <v-list-item-title
+                    class="mutible-login pa-2"
+                    v-text="Login.title"
+                  >
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-list-group>
+        </v-list>
+        <!--  -->
+        <!--  -->
+        <v-divider class="white"></v-divider>
         <!-- btn for payed Add and Open Car store  -->
         <v-list shaped>
           <v-card-text class="py-1 link-description">خدماتنا</v-card-text>
@@ -128,7 +179,7 @@
           </v-list-item-group>
         </v-list>
         <!--  -->
-        <v-divider color="white"></v-divider>
+        <v-divider class="white"></v-divider>
         <!-- router Links  -->
         <v-list shaped class="">
           <v-list-item-group v-model="model" mandatory dark color="white">
@@ -199,7 +250,7 @@
                     ></v-img>
                   </v-avatar>
                 </v-list-item-icon>
-                <v-list-item-content class="">
+                <v-list-item-content>
                   <v-list-item-title
                     class="mutible-link-sm pa-2"
                     v-text="CarCondition.title"
@@ -252,6 +303,10 @@ export default {
     drawer: false,
     welcomeTouser: "مرحباً ,",
     model: 1,
+    Login: [
+      { title: " تسجيل الدخول", path: "/Login" },
+      { title: "تسجيل الدخول (تاجر / وكيل) ", path: "/LoginSeller" },
+    ],
     Servise: [
       { text: "أفتح معرضك معنا", icon: "mdi-store-cog-outline" },
       { text: "خلي إعلان سيارتك علينا", icon: "mdi-car-2-plus" },
@@ -355,7 +410,10 @@ a {
   flex-direction: column;
 }
 .v-list-item-group::v-deep .v-list-item {
-  padding-right: 0px;
+  padding-right: 0px !important;
+}
+.v-list-group::v-deep .v-list-item {
+  padding-right: 0px !important;
 }
 .nav-link-sm {
   font-size: 14px;
@@ -365,6 +423,13 @@ a {
   font-weight: 500;
 }
 .mutible-link-sm {
+  color: $fontcolorsm;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0px;
+  font-family: $fontfamliy;
+}
+.mutible-login {
   color: $fontcolorsm;
   font-weight: 500;
   font-size: 15px;
@@ -396,6 +461,12 @@ a {
 .user-box-name {
   cursor: pointer;
   .user-name {
+    color: $fontcolor !important;
+    font-size: 15px;
+    letter-spacing: 0px;
+    font-family: $fontfamliy;
+  }
+  .Showroom-name {
     color: $fontcolor !important;
     font-size: 15px;
     letter-spacing: 0px;

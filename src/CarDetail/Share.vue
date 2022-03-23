@@ -1,13 +1,14 @@
 <template>
   <div class="share">
-    <v-card-actions class="pa-0 justify-center">
+    <v-card-actions class="pa-0 justify-center flex-wrap">
       <!-- Share to  -->
       <v-dialog class="dialog" transition="slide-y-transition" max-width="300">
         <template v-slot:activator="{ on, attrs }">
           <v-btn
-            class="px-3"
+            class="ma-1"
             large
-            elevation="0"
+            elevation="2"
+            width="201"
             color="transparent"
             v-bind="attrs"
             v-on="on"
@@ -66,6 +67,19 @@
           </v-card>
         </template>
       </v-dialog>
+      <!-- save add  -->
+      <v-btn
+        class="ma-1"
+        large
+        elevation="2"
+        width="201"
+        color="transparent"
+        v-bind="attrs"
+        v-on="on"
+      >
+        <v-icon right> mdi-star-shooting </v-icon>
+        إضافة الى المفضلة
+      </v-btn>
     </v-card-actions>
   </div>
 </template>

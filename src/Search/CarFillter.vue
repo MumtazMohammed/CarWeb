@@ -1,7 +1,7 @@
 <template>
   <div class="CarFillter">
-    <v-row class="justify-space-between">
-      <v-col cols="12" md="5" sm="6" class="card-actions">
+    <v-row>
+      <!-- <v-col cols="12" md="5" sm="6" class="card-actions">
         <v-card-actions class="justify-center pa-0">
           <v-btn
             elevation="0"
@@ -98,11 +98,23 @@
             </v-card-actions>
           </v-card>
         </v-expand-transition>
-      </v-col>
+      </v-col> -->
       <v-col cols="12" md="3" sm="5" class="">
         <v-select
           :items="items"
           label="ترتيب السعر من"
+          hide-details
+          dense
+          class="select-price"
+          color="grey"
+          outlined
+          flat
+        ></v-select>
+      </v-col>
+      <v-col cols="12" md="3" sm="5" class="">
+        <v-select
+          :items="years"
+          label="ترتيب السنة من  "
           hide-details
           dense
           class="select-price"
@@ -125,45 +137,7 @@ export default {
       ExpandPrice: false,
       StoreProducts,
       items: [" الأعلى سعرا", "الأقل سعرا"],
-      select: [
-        { text: "State 1" },
-        { text: "State 2" },
-        { text: "State 3" },
-        { text: "State 4" },
-        { text: "State 5" },
-        { text: "State 6" },
-        { text: "State 7" },
-      ],
-      select2: [
-        { text: "State 1" },
-        { text: "State 2" },
-        { text: "State 3" },
-        { text: "State 4" },
-        { text: "State 5" },
-        { text: "State 6" },
-        { text: "State 7" },
-      ],
-      select3: [
-        { text: "State 1" },
-        { text: "State 2" },
-        { text: "State 3" },
-        { text: "State 4" },
-        { text: "State 5" },
-        { text: "State 6" },
-        { text: "State 7" },
-      ],
-      selectP: [
-        { text: "من 0 الى 200,000" },
-        { text: "من 200,000 الى 400,000" },
-        { text: "من 400,000 الى 600,000" },
-        { text: "من 600,000 الى 800,000" },
-        { text: "من 800,000 الى 1000,000" },
-        { text: "من 1000,000 الى 1200,000" },
-        { text: "من 1200,000 الى 1400,000" },
-        { text: "من 1400,000 الى 1600,000" },
-        { text: "من 1600,000 الى 1800,000" },
-        { text: "من 1800,000 الى 2000,000" },
-      ],
+      years: [" الأجدد  إلى الأقدم  ", "  الأقدم إلى الأجدد "],
     };
   },
 

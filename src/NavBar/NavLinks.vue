@@ -41,7 +41,6 @@
             <!-- used or new or all  -->
             <v-menu
               offset-overflow
-              dark
               bottom
               nudge-top="0"
               open-on-hover
@@ -57,7 +56,7 @@
                     v-bind="attrs"
                     v-on="on"
                     class="singl-link haraj ma-0"
-                    color="transparent"
+                    color="black"
                   >
                     <v-list-item-content>
                       <v-list-item-title class="nav-link">
@@ -223,7 +222,7 @@ export default {
   }
   .nav-link {
     color: $fontcolorlinks;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     font-family: $fontfamliy;
     letter-spacing: 0;
@@ -276,7 +275,7 @@ export default {
   font-family: $fontfamliy;
   font-weight: 600;
   font-size: 14px;
-  color: #afafaf;
+  color: #767676;
 }
 
 .item-title:active {
@@ -307,7 +306,7 @@ export default {
   opacity: 0;
 }
 .CarforSell-link::v-deep.v-list .v-list-item--active {
-  color: #fff;
+  color: $color-2;
 }
 .toolbar::v-deep .v-toolbar__content {
   padding-right: 3px;

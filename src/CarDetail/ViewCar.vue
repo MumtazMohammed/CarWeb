@@ -13,9 +13,6 @@
       </v-container>
       <v-row class="my-0">
         <v-col cols="12" class="">
-          <v-container>
-            <v-card-title class="SeeAll py-1"> رؤية الكل </v-card-title>
-          </v-container>
           <ShowVerifiedCar />
         </v-col>
         <v-col cols="12" class="pa-0">
@@ -76,15 +73,6 @@ export default {
   width: 100;
   height: auto;
   position: relative;
-
-  .car-reviw:last-child {
-    // background-color: $color-background;
-  }
-  .SeeAll {
-    font-family: $fontfamliy;
-    color: $color-1;
-    text-decoration: underline;
-  }
 }
 </style>
 

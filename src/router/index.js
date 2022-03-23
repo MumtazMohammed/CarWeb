@@ -16,6 +16,8 @@ import CarByBrand from "../CarForSell/CarByBrand.vue";
 import CarByShape from "../CarForSell/CarByShape.vue";
 // SginUp
 import SginUp from "../Login/SignUp.vue";
+import Login from "../Login/Login.vue";
+import LoginSeller from "../Login/LoginSeller.vue";
 // Start Ad car Page
 import AboutSellingCarFreeAdd from "../SellCar-Store-Showroom/AboutSellingCarFreeAdd.vue";
 import AboutSellingCarPayAdd from "../SellCar-Store-Showroom/AboutSellingCarPayAdd.vue";
@@ -23,9 +25,22 @@ import AboutSellingCarPayAdd from "../SellCar-Store-Showroom/AboutSellingCarPayA
 import AboutShowroom from "../SellCar-Store-Showroom/AboutShowroom.vue";
 import ShowroomView from "../Car-showroom/ShowroomView.vue";
 // User Profile
-import TheUserPage from "../UserPage/TheUserPage.vue";
-import UserProfile from "../UserPage/UserProfile.vue";
-import UserAdd from "../UserPage/UserAdd.vue";
+import TheUserPage from "../TheUserPage/TheUserPage.vue";
+import UserProfile from "../TheUserPage/UserProfile.vue";
+import UserProfileEdit from "../TheUserPage/UserProfileEdit.vue";
+import UserAdd from "../TheUserPage/UserAdd.vue";
+import EditPost from "../TheUserPage/EditPost.vue";
+import NewPost from "../TheUserPage/NewPost.vue";
+import SavedAdUser from "../TheUserPage/SavedAdUser.vue";
+// Showroom Page
+import TheShowRoomPage from "../TheShowRoomUser/TheShowRoomPage.vue";
+import ShowRoomCars from "../TheShowRoomUser/ShowRoomCars.vue";
+import ShowRoomNote from "../TheShowRoomUser/ShowRoomNote.vue";
+import ShowRoomInfoSetting from "../TheShowRoomUser/ShowRoomInfoSetting.vue";
+import ShowRoomInfoTable from "../TheShowRoomUser/ShowRoomInfoTable.vue";
+import ViewShowRoomCarDetails from "../TheShowRoomUser/ViewShowRoomCarDetails.vue";
+import ShowRoomAddNewCar from "../TheShowRoomUser/ShowRoomAddNewCar.vue";
+import PasswordChange from "../TheShowRoomUser/PasswordChange.vue";
 // Privacy-And-Terms
 import ThePrivacy from "../Privacy-And-Terms/ThePrivacy.vue";
 import TheTerms from "../Privacy-And-Terms/TheTerms.vue";
@@ -96,6 +111,16 @@ const routes = [
     name: "SginUp",
     component: SginUp,
   },
+  {
+    path: "/Login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/LoginSeller",
+    name: "LoginSeller",
+    component: LoginSeller,
+  },
   // Pages to start a car or open showroom
   {
     path: "/AboutSellingCarFreeAdd",
@@ -129,22 +154,82 @@ const routes = [
     name: "TheTerms",
     component: TheTerms,
   },
+  // Showroom Page
+  {
+    path: "/TheShowRoomPage",
+    component: TheShowRoomPage,
+    children: [
+      {
+        path: "",
+        name: "ShowRoomCars",
+        component: ShowRoomCars,
+      },
+      {
+        path: "/ViewShowRoomCarDetails/:carId",
+        name: "ViewShowRoomCarDetails",
+        component: ViewShowRoomCarDetails,
+      },
+      {
+        path: "/ShowRoomNote/:MyNote",
+        name: "ShowRoomNote",
+        component: ShowRoomNote,
+      },
+      {
+        path: "/ShowRoomInfoTable/:MyInfo",
+        name: "ShowRoomInfoTable",
+        component: ShowRoomInfoTable,
+      },
+      {
+        path: "/ShowRoomAddNewCar/:AddNewCar",
+        name: "ShowRoomAddNewCar",
+        component: ShowRoomAddNewCar,
+      },
+      {
+        path: "/ShowRoomInfoSetting/:MySetting",
+        name: "ShowRoomInfoSetting",
+        component: ShowRoomInfoSetting,
+      },
+      {
+        path: "/PasswordChange",
+        name: "PasswordChange",
+        component: PasswordChange,
+      },
+    ],
+  },
   // User Profile
   {
-    path: "/:UserPage",
-    name: "TheUserPage",
-    redirect: "TheUserPage.UserAdd",
+    path: "/TheUserPage",
     component: TheUserPage,
     children: [
       {
-        path: "/:MyAdd",
-        name: "TheUserPage.UserAdd",
+        path: "",
+        name: "UserAdd",
         component: UserAdd,
       },
       {
-        path: "/UserProfile/:Acount",
+        path: "/UserProfile",
         name: "UserProfile",
         component: UserProfile,
+      },
+      {
+        path: "/EditPost",
+        name: "EditPost",
+        component: EditPost,
+      },
+      {
+        path: "/UserProfileEdit",
+        name: "UserProfileEdit",
+        component: UserProfileEdit,
+      },
+      {
+        path: "/NewPost",
+        name: "NewPost",
+        component: NewPost,
+      },
+      {
+        path: "/SavedAdUser/:SavedAd",
+        name: "SavedAdUser",
+        component: SavedAdUser,
       },
     ],
   },

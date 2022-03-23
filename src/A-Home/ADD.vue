@@ -134,7 +134,7 @@ export default {
   .tital {
     font-family: $fontfamliy;
     font-size: 27px;
-    color: $fontcolor;
+    color: $fontcolorlinks;
 
     @media (max-width: 460px) {
       font-size: 26px;

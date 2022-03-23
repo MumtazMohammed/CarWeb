@@ -5,27 +5,21 @@
       <span class="line my-3 mx-auto"></span>
       <v-row class="justify-center">
         <v-col cols="12" sm="10" md="10">
-          <div>
-            <v-expansion-panels dark popout v-model="panel" multiple>
-              <v-expansion-panel v-for="(item, i) in items" :key="i">
-                <v-expansion-panel-header class="expansion-header py-1">{{
-                  item.how
-                }}</v-expansion-panel-header>
-                <v-expansion-panel-content class="expansion-content py-2">
-                  {{ item.text }}
-                </v-expansion-panel-content>
-              </v-expansion-panel>
-            </v-expansion-panels>
-          </div>
+          <v-expansion-panels dark v-model="panel">
+            <v-expansion-panel v-for="(item, i) in items" :key="i">
+              <v-expansion-panel-header
+                v-text="item.how"
+                class="expansion-header py-1"
+              >
+              </v-expansion-panel-header>
+              <v-expansion-panel-content
+                v-text="item.text"
+                class="expansion-content px-2"
+              >
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
         </v-col>
-
-        <!-- <v-col cols="12" sm="6" md="6">
-          <v-img
-            contain
-            fullscreen
-            src="../assets/outsrc/—Pngtree—buying sale rent cars flat_5426811.png"
-          ></v-img>
-        </v-col> -->
       </v-row>
     </v-container>
   </div>
@@ -71,7 +65,7 @@ export default {
   .tital {
     font-family: $fontfamliy;
     font-size: 30px;
-    color: $fontcolor;
+    color: $fontcolorlinks;
     @media (max-width: 460px) {
       font-size: 26px;
     }

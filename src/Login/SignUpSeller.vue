@@ -3,12 +3,31 @@
     <v-card flat class="card-con overflow-hidden pa-2" ref="form">
       <v-form class="pa-2">
         <v-col class="py-0 mx-auto" cols="12">
+          <v-combobox
+            v-model="select"
+            outlined
+            small-chips
+            :items="dropdown"
+          ></v-combobox>
+        </v-col>
+        <v-col class="py-0 mx-auto" cols="12">
           <v-text-field
             ref="FirstName"
             v-model="FirstName"
             :rules="[() => !!FirstName || 'This field is required']"
             :error-messages="errorMessages"
             label="الأسم كامل"
+            required
+            outlined
+          ></v-text-field>
+        </v-col>
+        <v-col class="py-0 mx-auto" cols="12">
+          <v-text-field
+            ref="FirstName"
+            v-model="FirstName"
+            :rules="[() => !!FirstName || 'This field is required']"
+            :error-messages="errorMessages"
+            label="البريد الأكترواني"
             required
             outlined
           ></v-text-field>
@@ -55,7 +74,9 @@
         </v-col>
         <v-col cols="12" class="pt-0">
           <v-card-actions class="justify-center pa-4">
-            <v-btn class="btn1 elevation-0" @click="submit"> انشاء </v-btn>
+            <v-btn large class="btn1 elevation-0" @click="submit">
+              أرسال الطلب
+            </v-btn>
           </v-card-actions>
         </v-col>
       </v-form>
@@ -73,6 +94,9 @@ export default {
     password: "",
     show2: false,
     formHasErrors: false,
+    select: ["تاجر"],
+    dropdown: [{ text: "تاجر" }, { text: "وكيل" }],
+
     emailRules: [
       (v) => !!v || "يجب ادخل الـبريد الأكتروني ",
       (v) => /.+@.+/.test(v) || "يـجب كتابة البريد الأكتروني صحيحا",

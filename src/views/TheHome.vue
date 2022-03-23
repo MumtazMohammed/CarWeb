@@ -10,6 +10,7 @@
     <!-- <CarPartsCategories /> -->
     <HowToBuy />
     <ContactUs />
+    <FooterBar />
   </v-main>
 </template>
 
@@ -27,6 +28,8 @@ import HowToBuy from "../A-Home/HowToBy.vue";
 import DateCar from "../data-json/car-data.json";
 import AllDateCar from "../data-json/All-Car.json";
 import CarType from "../data-json/CarType.json";
+import FooterBar from "@/footer/footer.vue";
+
 const components = {
   ToSellYourCarLayout,
   SpicalCar,
@@ -38,6 +41,7 @@ const components = {
   // CarPartsCategories,ssssss
   ADD,
   ContactUs,
+  FooterBar,
 };
 export default {
   name: "Home",

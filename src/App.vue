@@ -18,19 +18,18 @@
     >
       <v-icon class="btn-up-icon">fas fa-angle-up</v-icon>
     </v-btn>
-    <IconSearch />
-    <FooterBar />
+    <!-- <IconSearch /> -->
+    <!-- <FooterBar /> -->
   </v-app>
 </template>
 
 <script>
-import IconSearch from "./Search/IconSearch.vue";
-import FooterBar from "./footer/footer.vue";
+// import IconSearch from "./Search/IconSearch.vue";
 export default {
   name: "App",
   components: {
-    FooterBar,
-    IconSearch,
+    // FooterBar,
+    // IconSearch,
   },
   data() {
     return {
@@ -99,9 +98,6 @@ export default {
 .is-hidden {
   opacity: 1;
   pointer-events: auto;
-  transform: scale(0.9);
-  @media (max-width: 600px) {
-    transform: scale(0.8);
-  }
+  transform: scale(1);
 }
 </style>

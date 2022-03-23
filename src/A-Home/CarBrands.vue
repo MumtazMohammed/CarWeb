@@ -33,6 +33,7 @@
               </v-avatar>
               <a class="white--text CarBrandText mt-4">
                 {{ Brand.carName }}
+                <span class="d-inline-block mr-1">(25)</span>
               </a>
             </v-card>
           </v-col>
@@ -44,13 +45,13 @@
 
 <script>
 import LogoBrand from "@/data-json/CarType.json";
-import Cardata from "../data-json/All-Car.json";
 export default {
   name: "CarBrands",
   data() {
     return {
-      Cardata: Cardata,
-      LogoBrand: LogoBrand,
+      AllDateCar: this.$attrs.AllDateCar,
+      LogoBrand,
+      CarType: this.$route.params.CarType,
       Tital: "تصفح السيارات حسب الماركة",
     };
   },
@@ -83,7 +84,7 @@ export default {
   }
   .CarBrandText {
     font-family: $fontfamliy;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 500;
     letter-spacing: 0;
     text-decoration: none !important;
@@ -95,7 +96,7 @@ export default {
   .tital {
     font-family: $fontfamliy;
     font-size: 30px;
-    color: $fontcolor;
+    color: $fontcolorlinks;
 
     @media (max-width: 460px) {
       font-size: 26px;

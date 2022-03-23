@@ -189,16 +189,9 @@ export default {
       background-color: #0a57ba;
     }
   }
-  // .swiper::v-deep .swiper-wrapper {
-  //   justify-content: center !important;
-  //   @media (max-width: 780px) {
-  //   justify-content: start !important;
-  //   }
-  // }
   .showroom-vip {
     cursor: default;
     overflow: hidden;
-    // background: $linear-gradient;
     transition: all 0.2s ease !important;
     .title {
       font-family: $fontfamliy !important;
@@ -255,7 +248,7 @@ export default {
     right: 5px;
   }
   .tital {
-    color: $fontcolor;
+    color: $fontcolorlinks;
     font-family: $fontfamliy;
     font-size: 27px;
   }

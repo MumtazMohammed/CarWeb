@@ -1,12 +1,12 @@
 <template>
-  <div class="AllVip_box">
+  <v-app>
     <NavBar />
-    <div class="product_box pb-10">
+    <div class="AllVip_box">
       <v-container>
         <v-col cols="12" class="">
           <h2 class="tital">
-            (<span class="red--text"> {{ SpicalCarView.length }}</span>
-            ) - سـيـارات مضمونة لدينا للبيع
+            (<span class="red--text"> {{ SpicalCarView.length }} </span>) -
+            سـيـارة مضمونة لدينا للبيع
           </h2>
         </v-col>
         <!-- fillter section  -->
@@ -14,7 +14,6 @@
           <CarFillter />
         </v-col>
         <!--  -->
-        <v-divider></v-divider>
         <v-row class="mt-2 car-box">
           <!-- message if not found car  -->
           <v-col cols="12" v-if="SpicalCarView.length < 1">
@@ -170,15 +169,17 @@
         </v-row>
       </v-container>
     </div>
-  </div>
+    <FooterBar />
+  </v-app>
 </template>
 <script>
+import FooterBar from "@/footer/footer.vue";
 import NavBar from "../NavBar/TheNavBar.vue";
 import CarFillter from "../Search/CarFillter.vue";
 import SpicalCarView from "../data-json/All-Car.json";
 export default {
   name: "SeeAllSpecialCar",
-  components: { NavBar, CarFillter },
+  components: { NavBar, CarFillter, FooterBar },
   data() {
     return {
       SpicalCarView,
@@ -217,94 +218,68 @@ export default {
 .AllVip_box {
   width: 100%;
   min-height: 100vh;
+  background-color: $simplebackground;
+  padding: $padding;
 }
-.product_box {
-  width: 100%;
-  height: auto;
-  position: relative;
-  .filtt:first-child {
-    @media (max-width: 600px) {
-      padding-bottom: 3px !important;
-    }
-  }
-  .filtt:last-child {
-    @media (max-width: 600px) {
-      padding-top: 3px !important;
-    }
-  }
-  .boredr-all-box {
-    @media (max-width: 880px) {
-      max-width: 50%;
-    }
-    @media (max-width: 540px) {
-      padding: 5px 80px !important;
-      max-width: 100%;
-    }
-    @media (max-width: 450px) {
-      padding: 12px !important;
-    }
-  }
-  .tital {
-    color: $fontcolor;
-    font-family: $fontfamliy;
-  }
-  .title-box {
-    margin: 15px 0;
-    width: fit-content;
-    h3 {
-      color: $fontcolor;
-      text-decoration: underline;
-      font-family: $fontfamliy;
-      cursor: pointer;
-    }
-  }
-  .tital {
-    font-family: $fontfamliy;
-    font-size: 25px;
-    @media (max-width: 600px) {
-      font-size: 20px;
-    }
-    @media (max-width: 360px) {
-      font-size: 17px;
-    }
-    @media (max-width: 280px) {
-      font-size: 13px;
-    }
-  }
-  .v-btn--icon.v-size--default .v-icon {
-    font-size: 20px;
-    color: #8c8c8c;
-  }
 
-  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
-  .theme--light.v-btn--active:hover:before {
-    opacity: 0;
+.boredr-all-box {
+  @media (max-width: 880px) {
+    max-width: 50%;
   }
-  .v-btn.v-size--default::v-deep .theme--light.v-btn--active:hover:before,
-  .theme--light.v-btn--active:before {
-    opacity: 0;
+  @media (max-width: 540px) {
+    padding: 5px 80px !important;
+    max-width: 100%;
   }
-  .v-card__subtitle {
+  @media (max-width: 450px) {
+    padding: 12px !important;
+  }
+}
+.tital {
+  color: $fontcolor;
+  font-family: $fontfamliy !important;
+}
+.v-btn.v-size--default::v-deep .theme--light.v-btn--active:before,
+.theme--light.v-btn--active:hover:before {
+  opacity: 0;
+}
+.v-btn.v-size--default::v-deep .theme--light.v-btn--active:hover:before,
+.theme--light.v-btn--active:before {
+  opacity: 0;
+}
+.v-card__subtitle {
+  font-size: 17px;
+  font-weight: 300;
+  font-family: $fontfamliy;
+  font-family: $fontfamliy;
+  @media (max-width: 1040px) {
+    font-size: 15px;
+  }
+  @media (max-width: 960px) {
     font-size: 17px;
-    font-weight: 300;
-    font-family: $fontfamliy;
-    font-family: $fontfamliy;
-    @media (max-width: 1040px) {
-      font-size: 15px;
-    }
-    @media (max-width: 960px) {
-      font-size: 17px;
-    }
   }
-  .location-condtion-place {
-    display: block;
+}
+.location-condtion-place {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: $fontfamliy;
+  background-color: $color-3;
+  margin: 0 2px !important;
+  color: $fontcolorsm;
+  border-radius: 20px;
+}
+
+.tital {
+  font-family: $fontfamliy;
+  font-size: 25px;
+  @media (max-width: 600px) {
+    font-size: 20px;
+  }
+  @media (max-width: 360px) {
+    font-size: 17px;
+  }
+  @media (max-width: 280px) {
     font-size: 13px;
-    font-weight: 400;
-    font-family: $fontfamliy;
-    background-color: $color-3;
-    margin: 0 2px !important;
-    color: $fontcolorsm;
-    border-radius: 20px;
   }
 }
 // verified car card
@@ -464,7 +439,7 @@ export default {
   margin-right: 2px;
 }
 .car-if-not-Instalment-price-text {
-  font-size: 12px;
+  font-size: 17px;
   font-weight: 500 !important;
   font-family: $fontfamliy;
 }

@@ -94,6 +94,8 @@ export default {
   height: auto;
   position: relative;
   border-radius: 5px;
+  font-family: $fontfamliy;
+
   .send-btn {
     letter-spacing: 0px;
     font-family: $fontfamliy;
@@ -112,7 +114,7 @@ export default {
   .header-tital {
     letter-spacing: 0;
     font-family: $fontfamliy;
-    color: $fontcolor;
+    color: $fontcolorlinks;
   }
 }
 </style>

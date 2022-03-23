@@ -1,192 +1,199 @@
 <template>
-  <div class="product_box pb-10">
+  <v-app>
     <NavBar />
-    <v-container fluid>
-      <v-col class="pr-0" cols="12">
-        <h2 class="tital">
-          (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة
-          {{ CarName }} للبيع في اليمن
-        </h2>
-      </v-col>
-      <!-- fillter -->
-      <v-col cols="12" class="pr-2 mb-1">
-        <CarFillter />
-      </v-col>
-      <!--  -->
-      <v-divider v-if="getCarInfo.length > 0"></v-divider>
-      <v-row class="mt-2 car-box">
-        <!-- message if not found car  -->
-        <v-col cols="12" v-if="getCarInfo.length < 1">
-          <h2 class="tital text-center">لا يوجد سيارات بنفس طلبك حتى الأن</h2>
-          <v-card-actions class="justify-center">
-            <v-avatar tile size="300" color="transparent">
-              <v-img
-                contain
-                src="../assets/outsrc/undraw_no_data_re_kwbl.svg"
-                lazy-src="../assets/outsrc/undraw_no_data_re_kwbl.svg"
-                alt="../assets/outsrc/undraw_no_data_re_kwbl.svg"
-              >
-              </v-img>
-            </v-avatar>
-          </v-card-actions>
+    <div class="product_box pb-10">
+      <v-container fluid>
+        <v-col class="pr-0" cols="12">
+          <h2 class="tital">
+            (<span class="red--text"> {{ getCarInfo.length }}</span> ) سـيـارة
+            {{ CarName }} للبيع في اليمن
+          </h2>
+        </v-col>
+        <!-- fillter -->
+        <v-col cols="12" class="pr-2 mb-1">
+          <CarFillter />
         </v-col>
         <!--  -->
-        <v-col
-          cols="6"
-          sm="4"
-          md="3"
-          class="pa-1 boredr-all-box"
-          v-for="CarData in getCarInfo"
-          :key="CarData.id"
-        >
-          <!-- using methods to conect the image to the corect folder   -->
-          <!-- bindind verified style to the card  -->
-          <v-card
-            :class="CarData.Vip == true ? 'card-verified' : 'card'"
-            class="pa-1"
-          >
-            <v-row>
-              <v-col class="" cols="12">
-                <!-- verified  -->
-                <div v-if="CarData.Vip == true">
-                  <p class="py-2 ma-0 px-0 text-center top-verified">
-                    <v-icon class="verified-icon white--text">
-                      mdi-check-bold
-                    </v-icon>
-                    موثوق
-                  </p>
-                  <b class="pa-0 text-center verified"> </b>
-                </div>
-                <!-- not verified  -->
-                <div v-else>
-                  <p class="py-2 ma-0 px-0 text-center adbywho">
-                    أعلان : {{ CarData.ad }}
-                  </p>
-                </div>
-                <v-img
-                  :lazy-src="getimageUrl(CarData.folder, CarData.image)"
-                  :src="getimageUrl(CarData.folder, CarData.image)"
-                  height="130px"
-                >
-                  <!-- discount  -->
-                  <v-card
-                    v-if="CarData.discount == true"
-                    dark
-                    flat
-                    width="200"
-                    color="orange darken-4"
-                    class="discount rounded-t-pill"
-                  >
-                    <v-card-text class="px-3 py-0 text-center text">
-                      <v-icon class="discount-icon">mdi-spa-outline</v-icon>
-                      خصم <span class="mr-1">{{ CarData.discountAmount }}</span>
-                    </v-card-text>
-                  </v-card>
-                  <!-- booked up -->
-                  <v-card v-show="CarData.Token == true" dark class="token">
-                    <v-card-text class="pa-2 text"> محجوز... </v-card-text>
-                  </v-card>
-                </v-img>
-              </v-col>
-            </v-row>
-            <!-- car info  -->
-            <!-- car Name  -->
-            <v-col cols="12" class="pa-3 pr-5">
-              <v-card-subtitle class="font-weight-medium pa-1 text-truncate"
-                >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
-              </v-card-subtitle>
-            </v-col>
-            <!-- car praic   -->
+        <v-row class="mt-2 car-box">
+          <!-- message if not found car  -->
+          <v-col cols="12" v-if="getCarInfo.length < 1">
+            <h2 class="tital text-center">لا يوجد سيارات بنفس طلبك حتى الأن</h2>
             <v-card-actions class="justify-center">
-              <v-col cols="5" class="pa-0">
-                <!-- discount  -->
-                <v-card-subtitle
-                  :class="
-                    CarData.discount == true
-                      ? 'oldprice'
-                      : 'green--text font-weight-medium text-right pa-2 '
-                  "
-                  class="text-center"
-                  >{{ CarData.payment }}
-                </v-card-subtitle>
-                <v-card-subtitle
-                  v-if="CarData.discount == true"
-                  class="green--text font-weight-medium text-center pa-2"
-                  >{{ CarData.discountPrice }}</v-card-subtitle
+              <v-avatar tile size="300" color="transparent">
+                <v-img
+                  contain
+                  src="../assets/outsrc/undraw_no_data_re_kwbl.svg"
+                  lazy-src="../assets/outsrc/undraw_no_data_re_kwbl.svg"
+                  alt="../assets/outsrc/undraw_no_data_re_kwbl.svg"
                 >
-              </v-col>
-              <v-divider vertical></v-divider>
-              <!-- if instalment  -->
-              <v-col cols="7" class="pa-0">
-                <div v-if="CarData.Instalment">
-                  <v-card-subtitle class="text-center pa-2 text-truncate">
-                    <span class="text-center green--text car-place-price-price">
-                      {{ CarData.InstalmentPerMonth }}
-                    </span>
-                    <span class="ma-0 black--text car-Instalment-price-text">
-                      ريال / شهرياً
-                    </span>
-                  </v-card-subtitle>
-                </div>
-                <div v-else>
-                  <v-card-subtitle
-                    class="text-center pa-2 car-if-not-Instalment-price-text"
+                </v-img>
+              </v-avatar>
+            </v-card-actions>
+          </v-col>
+          <!--  -->
+          <v-col
+            cols="6"
+            sm="4"
+            md="3"
+            class="pa-1 boredr-all-box"
+            v-for="CarData in getCarInfo"
+            :key="CarData.id"
+          >
+            <!-- using methods to conect the image to the corect folder   -->
+            <!-- bindind verified style to the card  -->
+            <v-card
+              :class="CarData.Vip == true ? 'card-verified' : 'card'"
+              class="pa-1"
+            >
+              <v-row>
+                <v-col class="" cols="12">
+                  <!-- verified  -->
+                  <div v-if="CarData.Vip == true">
+                    <p class="py-2 ma-0 px-0 text-center top-verified">
+                      <v-icon class="verified-icon white--text">
+                        mdi-check-bold
+                      </v-icon>
+                      موثوق
+                    </p>
+                    <b class="pa-0 text-center verified"> </b>
+                  </div>
+                  <!-- not verified  -->
+                  <div v-else>
+                    <p class="py-2 ma-0 px-0 text-center adbywho">
+                      أعلان : {{ CarData.ad }}
+                    </p>
+                  </div>
+                  <v-img
+                    :lazy-src="getimageUrl(CarData.folder, CarData.image)"
+                    :src="getimageUrl(CarData.folder, CarData.image)"
+                    height="130px"
                   >
-                    كاش
-                  </v-card-subtitle>
-                </div>
+                    <!-- discount  -->
+                    <v-card
+                      v-if="CarData.discount == true"
+                      dark
+                      flat
+                      width="200"
+                      color="orange darken-4"
+                      class="discount rounded-t-pill"
+                    >
+                      <v-card-text class="px-3 py-0 text-center text">
+                        <v-icon class="discount-icon">mdi-spa-outline</v-icon>
+                        خصم
+                        <span class="mr-1">{{ CarData.discountAmount }}</span>
+                      </v-card-text>
+                    </v-card>
+                    <!-- booked up -->
+                    <v-card v-show="CarData.Token == true" dark class="token">
+                      <v-card-text class="pa-2 text"> محجوز... </v-card-text>
+                    </v-card>
+                  </v-img>
+                </v-col>
+              </v-row>
+              <!-- car info  -->
+              <!-- car Name  -->
+              <v-col cols="12" class="pa-3 pr-5">
+                <v-card-subtitle class="font-weight-medium pa-1 text-truncate"
+                  >{{ CarData.company }} {{ CarData.name }} {{ CarData.modle }}
+                </v-card-subtitle>
               </v-col>
-            </v-card-actions>
-            <!-- car location  and condition  -->
-            <v-col cols="12">
-              <v-card-actions class="justify-center pa-0">
-                <span class="location-condtion-place pa-1 px-2">
-                  {{ CarData.location }}
-                </span>
-                <span class="location-condtion-place pa-1 px-2">
-                  {{ CarData.condtion }}
-                </span>
-                <span class="location-condtion-place pa-1 px-2 text-truncate"
-                  >{{ CarData.kilometer }}
-                </span>
+              <!-- car praic   -->
+              <v-card-actions class="justify-center">
+                <v-col cols="5" class="pa-0">
+                  <!-- discount  -->
+                  <v-card-subtitle
+                    :class="
+                      CarData.discount == true
+                        ? 'oldprice'
+                        : 'green--text font-weight-medium text-right pa-2 '
+                    "
+                    class="text-center"
+                    >{{ CarData.payment }}
+                  </v-card-subtitle>
+                  <v-card-subtitle
+                    v-if="CarData.discount == true"
+                    class="green--text font-weight-medium text-center pa-2"
+                    >{{ CarData.discountPrice }}</v-card-subtitle
+                  >
+                </v-col>
+                <v-divider vertical></v-divider>
+                <!-- if instalment  -->
+                <v-col cols="7" class="pa-0">
+                  <div v-if="CarData.Instalment">
+                    <v-card-subtitle class="text-center pa-2 text-truncate">
+                      <span
+                        class="text-center green--text car-place-price-price"
+                      >
+                        {{ CarData.InstalmentPerMonth }}
+                      </span>
+                      <span class="ma-0 black--text car-Instalment-price-text">
+                        ريال / شهرياً
+                      </span>
+                    </v-card-subtitle>
+                  </div>
+                  <div v-else>
+                    <v-card-subtitle
+                      class="text-center pa-2 car-if-not-Instalment-price-text"
+                    >
+                      كاش
+                    </v-card-subtitle>
+                  </div>
+                </v-col>
               </v-card-actions>
-            </v-col>
-            <!-- car click to see more  -->
-            <v-card-actions class="d-flex justify-center">
-              <v-btn
-                block
-                :class="CarData.Vip == true ? 'btn-verified' : 'btn'"
-                width="200"
-                :to="{
-                  name: 'ViewCar',
-                  params: {
-                    carName: CarData.name,
-                    carShape: CarData.Shape,
-                    carId: CarData.id,
-                    Company: CarData.folder,
-                  },
-                }"
-                large
-              >
-                رؤية السيارة
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
+              <!-- car location  and condition  -->
+              <v-col cols="12">
+                <v-card-actions class="justify-center pa-0">
+                  <span class="location-condtion-place pa-1 px-2">
+                    {{ CarData.location }}
+                  </span>
+                  <span class="location-condtion-place pa-1 px-2">
+                    {{ CarData.condtion }}
+                  </span>
+                  <span class="location-condtion-place pa-1 px-2 text-truncate"
+                    >{{ CarData.kilometer }}
+                  </span>
+                </v-card-actions>
+              </v-col>
+              <!-- car click to see more  -->
+              <v-card-actions class="d-flex justify-center">
+                <v-btn
+                  block
+                  :class="CarData.Vip == true ? 'btn-verified' : 'btn'"
+                  width="200"
+                  :to="{
+                    name: 'ViewCar',
+                    params: {
+                      carName: CarData.name,
+                      carShape: CarData.Shape,
+                      carId: CarData.id,
+                      Company: CarData.folder,
+                    },
+                  }"
+                  large
+                >
+                  رؤية السيارة
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <FooterBar />
+  </v-app>
 </template>
 <script>
 import CarData from "../data-json/All-Car.json";
 import NavBar from "../NavBar/TheNavBar.vue";
 import CarFillter from "../Search/CarFillter.vue";
+import FooterBar from "@/footer/footer.vue";
 
 export default {
   name: "CarByBrand",
   components: {
     NavBar,
     CarFillter,
+    FooterBar,
   },
   data() {
     return {
@@ -222,7 +229,7 @@ export default {
   width: 100%;
   min-height: 100vh;
   background-color: $simplebackground;
-
+  padding: $padding;
   .car-box {
     @media (max-width: 540px) {
       justify-content: center;

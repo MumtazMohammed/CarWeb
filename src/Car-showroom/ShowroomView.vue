@@ -3,69 +3,94 @@
     <NavBar />
     <div class="ShowroomView">
       <!-- showroom information  -->
-      <div class="mb-2 showroom-information">
+      <div class="showroom-information">
         <!--  -->
         <v-container>
           <v-row class="justify-center flex-md-row-reverse flex-lg-row-reverse">
-            <v-col cols="12" sm="12" md="8">
+            <v-col cols="12" sm="12" md="8" class="pb-1">
               <v-card flat color="transparent" class="info-card">
-                <v-card-title class="card-title justify-center pt-1">
+                <v-card-title class="card-title px-0 justify-center">
                   {{ getShowRoomInfo.ShowroomName }}
                 </v-card-title>
                 <v-card-text class="card-text text-center pt-3">
                   {{ getShowRoomInfo.locationStreet }}
                 </v-card-text>
-                <v-row class="justify-center">
-                  <v-col cols="12" sm="9" md="12" lg="12">
-                    <v-img
-                      max-height="300"
-                      max-width="376"
-                      contain
-                      :src="
-                        getimageUrl(
-                          getShowRoomInfo.folder,
-                          getShowRoomInfo.ShowroomImg
-                        )
-                      "
-                      style="border-radius: 5px; margin: 0 auto"
-                    ></v-img>
-                  </v-col>
-                  <v-col cols="12" sm="10" md="10" lg="10">
-                    <v-row class="mt-lg-2">
-                      <v-col class="pa-2">
-                        <v-card-text class="card-text pa-0">
-                          هاتف:
-                        </v-card-text>
-                      </v-col>
-                      <v-col class="pa-2">
-                        <v-card-text class="card-text-phone-No pa-0">
-                          0545603920
-                        </v-card-text></v-col
-                      >
-                      <v-col class="pa-2">
-                        <v-card-text class="card-text-phone-No pa-0">
-                          0545603920
-                        </v-card-text>
-                      </v-col>
-                      <v-col class="pa-2">
-                        <v-card-text class="card-text-phone-No pa-0">
-                          0545603920
-                        </v-card-text></v-col
-                      >
-                      <v-col class="pa-2">
-                        <v-card-text class="card-text-phone-No pa-0">
-                          0545603920
-                        </v-card-text></v-col
-                      >
-                      <v-col class="pa-2">
-                        <v-card-text class="card-text-phone-No pa-0">
-                          0545603920
-                        </v-card-text></v-col
-                      >
-                    </v-row>
-                  </v-col>
-                </v-row>
               </v-card>
+            </v-col>
+          </v-row>
+          <v-row class="justify-center mb-4">
+            <v-col cols="12" class="">
+              <v-img
+                max-height="300"
+                max-width="376"
+                contain
+                :src="
+                  getimageUrl(
+                    getShowRoomInfo.folder,
+                    getShowRoomInfo.ShowroomImg
+                  )
+                "
+                style="
+                  border-radius: 5px;
+                  margin: 0 auto;
+                  border: 2px solid #616161;
+                "
+              ></v-img>
+            </v-col>
+          </v-row>
+        </v-container>
+        <v-container>
+          <v-row class="mb-3">
+            <v-col class="pa-1">
+              <v-card-text class="card-text pa-0"> هاتف: </v-card-text>
+            </v-col>
+            <v-col class="pa-1">
+              <v-card-text class="card-text-phone-No pa-0">
+                0545603920
+              </v-card-text>
+            </v-col>
+            <v-col class="pa-1">
+              <v-card-text class="card-text-phone-No pa-0">
+                0545603920
+              </v-card-text>
+            </v-col>
+            <v-col class="pa-1">
+              <v-card-text class="card-text-phone-No pa-0">
+                0545603920
+              </v-card-text>
+            </v-col>
+            <v-col class="pa-1">
+              <v-card-text class="card-text-phone-No pa-0">
+                0545603920
+              </v-card-text>
+            </v-col>
+          </v-row>
+        </v-container>
+        <v-divider class="grey darken-2"></v-divider>
+        <v-container>
+          <v-row class="mt-3">
+            <v-col class="pa-1">
+              <v-card-text class="card-text pa-0"> وتس آب: </v-card-text>
+            </v-col>
+            <v-col class="pa-1">
+              <v-card-text class="card-text-phone-No pa-0">
+                0545603920
+              </v-card-text>
+            </v-col>
+            <v-col class="pa-1">
+              <v-card-text class="card-text-phone-No pa-0">
+                0545603920
+              </v-card-text>
+            </v-col>
+            <v-col class="pa-1">
+              <v-card-text class="card-text-phone-No pa-0">
+                0545603920
+              </v-card-text>
+            </v-col>
+            <v-col class="pa-1">
+              <v-card-text class="card-text-phone-No pa-0">
+                0545603920
+              </v-card-text>
             </v-col>
           </v-row>
         </v-container>
@@ -139,30 +164,32 @@ export default {
 
   .showroom-information {
     background-color: $color-2;
-    min-height: calc(100vh - 135px);
+    min-height: auto;
     padding: $padding;
     position: relative;
     .card-title {
       font-size: 38px !important;
       font-weight: bold;
       color: $fontcolorsm !important;
-      @media (max-width: 500px) {
+      @media (max-width: 610px) {
         font-size: 30px !important;
       }
-      @media (max-width: 450px) {
-        font-size: 27px !important;
+
+      @media (max-width: 475px) {
+        font-size: 25px !important;
       }
-      @media (max-width: 370px) {
-        font-size: 24px !important;
-      }
-      @media (max-width: 340px) {
+      @media (max-width: 395px) {
         font-size: 20px !important;
+      }
+      @media (max-width: 320px) {
+        font-size: 18px !important;
       }
     }
     .card-text {
       font-size: 17px !important;
       font-weight: normal !important;
       color: $color-4 !important;
+      text-align: center;
       @media (max-width: 340px) {
         font-size: 15px !important;
       }
@@ -171,6 +198,7 @@ export default {
       font-size: 16px !important;
       font-weight: 400 !important;
       color: $color-4 !important;
+      text-align: center;
     }
     .card-title-car-count-in-room {
       font-weight: bold;

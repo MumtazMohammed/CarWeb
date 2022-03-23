@@ -1,84 +1,7 @@
 <template>
-  <div class="UserProfile">
+  <div class="UserProfileEdit">
     <v-container>
-      <!-- User Info  -->
-      <v-row v-show="currentUserInfo" class="justify-center">
-        <v-col cols="12">
-          <div class="d-flex justify-center">
-            <v-avatar size="100" color="white">
-              <img src="../assets/pp.jpg" alt="alt" />
-            </v-avatar>
-            <!-- <v-file-input
-              class="justify-center pa-2 ma-0 mr-2"
-              hide-input
-              prepend-icon="mdi-camera"
-            >
-            </v-file-input> -->
-          </div>
-        </v-col>
-        <v-col cols="12">
-          <v-card>
-            <div class="d-flex align-center">
-              <v-card-title class="title">الأسم : </v-card-title>
-              <p class="pa-4 pr-0 ma-0">{{ UserName }}</p>
-            </div>
-            <v-divider></v-divider>
-
-            <div class="d-flex align-center">
-              <v-card-title class="title">رقم الحساب : </v-card-title>
-              <p class="pa-4 pr-0 ma-0">{{ UserIdNum }}</p>
-            </div>
-            <v-divider></v-divider>
-
-            <div class="d-flex align-center">
-              <v-card-title class="title">هاتف : </v-card-title>
-              <p class="pa-4 pr-0 ma-0">{{ UserPhoneNum }}</p>
-            </div>
-            <v-divider></v-divider>
-
-            <div
-              class="d-flex align-start justify-start flex-column flex-lg-row flex-md-row flex-sm-row"
-            >
-              <v-card-title class="title">البريد الأكترواني : </v-card-title>
-              <p
-                class="pa-2 pa-lg-4 pa-md-4 pa-sm-4 pr-lg-0 pr-md-0 pr-sm-0 ma-0 email"
-              >
-                {{ Email }}
-              </p>
-            </div>
-            <v-divider></v-divider>
-            <div class="d-flex align-center">
-              <v-card-title class="title">المنطقة : </v-card-title>
-              <p class="pa-4 pr-0 ma-0">{{ UserPlace }}</p>
-            </div>
-          </v-card>
-          <v-card-actions class="flex-wrap justify-center align-center">
-            <v-btn
-              @click="(currentUserInfo = !currentUserInfo), (edit = !edit)"
-              color="green darken-2"
-              class="user-edit-btn ma-2"
-              width="200"
-            >
-              تعديل الحساب
-
-              <v-spacer></v-spacer>
-              <v-icon>mdi-account-edit-outline</v-icon>
-            </v-btn>
-            <v-btn
-              @click="(currentUserInfo = !currentUserInfo), (edit = !edit)"
-              color="red darken-2"
-              class="user-edit-btn ma-2"
-              width="200"
-            >
-              حذف الحساب
-              <v-spacer></v-spacer>
-              <v-icon>mdi-delete-circle-outline</v-icon>
-            </v-btn>
-          </v-card-actions>
-        </v-col>
-      </v-row>
-      <!--********* edit User Info  **********-->
-      <v-row v-show="edit" class="justify-center">
+      <v-row class="justify-center">
         <v-col class="pt-0" cols="12">
           <v-card-title class="title pt-0"> تعديل الملف الشخصي </v-card-title>
         </v-col>
@@ -156,7 +79,7 @@
           ></v-text-field>
         </v-col>
         <!-- btn Update Or cancel  -->
-        <v-col class="my-auto" cols="12" sm="10" md="7">
+        <v-col class="my-auto" cols="12">
           <v-card-actions class="flex-column justify-center align-center">
             <!-- update  -->
             <v-btn
@@ -201,14 +124,10 @@
 </template>
 <script>
 export default {
-  components: {},
-  name: "UserProfile",
+  name: "UserProfileEdit",
   data() {
     return {
       hasSaved: false,
-      show1: false,
-      edit: false,
-      currentUserInfo: true,
       UserName: "محمد أمين شمسان",
       Email: "momu130399@gmail.com",
       UserIdNum: 15481,
@@ -232,10 +151,9 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/virables";
 @import "../scss/mixin";
-.UserProfile {
+.UserProfileEdit {
   width: 100%;
   padding: $padding;
-
   ::v-deep .v-text-field.v-text-field--solo .v-input__prepend-outer {
     display: none;
   }
@@ -274,7 +192,12 @@ export default {
     font-size: 18px !important;
     font-family: $fontfamliy !important;
     letter-spacing: 0 !important;
-    @media (max-width: 450px) {
+    width: 40% !important;
+
+    @media (max-width: 550px) {
+      width: 70% !important;
+    }
+    @media (max-width: 370px) {
       width: 100% !important;
     }
   }

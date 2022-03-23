@@ -1,5 +1,11 @@
 <template>
-  <v-dialog class="dialog" v-model="dialog" persistent max-width="650">
+  <v-dialog
+    overlay-opacity=".9"
+    class="dialog"
+    v-model="dialog"
+    persistent
+    max-width="550"
+  >
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         class="btn-car-search rounded-0 pr-0 pr-md-4 pr-lg-4"
@@ -13,45 +19,44 @@
     </template>
     <div class="search">
       <div class="overlay"></div>
-      <v-row justify="center">
-        <v-flex md12 sm12>
-          <v-card-title class="search-text mb-2 pa-0">
-            أبحث عن سيارات
-          </v-card-title>
-        </v-flex>
-      </v-row>
-      <v-row justify="center">
-        <v-flex md6 sm6 xs12 class="pl-md-1 pl-sm-1">
-          <v-combobox dense solo :items="conditions" label=" حالة السيارة*">
-          </v-combobox>
-        </v-flex>
-        <v-flex md6 sm6 xs12 class="pr-md-1 pr-sm-1">
-          <v-combobox dense solo :items="conditions" label=" حالة السيارة*">
-          </v-combobox>
-        </v-flex>
-      </v-row>
-      <v-row justify="center">
-        <v-flex md6 sm6 xs12 class="pl-md-1 pl-sm-1">
-          <v-combobox dense solo :items="categories" label="  السيارة*">
-          </v-combobox>
-        </v-flex>
-        <v-flex md6 sm6 xs12 class="pr-md-1 pr-sm-1">
-          <v-combobox dense solo :items="categories" label=" الـفـئة*">
-          </v-combobox>
-        </v-flex>
-      </v-row>
-      <v-row justify="center">
-        <v-flex md6 sm6 xs12 class="pl-md-1 pl-sm-1">
-          <v-combobox dense solo :items="categories" label=" نوع السيارة*">
-          </v-combobox>
-        </v-flex>
-        <v-flex md6 sm6 xs12 class="pr-md-1 pr-sm-1">
-          <v-combobox dense solo :items="categories" label=" الـفـئة*">
-          </v-combobox>
-        </v-flex>
-      </v-row>
+      <v-col cols="12">
+        <v-card-title class="search-text justify-center pa-0">
+          أبحث عن سيارة
+        </v-card-title>
+      </v-col>
+      <v-card-text class="py-1">
+        <v-select label="الشركة" item-value="text" solo hide-details></v-select>
+      </v-card-text>
+      <v-card-text class="py-1">
+        <v-select label="النوع" item-value="text" solo hide-details></v-select>
+      </v-card-text>
+      <v-card-text class="py-1">
+        <v-select label="السنة" item-value="text" solo hide-details></v-select>
+      </v-card-text>
+      <v-card-text class="py-1">
+        <v-select label="السعر" item-value="text" solo hide-details></v-select>
+      </v-card-text>
+      <v-card-text class="py-1">
+        <v-select label="الحالة" item-value="text" solo hide-details></v-select>
+      </v-card-text>
+      <v-card-text class="py-1">
+        <v-select
+          label="المدينة"
+          item-value="text"
+          solo
+          hide-details
+        ></v-select>
+      </v-card-text>
+      <v-card-text class="py-1">
+        <v-select
+          label="طريقة الدفع"
+          item-value="text"
+          solo
+          hide-details
+        ></v-select>
+      </v-card-text>
       <!-- search  -->
-      <v-row justify="center">
+      <v-card-actions class="justify-center">
         <v-flex xs8 sm4 md4>
           <v-btn
             large
@@ -63,21 +68,18 @@
             >بـحـث</v-btn
           >
         </v-flex>
-      </v-row>
+      </v-card-actions>
       <!-- close  -->
-      <v-row justify="start">
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            class="close"
-            color="white  darken-1"
-            text
-            @click="dialog = false"
-          >
-            أغــلاق
-          </v-btn>
-        </v-card-actions>
-      </v-row>
+      <v-card-actions>
+        <v-btn
+          class="close"
+          color="white  darken-1"
+          text
+          @click="dialog = false"
+        >
+          أغــلاق
+        </v-btn>
+      </v-card-actions>
     </div>
   </v-dialog>
 </template>
@@ -128,10 +130,10 @@ export default {
   width: 100%;
   position: relative;
   height: auto;
-  padding: 30px;
   height: auto;
   z-index: 3;
   overflow: hidden;
+  font-family: $fontfamliy !important;
 
   .close {
     font-family: $fontfamliy !important;
