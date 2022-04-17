@@ -2,7 +2,7 @@
   <div class="PasswordChange">
     <v-row class="justify-center">
       <v-col cols="12" md="7" sm="10" lg="5">
-        <v-card class="pa-2 py-4">
+        <v-card outlined class="pa-4">
           <v-text-field
             v-model="password"
             outlined
@@ -33,6 +33,11 @@
             label="تأكيد كلمة السر "
             @click:append="show1 = !show1"
           ></v-text-field>
+          <v-card-actions class="justify-center">
+            <v-btn elevation="0" class="success btn-pass-change">
+              تغير كلمة السر
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -61,5 +66,10 @@ export default {
   width: 100%;
   min-height: 80vh;
   @include flexcenter;
+
+  .btn-pass-change {
+    font-family: $fontfamliy !important;
+    letter-spacing: 0 !important;
+  }
 }
 </style>

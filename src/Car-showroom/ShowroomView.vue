@@ -40,55 +40,67 @@
           </v-row>
         </v-container>
         <v-container>
-          <v-row class="mb-3">
-            <v-col class="pa-1">
-              <v-card-text class="card-text pa-0"> هاتف: </v-card-text>
+          <v-row class="mb-3 justify-center">
+            <v-col
+              cols="12"
+              lg="auto"
+              sm="auto"
+              md="auto"
+              class="py-md-1 py-lg-1 py-sm-1"
+            >
+              <v-card-text class="card-text py-0"> هاتف: </v-card-text>
             </v-col>
-            <v-col class="pa-1">
-              <v-card-text class="card-text-phone-No pa-0">
+            <v-col cols="auto" class="py-1">
+              <v-card-text class="card-text-phone-No py-0">
                 0545603920
               </v-card-text>
             </v-col>
-            <v-col class="pa-1">
-              <v-card-text class="card-text-phone-No pa-0">
+            <v-col cols="auto" class="py-1">
+              <v-card-text class="card-text-phone-No py-0">
                 0545603920
               </v-card-text>
             </v-col>
-            <v-col class="pa-1">
-              <v-card-text class="card-text-phone-No pa-0">
+            <v-col cols="auto" class="py-1">
+              <v-card-text class="card-text-phone-No py-0">
                 0545603920
               </v-card-text>
             </v-col>
-            <v-col class="pa-1">
-              <v-card-text class="card-text-phone-No pa-0">
+            <v-col cols="auto" class="py-1">
+              <v-card-text class="card-text-phone-No py-0">
                 0545603920
               </v-card-text>
             </v-col>
           </v-row>
         </v-container>
-        <v-divider class="grey darken-2"></v-divider>
+        <v-divider class="grey darken-1"></v-divider>
         <v-container>
-          <v-row class="mt-3">
-            <v-col class="pa-1">
-              <v-card-text class="card-text pa-0"> وتس آب: </v-card-text>
+          <v-row class="mt-3 justify-center">
+            <v-col
+              cols="12"
+              lg="auto"
+              sm="auto"
+              md="auto"
+              class="py-md-1 py-lg-1 py-sm-1"
+            >
+              <v-card-text class="card-text py-0"> وتس آب: </v-card-text>
             </v-col>
-            <v-col class="pa-1">
-              <v-card-text class="card-text-phone-No pa-0">
+            <v-col cols="auto" class="py-1">
+              <v-card-text class="card-text-phone-No py-0">
                 0545603920
               </v-card-text>
             </v-col>
-            <v-col class="pa-1">
-              <v-card-text class="card-text-phone-No pa-0">
+            <v-col cols="auto" class="py-1">
+              <v-card-text class="card-text-phone-No py-0">
                 0545603920
               </v-card-text>
             </v-col>
-            <v-col class="pa-1">
-              <v-card-text class="card-text-phone-No pa-0">
+            <v-col cols="auto" class="py-1">
+              <v-card-text class="card-text-phone-No py-0">
                 0545603920
               </v-card-text>
             </v-col>
-            <v-col class="pa-1">
-              <v-card-text class="card-text-phone-No pa-0">
+            <v-col cols="auto" class="py-1">
+              <v-card-text class="card-text-phone-No py-0">
                 0545603920
               </v-card-text>
             </v-col>
@@ -111,6 +123,51 @@
         <ShowroomViewCar />
       </v-container>
     </div>
+    <!-- footer  -->
+    <v-row>
+      <v-col cols="12">
+        <v-footer class="footer" padless>
+          <v-card color="#374255" class="flex" flat tile>
+            <v-card-actions
+              color="transparent"
+              class="pa-4 justify-center justify-lg-space-between justify-md-space-between flex-wrap"
+            >
+              <v-card-title>
+                <router-link
+                  :to="{
+                    name: 'TheTerms',
+                    params: { Terms: ' الأحكام والشروط' },
+                  }"
+                  class="mx-2 brand-Privacy grey--text text--darken-1"
+                >
+                  <a> الأحكام والشروط </a>
+                </router-link>
+                <span class="grey--text">|</span>
+                <router-link
+                  :to="{
+                    name: 'ThePrivacy',
+                    params: { Privacy: ' سياسة الخصوصية' },
+                  }"
+                  class="mx-2 brand-Privacy grey--text text--darken-1"
+                >
+                  <a> سياسة الخصوصية </a>
+                </router-link>
+              </v-card-title>
+              <p
+                class="pa-4 ma-0 grey--text text-center text brand-logo text--lighten-1"
+              >
+                <strong class="ml-2">
+                  &COPY; جميع الحقوق محفوظة لشركة ثـقـــة
+                </strong>
+                <br class="hidden-sm-and-up" />
+                2022 —
+                {{ new Date().getFullYear() }}
+              </p>
+            </v-card-actions>
+          </v-card>
+        </v-footer>
+      </v-col>
+    </v-row>
   </v-main>
 </template>
 <script>
@@ -163,7 +220,7 @@ export default {
   padding-bottom: 25px;
 
   .showroom-information {
-    background-color: $color-2;
+    background-color: #374255;
     min-height: auto;
     padding: $padding;
     position: relative;
@@ -228,5 +285,21 @@ export default {
       font-size: 16px !important;
     }
   }
+}
+.footer {
+  border-top: 1px solid #ffffff;
+}
+.brand-logo {
+  letter-spacing: 0px;
+  font-family: $fontfamliy;
+  font-size: 16px;
+  font-weight: 300;
+}
+.brand-Privacy {
+  letter-spacing: 0px;
+  font-family: $fontfamliy;
+  font-size: 14px;
+  display: flex;
+  font-weight: 400;
 }
 </style>

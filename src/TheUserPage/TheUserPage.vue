@@ -35,11 +35,12 @@
                 </router-link>
               </v-card-title>
               <p
-                class="pa-4 ma-0 grey--text text-end brand-logo text--lighten-1"
+                class="pa-4 ma-0 grey--text text-center brand-logo text--lighten-1"
               >
                 <strong class="ml-2">
                   &COPY; جميع الحقوق محفوظة لشركة ثـقـــة
                 </strong>
+                <br class="hidden-sm-and-up" />
                 2022 —
                 {{ new Date().getFullYear() }}
               </p>

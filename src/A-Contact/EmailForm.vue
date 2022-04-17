@@ -17,7 +17,6 @@
               label="الأسـم كامل"
               required
               class="ma-0 pa-0"
-              hide-details
             >
             </v-text-field>
           </v-col>
@@ -28,6 +27,17 @@
               v-model="email"
               :rules="emailRules"
               label="الـبريد الأكتروني"
+              required
+              class="ma-0 pa-0"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" class="pb-0">
+            <v-text-field
+              outlined
+              solo
+              v-model="email"
+              :rules="emailRules"
+              label="رقم الجوال"
               required
               class="ma-0 pa-0"
             ></v-text-field>

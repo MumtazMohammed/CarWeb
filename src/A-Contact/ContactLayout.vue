@@ -6,7 +6,7 @@
           <v-col cols="12" sm="10" md="8" class="">
             <EmailForm />
           </v-col>
-          <v-col cols="12" sm="10" md="8" class="">
+          <v-col cols="12" sm="10" md="8" class=" pt-0">
             <SideEmail />
           </v-col>
         </v-row>

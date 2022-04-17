@@ -77,12 +77,20 @@
                   ></v-img>
                 </v-avatar>
               </v-card-actions>
-              <!-- if the dealer make the car booked  -->
-              <div v-if="Car.Token" class="booked">
-                <span>محجوز</span>
-              </div>
-              <div v-if="Car.discount" class="discount">
-                <span>{{ Car.discountAmount }}</span>
+              <!-- if the dealer make the car booked && discount && verified && booost -->
+              <div class="featued">
+                <div v-if="Car.discount" class="verified">
+                  <span>موثق</span>
+                </div>
+                <div v-if="Car.Token" class="boost">
+                  <span>معزز</span>
+                </div>
+                <div v-if="Car.discount" class="discount">
+                  <span>{{ Car.discountAmount }}</span>
+                </div>
+                <div v-if="Car.Token" class="booked">
+                  <span>محجوز</span>
+                </div>
               </div>
               <!-- Car detail -->
               <div class="detail-box my-auto">
@@ -173,6 +181,7 @@ export default {
       font-size: 15px !important;
       @media (max-width: 600px) {
         font-size: 18px !important;
+        padding: 10px !important;
       }
       span {
         font-weight: 400;
@@ -184,23 +193,26 @@ export default {
       max-width: 1212px !important;
     }
   }
-  // booked hint
-  .booked {
-    background-color: #616161;
+  // booked hint and  discount hint
+  .featued {
     position: absolute;
     top: 1px;
     left: 1px;
+  }
+  // booked hint
+  .booked {
+    background-color: #616161;
+    margin: 2px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 7px;
-    border-radius: 50%;
-    height: 38px;
-    width: 38px;
+    border-radius: 10px;
+    height: 20px;
+    width: 50px;
     span {
       display: inline-block;
-      font-size: 10px;
+      font-size: 13px;
       font-family: $fontfamliy;
       font-weight: 500;
       color: #fff;
@@ -209,20 +221,53 @@ export default {
   // discount hint
   .discount {
     background-color: #e65100;
-    position: absolute;
-    bottom: 1px;
-    left: 1px;
     display: flex;
+    margin: 2px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 7px;
-    border-radius: 50%;
-    height: 38px;
-    width: 38px;
+    border-radius: 10px;
+    height: 20px;
+    width: 50px;
     span {
       display: inline-block;
-      font-size: 10px;
+      font-size: 13px;
+      font-family: $fontfamliy;
+      font-weight: 500;
+      color: #fff;
+    }
+  }
+  .boost {
+    background-color: #4caf50;
+    display: flex;
+    margin: 2px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 20px;
+    width: 50px;
+    span {
+      display: inline-block;
+      font-size: 13px;
+      font-family: $fontfamliy;
+      font-weight: 500;
+      color: #fff;
+    }
+  }
+  .verified {
+    background-color: #1976d2;
+    display: flex;
+    margin: 2px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 20px;
+    width: 50px;
+    span {
+      display: inline-block;
+      font-size: 13px;
       font-family: $fontfamliy;
       font-weight: 500;
       color: #fff;

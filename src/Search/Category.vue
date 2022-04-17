@@ -184,7 +184,6 @@ export default {
   transition: all 0.2s linear;
   @media (max-width: 960px) {
     height: 30px;
-
     width: 190px;
     font-size: 17px !important;
   }

@@ -1,6 +1,10 @@
 <template>
   <div class="car-Image">
     <v-row class="justify-space-around">
+      <!-- Share - Saved - Report  -->
+      <v-col cols="12" class="py-0">
+        <Share />
+      </v-col>
       <!-- car image  -->
       <v-col xs="12" sm="12" md="6" class="">
         <div class="text-center">
@@ -12,24 +16,31 @@
           >
             <template v-slot:activator="{ on, attrs }">
               <v-card flat width="100%" color="transparent" class="rounded-0">
-                <v-card-text class="click mx-auto"
-                  >اضغط على الصورة لرؤية المزيد...</v-card-text
-                >
+                <v-card-text class="click mx-auto">
+                  اضغط على الصورة لرؤية أكبر ...
+                </v-card-text>
               </v-card>
               <v-img
-                lazy
-                :src="getimageUrl(getCarInfo.folder, getCarInfo.image)"
-                :lazy-src="getimageUrl(getCarInfo.folder, getCarInfo.image)"
-                max-height="512"
-                max-width="768"
+                v-if="
+                  ActiveImage.length < 1
+                    ? (ActiveImage = getimageUrl(
+                        getCarInfo.folder,
+                        getCarInfo.image
+                      ))
+                    : ActiveImage
+                "
+                :src="ActiveImage"
+                :lazy-src="ActiveImage"
                 v-bind="attrs"
                 v-on="on"
                 class="ma-sm-auto"
-                style="border-radius: 3px"
+                aspect-ratio="1.8"
+                contain
               >
               </v-img>
             </template>
-
+            <!-- :src="getimageUrl(getCarInfo.folder, getCarInfo.image)"
+            :lazy-src="getimageUrl(getCarInfo.folder, getCarInfo.image)" -->
             <v-btn class="btn pa-6" dark icon @click="dialog = false">
               <v-icon class="icon">fas fa-times</v-icon>
             </v-btn>
@@ -57,9 +68,53 @@
             </v-carousel>
             <!--  -->
           </v-dialog>
+          <!--clickable image changer-->
+          <v-sheet
+            color="transparent"
+            class="mx-auto"
+            elevation="0"
+            max-width="800"
+          >
+            <v-slide-group
+              v-model="model"
+              class="pa-0"
+              center-active
+              show-arrows
+              mandatory
+            >
+              <v-slide-item
+                v-for="(singleImage, x) in getCarInfo.images"
+                :key="x"
+                v-slot="{ active, toggle }"
+              >
+                <v-card
+                  class="ma-1 overflow-hidden"
+                  width="100"
+                  @click="toggle"
+                >
+                  <v-row class="fill-height" align="center" justify="center">
+                    <v-avatar tile size="100" color="transparent">
+                      <v-img
+                        :class="active ? '' : 'not-active-img'"
+                        contain
+                        @click="
+                          ActiveImage = getimageUrl(
+                            getCarInfo.folder,
+                            singleImage
+                          )
+                        "
+                        :src="getimageUrl(getCarInfo.folder, singleImage)"
+                      />
+                    </v-avatar>
+                  </v-row>
+                </v-card>
+              </v-slide-item>
+            </v-slide-group>
+          </v-sheet>
+          <!--  -->
         </div>
       </v-col>
-      <v-col xs="12" sm="12" md="6" class="pt-1 pb-0 remov-p-from-col-box-all">
+      <v-col cols="12" sm="12" md="6" lg="6" class="remov-p-from-col-box-all">
         <PriceAndLocation />
       </v-col>
     </v-row>
@@ -68,15 +123,17 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import PriceAndLocation from "../CarDetail/PriceAndLocation.vue";
+import Share from "./ShareSaveReport.vue";
 export default {
   name: "CarImage",
-  components: { PriceAndLocation },
+  components: { PriceAndLocation, Share },
   data() {
     return {
-      ActivePic: "",
+      ActiveImage: "",
       width: 300,
       dialog: false,
       GetCarData: CarData,
+      model: null,
       carName: this.$route.params.carName,
       carId: this.$route.params.carId,
     };
@@ -135,9 +192,6 @@ export default {
   justify-content: space-between;
 }
 
-.small-image {
-  margin: 1px;
-}
 .next-box {
   margin-right: auto !important;
   margin-left: auto !important;
@@ -190,10 +244,28 @@ export default {
     font-size: 30px;
   }
 }
-.remov-p-from-col-box-all {
-  @media (max-width: 500px) {
-    padding: 5px !important;
-  }
+.not-active-img {
+  position: relative;
+}
+.not-active-img::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  // z-index: 1;
+  opacity: 0.5;
+}
+::v-deep .v-slide-group__next {
+  min-width: 30px;
+}
+::v-deep .v-slide-group__prev {
+  min-width: 30px;
+}
+::v-deep .v-slide-group__content {
+  justify-content: center;
 }
 </style>
 

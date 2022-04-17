@@ -150,13 +150,12 @@
             <!-- Featured showeoom  -->
             <v-card
               flat
+              dark
               shaped
               v-if="showroom.featured == true"
               class="Featured-card rounded-bl-0 rounded-tr-0"
             >
-              <v-card-text
-                class="grey--text text--darken-2 text-center Featured-text py-1 px-2"
-              >
+              <v-card-text class="text-center Featured-text py-1 px-2">
                 متميز
               </v-card-text>
             </v-card>
@@ -174,6 +173,10 @@
                 <span>4</span>
                 سيارة
               </v-card-text>
+              <v-spacer></v-spacer>
+              <!--showroom seller Type  -->
+              <v-icon class="icon">mdi-filter-variant </v-icon>
+              <v-card-text class="pa-1 text"> وكيل </v-card-text>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -228,9 +231,8 @@ export default {
 .showroom-box {
   width: 100%;
   min-height: calc(100vh - 150px);
-  // padding: $padding;
-  padding-bottom: 25px;
-  background-color: transparent;
+  padding: $padding;
+  background-color: $simplebackground;
 
   .showroom-box-col {
     @media (max-width: 600px) {
@@ -253,11 +255,15 @@ export default {
       letter-spacing: 0 !important;
       font-size: 1.6rem !important;
       font-weight: bold !important;
+      text-align: start !important;
       @media (max-width: 850px) {
         justify-content: center;
       }
       @media (max-width: 375px) {
         font-size: 1.4rem !important;
+      }
+      @media (max-width: 335px) {
+        font-size: 1.2rem !important;
       }
     }
     .btn-box-if-you-have-showroom {
@@ -299,13 +305,13 @@ export default {
     }
     .icon {
       color: $fontcolor !important;
-      font-size: 20px;
+      font-size: 18px;
     }
     .text {
       width: fit-content !important;
       font-family: $fontfamliy;
       letter-spacing: 0;
-      font-size: 18px;
+      font-size: 15px;
       color: $fontcolor;
 
       span {
@@ -343,13 +349,13 @@ export default {
     }
     .icon {
       color: $fontcolorsm !important;
-      font-size: 20px;
+      font-size: 18px;
     }
     .text {
       width: fit-content !important;
       font-family: $fontfamliy;
       letter-spacing: 0;
-      font-size: 18px;
+      font-size: 15px;
       color: $fontcolorsm;
 
       span {
@@ -389,7 +395,7 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: $color-4;
+    background-color: $color-2;
     .Featured-text {
       font-family: $fontfamliy !important;
       font-size: 15px;

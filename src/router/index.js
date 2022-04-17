@@ -14,8 +14,8 @@ import SeeAllUsedAndNewCars from "../CarForSell/SeeAllUsedAndNewCars.vue";
 import SeeAllSpecialCar from "../CarForSell/SeeAllSpecialCar.vue";
 import CarByBrand from "../CarForSell/CarByBrand.vue";
 import CarByShape from "../CarForSell/CarByShape.vue";
-// SginUp
-import SginUp from "../Login/SignUp.vue";
+// SignUp
+import SignUp from "../Login/SignUp.vue";
 import Login from "../Login/Login.vue";
 import LoginSeller from "../Login/LoginSeller.vue";
 // Start Ad car Page
@@ -44,6 +44,18 @@ import PasswordChange from "../TheShowRoomUser/PasswordChange.vue";
 // Privacy-And-Terms
 import ThePrivacy from "../Privacy-And-Terms/ThePrivacy.vue";
 import TheTerms from "../Privacy-And-Terms/TheTerms.vue";
+// Admin Access
+import AdminPageRoute from "@/Admin/AdminPageRoute.vue";
+import DashBoard from "@/Admin/DashBoard.vue";
+import TheUsersAccount from "@/Admin/TheUsersAccount.vue";
+import TheShowRoomAccount from "@/Admin/TheShowRoomAccount.vue";
+import Advertisement from "@/Admin/Advertisement.vue";
+import Report from "@/Admin/Report.vue";
+import Cars from "@/Admin/Cars.vue";
+import AdminSetting from "@/Admin/AdminSetting.vue";
+import UserCarDetails from "@/Admin/UserCarDetails.vue";
+import ShowRoomAccountRequest from "@/Admin/ShowRoomAccountRequest.vue";
+import UserPageInfo from "@/Admin/UserPageInfo.vue";
 
 Vue.use(VueRouter);
 
@@ -105,11 +117,11 @@ const routes = [
     name: "ViewCar",
     component: ViewCar,
   },
-  // SginUp or Sgin
+  // SignUp or Login
   {
-    path: "/SginUp",
-    name: "SginUp",
-    component: SginUp,
+    path: "/SignUp",
+    name: "SignUp",
+    component: SignUp,
   },
   {
     path: "/Login",
@@ -230,6 +242,63 @@ const routes = [
         path: "/SavedAdUser/:SavedAd",
         name: "SavedAdUser",
         component: SavedAdUser,
+      },
+    ],
+  },
+  // Admin Access
+  {
+    path: "/AdminPageRoute",
+    component: AdminPageRoute,
+    children: [
+      {
+        path: "",
+        name: "DashBoard",
+        component: DashBoard,
+      },
+      {
+        path: "/TheUsersAccount",
+        name: "TheUsersAccount",
+        component: TheUsersAccount,
+      },
+      {
+        path: "/TheShowRoomAccount",
+        name: "TheShowRoomAccount",
+        component: TheShowRoomAccount,
+      },
+      {
+        path: "/Advertisement",
+        name: "Advertisement",
+        component: Advertisement,
+      },
+      {
+        path: "/Cars",
+        name: "Cars",
+        component: Cars,
+      },
+      {
+        path: "/Report",
+        name: "Report",
+        component: Report,
+      },
+      {
+        path: "/AdminSetting",
+        name: "AdminSetting",
+        component: AdminSetting,
+      },
+      {
+        path: "/UserCarDetails/:carId",
+        name: "UserCarDetails",
+        component: UserCarDetails,
+      },
+      {
+        path: "/ShowRoomAccountRequest",
+        name: "ShowRoomAccountRequest",
+        component: ShowRoomAccountRequest,
+      },
+      {
+        path: "/UserPageInfo",
+        name: "UserPageInfo",
+        component: UserPageInfo,
       },
     ],
   },

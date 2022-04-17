@@ -5,17 +5,16 @@
       <span class="line my-3 mx-auto"></span>
       <v-row class="justify-center">
         <v-col cols="12" sm="10" md="10">
-          <v-expansion-panels dark v-model="panel">
+          <v-expansion-panels v-model="panel" multiple popout>
             <v-expansion-panel v-for="(item, i) in items" :key="i">
               <v-expansion-panel-header
                 v-text="item.how"
                 class="expansion-header py-1"
               >
               </v-expansion-panel-header>
-              <v-expansion-panel-content
-                v-text="item.text"
-                class="expansion-content px-2"
-              >
+              <v-expansion-panel-content>
+                <v-card-text v-text="item.text" class="expansion-content pa-2">
+                </v-card-text>
               </v-expansion-panel-content>
             </v-expansion-panel>
           </v-expansion-panels>

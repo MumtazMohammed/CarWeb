@@ -1,5 +1,5 @@
 <template>
-  <div class="car-reviw">
+  <v-main>
     <NavBar />
     <div class="car-reviw">
       <v-container>
@@ -15,25 +15,38 @@
         <v-col cols="12" class="">
           <ShowVerifiedCar />
         </v-col>
-        <v-col cols="12" class="pa-0">
+        <v-col cols="12" class="py-0">
+          <TheTips />
+        </v-col>
+        <v-col cols="12">
           <StartToAd />
         </v-col>
       </v-row>
       <!-- getimageUrl(getCarInfo.folder, getCarInfo.image) -->
     </div>
-  </div>
+    <Footer />
+  </v-main>
 </template>
 <script>
 import NavBar from "../NavBar/TheNavBar.vue";
-
+import Footer from "@/footer/footer.vue";
 import CarData from "../data-json/All-Car.json";
 import CarImage from "../CarDetail/CarImage.vue";
 import CarDetails from "../CarDetail/CarDetails.vue";
 import ShowVerifiedCar from "./ShowVerifiedCar.vue";
 import StartToAd from "./StartToAd.vue";
+import TheTips from "./TheTips.vue";
 export default {
   // name: "ViewCar",
-  components: { CarImage, CarDetails, NavBar, ShowVerifiedCar, StartToAd },
+  components: {
+    CarImage,
+    CarDetails,
+    NavBar,
+    ShowVerifiedCar,
+    StartToAd,
+    Footer,
+    TheTips,
+  },
   data() {
     return {
       dialog: false,
@@ -73,6 +86,11 @@ export default {
   width: 100;
   height: auto;
   position: relative;
+}
+.container {
+  @media (max-width: 1265px) {
+    max-width: 100%;
+  }
 }
 </style>
 

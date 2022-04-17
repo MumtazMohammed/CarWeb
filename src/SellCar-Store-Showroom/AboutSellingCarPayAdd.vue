@@ -39,6 +39,7 @@
                 <v-btn
                   elevation="0"
                   x-large
+                  to="/Login"
                   color="#F67280"
                   class="white--text btn pa-4"
                 >
@@ -286,6 +287,51 @@
         </v-container>
       </div>
     </div>
+    <!-- footer  -->
+    <v-row>
+      <v-col cols="12">
+        <v-footer class="footer" padless>
+          <v-card color="#c06c84" class="flex" flat tile>
+            <v-card-actions
+              color="transparent"
+              class="pa-4 justify-center justify-lg-space-between justify-md-space-between flex-wrap"
+            >
+              <v-card-title>
+                <router-link
+                  :to="{
+                    name: 'TheTerms',
+                    params: { Terms: ' الأحكام والشروط' },
+                  }"
+                  class="mx-2 brand-Privacy grey--text text--darken-1"
+                >
+                  <a class="grey--text text--lighten-2"> الأحكام والشروط </a>
+                </router-link>
+                <span class="grey--text">|</span>
+                <router-link
+                  :to="{
+                    name: 'ThePrivacy',
+                    params: { Privacy: ' سياسة الخصوصية' },
+                  }"
+                  class="mx-2 brand-Privacy grey--text text--darken-1"
+                >
+                  <a class="grey--text text--lighten-2"> سياسة الخصوصية </a>
+                </router-link>
+              </v-card-title>
+              <p
+                class="pa-4 ma-0 grey--text text-center brand-logo text--lighten-1"
+              >
+                <strong class="ml-2">
+                  &COPY; جميع الحقوق محفوظة لشركة ثـقـــة
+                </strong>
+                <br class="hidden-sm-and-up" />
+                2022 —
+                {{ new Date().getFullYear() }}
+              </p>
+            </v-card-actions>
+          </v-card>
+        </v-footer>
+      </v-col>
+    </v-row>
   </v-main>
 </template>
 
@@ -478,5 +524,21 @@ export default {
       }
     }
   }
+}
+.footer {
+  border-top: 1px solid #ffffff;
+}
+.brand-logo {
+  letter-spacing: 0px;
+  font-family: $fontfamliy;
+  font-size: 16px;
+  font-weight: 300;
+}
+.brand-Privacy {
+  letter-spacing: 0px;
+  font-family: $fontfamliy;
+  font-size: 14px;
+  display: flex;
+  font-weight: 400;
 }
 </style>

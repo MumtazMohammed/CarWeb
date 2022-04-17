@@ -1,6 +1,6 @@
 <template>
   <nav class="elevation-4">
-    <v-toolbar flat class="px-md-11 toolbar">
+    <v-app-bar flat color="white" class="px-md-11 toolbar">
       <router-link router to="/">
         <v-toolbar-title class="NavTitle"> ثــقـة </v-toolbar-title>
       </router-link>
@@ -57,25 +57,34 @@
           </v-card-actions>
         </v-card>
       </router-link>
+      <!-- Admin Access  -->
+      <router-link to="/AdminPageRoute" class="hidden-sm-and-down">
+        <v-card dark flat color="#424342">
+          <v-card-actions class="user-box-name pa-1">
+            <v-icon right>mdi-shield-crown-outline</v-icon>
+            <v-card-subtitle class="pa-0 pl-2 Admin">
+              شركة ثقة لتجارة السيارات
+            </v-card-subtitle>
+          </v-card-actions>
+        </v-card>
+      </router-link>
       <!-- loing btn  -->
       <LogingAndSignup class="hidden-sm-and-down" />
-
       <!-- bar icon for show links  -->
       <v-app-bar-nav-icon
         @click="drawer = true"
         color="#0773df"
         class="hidden-md-and-up icon-open-bar"
       ></v-app-bar-nav-icon>
-    </v-toolbar>
+    </v-app-bar>
     <!-- mobile screen  -->
     <div>
       <v-navigation-drawer
         class="hidden-md-and-up nav-tablet"
         v-model="drawer"
         clipped
-        app
+        absolute
         fixed
-        floating
         mini-variant-width
         overlay-opacity="0.8"
       >
@@ -459,7 +468,6 @@ a {
 }
 // user
 .user-box-name {
-  cursor: pointer;
   .user-name {
     color: $fontcolor !important;
     font-size: 15px;
@@ -469,6 +477,12 @@ a {
   .Showroom-name {
     color: $fontcolor !important;
     font-size: 15px;
+    letter-spacing: 0px;
+    font-family: $fontfamliy;
+  }
+  .Admin {
+    font-size: 16px;
+    font-weight: 500;
     letter-spacing: 0px;
     font-family: $fontfamliy;
   }

@@ -1,10 +1,9 @@
 <template>
   <div class="ShowVerifiedCar">
     <v-container>
-      <v-col cols="12">
-        <a class="SeeAll"> رؤية الكل </a>
-      </v-col>
-
+      <v-card-title class="SeeAll mb-3">
+        نقترح عليك السيارات التالية
+      </v-card-title>
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="(CarData, index) in getCarInfo" :key="index">
           <v-card class="card-verified pa-1 overflow-hidden">
@@ -243,9 +242,13 @@ export default {
   height: auto;
   position: relative;
   .SeeAll {
+    color: $fontcolorlinks !important;
+    font-size: 24px !important;
+    font-weight: bold;
     font-family: $fontfamliy;
-    text-decoration: underline;
-    font-size: 20px;
+    @media (max-width: 500px) {
+    font-size: 20px !important;
+    }
   }
   .filtt:first-child {
     @media (max-width: 600px) {

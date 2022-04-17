@@ -58,13 +58,13 @@
                   </h1>
                 </v-col>
                 <!-- contact seller  -->
-                <v-col cols="12" class="text-center">
-                  <v-card-actions class="justify-center">
+                <v-col cols="12">
+                  <v-card-actions class="justify-center mb-2">
                     <v-btn
                       @click="ShowContac = !ShowContac"
-                      color="white"
                       large
                       width="300"
+                      elevation="0"
                       class="btns-contact"
                       @click.stop="call = true"
                     >
@@ -79,9 +79,9 @@
                       width="100%"
                       height="auto"
                     >
-                      <v-card-actions class="flex-wrap">
+                      <v-row class="justify-center">
                         <!-- seller phone call  -->
-                        <v-col cols="12" sm="6" md="6">
+                        <v-col cols="auto">
                           <v-list-item
                             v-for="(call, x) in getCarInfo.PhoneNo"
                             :key="x"
@@ -102,7 +102,7 @@
                           </v-list-item>
                         </v-col>
                         <!-- seller whatsaap  -->
-                        <v-col cols="12" sm="6" md="6">
+                        <v-col cols="auto">
                           <v-list-item
                             v-for="(call, x) in getCarInfo.PhoneWhatsapp"
                             :key="x"
@@ -122,7 +122,7 @@
                             </v-list-item-content>
                           </v-list-item>
                         </v-col>
-                      </v-card-actions>
+                      </v-row>
                     </v-card>
                   </v-expand-transition>
                 </v-col>
@@ -145,16 +145,16 @@
                   </v-card-actions>
                 </v-col>
               </v-row>
-              <v-card flat class="rounded-0 pa-2" color="primary lighten-4">
-                <v-row>
-                  <v-col cols="6" sm="4" md="4">
+              <v-card flat class="rounded-0 pa-4" color="primary lighten-4">
+                <v-row class="row-price-Instalment">
+                  <v-col cols="auto" sm="4" md="4">
                     <h5 class="car-place-price-titles">مدة القسط :</h5>
                     <span class="ml-1 text-body-1 car-place-price-text">
                       {{ getCarInfo.InstalmentMonts }}
                     </span>
                     <span class="car-place-price-text">شهر</span>
                   </v-col>
-                  <v-col cols="6" sm="4" md="4">
+                  <v-col cols="auto" sm="4" md="4">
                     <h5 class="car-place-price-titles">الدفعة الأولى :</h5>
                     <span
                       class="ml-1 text-body-1 green--text text--darken-1 car-place-price-text"
@@ -163,7 +163,7 @@
                     </span>
                     <span class="car-place-price-text">ريال</span>
                   </v-col>
-                  <v-col cols="6" sm="4" md="4">
+                  <v-col cols="auto" sm="4" md="4">
                     <h5 class="car-place-price-titles">الدفعة الأخيرة :</h5>
                     <span
                       class="ml-1 text-body-1 green--text text--darken-1 car-place-price-text"
@@ -200,9 +200,7 @@
             >
           </v-card>
         </v-col>
-        <v-col cols="12" class="btns">
-          <Share />
-        </v-col>
+ 
       </v-row>
     </v-col>
   </div>
@@ -210,12 +208,10 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import VipCard from "../CarDetail/VipCard.vue";
-import Share from "../CarDetail/Share.vue";
 export default {
   name: "PriceAndLocation",
   components: {
     VipCard,
-    Share,
   },
   data() {
     return {
@@ -351,27 +347,23 @@ export default {
   letter-spacing: 0;
   font-size: 17px !important;
   position: relative;
-  color: $fontcolorlinks !important;
+  color: $fontcolorsm !important;
   z-index: 1;
   overflow: hidden;
+  background-color: $color-1 !important;
   transition: all 0.3s ease;
 }
-.btns-contact::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 3px;
-  height: 100%;
-  background-color: $color-1;
-  z-index: -1;
-  transition: all 0.3s ease;
-}
-.btns-contact:hover.btns-contact::after {
-  width: 100%;
-}
+
 .btns-contact:hover {
   color: $fontcolorsm !important;
   border-color: transparent !important;
+}
+.row-price-Instalment {
+  @media (max-width: 600px) {
+    justify-content: center;
+  }
+  @media (max-width: 375px) {
+    justify-content: flex-start;
+  }
 }
 </style>

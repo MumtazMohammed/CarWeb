@@ -26,6 +26,9 @@
       <!-- ShowRoom Name  -->
       <v-row class="justify-center">
         <v-col cols="12">
+          <h2 class="text-center grey--text">RO154865</h2>
+        </v-col>
+        <v-col cols="12">
           <h2 class="text-center" v-text="ShowRoomName"></h2>
         </v-col>
         <v-col cols="12" md="7" sm="9">

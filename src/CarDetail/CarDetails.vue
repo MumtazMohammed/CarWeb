@@ -7,12 +7,7 @@
         </v-card-title>
         <span class="line mb-3 mx-auto"></span>
       </v-col>
-      <v-col
-        cols="12"
-        sm="12"
-        md="12"
-        class="pa-1 position-relative detail-card-box"
-      >
+      <v-col cols="12" sm="12" md="12" class="detail-card-box">
         <v-card flat class="d-flex detail-card flex-wrap pa-5">
           <v-flex xs6 sm4 md3>
             <v-card-text class="table_data-child px-1 pl-0">
@@ -125,28 +120,32 @@
               المنطقة : <b class="pa-0">{{ getCarInfo.location }}</b>
             </v-card-text>
           </v-flex>
-          <v-row justify="center" class="mt-2">
-            <v-col cols="12" md="12" class="disc-p">
-              <v-card color="transparent" class="disc-title">
-                <v-card-title class="disc-title">
-                  تفاصيل أكثر عن السيارة....
-                </v-card-title>
-                <v-card-text class="disc-text pa-2">
-                  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                  توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا
-                  النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف
-                  التى يولدها التطبيق. هذا النص هو مثال لنص يمكن أن يستبدل في
-                  نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                  يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة
-                  إلى زيادة عدد الحروف التى يولدها التطبيق.
-                </v-card-text>
-              </v-card>
-            </v-col>
-          </v-row>
         </v-card>
       </v-col>
-      <!-- card discrption  -->
-      <!--  -->
+    </v-row>
+    <!-- card discrption  -->
+    <v-row justify="center" class="">
+      <v-col cols="12">
+        <v-card outlined class="overflow-hidden">
+          <v-expansion-panels focusable accordion>
+            <v-expansion-panel
+              v-for="(item, i) in MultipleDescription"
+              :key="i"
+            >
+              <v-expansion-panel-header class="disc-title">
+                {{ item.Title }}
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <ul class="expansion-panel-content">
+                  <li v-for="(SinglContent, x) in item.dicrption" :key="x">
+                    {{ SinglContent }}
+                  </li>
+                </ul>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </v-card>
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -161,6 +160,36 @@ export default {
       GetCarData: CarData,
       carName: this.$route.params.carName,
       carId: this.$route.params.carId,
+      MultipleDescription: [
+        {
+          Title: "الامان",
+          dicrption: [
+            "الامان الامان الامان",
+            "الامان الامان الامان",
+            "الامان الامان الامان",
+            "الامان الامان الامان",
+            "الامان الامان الامان",
+          ],
+        },
+        {
+          Title: "الراحة",
+          dicrption: ["الراحة", "الراحة", "الراحة", "الراحة", "الراحة"],
+        },
+        {
+          Title: "تقنيات",
+          dicrption: ["تقنيات", "تقنيات", "تقنيات", "تقنيات", "تقنيات"],
+        },
+        {
+          Title: "تجهيزات خارجية",
+          dicrption: [
+            "تجهيزات خارجية",
+            "تجهيزات خارجية",
+            "تجهيزات خارجية",
+            "تجهيزات خارجية",
+            "تجهيزات خارجية",
+          ],
+        },
+      ],
     };
   },
   methods: {
@@ -217,15 +246,12 @@ export default {
     padding: 4px;
   }
 }
-
 .disc-title {
-  color: $fontcolorsm;
+  color: $fontcolor;
   font-family: $fontfamliy;
-
-  // background-color: $btnbackground;
-  // border-left: 1px solid $background1 !important;
-  // border-right: 1px solid $background1 !important;
-  // border-top: 1px solid $background1 !important;
+  letter-spacing: 0px;
+  font-weight: 500;
+  font-size: 18px;
 }
 .disc-text {
   font-family: $fontfamliy;
@@ -234,7 +260,7 @@ export default {
   line-height: 1.9;
   background-color: #fff;
   color: $fontcolor !important;
-  border-radius: 3px !important;
+  // border-radius: 3px !important;
 }
 .line {
   width: 30px;
@@ -245,5 +271,22 @@ export default {
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+::v-deep .v-list-item {
+  flex: 1 1 auto;
+}
+.expansion-panel-content {
+  max-height: 150px !important;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  @media (max-width: 700px) {
+    flex-direction: row;
+  }
+  li {
+    margin: 5px 10px !important;
+    letter-spacing: 0 !important;
+    font-family: $fontfamliy;
+  }
 }
 </style>

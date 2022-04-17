@@ -6,7 +6,6 @@
           <v-combobox
             v-model="select"
             outlined
-            small-chips
             :items="dropdown"
           ></v-combobox>
         </v-col>
@@ -14,7 +13,7 @@
           <v-text-field
             ref="FirstName"
             v-model="FirstName"
-            :rules="[() => !!FirstName || 'This field is required']"
+            :rules="[() => !!FirstName || 'هذه الخانة مطلوبه']"
             :error-messages="errorMessages"
             label="الأسم كامل"
             required
@@ -25,7 +24,7 @@
           <v-text-field
             ref="FirstName"
             v-model="FirstName"
-            :rules="[() => !!FirstName || 'This field is required']"
+            :rules="[() => !!FirstName || 'هذه الخانة مطلوبه']"
             :error-messages="errorMessages"
             label="البريد الأكترواني"
             required
@@ -36,8 +35,20 @@
           <v-text-field
             ref="number"
             v-model="number"
-            :rules="[() => !!number || 'This field is required']"
+            :rules="[() => !!number || 'هذه الخانة مطلوبه']"
             label="جوال"
+            :error-messages="errorMessages"
+            required
+            outlined
+            class="ma-0"
+          ></v-text-field>
+        </v-col>
+        <v-col class="py-0 mx-auto" cols="12">
+          <v-text-field
+            ref="number"
+            v-model="number"
+            :rules="[() => !!number || 'هذه الخانة مطلوبه']"
+            label="واتس آب"
             :error-messages="errorMessages"
             required
             outlined

@@ -61,9 +61,9 @@
                     <v-list-item-content>
                       <v-list-item-title class="nav-link">
                         حراج السيارت
-                        <v-icon class="menu-icon" left
-                          >fas fa-caret-down</v-icon
-                        >
+                        <v-icon class="menu-icon" left>
+                          fas fa-caret-down
+                        </v-icon>
                       </v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
@@ -98,9 +98,9 @@
               active-class="active"
             >
               <v-list-item-content>
-                <v-list-item-title class="nav-link"
-                  >تواصل معنا</v-list-item-title
-                >
+                <v-list-item-title class="nav-link">
+                  تواصل معنا
+                </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -114,7 +114,7 @@
       height="40"
       color="#0881fa"
       flat
-      class="card-search overflow-hidden hidden-md-and-up toolbar"
+      class="card-search overflow-hidden hidden-md-and-up"
     >
       <v-card-actions class="pa-0 align-start">
         <div class="icon-search">

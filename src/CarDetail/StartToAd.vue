@@ -8,7 +8,7 @@
           cols="6"
           sm="4"
           md="3"
-          class="pa-2 card-col"
+          class="card-col"
         >
           <v-card
             :color="Card.color"
@@ -59,17 +59,17 @@ export default {
           path: "AboutShowroom",
           color: "#0881fa",
         },
+        // {
+        //   id: 2,
+        //   CardImg: "deal.png",
+        //   folder: "outsrc",
+        //   CardName: "خلي إعلان سيارتك علينا",
+        //   CardClass: "Sell",
+        //   path: "AboutSellingCarPayAdd",
+        //   color: "#0881fa",
+        // },
         {
           id: 2,
-          CardImg: "deal.png",
-          folder: "outsrc",
-          CardName: "خلي إعلان سيارتك علينا",
-          CardClass: "Sell",
-          path: "AboutSellingCarPayAdd",
-          color: "#0881fa",
-        },
-        {
-          id: 3,
           CardImg: "tax.png",
           folder: "outsrc",
           CardName: " إعلان سيارتك مجاناً",
@@ -94,23 +94,23 @@ export default {
 @import "@/scss/mixin";
 .Registration {
   width: 100%;
-  min-height: 40vh;
-  padding-bottom: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  min-height: auto;
+  padding: $padding;
   .row-card {
     justify-content: center;
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
       justify-content: start;
     }
-    @media (max-width: 350px) {
+    @media (max-width: 450px) {
       justify-content: center;
     }
   }
   .card-col {
-    @media (max-width: 350px) {
+    @media (max-width: 650px) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+    @media (max-width: 450px) {
       flex: 0 0 80%;
       max-width: 80%;
     }

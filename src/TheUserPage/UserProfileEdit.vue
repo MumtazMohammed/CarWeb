@@ -5,10 +5,12 @@
         <v-col class="pt-0" cols="12">
           <v-card-title class="title pt-0"> تعديل الملف الشخصي </v-card-title>
         </v-col>
-        <v-col class="d-sm-flex justify-center" cols="12" sm="7" md="2">
-          <v-avatar size="100" color="white">
-            <img src="../assets/pp.jpg" alt="alt" />
-          </v-avatar>
+        <v-col cols="12" sm="7" md="2">
+          <v-card-actions class="pa-0 justify-center">
+            <v-avatar size="100" color="white">
+              <img src="../assets/pp.jpg" alt="alt" />
+            </v-avatar>
+          </v-card-actions>
         </v-col>
         <v-col class="my-auto" cols="12" sm="10" md="5">
           <v-file-input
